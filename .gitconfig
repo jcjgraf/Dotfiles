@@ -1,0 +1,31 @@
+[user]
+	name = Jean-Claude Graf
+	email = mail@jeanclaudegraf.ch
+[core]
+	editor = vim
+[alias]
+
+	# NEW.
+	new = "!f() { git commit -m \"📦 NEW: $@\"; }; f"
+	# IMPROVE.
+	imp = "!f() { git commit -m \"👌 IMPROVE: $@\"; }; f"
+	# FIX.
+	fix = "!f() { git commit -m \"🐛 FIX: $@\"; }; f"
+	# RELEASE.
+	rel = "!f() { git commit -m \"🚀 RELEASE: $@\"; }; f"
+	# DOC.
+	doc = "!f() { git commit -m \"📖 DOC: $@\"; }; f"
+	# TEST.
+	tes = "!f() { git commit -m \"✅ TEST: $@\"; }; f"
+	# Cleanup.
+	cle = "!f() { git commit -m \"🧹 CLEANUP: $@\"; }; f"
+	# Incomplete.
+	inc = "!f() { git commit -m \"🚧 INCOMPLETE: $@\"; }; f"
+	# SOLVE.
+	sol = "!f() { git commit -m \"🧩 SOLVE: $@\"; }; f"
+	# UPDATE.
+	upd = "!f() { git commit -m \"📥 UPDATE: $@\"; }; f"
+	# Add.
+	ad = "!f() { git commit -m \"🖊 ADD: $@\"; }; f"
+
+	undo = "!f() { git checkout -- .; }; f"
