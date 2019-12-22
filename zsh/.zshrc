@@ -1,4 +1,4 @@
-#export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 export ZSH=~/.oh-my-zsh
 export DOTFILES=~/Dotfiles
 
@@ -24,7 +24,7 @@ zstyle :compinstall filename '~/.zshrc'
 
 # Autocompletion
 autoload -Uz compinit
-compinit
+compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
 
 # Custom Export
 export eth=~/Documents/Studies/Eth/Semester1/
