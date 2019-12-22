@@ -1,0 +1,17 @@
+#!/bin/bash
+
+blPath=/sys/class/backlight/intel_backlight/brightness
+tmpFilePath=/tmp/lidSwitch
+
+case "$3" in
+    open)
+        # Restore brightness
+        cp "$tmpFilePath" "$blPath"
+        ;;
+    close)
+        # Save current brightness and switch off display
+        cp "$blPath" "$tmpFilePath"
+
+        echo 0 > $blPath
+        ;;
+esac
