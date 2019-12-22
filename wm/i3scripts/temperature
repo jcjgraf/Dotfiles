@@ -1,0 +1,5 @@
+#!/bin/bash
+
+temperature=$( sensors | grep -oP 'Package.*?\+\K[0-9.]+' )
+
+echo $temperature°C

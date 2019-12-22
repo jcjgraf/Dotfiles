@@ -1,0 +1,31 @@
+# Global properties
+separator=false
+separator_block_width=20
+align=center
+command=~/.config/i3scripts/$BLOCK_NAME
+markup=pango
+
+# Bar
+[loadAverage]
+label= 
+interval=10
+
+[temperature]
+label= 
+interval=2
+
+[battery]
+label= 
+interval=30
+
+[date]
+label= 
+command=printf "" && date '+%a %d.%m'
+interval=60
+
+[time]
+label= 
+command=printf "" && date '+%k:%M:%S'
+interval=1
+
+
