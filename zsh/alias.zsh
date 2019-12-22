@@ -1,0 +1,7 @@
+alias l='ls -la'
+alias c='clear'
+alias o='xdg-open'
+alias copy='xclip'
+alias paste='xclip -o'
+alias sd='sudo shutdown -h now'
+alias sc='scrot'
