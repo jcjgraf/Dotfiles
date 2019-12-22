@@ -1,13 +1,15 @@
 #export PATH=$HOME/bin:/usr/local/bin:$PATH
+export ZSH=~/.oh-my-zsh
+export DOTFILES=~/Dotfiles
 
 ZSH_THEME=""
 CASE_SENSITIVE="true"
 plugins=(git history-substring-search)
 
 # Source oh-my-zsh, alias and custom theme
-source $HOME/.oh-my-zsh/oh-my-zsh.sh
-source ./alias.zsh
-source ./jc.zsh-theme
+source $ZSH/oh-my-zsh.sh
+source $DOTFILES/zsh/alias.zsh
+source $DOTFILES/zsh/jc.zsh-theme
 
 # History
 HISTFILE=~/.histfile
