@@ -1,3 +1,13 @@
+Xft.dpi: 220
+
+! State:           'bg',	   'fg',     'bgalt',  	     'hlbg',         'hlfg'
+rofi.color-normal: argb:552f343f,  #f3f4f5,  argb:552f343f,  argb:552f343f,  #e53935
+rofi.color-urgent: argb:552f343f,  #f3f4f5,  argb:552f343f,  argb:552f343f,  #e53935
+rofi.color-active: argb:552f343f,  #f3f4f5,  argb:552f343f,  argb:552f343f,  #e53935
+
+!                  'background',  'border', 	 'separator'
+rofi.color-window: argb:DD2f343f, argb:00000000, argb:00000000
+
 #define S_base03        #002b36
 #define S_base02        #073642
 #define S_base01        #586e75
