@@ -1,0 +1,17 @@
+#!/bin/sh
+bl_dev=/sys/class/backlight/intel_backlight
+step=250
+
+case $1 in
+  -)
+    newBrightness=$(( $(<$bl_dev/brightness) - $step ))
+
+    if [[ $newBrightness -le 0 ]] ; then
+        echo 0 > $bl_dev/brightness
+    else
+        echo $newBrightness > $bl_dev/brightness
+    fi
+    ;;
+  +)
+	echo $(($(< $bl_dev/brightness) + $step)) >$bl_dev/brightness;;
+esac
