@@ -1,0 +1,7 @@
+[Added Associations]
+application/pdf=com.github.xournalpp.xournalpp.desktop;llpp.desktop;
+text/plain=vim.desktop;
+
+[Default Applications]
+application/pdf=llpp.desktop
+application/gzip=com.github.xournalpp.xournalpp.desktop;
