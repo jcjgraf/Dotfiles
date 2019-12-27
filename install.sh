@@ -18,6 +18,8 @@ sudo rm -rf ~/.vimrc > /dev/null 2>&1
 sudo rm -rf ~/.config/redshift > /dev/null 2>&1
 sudo rm -rf /etc/acpi > /dev/null 2>&1
 sudo rm -rf ~/.gitconfig > /dev/null 2>&1
+sudo rm -rf ~/bin/lock.sh > /dev/null 2>&1
+
 
 # Create symlink
 ln -sf "$dotfiles/zsh/.zshrc" ~/.zshrc
@@ -34,4 +36,5 @@ ln -sf "$dotfiles/.vimrc" ~/
 ln -sf "$dotfiles/redshift" ~/.config
 sudo ln -sf $dotfiles/acpi /etc/acpi
 ln -sf "$dotfiles/.gitconfig" ~/
+ln -sf "$dotfiles/Scripts/lock.sh" ~/bin/lock.sh
 
