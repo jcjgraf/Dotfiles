@@ -3,11 +3,17 @@
 # Prepare background
 imgPath="/tmp/bg_img.png"
 
-resolution=$(xrandr | grep \* | cut -d' ' -f4)
-ffmpeg -f x11grab -video_size "$resolution" -y -i "$DISPLAY" -filter_complex "boxblur=5:5" -vframes 1 "$imgPath" -loglevel quiet
+# Take Screenshot
+scrot --multidisp --quality 50 --overwrite --silent "$imgPath"
+
+# Pixelate Image
+convert -scale 10% -scale 1000% "$imgPath" "$imgPath"
+
+# Blure Image
+#ffmpeg -y -i "$imgPath" -filter_complex "boxblur=5:5" -loglevel quiet "${imgPath}_out.png" && mv "${imgPath}_out.png" "$imgPath"
 
 # Screen setting and lock
 set -e
 xset s off dpms 0 3 0
-i3lock --ignore-empty-password --nofork --image "$imgPath"
+i3lock --ignore-empty-password --nofork --tiling --image "$imgPath"
 xset s off -dpms
