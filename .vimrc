@@ -56,4 +56,5 @@ command! -nargs=* RunSilent
 nmap <Leader>pc :RunSilent pandoc -o /tmp/vim-pandoc-out.pdf %<CR>
 nmap <Leader>pp :RunSilent xdg-open /tmp/vim-pandoc-out.pdf<CR>
 
-
+"" Remove Trailing Spaces at Save
+autocmd BufWritePre * %s/\s\+$//e
