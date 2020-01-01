@@ -196,3 +196,4 @@ exec_always xrandr --output eDP-1 --primary --mode 3840x2160 --pos 0x0 --rotate 
 # Transparancy and Transmission
 exec --no-startup-id picom -f
 exec --no-startup-id redshift
+exec --no-startup-id dunst -config ~/.config/dunst/dunstrc

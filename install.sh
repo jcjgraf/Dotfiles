@@ -19,6 +19,7 @@ sudo rm -rf ~/.config/redshift > /dev/null 2>&1
 sudo rm -rf /etc/acpi > /dev/null 2>&1
 sudo rm -rf ~/.gitconfig > /dev/null 2>&1
 sudo rm -rf ~/bin/lock.sh > /dev/null 2>&1
+sudo rm -rf ~/.config/dunst > /dev/null 2>&1
 sudo rm -rf ~/.config/locale.conf > /dev/null 2>&1
 
 
@@ -38,5 +39,6 @@ ln -sf "$dotfiles/redshift" ~/.config
 sudo ln -sf $dotfiles/acpi /etc/acpi
 ln -sf "$dotfiles/.gitconfig" ~/
 ln -sf "$dotfiles/Scripts/lock.sh" ~/bin/lock.sh
+ln -sf "$dotfiles/dunst" ~/.config/dunst
 ln -sf "$dotfiles/locale.conf" ~/.config/locale.conf
 
