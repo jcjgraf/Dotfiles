@@ -22,7 +22,7 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec --no-startup-id termite 
+bindsym $mod+Return exec --no-startup-id termite
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -35,7 +35,7 @@ set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
 
 # programm launcher
-bindsym $mod+d exec --no-startup-id rofi -show run -hide-scrollbar -fullscreen -lines 3 -font "Hack 45" -padding 800 
+bindsym $mod+d exec --no-startup-id rofi -show run -hide-scrollbar -fullscreen -lines 3 -font "Hack 45" -padding 800
 
 # change focus
 bindsym $mod+h focus left
@@ -123,7 +123,7 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-# Moving workspaces between screens 
+# Moving workspaces between screens
 bindsym $mod+u move workspace to output left
 bindsym $mod+i move workspace to output right
 
@@ -165,12 +165,12 @@ bindsym $mod+r mode "resize"
 #                       border              background         text                 indicator
 client.focused          $bg-color           $bg-color          $text-color          $text-color
 client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $text-color
-client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $text-color 
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $text-color 
+client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $text-color
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $text-color
 
 # Bar
 bar {
-    status_command i3blocks 
+    status_command i3blocks
 
 	tray_output none
 
@@ -187,7 +187,7 @@ bar {
 bindsym $mod+shift+x exec --no-startup-id sleep 1 && ~/bin/lock.sh
 
 # Wallpaper
-exec_always --no-startup-id feh --bg-scale ~/.config/feh/bg.jpg 
+exec_always --no-startup-id feh --bg-scale ~/.config/feh/bg.jpg
 
 # Monitors
 exec_always xrandr --output eDP-1 --primary --mode 3840x2160 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-1 --mode 1920x1080 --scale 2.5x2.5 --pos 3840x0 --rotate normal --output DP-2 --off
