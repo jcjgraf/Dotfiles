@@ -1,17 +1,36 @@
-#!/bin/sh
+#!/bin/bash
 bl_dev=/sys/class/backlight/intel_backlight
 step=250
 
-case $1 in
-  -)
-    newBrightness=$(( $(<$bl_dev/brightness) - $step ))
+dunstify() {
+    ## Thanks to https://stackoverflow.com/a/49533938
 
-    if [[ $newBrightness -le 0 ]] ; then
-        echo 0 > $bl_dev/brightness
-    else
-        echo $newBrightness > $bl_dev/brightness
-    fi
-    ;;
-  +)
-	echo $(($(< $bl_dev/brightness) + $step)) >$bl_dev/brightness;;
-esac
+    #Detect the name of the display in use
+    local display=":$(ls /tmp/.X11-unix/* | sed 's#/tmp/.X11-unix/X##' | head -n 1)"
+
+    #Detect the user using such display
+    local user=$(who | grep '('$display')' | awk '{print $1}' | head -n 1)
+
+    #Detect the id of the user
+    local uid=$(id -u $user)
+
+    sudo -u $user DISPLAY=$display DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$uid/bus dunstify "$@"
+}
+
+doNotify() {
+
+    bar=$(seq -s "─" 0 $(($1 / 500)) | sed 's/[0-9]//g')
+
+    dunstify -a "changeVolume" -u low -r "1234212" "$bar"
+}
+
+# $1 corresponts to + or - sign
+newBrightness=$(( $(<$bl_dev/brightness) $1 $step ))
+doNotify "$newBrightness"
+
+# Prevent negative brightness values
+if [[ $newBrightness -le 0 ]] ; then
+    echo 0 > $bl_dev/brightness
+else
+    echo $newBrightness > $bl_dev/brightness
+fi
