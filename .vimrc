@@ -45,8 +45,9 @@ call pathogen#infect()                      " use pathogen
 "call pathogen#runtime_append_all_bundles()  " use pathogen
 
 "" Backup
-set swapfile
-set dir=~/.vim-swap/
+set undodir=~/.vim/undo//
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
 
 "" Markdown
 " pandoc , markdown
