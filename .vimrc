@@ -14,6 +14,10 @@ set wildmenu            " visual autocomplete for command menu
 set lazyredraw          " redraw only when we need to.
 set showmatch           " highlight matching [{()}]
 
+"" Leader Shortcuts
+" Change leader to comma
+let mapleader=","
+
 "" Searching
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
@@ -33,12 +37,6 @@ nnoremap j gj
 nnoremap k gk
 " highlight last inserted text
 nnoremap gV `[v`]
-
-"" Leader Shortcuts
-" Change leader to comma
-let mapleader=","
-" save session
-nnoremap <leader>s :mksession<CR>
 
 "" Launch Config
 call pathogen#infect()                      " use pathogen
