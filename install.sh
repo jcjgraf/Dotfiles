@@ -21,6 +21,7 @@ sudo rm -rf ~/.gitconfig > /dev/null 2>&1
 sudo rm -rf ~/bin/lock.sh > /dev/null 2>&1
 sudo rm -rf ~/.config/dunst > /dev/null 2>&1
 sudo rm -rf ~/.config/locale.conf > /dev/null 2>&1
+sudo rm -rf ~/.config/mpv > /dev/null 2>&1
 
 
 # Create symlink
@@ -41,4 +42,5 @@ ln -sf "$dotfiles/.gitconfig" ~/
 ln -sf "$dotfiles/Scripts/lock.sh" ~/bin/lock.sh
 ln -sf "$dotfiles/dunst" ~/.config/dunst
 ln -sf "$dotfiles/locale.conf" ~/.config/locale.conf
+ln -sf "$dotfiles/mpv" ~/.config/mpv
 
