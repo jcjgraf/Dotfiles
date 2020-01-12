@@ -1,0 +1,53 @@
+## msmtp config file
+#
+# Based on config from https://github.com/LukeSmithxyz/mutt-wizard
+
+## graf.jeanclaude@gmail.com
+IMAPStore graf.jeanclaude@gmail.com-remote
+Host imap.gmail.com
+Port  993
+User graf.jeanclaude@gmail.com
+PassCmd "pass Mail/graf.jeanclaude@gmail.com"
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore graf.jeanclaude@gmail.com-local
+Subfolders Verbatim
+Path ~/.local/share/mail/graf.jeanclaude@gmail.com/
+Inbox ~/.local/share/mail/graf.jeanclaude@gmail.com/INBOX
+Flatten .
+
+Channel graf.jeanclaude@gmail.com
+Expunge Both
+Master :graf.jeanclaude@gmail.com-remote:
+Slave :graf.jeanclaude@gmail.com-local:
+Patterns * !"[Gmail]/All Mail"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+
+## jeanggi90@gmail.com
+IMAPStore jeanggi90@gmail.com-remote
+Host imap.gmail.com
+Port  993
+User jeanggi90@gmail.com
+PassCmd "pass Mail/jeanggi90@gmail.com"
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore jeanggi90@gmail.com-local
+Subfolders Verbatim
+Path ~/.local/share/mail/jeanggi90@gmail.com/
+Inbox ~/.local/share/mail/jeanggi90@gmail.com/INBOX
+Flatten .
+
+Channel jeanggi90@gmail.com
+Expunge Both
+Master :jeanggi90@gmail.com-remote:
+Slave :jeanggi90@gmail.com-local:
+Patterns * !"[Gmail]/All Mail"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
