@@ -1,0 +1,35 @@
+# muttrc file for account graf.jeanclaude@gmail.com
+
+## Idenfitication
+set realname = "Jean-Claude Graf"
+set from = "graf.jeanclaude@gmail.com"
+#alias me Jean-Claude Graf <graf.jeanclaude@gmail.com>
+# set sig_dashes = "no"
+# set signature = "somePath"
+
+## Cache
+set header_cache = "~/.cache/mutt/graf.jeanclaude@gmail.com/headers"
+set message_cachedir = "~/.cache/mutt/graf.jeanclaude@gmail.com/bodies"
+
+## Maildir
+set mbox_type = Maildir
+set folder = "~/.local/share/mail/graf.jeanclaude@gmail.com"
+set spoolfile = "+INBOX"
+set record = "+[Gmail].Sent\ Mail"
+set postponed = "+[Gmail].Drafts"
+set trash = "+[Gmail].Bin"
+mailboxes "=[Gmail].Spam" "=[Gmail].Sent\ Mail" "=INBOX" "=[Gmail].Drafts" "=[Gmail].Bin"
+
+## Sendmail
+set sendmail = "msmtp -a graf.jeanclaude@gmail.com"
+
+## Binds
+#bind index,pager gg noop
+#bind index,pager g noop
+#bind index,pager M noop
+#bind index,pager C noop
+#bind index gg first-entry
+#macro index o "<shell-escape>mailsync -V graf_jeanclaude-gmail<enter>" "run mbsync to sync graf_jeanclaude-gmail"
+#unmailboxes *
+
+# vim: filetype=neomuttrc

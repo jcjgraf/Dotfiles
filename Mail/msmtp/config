@@ -1,0 +1,23 @@
+defaults
+auth on
+tls	on
+tls_trust_file	/etc/ssl/certs/ca-certificates.crt
+logfile	/var/log/msmtp.log
+
+# graf.jeanclaude@gmail.com
+account graf.jeanclaude@gmail.com
+host smtp.gmail.com
+port 587
+from graf.jeanclaude@gmail.com
+user graf.jeanclaude@gmail.com
+passwordeval "pass Mail/graf.jeanclaude@gmail.com"
+
+# jeanggi90@gmail.com
+account jeanggi90@gmail.com
+host smtp.gmail.com
+port 587
+from jeanggi90@gmail.com
+user jeanggi90@gmail.com
+passwordeval "pass Mail/jeanggi90@gmail.com"
+
+# vim: filetype=msmtp
