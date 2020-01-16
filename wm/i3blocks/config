@@ -6,6 +6,10 @@ command=~/.config/i3scripts/$BLOCK_NAME
 markup=pango
 
 # Bar
+[unreadMails]
+label= 
+interval=10
+
 [loadAverage]
 label= 
 interval=10

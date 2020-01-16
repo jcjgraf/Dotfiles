@@ -1,0 +1,16 @@
+#!/bin/bash
+## Retrieves the total number of unread mails from a maildir
+
+mailDir=~/.local/share/mail/
+addresses=("graf.jeanclaude@gmail.com" "jeanggi90@gmail.com")
+
+totalUnread=0
+
+for i in "${addresses[@]}"
+do
+    inboxDir="${mailDir}${i}/INBOX/cur/"
+    unread=$(find $inboxDir -type f | grep -vE ',[^,]*S[^,]*$' | wc -l)
+    totalUnread=$(($totalUnread + $unread))
+done
+
+echo $totalUnread
