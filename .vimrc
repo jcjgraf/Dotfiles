@@ -61,5 +61,11 @@ command! -nargs=* RunSilent
 nmap <Leader>pc :RunSilent pandoc -o /tmp/vim-pandoc-out.pdf %<CR>
 nmap <Leader>pp :RunSilent xdg-open /tmp/vim-pandoc-out.pdf<CR>
 
-"" Remove Trailing Spaces at Save
-autocmd BufWritePre * %s/\s\+$//e
+"" Remove Trailing Spaces by calling `TimWhitespaces` or using a shortcut
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+command! TrimWhitespace call TrimWhitespace()
+:noremap <Leader>w :call TrimWhitespace()<CR>
