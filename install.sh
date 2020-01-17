@@ -23,6 +23,7 @@ linker "$dotfiles/mimeapps.list" ~/.config/mimeapps.list
 linker "$dotfiles/locale.conf" ~/.config/locale.conf
 linker "$dotfiles/Scripts/lock.sh" ~/bin/lock.sh
 sudo bash -c "$(declare -f linker); linker \"$dotfiles/acpi\" '/etc/acpi'" # Run as root
+linker "$dotfiles/systemd" ~/.config/systemd
 
 ## WM
 linker "$dotfiles/wm/i3" ~/.config/i3

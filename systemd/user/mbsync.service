@@ -1,0 +1,6 @@
+[Unit]
+Description=Mailbox syncronisation service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/mbsync -Va
