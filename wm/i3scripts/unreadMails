@@ -3,14 +3,18 @@
 
 mailDir=~/.local/share/mail/
 addresses=("graf.jeanclaude@gmail.com" "jeanggi90@gmail.com")
+mailboxes=("/INBOX/cur" "/INBOX/new")
 
 totalUnread=0
 
 for i in "${addresses[@]}"
 do
-    inboxDir="${mailDir}${i}/INBOX/cur/"
-    unread=$(find $inboxDir -type f | grep -vE ',[^,]*S[^,]*$' | wc -l)
-    totalUnread=$(($totalUnread + $unread))
+    for j in "${mailboxes[@]}"
+    do
+        inboxDir="${mailDir}${i}${j}"
+        unread=$(find $inboxDir -type f | grep -vE ',[^,]*S[^,]*$' | wc -l)
+        totalUnread=$(($totalUnread + $unread))
+    done
 done
 
 echo $totalUnread
