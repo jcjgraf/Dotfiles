@@ -1,4 +1,5 @@
 syntax enable           " enable syntax processing
+set t_Co=256            " enable 256 colors
 
 "" Tabs and Spaces
 set tabstop=4       " number of visual spaces per TAB
@@ -45,8 +46,7 @@ nnoremap k gk
 nnoremap gV `[v`]
 
 "" Launch Config
-call pathogen#infect()                      " use pathogen
-"call pathogen#runtime_append_all_bundles()  " use pathogen
+execute pathogen#infect()
 
 "" Backup
 set undodir=~/.vim/undo//
