@@ -14,16 +14,18 @@ linker() {
 # Link Files
 ## System
 linker "$dotfiles/zsh/.zshrc" ~/.zshrc
-linker "$dotfiles/termite" ~/.config/termite
 linker "$dotfiles/.Xresources" ~/.Xresources
 linker "$dotfiles/gtk-3.0" ~/.config/gtk-3.0
 linker "$dotfiles/.gtkrc-2.0" ~/.gtkrc-2.0
 linker "$dotfiles/fontconfig" ~/.config/fontconfig
 linker "$dotfiles/mimeapps.list" ~/.config/mimeapps.list
 linker "$dotfiles/locale.conf" ~/.config/locale.conf
-linker "$dotfiles/Scripts/lock.sh" ~/bin/lock.sh
 sudo bash -c "$(declare -f linker); linker \"$dotfiles/acpi\" '/etc/acpi'" # Run as root
 linker "$dotfiles/systemd" ~/.config/systemd
+
+## Scripts
+linker "$dotfiles/Scripts/lock.sh" ~/bin/lock.sh
+linker "$dotfiles/Scripts/battery.sh" ~/bin/battery.sh
 
 ## WM
 linker "$dotfiles/wm/i3" ~/.config/i3
@@ -36,6 +38,7 @@ linker "$dotfiles/redshift" ~/.config/redshift
 linker "$dotfiles/.gitconfig" ~/.gitconfig
 linker "$dotfiles/dunst" ~/.config/dunst
 linker "$dotfiles/mpv" ~/.config/mpv
+linker "$dotfiles/termite" ~/.config/termite
 
 ## Mail
 linker "$dotfiles/Mail/mutt" ~/.config/mutt
