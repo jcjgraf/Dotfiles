@@ -8,60 +8,41 @@ rofi.color-active: argb:552f343f,  #f3f4f5,  argb:552f343f,  argb:552f343f,  #e5
 !                  'background',  'border', 	 'separator'
 rofi.color-window: argb:DD2f343f, argb:00000000, argb:00000000
 
-#define S_base03        #002b36
-#define S_base02        #073642
-#define S_base01        #586e75
-#define S_base00        #657b83
-#define S_base0         #839496
-#define S_base1         #93a1a1
-#define S_base2         #eee8d5
-#define S_base3         #fdf6e3
-
-*background:            S_base03
-*foreground:            S_base0
-*fadeColor:             S_base03
-*cursorColor:           S_base1
-*pointerColorBackground:S_base01
-*pointerColorForeground:S_base1
-
-#define S_yellow        #b58900
-#define S_orange        #cb4b16
-#define S_red           #dc322f
-#define S_magenta       #d33682
-#define S_violet        #6c71c4
-#define S_blue          #268bd2
-#define S_cyan          #2aa198
-#define S_green         #859900
+*background:            #2d2d2d
+*foreground:            #d3d0c8
+*fadeColor:             #ff0000
+*cursorColor:           #2d2d2d
+*pointerColorBackground:#ff0000
+*pointerColorForeground:#ff0000
 
 !! black dark/light
-*color0:                S_base02
-*color8:                S_base03
+*color0:                #35352d
+*color8:                #747369
 
 !! red dark/light
-*color1:                S_red
-*color9:                S_orange
+*color1:                #f2777a
+*color9:                #f2777a
 
 !! green dark/light
-*color2:                S_green
-*color10:               S_base01
+*color2:                #99cc99 
+*color10:               #99cc99 
 
 !! yellow dark/light
-*color3:                S_yellow
-*color11:               S_base00
+*color3:                #ffcc66  
+*color11:               #ffcc66 
 
 !! blue dark/light
-*color4:                S_blue
-*color12:               S_base0
+*color4:                #6699cc 
+*color12:               #6699cc
 
 !! magenta dark/light
-*color5:                S_magenta
-*color13:               S_violet
+*color5:                #cc99cc 
+*color13:               #cc99cc
 
 !! cyan dark/light
-*color6:                S_cyan
-*color14:               S_base1
+*color6:                #6ccccc
+*color14:               #6ccccc
 
 !! white dark/light
-*color7:                S_base2
-*color15:               S_base3
-
+*color7:                #d3d0c8
+*color15:               #f2f0ec
