@@ -39,7 +39,11 @@ linker "$dotfiles/redshift" ~/.config/redshift
 linker "$dotfiles/.gitconfig" ~/.gitconfig
 linker "$dotfiles/dunst" ~/.config/dunst
 linker "$dotfiles/mpv" ~/.config/mpv
-linker "$dotfiles/termite" ~/.config/termite
+
+### Termite
+mkdir -p ~/.config/termite
+sh $dotfiles/colorizer.sh "$dotfiles/termite/config.raw" ~/.config/termite/config
+#linker "$dotfiles/termite" ~/.config/termite
 
 ## Mail
 linker "$dotfiles/Mail/mutt" ~/.config/mutt
