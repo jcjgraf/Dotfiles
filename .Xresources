@@ -1,48 +1,54 @@
 Xft.dpi: 220
 
-! State:           'bg',	   'fg',     'bgalt',  	     'hlbg',         'hlfg'
-rofi.color-normal: argb:552f343f,  #f3f4f5,  argb:552f343f,  argb:552f343f,  #e53935
-rofi.color-urgent: argb:552f343f,  #f3f4f5,  argb:552f343f,  argb:552f343f,  #e53935
-rofi.color-active: argb:552f343f,  #f3f4f5,  argb:552f343f,  argb:552f343f,  #e53935
+! Colors
+#include "/home/jeanclaude/.xcolors"
 
-!                  'background',  'border', 	 'separator'
-rofi.color-window: argb:DD2f343f, argb:00000000, argb:00000000
-
-*background:            #2d2d2d
-*foreground:            #d3d0c8
+*background:            BACKGROUND
+*foreground:            FOREGROUND
 *fadeColor:             #ff0000
-*cursorColor:           #2d2d2d
+*cursorColor:           FOREGROUND
 *pointerColorBackground:#ff0000
 *pointerColorForeground:#ff0000
 
 !! black dark/light
-*color0:                #35352d
-*color8:                #747369
+*color0:                COLOR0
+*color8:                COLOR8
 
 !! red dark/light
-*color1:                #f2777a
-*color9:                #f2777a
+*color1:                COLOR1
+*color9:                COLOR9
 
 !! green dark/light
-*color2:                #99cc99 
-*color10:               #99cc99 
+*color2:                COLOR2
+*color10:               COLOR10
 
 !! yellow dark/light
-*color3:                #ffcc66  
-*color11:               #ffcc66 
+*color3:                COLOR3
+*color11:               COLOR11
 
 !! blue dark/light
-*color4:                #6699cc 
-*color12:               #6699cc
+*color4:                COLOR4
+*color12:               COLOR12
 
 !! magenta dark/light
-*color5:                #cc99cc 
-*color13:               #cc99cc
+*color5:                COLOR5
+*color13:               COLOR13
 
 !! cyan dark/light
-*color6:                #6ccccc
-*color14:               #6ccccc
+*color6:                COLOR6
+*color14:               COLOR14
 
 !! white dark/light
-*color7:                #d3d0c8
-*color15:               #f2f0ec
+*color7:                COLOR7
+*color15:               COLOR15
+
+
+! Rofi
+!! State:           'bg',	   'fg',     'bgalt',  	     'hlbg',         'hlfg'
+rofi.color-normal: argb:552f343f,  #f3f4f5,  argb:552f343f,  argb:552f343f,  #e53935
+rofi.color-urgent: argb:552f343f,  #f3f4f5,  argb:552f343f,  argb:552f343f,  #e53935
+rofi.color-active: argb:552f343f,  #f3f4f5,  argb:552f343f,  argb:552f343f,  #e53935
+
+!!                  'background',  'border', 	 'separator'
+rofi.color-window: argb:DD2f343f, argb:00000000, argb:00000000
+

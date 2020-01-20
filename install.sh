@@ -14,6 +14,7 @@ linker() {
 # Link Files
 ## System
 linker "$dotfiles/zsh/.zshrc" ~/.zshrc
+linker "$dotfiles/.xcolors" ~/.xcolors
 linker "$dotfiles/.Xresources" ~/.Xresources
 linker "$dotfiles/gtk-3.0" ~/.config/gtk-3.0
 linker "$dotfiles/.gtkrc-2.0" ~/.gtkrc-2.0
