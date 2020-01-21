@@ -28,11 +28,22 @@ bindsym $mod+Return exec --no-startup-id termite
 bindsym $mod+Shift+q kill
 
 # Colors
-set $bg-color 	         #2f343f
-set $inactive-bg-color   #2f343f
-set $text-color          #f3f4f5
-set $inactive-text-color #676E7D
-set $urgent-bg-color     #E53935
+set_from_resource $color0       color0      #000000
+set_from_resource $color8       color8      #000000
+set_from_resource $color1       color1      #000000
+set_from_resource $color9       color9      #000000
+set_from_resource $color2       color2      #000000
+set_from_resource $color10      color10     #000000
+set_from_resource $color3       color3      #000000
+set_from_resource $color11      color11     #000000
+set_from_resource $color4       color4      #000000
+set_from_resource $color12      color12     #000000
+set_from_resource $color5       color5      #000000
+set_from_resource $color13      color13     #000000
+set_from_resource $color6       color6      #000000
+set_from_resource $color14      color14     #000000
+set_from_resource $color7       color7      #000000
+set_from_resource $color15      color15     #000000
 
 # programm launcher
 bindsym $mod+d exec --no-startup-id rofi -show run -hide-scrollbar -fullscreen -lines 3 -font "Hack 45" -padding 800
@@ -162,11 +173,11 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # window colors
-#                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $text-color          $text-color
-client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $text-color
-client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $text-color
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $text-color
+#                       border      background  text        indicator
+client.focused          $color8     $color8     $color15    $color8
+client.unfocused        $color8     $color8     $color7     $color8
+client.focused_inactive $color8     $color8     $color7     $color8
+client.urgent           $color1     $color1     $color15    $color8
 
 # Bar
 bar {
@@ -175,13 +186,12 @@ bar {
 	tray_output none
 
 	colors {
-		background $bg-color
-		separator #757575
-		#                  border             background         text
-		focused_workspace  $bg-color          $bg-color          $text-color
-		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-         }
+		background $color8
+		#                  border       background  text
+		focused_workspace  $color8      $color8     $color15
+		inactive_workspace $color8      $color8     $color7
+		urgent_workspace   $color1      $color1     $color15
+    }
 }
 
 bindsym $mod+shift+x exec --no-startup-id sleep 1 && ~/bin/lock.sh
