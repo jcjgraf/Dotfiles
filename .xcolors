@@ -1,8 +1,8 @@
 #define BACKGROUND  #2d2d2d
-#define FOREGROUND  #d3d0c8
+#define FOREGROUND  #f3f4f5
 #define CURSOR      #2d2d2d
-#define COLOR0  #35352d 
-#define COLOR8  #747369 
+#define COLOR0  #2d2d2d
+#define COLOR8  #2f343f 
 #define COLOR1  #f2777a 
 #define COLOR9  #f2777a 
 #define COLOR2  #99cc99 
@@ -15,5 +15,5 @@
 #define COLOR13 #cc99cc 
 #define COLOR6  #6ccccc 
 #define COLOR14 #6ccccc 
-#define COLOR7  #d3d0c8 
-#define COLOR15 #f2f0ec 
+#define COLOR7  #676E7D 
+#define COLOR15 #f3f4f5 
