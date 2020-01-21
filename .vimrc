@@ -18,6 +18,8 @@ set showmatch           " highlight matching [{()}]
 "" Leader Shortcuts
 " Change leader to comma
 let mapleader=","
+nnoremap <leader>c :ColorToggle<CR>
+
 
 "" Searching
 set incsearch           " search as characters are entered
