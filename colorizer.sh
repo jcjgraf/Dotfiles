@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # Corlorize non-xresources application by replacing specified tags by colors from .Xresources file
+## Usage: colorizer.sh <rawFile> <outputFile>
+
 
 # Copy file to temp dir
 outfile="$2"

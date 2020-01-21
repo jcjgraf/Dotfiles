@@ -5,17 +5,29 @@ dotfiles=~/Dotfiles
 
 linker() {
     # Symlinks file $1 to destination $2
-    ## Caution: destination $2 gets removes!
+    ## Caution: destination $2 gets removed!
 
-    sudo rm -rf $2 > /dev/null 2>&1
-    ln -sf $1 $2
+    sudo rm -rf "$2" > /dev/null 2>&1
+    ln -sf "$1" "$2"
 }
 
-# Link Files
+colorizer() {
+    # Replaces color placeholders in $1 and copies it to $2
+    ## Caution: desitnation $2 gets removed!
+
+    local dir="$(dirname $2)"
+
+    sudo rm -rf "$dir" > /dev/null 2>&1
+    mkdir -p "$dir"
+    sh $dotfiles/colorizer.sh "$1" "$2"
+}
+
+# Process Files
 ## System
 linker "$dotfiles/zsh/.zshrc" ~/.zshrc
 linker "$dotfiles/.xcolors" ~/.xcolors
 linker "$dotfiles/.Xresources" ~/.Xresources
+xrdb ~/.Xresources
 linker "$dotfiles/gtk-3.0" ~/.config/gtk-3.0
 linker "$dotfiles/.gtkrc-2.0" ~/.gtkrc-2.0
 linker "$dotfiles/fontconfig" ~/.config/fontconfig
@@ -39,11 +51,7 @@ linker "$dotfiles/redshift" ~/.config/redshift
 linker "$dotfiles/.gitconfig" ~/.gitconfig
 linker "$dotfiles/dunst" ~/.config/dunst
 linker "$dotfiles/mpv" ~/.config/mpv
-
-### Termite
-mkdir -p ~/.config/termite
-sh $dotfiles/colorizer.sh "$dotfiles/termite/config.raw" ~/.config/termite/config
-#linker "$dotfiles/termite" ~/.config/termite
+colorizer "$dotfiles/termite/config.raw" ~/.config/termite/config
 
 ## Mail
 linker "$dotfiles/Mail/mutt" ~/.config/mutt
