@@ -7,6 +7,7 @@ markup=pango
 
 # Bar
 [unreadMails]
+command=printf "" && ~/bin/mailChecker.sh -s
 label= 
 interval=10
 
