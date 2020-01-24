@@ -42,10 +42,10 @@ getColoredPercentage() {
     local critical=$(xrdb -query | grep '*color1:'| awk '{print $NF}') 
     local low=$(xrdb -query | grep '*color3:'| awk '{print $NF}') 
 
-    if [ $percentage -le 20 ]
+    if [ $percentage -le 15 ]
     then
         echo "<span foreground=\"${critical}\">$percentage</span>"
-    elif [ $percentage -le 60 ]
+    elif [ $percentage -le 40 ]
     then
         echo "<span foreground=\"${low}\">$percentage</span>"
     else
