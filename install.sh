@@ -49,7 +49,7 @@ linker "$dotfiles/wm/i3scripts" ~/.config/i3scripts
 linker "$dotfiles/.vimrc" ~/.vimrc
 linker "$dotfiles/redshift" ~/.config/redshift
 linker "$dotfiles/.gitconfig" ~/.gitconfig
-linker "$dotfiles/dunst" ~/.config/dunst
+colorizer "$dotfiles/dunst/dunstrc.raw" ~/.config/dunst/dunstrc
 linker "$dotfiles/mpv" ~/.config/mpv
 colorizer "$dotfiles/termite/config.raw" ~/.config/termite/config
 
