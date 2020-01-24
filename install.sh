@@ -40,6 +40,7 @@ linker "$dotfiles/systemd" ~/.config/systemd
 linker "$dotfiles/Scripts/notifyer" ~/bin/notifyer
 linker "$dotfiles/Scripts/lock.sh" ~/bin/lock.sh
 linker "$dotfiles/Scripts/battery.sh" ~/bin/battery.sh
+linker "$dotfiles/Scripts/mailChecker.sh" ~/bin/mailChecker.sh
 
 ## WM
 linker "$dotfiles/wm/i3" ~/.config/i3
