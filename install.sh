@@ -37,6 +37,7 @@ sudo bash -c "$(declare -f linker); linker \"$dotfiles/acpi\" '/etc/acpi'" # Run
 linker "$dotfiles/systemd" ~/.config/systemd
 
 ## Scripts
+linker "$dotfiles/Scripts/notifyer" ~/bin/notifyer
 linker "$dotfiles/Scripts/lock.sh" ~/bin/lock.sh
 linker "$dotfiles/Scripts/battery.sh" ~/bin/battery.sh
 
