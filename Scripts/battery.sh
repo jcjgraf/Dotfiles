@@ -53,6 +53,24 @@ getColoredPercentage() {
     fi
 }
 
+getBatteryIcon() {
+    if [[ $percentage -le 10 ]]
+    then
+        echo $batteryEmpty
+    elif [[ $percentage -le 35 ]]
+    then
+        echo $batteryQuater
+    elif [[ $percentage -le 65 ]]
+    then
+        echo $batteryHalf
+    elif [[ $percentage -le 90 ]]
+    then
+        echo $batteryThreeQuaters
+    else
+        echo $batteryFull
+    fi
+}
+
 getStatusMessage() {
     
     case "$status" in
@@ -60,7 +78,7 @@ getStatusMessage() {
             local out="$chargingIcon $percentage% $time"
             ;;
         Discharging)
-            local out="$batteryHalf $(getColoredPercentage)% $time"
+            local out="$(getBatteryIcon) $(getColoredPercentage)% $time"
             ;;
         Full)
             local out="$chargingIcon $percentage%"
