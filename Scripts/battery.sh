@@ -37,6 +37,7 @@ time="$( acpi | grep -oP 'Battery 0:.*?\K\d\d:\d\d+' )"
 #}
 
 getColoredPercentage() {
+    ## Return colored percentage depending on battery level
     
     # Fetch colors from .Xresources
     local critical=$(xrdb -query | grep '*color1:'| awk '{print $NF}') 
@@ -54,6 +55,8 @@ getColoredPercentage() {
 }
 
 getBatteryIcon() {
+    ## Set the icon according the battery level
+
     if [[ $percentage -le 10 ]]
     then
         echo $batteryEmpty
@@ -72,7 +75,8 @@ getBatteryIcon() {
 }
 
 getStatusMessage() {
-    
+    ## Echo status message for the status bar   
+ 
     case "$status" in
         Charging)
             local out="$chargingIcon $percentage% $time"
