@@ -20,7 +20,7 @@ label=
 interval=2
 
 [battery]
-command=printf "" && ~/bin/battery.sh
+command=printf "" && ~/bin/battery.sh -s
 interval=30
 
 [date]

@@ -94,4 +94,14 @@ getStatusMessage() {
     echo "$out"
 }
 
-echo "$(getStatusMessage)"
+while getopts 's' flag
+do
+    case "${flag}" in
+        s)
+            echo "$(getStatusMessage)"
+            ;;
+        *)
+            echo "Flags: -s"
+            exit 1 ;;
+    esac
+done
