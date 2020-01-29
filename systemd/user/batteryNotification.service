@@ -1,0 +1,6 @@
+[Unit]
+Description=Battery notifyer
+
+[Service]
+Type=oneshot
+ExecStart=/home/jeanclaude/bin/battery.sh -c
