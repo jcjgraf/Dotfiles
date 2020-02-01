@@ -52,7 +52,7 @@ checkForNewMails() {
         else
             local message="There are $diffMailNumber new mails"
         fi
-        ~/bin/notifyer -a "mailChecker" -u normal "$message"
+        ~/bin/notifier -a "mailChecker" -u normal "$message"
     fi
 }
 

@@ -117,13 +117,13 @@ doStatusNotify() {
         ## AC gets unplugged
         #if [[ "$previousStatus" == "Full" ]] && [[ "$status" == "Discharging" ]]
         #then
-        #    ~/bin/notifyer -a "batteryChecker" -u normal "AC Disconnected"
+        #    ~/bin/notifier -a "batteryChecker" -u normal "AC Disconnected"
         #fi
 
         ## AC gets plugged in
         #if [[ "$previousStatus" != "Full" && "$previousStatus" != "Charging" ]] && [[ "$status" == "Charging" || "$status" == "Full" ]]
         #then
-        #    ~/bin/notifyer -a "batteryChecker" -u normal "AC Connected"
+        #    ~/bin/notifier -a "batteryChecker" -u normal "AC Connected"
         #fi
 
         # Send percentage notification when on battery
@@ -131,31 +131,31 @@ doStatusNotify() {
         then
             if (( $previousPercentage > 75 && $percentage <= 75 ))
             then
-                 ~/bin/notifyer -a "batteryChecker" -u low "Battery" "75%"
+                 ~/bin/notifier -a "batteryChecker" -u low "Battery" "75%"
             elif (( $previousPercentage > 50 && $percentage <= 50 ))
             then
-                 ~/bin/notifyer -a "batteryChecker" -u normal "Battery" "50%"
+                 ~/bin/notifier -a "batteryChecker" -u normal "Battery" "50%"
             elif (( $previousPercentage > 35 && $percentage <= 35 ))
             then
-                 ~/bin/notifyer -a "batteryChecker" -u normal "Battery" "35"
+                 ~/bin/notifier -a "batteryChecker" -u normal "Battery" "35"
             elif (( $previousPercentage > 25 && $percentage <= 25 ))
             then
-                 ~/bin/notifyer -a "batteryChecker" -u normal "Low Battery" "25%"
+                 ~/bin/notifier -a "batteryChecker" -u normal "Low Battery" "25%"
             elif (( $previousPercentage > 20 && $percentage <= 20 ))
             then
-                 ~/bin/notifyer -a "batteryChecker" -u normal "Low Battery" "20%"
+                 ~/bin/notifier -a "batteryChecker" -u normal "Low Battery" "20%"
             elif (( $previousPercentage > 15 && $percentage <= 15 ))
             then
-                 ~/bin/notifyer -a "batteryChecker" -u critical "Low Battery" "15%"
+                 ~/bin/notifier -a "batteryChecker" -u critical "Low Battery" "15%"
             elif (( $previousPercentage > 10 && $percentage <= 10 ))
             then
-                 ~/bin/notifyer -a "batteryChecker" -u critical "Critical Battery" "10%"
+                 ~/bin/notifier -a "batteryChecker" -u critical "Critical Battery" "10%"
             elif (( $previousPercentage > 5 && $percentage <= 5 ))
             then
-                 ~/bin/notifyer -a "batteryChecker" -u critical "Critical Battery" "5%"
+                 ~/bin/notifier -a "batteryChecker" -u critical "Critical Battery" "5%"
             elif (( $previousPercentage > 2 && $percentage <= 2 ))
             then
-                 ~/bin/notifyer -a "batteryChecker" -u critical "2%"
+                 ~/bin/notifier -a "batteryChecker" -u critical "2%"
             fi
         fi
 
