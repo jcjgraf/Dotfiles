@@ -8,8 +8,8 @@ plugins=(git history-substring-search)
 
 # Source oh-my-zsh, alias and custom theme
 source $ZSH/oh-my-zsh.sh
-source $DOTFILES/zsh/alias.zsh
-source $DOTFILES/zsh/jc.zsh-theme
+source $ZSH/custom/alias.zsh
+source $ZSH/custom/themes/jc.zsh-theme
 
 # History
 HISTFILE=~/.histfile
