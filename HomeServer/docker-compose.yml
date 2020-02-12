@@ -15,11 +15,21 @@ services:
             - ./ReverseProxy/dh-param/dhparam-2048.pem:/etc/ssl/certs/dhparam-2048.pem
 
             # SSL
+            ## jeanclaudgraf.ch
             - /docker-volumes/etc/letsencrypt/live/www.jeanclaudegraf.ch/fullchain.pem:/etc/letsencrypt/live/www.jeanclaudegraf.ch/fullchain.pem
             - /docker-volumes/etc/letsencrypt/live/www.jeanclaudegraf.ch/privkey.pem:/etc/letsencrypt/live/www.jeanclaudegraf.ch/privkey.pem
 
+            ## test.jeanclaudegraf.ch
             - /docker-volumes/etc/letsencrypt/live/www.test.jeanclaudegraf.ch/fullchain.pem:/etc/letsencrypt/live/www.test.jeanclaudegraf.ch/fullchain.pem
             - /docker-volumes/etc/letsencrypt/live/www.test.jeanclaudegraf.ch/privkey.pem:/etc/letsencrypt/live/www.test.jeanclaudegraf.ch/privkey.pem
+            - /docker-volumes/etc/letsencrypt/live/test.jeanclaudegraf.ch/fullchain.pem:/etc/letsencrypt/live/test.jeanclaudegraf.ch/fullchain.pem
+            - /docker-volumes/etc/letsencrypt/live/test.jeanclaudegraf.ch/privkey.pem:/etc/letsencrypt/live/test.jeanclaudegraf.ch/privkey.pem
+
+            ## git.jeanclaudegraf.ch
+            - /docker-volumes/etc/letsencrypt/live/www.git.jeanclaudegraf.ch/fullchain.pem:/etc/letsencrypt/live/www.git.jeanclaudegraf.ch/fullchain.pem
+            - /docker-volumes/etc/letsencrypt/live/www.git.jeanclaudegraf.ch/privkey.pem:/etc/letsencrypt/live/www.git.jeanclaudegraf.ch/privkey.pem
+            - /docker-volumes/etc/letsencrypt/live/git.jeanclaudegraf.ch/fullchain.pem:/etc/letsencrypt/live/git.jeanclaudegraf.ch/fullchain.pem
+            - /docker-volumes/etc/letsencrypt/live/git.jeanclaudegraf.ch/privkey.pem:/etc/letsencrypt/live/git.jeanclaudegraf.ch/privkey.pem
 
            # Cert Bot
             - /docker-volumes/data/letsencrypt:/data/letsencrypt
