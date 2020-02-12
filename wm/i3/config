@@ -166,8 +166,6 @@ bindsym $mod+shift+x exec --no-startup-id sleep 1 && ~/bin/lock.sh
 ## Wallpaper
 exec_always --no-startup-id feh --bg-scale ~/.config/feh/bg.jpg
 
-## Monitors
-exec_always xrandr --output eDP-1 --primary --mode 3840x2160 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-1 --mode 1920x1080 --scale 2.5x2.5 --pos 3840x0 --rotate normal --output DP-2 --off
 ## Map Pen and Touch to Touchscreen
 exec --no-startup-id $DOTFILES/Scripts/penMap.sh
 
