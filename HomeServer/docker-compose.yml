@@ -38,7 +38,10 @@ services:
             - 80:80
             - 443:443
         networks:
-            - reverseProxyNetwork
+            - ReverseProxy
+        restart: always
+        depends_on:
+            - gitea
 
     testsite:
         image: httpd:latest
@@ -48,7 +51,57 @@ services:
         ports:
             - 8080:8080
         networks:
-            - reverseProxyNetwork
+            - ReverseProxy
+
+    gitea:
+        image: gitea/gitea:1.11.0
+        container_name: gitea
+        environment:
+            - USER_UID=1000
+            - USER_GID=1000
+            - DB_TYPE=mysql
+            - DB_HOST=gitea-db:3306
+            - DB_NAME=gitea
+            - DB_USER=gitea
+            - DB_PASSWD=gitea
+            - SSH_DOMAIN=git.jeanclaudegraf.ch
+            - DISABLE_REGISTRATION=true
+#            - ROOT_URL=git.jeanclaudegraf.ch
+        env_file:
+            - ./Gitea/gitea.env
+        volumes:
+            - gitea:/data
+            - /etc/timezone:/etc/timezone:ro
+            - /etc/localtime:/etc/localtime:ro
+        ports:
+            - 3000:3000
+            - 22:22
+        networks:
+            - ReverseProxy
+            - Gitea
+        depends_on:
+            - gitea-db
+
+    gitea-db:
+        image: mysql:5.7
+        container_name: gitea-db
+        environment:
+            - MYSQL_USER=gitea
+            - MYSQL_DATABASE=gitea
+        env_file:
+            - ./Gitea/db.env
+        volumes:
+            - gitea-db:/var/lib/mysql
+        command: --disable-partition-engine-check
+        networks:
+            - Gitea
 
 networks:
-    reverseProxyNetwork:
+    ReverseProxy:
+    Gitea:
+
+volumes:
+    gitea:
+        driver: local
+    gitea-db:
+        driver: local
