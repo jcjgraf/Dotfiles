@@ -42,6 +42,7 @@ services:
         restart: always
         depends_on:
             - gitea
+            - homepage-wp
 
     testsite:
         image: httpd:latest
@@ -94,14 +95,46 @@ services:
             - gitea-db:/var/lib/mysql
         command: --disable-partition-engine-check
         networks:
-            - Gitea
+             - Gitea
+
+    homepage-wp:
+        image: wordpress:latest
+        container_name: homepage-wp
+        environment:
+            - WORDPRESS_DB_HOST=homepage-wp-db:3306
+            - WORDPRESS_DB_USER=wordpress
+            - WORDPRESS_DB_NAME=wordpress
+        env_file:
+            - ./Homepage/wp.env
+        ports:
+            - 8000:80
+        networks:
+            - ReverseProxy
+            - HomepageWp
+        depends_on:
+            - homepage-wp-db
+
+    homepage-wp-db:
+        image: mariadb:latest
+        container_name: homepage-wp-db
+        environment:
+            - MYSQL_USER=wordpress
+            - MYSQL_DATABASE=wordpress
+        env_file:
+            - ./Homepage/db.env
+        volumes:
+            - homepage-wp-db:/var/lib/mysql
+        networks:
+            - HomepageWp
 
 networks:
     ReverseProxy:
     Gitea:
+    HomepageWp:
 
 volumes:
     gitea:
         driver: local
     gitea-db:
         driver: local
+    homepage-wp-db:
