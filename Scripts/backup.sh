@@ -112,14 +112,37 @@ writeNewStatus() {
 }
 
 createBackup() {
-    # Tries to backup
-    return 0
+    # Create backup of $sourcePath to $destinationPath
+
+    echo "Backup Start"
+
+    # Check if drive connected
+    isDriveConnected
+    local ret=$?
+
+    if [[ "$ret" -ne 0 ]]
+    then
+        # We have got some problems
+        echo "Drive not connected. Backup not possible"
+        return 1
+    fi
+
+    # Mount drive
+
+    # Start backup
+
+
 }
 
 usage() { echo "Usage: $0 -h -c -u <UUID> -s <Source> -d <Destination> -i" 1>&2; exit 1; }
 
-# Check passed flags
-[[ $# -eq 0 ]] && usage
+# No flags passed
+if [[ $# -eq 0 ]]
+then
+   createBackup 
+fi
+
+# Flags passed
 while getopts 'hcu:s:d:i' flag
 do
     case "${flag}" in
@@ -148,7 +171,7 @@ do
         i)
             # Information
             loadFromCache
-            printf "Source: $sourcePath \nDestination: $destinationPath \nUUID: $uuid"
+            printf "Source: $sourcePath \nDestination: $destinationPath \nUUID: $uuid\n"
             ;;
         h | *)
             usage
