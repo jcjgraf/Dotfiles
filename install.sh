@@ -58,6 +58,7 @@ linker "$dotfiles/.vimrc" ~/.vimrc
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 linker "$dotfiles/vim/bundle" ~/.vim/bundle
 git submodule update --init
+git submodule foreach git pull origin master
 
 linker "$dotfiles/redshift" ~/.config/redshift
 linker "$dotfiles/.gitconfig" ~/.gitconfig
