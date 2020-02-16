@@ -51,10 +51,14 @@ linker "$dotfiles/wm/i3blocks" ~/.config/i3blocks
 linker "$dotfiles/wm/i3scripts" ~/.config/i3scripts
 
 ## Applications
-linker "$dotfiles/.vimrc" ~/.vimrc
+### VIM
 mkdir -p ~/.vim/undo/ ~/.vim/backup/ ~/.vim/swap/
+mkdir -p ~/.vim/autoload
+linker "$dotfiles/.vimrc" ~/.vimrc
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 linker "$dotfiles/vim/bundle" ~/.vim/bundle
 git submodule update --init
+
 linker "$dotfiles/redshift" ~/.config/redshift
 linker "$dotfiles/.gitconfig" ~/.gitconfig
 colorizer "$dotfiles/dunst/dunstrc.raw" ~/.config/dunst/dunstrc
