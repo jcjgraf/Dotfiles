@@ -4,8 +4,6 @@ services:
         image: nginx:latest
         container_name: reverseproxy
         volumes:
-            - ./ReverseProxy/conf.d:/etc/nginx/conf.d
-#            - ./ReverseProxy/nginx.conf:/etc/nginx/nginx.conf
 
             # Config
             - ./ReverseProxy/conf.d:/etc/nginx/conf.d
@@ -46,7 +44,9 @@ services:
         depends_on:
             - gitea
             - homepage-wp
+            - nextcloud-web
 
+# Test
     testsite:
         image: httpd:latest
         container_name: testsite
@@ -57,6 +57,7 @@ services:
         networks:
             - ReverseProxy
 
+# Gitea
     gitea:
         image: gitea/gitea:1.11.0
         container_name: gitea
@@ -100,6 +101,7 @@ services:
         networks:
              - Gitea
 
+# Wordpress Homepage
     homepage-wp:
         image: wordpress:latest
         container_name: homepage-wp
@@ -132,10 +134,56 @@ services:
         networks:
             - HomepageWp
 
+# Nextcloud
+    nextcloud:
+        image: nextcloud:fpm-alpine
+        container_name: nextcloud
+        volumes:
+            - nextcloud-html:/var/www/html
+            - /mnt/nc/data:/srv/nextcloud/data
+            - /mnt/nc/presents:/srv/nextcloud/presents
+        environment:
+            - MYSQL_DATABASE=nextcloud
+            - MYSQL_USER=nextcloud
+            - MYSQL_HOST=nextcloud-db
+            - NEXTCLOUD_DATA_DIR=/srv/nextcloud/data
+        env_file:
+            - ./Nextcloud/nc.env
+        networks:
+            - Nextcloud
+        depends_on:
+            - nextcloud-db
+
+    nextcloud-db:
+        image: mariadb
+        container_name: nextcloud-db
+        command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
+        volumes:
+            - nextcloud-db:/var/lib/mysql
+        environment:
+            - MYSQL_DATABASE=nextcloud
+            - MYSQL_USER=nextcloud
+        env_file:
+            - ./Nextcloud/db.env
+        networks:
+            - Nextcloud
+
+    nextcloud-web:
+        build: ./Nextcloud/Web
+        container_name: nextcloud-web
+        volumes:
+            - nextcloud-html:/var/www/html:ro
+        networks:
+            - ReverseProxy
+            - Nextcloud
+        depends_on:
+            - nextcloud
+
 networks:
     ReverseProxy:
     Gitea:
     HomepageWp:
+    Nextcloud:
 
 volumes:
     gitea:
@@ -143,3 +191,5 @@ volumes:
     gitea-db:
         driver: local
     homepage-wp-db:
+    nextcloud-html:
+    nextcloud-db:
