@@ -19,23 +19,23 @@ services:
 
             # SSL
             ## jeanclaudgraf.ch
-            - /docker-volumes/etc/letsencrypt/live/www.jeanclaudegraf.ch/fullchain.pem:/etc/letsencrypt/live/www.jeanclaudegraf.ch/fullchain.pem
-            - /docker-volumes/etc/letsencrypt/live/www.jeanclaudegraf.ch/privkey.pem:/etc/letsencrypt/live/www.jeanclaudegraf.ch/privkey.pem
+            - ~/CertBotSsl/etc/letsencrypt/live/www.jeanclaudegraf.ch/fullchain.pem:/etc/letsencrypt/live/www.jeanclaudegraf.ch/fullchain.pem
+            - ~/CertBotSsl/etc/letsencrypt/live/www.jeanclaudegraf.ch/privkey.pem:/etc/letsencrypt/live/www.jeanclaudegraf.ch/privkey.pem
 
             ## test.jeanclaudegraf.ch
-            - /docker-volumes/etc/letsencrypt/live/www.test.jeanclaudegraf.ch/fullchain.pem:/etc/letsencrypt/live/www.test.jeanclaudegraf.ch/fullchain.pem
-            - /docker-volumes/etc/letsencrypt/live/www.test.jeanclaudegraf.ch/privkey.pem:/etc/letsencrypt/live/www.test.jeanclaudegraf.ch/privkey.pem
-            - /docker-volumes/etc/letsencrypt/live/test.jeanclaudegraf.ch/fullchain.pem:/etc/letsencrypt/live/test.jeanclaudegraf.ch/fullchain.pem
-            - /docker-volumes/etc/letsencrypt/live/test.jeanclaudegraf.ch/privkey.pem:/etc/letsencrypt/live/test.jeanclaudegraf.ch/privkey.pem
+            - ~/CertBotSsl/etc/letsencrypt/live/test.jeanclaudegraf.ch/fullchain.pem:/etc/letsencrypt/live/test.jeanclaudegraf.ch/fullchain.pem
+            - ~/CertBotSsl/etc/letsencrypt/live/test.jeanclaudegraf.ch/privkey.pem:/etc/letsencrypt/live/test.jeanclaudegraf.ch/privkey.pem
 
             ## git.jeanclaudegraf.ch
-            - /docker-volumes/etc/letsencrypt/live/www.git.jeanclaudegraf.ch/fullchain.pem:/etc/letsencrypt/live/www.git.jeanclaudegraf.ch/fullchain.pem
-            - /docker-volumes/etc/letsencrypt/live/www.git.jeanclaudegraf.ch/privkey.pem:/etc/letsencrypt/live/www.git.jeanclaudegraf.ch/privkey.pem
-            - /docker-volumes/etc/letsencrypt/live/git.jeanclaudegraf.ch/fullchain.pem:/etc/letsencrypt/live/git.jeanclaudegraf.ch/fullchain.pem
-            - /docker-volumes/etc/letsencrypt/live/git.jeanclaudegraf.ch/privkey.pem:/etc/letsencrypt/live/git.jeanclaudegraf.ch/privkey.pem
+            - ~/CertBotSsl/etc/letsencrypt/live/git.jeanclaudegraf.ch/fullchain.pem:/etc/letsencrypt/live/git.jeanclaudegraf.ch/fullchain.pem
+            - ~/CertBotSsl/etc/letsencrypt/live/git.jeanclaudegraf.ch/privkey.pem:/etc/letsencrypt/live/git.jeanclaudegraf.ch/privkey.pem
+
+            ## nc.jeanclaudegraf.ch
+            - ~/CertBotSsl/etc/letsencrypt/live/nc.jeanclaudegraf.ch/fullchain.pem:/etc/letsencrypt/live/nc.jeanclaudegraf.ch/fullchain.pem
+            - ~/CertBotSsl/etc/letsencrypt/live/nc.jeanclaudegraf.ch/privkey.pem:/etc/letsencrypt/live/nc.jeanclaudegraf.ch/privkey.pem
 
            # Cert Bot
-            - /docker-volumes/data/letsencrypt:/data/letsencrypt
+            - ~/CertBotSsl/data/letsencrypt:/data/letsencrypt
 
         ports:
             - 80:80
