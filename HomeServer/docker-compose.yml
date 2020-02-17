@@ -111,6 +111,8 @@ services:
             - ./Homepage/wp.env
         ports:
             - 8000:80
+        volumes:
+            - ./Homepage/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
         networks:
             - ReverseProxy
             - HomepageWp
