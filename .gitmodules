@@ -1,0 +1,18 @@
+[submodule "vim/bundle/vim-pandoc-syntax"]
+	path = vim/bundle/vim-pandoc-syntax
+	url = https://github.com/vim-pandoc/vim-pandoc-syntax.git
+[submodule "vim/bundle/vim-pandoc"]
+	path = vim/bundle/vim-pandoc
+	url = https://github.com/vim-pandoc/vim-pandoc
+[submodule "vim/bundle/bundle/vim-latex-live-preview"]
+	path = vim/bundle/bundle/vim-latex-live-preview
+	url = https://github.com/xuhdev/vim-latex-live-preview.git
+[submodule "vim/bundle/tabular"]
+	path = vim/bundle/tabular
+	url = git://github.com/godlygeek/tabular.git
+[submodule "vim/bundle/i3config.vim"]
+	path = vim/bundle/i3config.vim
+	url = https://github.com/mboughaba/i3config.vim
+[submodule "vim/bundle/Colorizer"]
+	path = vim/bundle/Colorizer
+	url = https://github.com/chrisbra/Colorizer.git
