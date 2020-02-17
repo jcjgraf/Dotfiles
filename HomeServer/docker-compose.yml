@@ -4,6 +4,9 @@ services:
         image: nginx:latest
         container_name: reverseproxy
         volumes:
+            - ./ReverseProxy/conf.d:/etc/nginx/conf.d
+#            - ./ReverseProxy/nginx.conf:/etc/nginx/nginx.conf
+
             # Config
             - ./ReverseProxy/conf.d:/etc/nginx/conf.d
             - ./ReverseProxy/nginx.conf:/etc/nginx/nginx.conf
