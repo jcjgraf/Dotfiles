@@ -65,6 +65,7 @@ linker "$dotfiles/.gitconfig" ~/.gitconfig
 colorizer "$dotfiles/dunst/dunstrc.raw" ~/.config/dunst/dunstrc
 linker "$dotfiles/mpv" ~/.config/mpv
 colorizer "$dotfiles/termite/config.raw" ~/.config/termite/config
+linker "$dotfiles/qutebrowser/config.py" ~/.config/qutebrowser/config.py
 
 ## Mail
 linker "$dotfiles/Mail/mutt" ~/.config/mutt
