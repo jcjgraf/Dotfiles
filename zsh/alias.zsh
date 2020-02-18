@@ -1,4 +1,4 @@
-alias l='ls -la'
+alias l='ls -lah'
 alias c='clear'
 alias o='xdg-open'
 alias copy='xclip'
