@@ -6,26 +6,26 @@
 [alias]
 
 	# NEW.
-	new = "!f() { git commit -m \"📦 NEW: $@\"; }; f"
+	new = "!f() { git commit -m \"NEW: $@\"; }; f"
 	# IMPROVE.
-	imp = "!f() { git commit -m \"👌 IMPROVE: $@\"; }; f"
+	imp = "!f() { git commit -m \"IMPROVE: $@\"; }; f"
 	# FIX.
-	fix = "!f() { git commit -m \"🐛 FIX: $@\"; }; f"
+	fix = "!f() { git commit -m \"FIX: $@\"; }; f"
 	# RELEASE.
-	rel = "!f() { git commit -m \"🚀 RELEASE: $@\"; }; f"
+	rel = "!f() { git commit -m \"RELEASE: $@\"; }; f"
 	# DOC.
-	doc = "!f() { git commit -m \"📖 DOC: $@\"; }; f"
+	doc = "!f() { git commit -m \"DOC: $@\"; }; f"
 	# TEST.
-	tes = "!f() { git commit -m \"✅ TEST: $@\"; }; f"
+	tes = "!f() { git commit -m \"TEST: $@\"; }; f"
 	# Cleanup.
-	cle = "!f() { git commit -m \"🧹 CLEANUP: $@\"; }; f"
+	cle = "!f() { git commit -m \"CLEANUP: $@\"; }; f"
 	# Incomplete.
-	inc = "!f() { git commit -m \"🚧 INCOMPLETE: $@\"; }; f"
+	inc = "!f() { git commit -m \"INCOMPLETE: $@\"; }; f"
 	# SOLVE.
-	sol = "!f() { git commit -m \"🧩 SOLVE: $@\"; }; f"
+	sol = "!f() { git commit -m \"SOLVE: $@\"; }; f"
 	# UPDATE.
-	upd = "!f() { git commit -m \"📥 UPDATE: $@\"; }; f"
+	upd = "!f() { git commit -m \"UPDATE: $@\"; }; f"
 	# Add.
-	ad = "!f() { git commit -m \"🖊 ADD: $@\"; }; f"
+	ad = "!f() { git commit -m \"ADD: $@\"; }; f"
 
 	undo = "!f() { git checkout -- .; }; f"
