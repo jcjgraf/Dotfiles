@@ -28,6 +28,8 @@ linker "$dotfiles/zsh/.zshrc" ~/.zshrc
 linker "$dotfiles/zsh/alias.zsh" ~/.oh-my-zsh/custom/alias.zsh
 linker "$dotfiles/zsh/jc.zsh-theme" ~/.oh-my-zsh/custom/themes/jc.zsh-theme
 linker "$dotfiles/.xcolors" ~/.xcolors
+linker "$dotfiles/zsh/.zlogin" ~/.zlogin
+linker "$dotfiles/.xinitrc" ~/.xinitrc
 linker "$dotfiles/.Xresources" ~/.Xresources
 xrdb ~/.Xresources
 linker "$dotfiles/gtk-3.0" ~/.config/gtk-3.0
