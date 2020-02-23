@@ -46,6 +46,7 @@ linker "$dotfiles/Scripts/lock.sh" ~/bin/lock.sh
 linker "$dotfiles/Scripts/battery.sh" ~/bin/battery.sh
 linker "$dotfiles/Scripts/mailChecker.sh" ~/bin/mailChecker.sh
 linker "$dotfiles/Scripts/monitor.sh" ~/bin/monitor.sh
+linker "$dotfiles/Scripts/screenRotation.sh" ~/bin/screenRotation.sh
 
 ## WM
 linker "$dotfiles/wm/i3" ~/.config/i3
