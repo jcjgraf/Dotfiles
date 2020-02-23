@@ -19,3 +19,6 @@
 [submodule "vim/bundle/vim-DetectSpellLang"]
 	path = vim/bundle/vim-DetectSpellLang
 	url = https://github.com/Konfekt/vim-DetectSpellLang.git
+[submodule "vim/bundle/vim-inkscape-insert"]
+	path = vim/bundle/vim-inkscape-insert
+	url = https://github.com/silverbulletmdc/vim-inkscape-insert
