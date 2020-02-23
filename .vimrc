@@ -85,3 +85,15 @@ fun! TrimWhitespace()
 endfun
 command! TrimWhitespace call TrimWhitespace()
 :noremap <Leader>w :call TrimWhitespace()<CR>
+
+"" Spell correction
+" Enable for some default programs
+augroup enableSpell
+    autocmd!
+    autocmd FileType gitcommit setlocal spell
+    autocmd FileType markdown setlocal spell
+    autocmd BufRead /tmp/neomutt-* setlocal spell
+augroup END
+" Use vim-DetectSpellLang to detect language
+let g:detectspelllang_langs = {}
+let g:detectspelllang_langs.aspell = [ 'en_GB', 'de_CH' ]

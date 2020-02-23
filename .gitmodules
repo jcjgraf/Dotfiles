@@ -16,3 +16,6 @@
 [submodule "vim/bundle/Colorizer"]
 	path = vim/bundle/Colorizer
 	url = https://github.com/chrisbra/Colorizer.git
+[submodule "vim/bundle/vim-DetectSpellLang"]
+	path = vim/bundle/vim-DetectSpellLang
+	url = https://github.com/Konfekt/vim-DetectSpellLang.git
