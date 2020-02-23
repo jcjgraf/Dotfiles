@@ -2,7 +2,11 @@
 # Monitor controller
 
 usage() {
-    echo "Usage: $0 -h -s -m" 1>&2; exit 1;
+    echo "Usage: $0 \n
+        -h help\n
+        -s built-in monitor only\n
+        -e external monitor only\n
+        -m multi monitor" 1>&2; exit 1;
 }
 
 # No flags passed
@@ -12,12 +16,16 @@ then
 fi
 
 # Flags passed
-while getopts 'hsm' flag
+while getopts 'hsme' flag
 do
     case "${flag}" in
         s)
-            # Single monitor
+            # Single monitor built-in
             xrandr --output eDP-1 --primary --mode 3840x2160 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output DP-2 --off
+            ;;
+        e)
+            # Single monitor external
+            xrandr --output eDP-1 --off  --output DP-1 --off --output HDMI-1 --primary --mode 1920x1080 --scale 2.5x2.5 --rotate normal --output DP-2 --off
             ;;
         m)
             # Multiple monitor
