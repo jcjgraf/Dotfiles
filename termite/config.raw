@@ -55,7 +55,7 @@ background          = %colorbg%
 # Black, Gray, Silver, White
 color0  = %color0%
 color8  = %color8%
-color7  = %color7%
+color7  = %color15%
 color15 = %color15%
 
 # Red
@@ -83,12 +83,12 @@ color6  = %color6%
 color14 = %color14%
 
 # Extra colors
-color16 = #f99157
-color17 = #d27b53
-color18 = #393939
-color19 = #515151
-color20 = #a09f93
-color21 = #e8e6df
+#color16 = #f99157
+#color17 = #d27b53
+#color18 = #393939
+#color19 = #515151
+#color20 = #a09f93
+#color21 = #e8e6df
 
 [hints]
 #font = Monospace 12

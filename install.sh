@@ -28,6 +28,8 @@ linker "$dotfiles/zsh/.zshrc" ~/.zshrc
 linker "$dotfiles/zsh/alias.zsh" ~/.oh-my-zsh/custom/alias.zsh
 linker "$dotfiles/zsh/jc.zsh-theme" ~/.oh-my-zsh/custom/themes/jc.zsh-theme
 linker "$dotfiles/.xcolors" ~/.xcolors
+linker "$dotfiles/zsh/.zlogin" ~/.zlogin
+linker "$dotfiles/.xinitrc" ~/.xinitrc
 linker "$dotfiles/.Xresources" ~/.Xresources
 xrdb ~/.Xresources
 linker "$dotfiles/gtk-3.0" ~/.config/gtk-3.0
@@ -44,6 +46,7 @@ linker "$dotfiles/Scripts/lock.sh" ~/bin/lock.sh
 linker "$dotfiles/Scripts/battery.sh" ~/bin/battery.sh
 linker "$dotfiles/Scripts/mailChecker.sh" ~/bin/mailChecker.sh
 linker "$dotfiles/Scripts/monitor.sh" ~/bin/monitor.sh
+linker "$dotfiles/Scripts/screenRotation.sh" ~/bin/screenRotation.sh
 
 ## WM
 linker "$dotfiles/wm/i3" ~/.config/i3
@@ -65,6 +68,7 @@ linker "$dotfiles/.gitconfig" ~/.gitconfig
 colorizer "$dotfiles/dunst/dunstrc.raw" ~/.config/dunst/dunstrc
 linker "$dotfiles/mpv" ~/.config/mpv
 colorizer "$dotfiles/termite/config.raw" ~/.config/termite/config
+linker "$dotfiles/qutebrowser/config.py" ~/.config/qutebrowser/config.py
 
 ## Mail
 linker "$dotfiles/Mail/mutt" ~/.config/mutt
