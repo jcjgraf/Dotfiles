@@ -166,9 +166,6 @@ bindsym $mod+shift+x exec --no-startup-id sleep 1 && ~/bin/lock.sh
 ## Wallpaper
 exec_always --no-startup-id feh --bg-scale ~/.config/feh/bg.jpg
 
-## Map Pen and Touch to Touchscreen
-exec --no-startup-id $DOTFILES/Scripts/penMap.sh
-
 exec --no-startup-id nm-applet
 exec --no-startup-id picom -f
 exec --no-startup-id redshift
