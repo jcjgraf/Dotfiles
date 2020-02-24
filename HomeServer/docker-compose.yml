@@ -114,6 +114,7 @@ services:
         ports:
             - 8000:80
         volumes:
+            - homepage-wp-html:/var/www/html
             - ./Homepage/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
         networks:
             - ReverseProxy
@@ -190,6 +191,7 @@ volumes:
         driver: local
     gitea-db:
         driver: local
+    homepage-wp-html:
     homepage-wp-db:
     nextcloud-html:
     nextcloud-db:
