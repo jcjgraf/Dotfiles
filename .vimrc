@@ -1,4 +1,3 @@
-syntax enable           " enable syntax processing
 set t_Co=256            " enable 256 colors
 
 "" Tabs and Spaces
@@ -97,3 +96,5 @@ augroup END
 " Use vim-DetectSpellLang to detect language
 let g:detectspelllang_langs = {}
 let g:detectspelllang_langs.aspell = [ 'en_GB', 'de_CH' ]
+
+syntax enable
