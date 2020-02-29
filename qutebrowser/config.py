@@ -1639,6 +1639,7 @@ c.tabs.mousewheel_switching = False
 
 ## Bindings for normal mode
 config.bind(',p', 'spawn --userscript qute-pass --dmenu-invocation dmenu')
+config.bind(',P', 'spawn --userscript qute-pass --dmenu-invocation dmenu --password-only')
 # config.bind("'", 'enter-mode jump_mark')
 # config.bind('+', 'zoom-in')
 # config.bind('-', 'zoom-out')
