@@ -30,7 +30,7 @@ set foldenable          " enable folding
 set foldlevelstart=1    " fold everything at start
 " open/closes folds
 nnoremap <space> za
-set foldmethod=marker   " fold based on indent level
+set foldmethod=syntax   " fold based on syntax
 " Save folds on save and restore automatically when open file
 augroup remember_folds
   autocmd!
@@ -41,6 +41,10 @@ augroup END
 au FileType sh let g:sh_fold_enabled=5
 au FileType sh let g:is_bash=1
 au FileType sh set foldmethod=syntax
+" Python foldings
+au FileType python set foldmethod=indent
+" Markdown folding
+let g:markdown_folding = 1
 
 "" Movement
 " move vertically by visual line
