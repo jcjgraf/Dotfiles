@@ -12,7 +12,8 @@ vim=false
 system=false
 systemd=false
 git=false
-app=true
+app=false
+homeServer=false
 
 linker() {
     # Symlinks file $1 to destination $2
@@ -20,6 +21,17 @@ linker() {
 
     sudo rm -rf "$2" > /dev/null 2>&1
     ln -sf "$1" "$2"
+}
+
+dirContentLinker() {
+    # Symlinks files in $1 to destination $2
+    if [[ -d $1 ]]
+    then
+        for file in ${1}*
+        do
+            ln -sf "$file" "$2"
+        done
+    fi
 }
 
 colorizer() {
@@ -64,7 +76,8 @@ do
             shell=true
             vim=true
             git=true
-        ;;
+            homeServer=true
+            ;;
         h | *)
             usage
             exit 1
@@ -107,6 +120,12 @@ if [[ "$systemd" = true ]]
 then
     sudo bash -c "$(declare -f linker); linker \"$dotfiles/acpi\" '/etc/acpi'" # Run as root
     linker "$dotfiles/systemd" ~/.config/systemd
+fi
+
+if [[ "$homeServer" = true ]]
+then
+    mkdir -p ~/HomeServer
+    dirContentLinker "$dotfiles/HomeServer/" ~/HomeServer
 fi
 
 ## Scripts
