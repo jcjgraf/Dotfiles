@@ -68,10 +68,9 @@ services:
             - DB_HOST=gitea-db:3306
             - DB_NAME=gitea
             - DB_USER=gitea
-            - DB_PASSWD=gitea
             - SSH_DOMAIN=git.jeanclaudegraf.ch
             - DISABLE_REGISTRATION=true
-#            - ROOT_URL=git.jeanclaudegraf.ch
+            - ROOT_URL=https://www.git.jeanclaudegraf.ch
         env_file:
             - ./Gitea/gitea.env
         volumes:
