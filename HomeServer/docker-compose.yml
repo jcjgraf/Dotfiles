@@ -17,23 +17,23 @@ services:
 
             # SSL
             ## jeanclaudgraf.ch
-            - ~/HomeServer/Ssl/etc/letsencrypt/live/www.jeanclaudegraf.ch/fullchain.pem:/etc/letsencrypt/live/www.jeanclaudegraf.ch/fullchain.pem
-            - ~/HomeServer/Ssl/etc/letsencrypt/live/www.jeanclaudegraf.ch/privkey.pem:/etc/letsencrypt/live/www.jeanclaudegraf.ch/privkey.pem
+            - /home/jeanclaude/HomeServer/Ssl/etc/letsencrypt/live/www.jeanclaudegraf.ch/fullchain.pem:/etc/letsencrypt/live/www.jeanclaudegraf.ch/fullchain.pem
+            - /home/jeanclaude/HomeServer/Ssl/etc/letsencrypt/live/www.jeanclaudegraf.ch/privkey.pem:/etc/letsencrypt/live/www.jeanclaudegraf.ch/privkey.pem
 
             ## test.jeanclaudegraf.ch
-            - ~/HomeServer/Ssl/etc/letsencrypt/live/test.jeanclaudegraf.ch/fullchain.pem:/etc/letsencrypt/live/test.jeanclaudegraf.ch/fullchain.pem
-            - ~/HomeServer/Ssl/etc/letsencrypt/live/test.jeanclaudegraf.ch/privkey.pem:/etc/letsencrypt/live/test.jeanclaudegraf.ch/privkey.pem
+            - /home/jeanclaude/HomeServer/Ssl/etc/letsencrypt/live/www.test.jeanclaudegraf.ch/fullchain.pem:/etc/letsencrypt/live/www.test.jeanclaudegraf.ch/fullchain.pem
+            - /home/jeanclaude/HomeServer/Ssl/etc/letsencrypt/live/www.test.jeanclaudegraf.ch/privkey.pem:/etc/letsencrypt/live/www.test.jeanclaudegraf.ch/privkey.pem
 
             ## git.jeanclaudegraf.ch
-            - ~/HomeServer/Ssl/etc/letsencrypt/live/git.jeanclaudegraf.ch/fullchain.pem:/etc/letsencrypt/live/git.jeanclaudegraf.ch/fullchain.pem
-            - ~/HomeServer/Ssl/etc/letsencrypt/live/git.jeanclaudegraf.ch/privkey.pem:/etc/letsencrypt/live/git.jeanclaudegraf.ch/privkey.pem
+            - /home/jeanclaude/HomeServer/Ssl/etc/letsencrypt/live/www.git.jeanclaudegraf.ch/fullchain.pem:/etc/letsencrypt/live/www.git.jeanclaudegraf.ch/fullchain.pem
+            - /home/jeanclaude/HomeServer/Ssl/etc/letsencrypt/live/www.git.jeanclaudegraf.ch/privkey.pem:/etc/letsencrypt/live/www.git.jeanclaudegraf.ch/privkey.pem
 
             ## nc.jeanclaudegraf.ch
-            - ~/HomeServer/Ssl/etc/letsencrypt/live/nc.jeanclaudegraf.ch/fullchain.pem:/etc/letsencrypt/live/nc.jeanclaudegraf.ch/fullchain.pem
-            - ~/HomeServer/Ssl/etc/letsencrypt/live/nc.jeanclaudegraf.ch/privkey.pem:/etc/letsencrypt/live/nc.jeanclaudegraf.ch/privkey.pem
+            - /home/jeanclaude/HomeServer/Ssl/etc/letsencrypt/live/www.nc.jeanclaudegraf.ch/fullchain.pem:/etc/letsencrypt/live/www.nc.jeanclaudegraf.ch/fullchain.pem
+            - /home/jeanclaude/HomeServer/Ssl/etc/letsencrypt/live/www.nc.jeanclaudegraf.ch/privkey.pem:/etc/letsencrypt/live/www.nc.jeanclaudegraf.ch/privkey.pem
 
            # Cert Bot
-            - ~/HomeServer/Ssl/data/letsencrypt:/data/letsencrypt
+            - /home/jeanclaude/HomeServer/Ssl/data/letsencrypt:/data/letsencrypt
 
         ports:
             - 80:80
