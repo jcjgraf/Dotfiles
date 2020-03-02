@@ -56,13 +56,14 @@ do
             vim=true
             system=true
             systemd=true
-            git=false
+            git=true
             app=true
             ;;
         s)
             # Server
             shell=true
             vim=true
+            git=true
         ;;
         h | *)
             usage
