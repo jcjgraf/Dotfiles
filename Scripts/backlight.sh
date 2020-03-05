@@ -6,7 +6,7 @@ sendNotification=false
 currentLevelCache=~/.cache/backlight/level
 backlightDev=/sys/class/backlight/intel_backlight/
 
-declare -a levels=(0 50 100 200 500 1000 2000 3500 5000 7500 10000 15000 20000 24242)
+declare -a levels=(0 50 100 200 500 1000 1500 2000 3500 5000 7500 10000 15000 20000 24242)
 defaultValue=2
 
 getCurrentLevel() {
