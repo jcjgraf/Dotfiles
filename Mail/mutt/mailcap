@@ -1,1 +1,2 @@
 text/html; qutebrowser --target window %s; nametemplate=%s.html; copiousoutput
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; libreoffice %s; copiousoutput;
