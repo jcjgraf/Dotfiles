@@ -43,6 +43,7 @@ au FileType sh let g:is_bash=1
 au FileType sh set foldmethod=syntax
 " Python foldings
 au FileType python set foldmethod=indent
+au FileType yaml set foldmethod=indent
 " Markdown folding
 let g:markdown_folding = 1
 
