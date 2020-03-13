@@ -43,10 +43,6 @@ services:
         networks:
             - ReverseProxy
         restart: always
-        depends_on:
-            - gitea
-            - homepage-wp
-            - nextcloud-web
 
 # Test
     testsite:
