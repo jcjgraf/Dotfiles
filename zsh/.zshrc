@@ -4,7 +4,7 @@ export DOTFILES=~/Dotfiles
 
 ZSH_THEME=""
 CASE_SENSITIVE="true"
-plugins=(git history-substring-search)
+plugins=(git history-substring-search docker docker-compose)
 
 # Source oh-my-zsh, alias and custom theme
 source $ZSH/oh-my-zsh.sh
