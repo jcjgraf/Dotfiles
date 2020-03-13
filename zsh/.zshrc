@@ -13,8 +13,8 @@ source $ZSH/custom/themes/jc.zsh-theme
 
 # History
 HISTFILE=~/.histfile
-HISTSIZE=2000
-SAVEHIST=2000
+HISTSIZE=5000
+SAVEHIST=5000
 
 setopt appendhistory autocd extendedglob nomatch notify
 
