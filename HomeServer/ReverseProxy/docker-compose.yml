@@ -1,0 +1,52 @@
+version: '3.7'
+services:
+    reverseproxy:
+        image: nginx:latest
+        container_name: reverseproxy
+        volumes:
+
+            # Config
+            - ./conf.d:/etc/nginx/conf.d
+            - ./nginx.conf:/etc/nginx/nginx.conf
+            - ./ssl.conf:/etc/nginx/ssl.conf
+            - ./common.conf:/etc/nginx/common.conf
+            - ./common_location.conf:/etc/nginx/common_location.conf
+
+            # DH
+            - ./dh-param/dhparam-2048.pem:/etc/ssl/certs/dhparam-2048.pem
+
+            # SSL
+            ## jeanclaudgraf.ch
+            - /home/jeanclaude/HomeServer/Ssl/etc/letsencrypt/live/www.jeanclaudegraf.ch/fullchain.pem:/etc/letsencrypt/live/www.jeanclaudegraf.ch/fullchain.pem
+            - /home/jeanclaude/HomeServer/Ssl/etc/letsencrypt/live/www.jeanclaudegraf.ch/privkey.pem:/etc/letsencrypt/live/www.jeanclaudegraf.ch/privkey.pem
+
+            ## test.jeanclaudegraf.ch
+            - /home/jeanclaude/HomeServer/Ssl/etc/letsencrypt/live/www.test.jeanclaudegraf.ch/fullchain.pem:/etc/letsencrypt/live/www.test.jeanclaudegraf.ch/fullchain.pem
+            - /home/jeanclaude/HomeServer/Ssl/etc/letsencrypt/live/www.test.jeanclaudegraf.ch/privkey.pem:/etc/letsencrypt/live/www.test.jeanclaudegraf.ch/privkey.pem
+
+            ## git.jeanclaudegraf.ch
+            - /home/jeanclaude/HomeServer/Ssl/etc/letsencrypt/live/www.git.jeanclaudegraf.ch/fullchain.pem:/etc/letsencrypt/live/www.git.jeanclaudegraf.ch/fullchain.pem
+            - /home/jeanclaude/HomeServer/Ssl/etc/letsencrypt/live/www.git.jeanclaudegraf.ch/privkey.pem:/etc/letsencrypt/live/www.git.jeanclaudegraf.ch/privkey.pem
+
+            ## nc.jeanclaudegraf.ch
+            - /home/jeanclaude/HomeServer/Ssl/etc/letsencrypt/live/www.nc.jeanclaudegraf.ch/fullchain.pem:/etc/letsencrypt/live/www.nc.jeanclaudegraf.ch/fullchain.pem
+            - /home/jeanclaude/HomeServer/Ssl/etc/letsencrypt/live/www.nc.jeanclaudegraf.ch/privkey.pem:/etc/letsencrypt/live/www.nc.jeanclaudegraf.ch/privkey.pem
+
+
+            ## drone.jeanclaudegraf.ch
+            - /home/jeanclaude/HomeServer/Ssl/etc/letsencrypt/live/www.drone.jeanclaudegraf.ch/fullchain.pem:/etc/letsencrypt/live/www.drone.jeanclaudegraf.ch/fullchain.pem
+            - /home/jeanclaude/HomeServer/Ssl/etc/letsencrypt/live/www.drone.jeanclaudegraf.ch/privkey.pem:/etc/letsencrypt/live/www.drone.jeanclaudegraf.ch/privkey.pem
+
+           # Cert Bot
+            - /home/jeanclaude/HomeServer/Ssl/data/letsencrypt:/data/letsencrypt
+
+        ports:
+            - 80:80
+            - 443:443
+        networks:
+            - ReverseProxy
+        restart: always
+
+networks:
+    ReverseProxy:
+        name: ReverseProxyNet

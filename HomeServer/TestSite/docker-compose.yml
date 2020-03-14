@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+    testsite:
+        image: httpd:latest
+        container_name: testsite
+        volumes:
+            - ./main.html:/usr/local/apache2/htdocs/index.html
+        networks:
+            - ReverseProxy
+
+networks:
+    ReverseProxy:
+        external:
+            name: ReverseProxyNet

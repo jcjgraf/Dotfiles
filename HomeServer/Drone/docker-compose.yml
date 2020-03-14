@@ -1,0 +1,47 @@
+version: '3.7'
+services:
+    drone:
+        image: drone/drone:latest
+        container_name: drone
+        environment:
+            - DRONE_GIT_ALWAYS_AUTH=true
+            - DRONE_GITEA_SERVER=https://www.git.jeanclaudegraf.ch
+            - DRONE_SERVER_HOST=www.drone.jeanclaudegraf.ch
+            - DRONE_SERVER_PROTO=https
+            - DRONE_TLS_AUTOCERT=false
+        env_file:
+            - ./drone.env
+        volumes:
+            - drone:/data
+            - /var/run/docker.sock:/var/run/docker.sock
+        networks:
+            - ReverseProxy
+            - Drone
+
+    drone-runner:
+        image: drone/drone-runner-docker:latest
+        container_name: drone-runner
+        environment:
+            - DRONE_RPC_HOST=www.drone.jeanclaudegraf.ch
+            - DRONE_RPC_PROTO=https
+            - DRONE_RUNNER_NAME=Drone-Runner
+        env_file:
+            - ./runner.env
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+        networks:
+            - ReverseProxy
+            - Drone
+        depends_on:
+            - drone
+
+networks:
+    ReverseProxy:
+        external:
+            name: ReverseProxyNet
+    Drone:
+
+volumes:
+    drone:
+        external:
+            name: homeserver_drone

@@ -1,0 +1,59 @@
+version: '3.7'
+services:
+    nextcloud:
+        image: nextcloud:fpm-alpine
+        container_name: nextcloud
+        volumes:
+            - nextcloud-html:/var/www/html
+            - /mnt/nc/data:/srv/nextcloud/data
+            - /mnt/nc/presents:/srv/nextcloud/presents
+        environment:
+            - MYSQL_DATABASE=nextcloud
+            - MYSQL_USER=nextcloud
+            - MYSQL_HOST=nextcloud-db
+            - NEXTCLOUD_DATA_DIR=/srv/nextcloud/data
+        env_file:
+            - ./nc.env
+        networks:
+            - Nextcloud
+        depends_on:
+            - nextcloud-db
+
+    nextcloud-db:
+        image: mariadb
+        container_name: nextcloud-db
+        command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
+        volumes:
+            - nextcloud-db:/var/lib/mysql
+        environment:
+            - MYSQL_DATABASE=nextcloud
+            - MYSQL_USER=nextcloud
+        env_file:
+            - ./db.env
+        networks:
+            - Nextcloud
+
+    nextcloud-web:
+        build: ./Web
+        container_name: nextcloud-web
+        volumes:
+            - nextcloud-html:/var/www/html:ro
+        networks:
+            - ReverseProxy
+            - Nextcloud
+        depends_on:
+            - nextcloud
+
+networks:
+    ReverseProxy:
+        external:
+            name: ReverseProxyNet
+    Nextcloud:
+
+volumes:
+    nextcloud-html:
+        external:
+            name: homeserver_nextcloud-html
+    nextcloud-db:
+        external:
+            name: homeserver_nextcloud-db

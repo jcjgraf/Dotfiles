@@ -1,0 +1,47 @@
+version: '3.7'
+services:
+# Wordpress Homepage
+    homepage-wp:
+        image: wordpress:latest
+        container_name: homepage-wp
+        environment:
+            - WORDPRESS_DB_HOST=homepage-wp-db:3306
+            - WORDPRESS_DB_USER=wordpress
+            - WORDPRESS_DB_NAME=wordpress
+        env_file:
+            - ./wp.env
+        volumes:
+            - homepage-wp-html:/var/www/html
+            - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+        networks:
+            - ReverseProxy
+            - HomepageWp
+        depends_on:
+            - homepage-wp-db
+
+    homepage-wp-db:
+        image: mariadb:latest
+        container_name: homepage-wp-db
+        environment:
+            - MYSQL_USER=wordpress
+            - MYSQL_DATABASE=wordpress
+        env_file:
+            - ./db.env
+        volumes:
+            - homepage-wp-db:/var/lib/mysql
+        networks:
+            - HomepageWp
+
+networks:
+    ReverseProxy:
+        external:
+            name: ReverseProxyNet
+    HomepageWp:
+
+volumes:
+    homepage-wp-html:
+        external:
+            name: homeserver_homepage-wp-html
+    homepage-wp-db:
+        external:
+            name: homeserver_homepage-wp-db

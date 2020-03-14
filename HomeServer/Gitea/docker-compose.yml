@@ -1,0 +1,56 @@
+version: '3.7'
+services:
+    gitea:
+        image: gitea/gitea:1.11.0
+        container_name: gitea
+        environment:
+            - USER_UID=1000
+            - USER_GID=1000
+            - DB_TYPE=mysql
+            - DB_HOST=gitea-db:3306
+            - DB_NAME=gitea
+            - DB_USER=gitea
+            - SSH_DOMAIN=git.jeanclaudegraf.ch:2222
+            - DISABLE_REGISTRATION=true
+            - ROOT_URL=https://www.git.jeanclaudegraf.ch
+        env_file:
+            - ./gitea.env
+        volumes:
+            - gitea:/data
+            - /etc/timezone:/etc/timezone:ro
+            - /etc/localtime:/etc/localtime:ro
+        ports:
+            - "2222:22"
+        networks:
+            - ReverseProxy
+            - Gitea
+        depends_on:
+            - gitea-db
+
+    gitea-db:
+        image: mysql:5.7
+        container_name: gitea-db
+        environment:
+            - MYSQL_USER=gitea
+            - MYSQL_DATABASE=gitea
+        env_file:
+            - ./db.env
+        volumes:
+            - gitea-db:/var/lib/mysql
+        command: --disable-partition-engine-check
+        networks:
+             - Gitea
+
+networks:
+    ReverseProxy:
+        external:
+            name: ReverseProxyNet
+    Gitea:
+
+volumes:
+    gitea:
+        external:
+            name: homeserver_gitea
+    gitea-db:
+        external:
+            name: homeserver_gitea-db
