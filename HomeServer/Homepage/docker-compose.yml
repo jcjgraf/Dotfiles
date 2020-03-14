@@ -1,6 +1,5 @@
 version: '3.7'
 services:
-# Wordpress Homepage
     homepage-wp:
         image: wordpress:latest
         container_name: homepage-wp
