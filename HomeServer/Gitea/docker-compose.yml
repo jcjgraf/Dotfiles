@@ -19,6 +19,7 @@ services:
             - gitea:/data
             - /etc/timezone:/etc/timezone:ro
             - /etc/localtime:/etc/localtime:ro
+            - ./Labels:/data/gitea/options/label/Labels
         ports:
             - "2222:22"
         networks:

@@ -1,0 +1,7 @@
+#fcaeae High ; High priority
+#aeaefc Medium ; Medium priority
+#aefcae Low ; Low priority
+#fcd2ae Bug ; Needs to be fixed
+#fcfcae ToDo ; Needs to be done
+#62fcaf WIP ; Work in progress
+#aeccfc Suggestion ; Something to consider
