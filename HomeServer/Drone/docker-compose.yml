@@ -43,5 +43,3 @@ networks:
 
 volumes:
     drone:
-        external:
-            name: homeserver_drone
