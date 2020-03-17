@@ -1,6 +1,7 @@
 [user]
 	name = Jean-Claude Graf
 	email = mail@jeanclaudegraf.ch
+	signingKey = 97630B418054C368DFBB3B498A300F57CBB9F63E
 [core]
 	editor = vim
 [alias]
@@ -29,3 +30,5 @@
 	ad = "!f() { git commit -m \"ADD: $@\"; }; f"
 
 	undo = "!f() { git checkout -- .; }; f"
+[commit]
+	gpgSign = true
