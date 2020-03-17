@@ -127,7 +127,7 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 ## Moving workspaces between screens
-bindsym $mod+u move workspace to output left
+bindsym $mod+u move workspace to output up
 bindsym $mod+i move workspace to output right
 
 # Resize
