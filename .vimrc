@@ -1,3 +1,6 @@
+syntax enable
+filetype plugin indent on
+
 set t_Co=256            " enable 256 colors
 
 "" Tabs and Spaces
@@ -5,6 +8,7 @@ set tabstop=4       " number of visual spaces per TAB
 set softtabstop=4   " number of spaces in tab when editing
 set expandtab       " tabs are spaces
 set shiftwidth=4    " number of spaced per shift
+autocmd FileType yaml,yml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 "" UI Visuals
 set number              " show line numbers
@@ -105,5 +109,3 @@ augroup END
 " Use vim-DetectSpellLang to detect language
 let g:detectspelllang_langs = {}
 let g:detectspelllang_langs.aspell = [ 'en_GB', 'de_CH' ]
-
-syntax enable
