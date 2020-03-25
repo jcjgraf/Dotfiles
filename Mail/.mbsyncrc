@@ -51,3 +51,33 @@ Create Both
 SyncState *
 MaxMessages 0
 ExpireUnread no
+
+## jegraf@student.ethz.ch 
+IMAPStore jegraf@student.ethz.ch-remote
+#IMAPAccount jegraf@student.ethz.ch
+Host mail.ethz.ch 
+Port 993 
+#User jegraf@student.ethz.ch
+User jegraf@ethz.ch
+PassCmd "pass Mail/jegraf@student.ethz.ch"
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+#IMAPStore jegraf@student.ethz.ch-remote
+#Account jegraf@student.ethz.ch
+
+MaildirStore jegraf@student.ethz.ch-local
+Subfolders Verbatim
+Path ~/.local/share/mail/jegraf@student.ethz.ch/
+Inbox ~/.local/share/mail/jegraf@student.ethz.ch/INBOX
+Flatten .
+
+Channel jegraf@student.ethz.ch
+Expunge Both
+Master :jegraf@student.ethz.ch-remote:
+Slave :jegraf@student.ethz.ch-local:
+Patterns * !"Inbox"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
