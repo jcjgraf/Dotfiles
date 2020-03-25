@@ -35,3 +35,7 @@ export VISUAL=vim
 export EDITOR=vim
 
 export TERM=xterm-color
+
+# NPM
+NPM_PACKAGES=
+export PATH="$PATH:${HOME}/.npm-packages/bin"
