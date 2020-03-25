@@ -116,6 +116,8 @@ createBackup() {
 
     echo "Backup Start"
 
+    "$(loadFromCache)"
+
     # Check if drive connected
     isDriveConnected
     local ret=$?
@@ -128,6 +130,19 @@ createBackup() {
     fi
 
     # Mount drive
+    
+    # Create mounting dir
+    candiatePath="/mnt/$( date +%s )"
+    while [[ -d $candidatePath ]]
+    do
+        candiatePath="/mnt/$( date +%s )"
+    done
+
+    mkdir $candidatePath
+
+    sudo mount --uuid $uuid $candidatePath
+
+    echo "Mount $uuid successful"
 
     # Start backup
 
