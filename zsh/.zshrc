@@ -2,6 +2,10 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export ZSH=~/.oh-my-zsh
 export DOTFILES=~/Dotfiles
 
+# Required that GPG works on SSH
+export GPG_TTY=$(tty)
+stty sane
+
 ZSH_THEME=""
 CASE_SENSITIVE="true"
 plugins=(git history-substring-search docker docker-compose)
