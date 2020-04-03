@@ -39,3 +39,6 @@ export TERM=xterm-color
 # NPM
 NPM_PACKAGES=
 export PATH="$PATH:${HOME}/.npm-packages/bin"
+
+#
+export PATH="$PATH:${HOME}/.local/bin"
