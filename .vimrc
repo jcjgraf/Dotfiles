@@ -1,3 +1,36 @@
+set nocompatible
+filetype off
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+
+" Colorize color values
+Plugin 'chrisbra/Colorizer'
+
+" Pandoc base and syntax
+Plugin 'vim-pandoc/vim-pandoc'
+Plugin 'vim-pandoc/vim-pandoc-syntax'
+
+" Inkscape integration
+Plugin 'silverbulletmdc/vim-inkscape-insert'
+
+" i3 syntax
+Plugin 'mboughaba/i3config.vim'
+
+" Latex liveview
+Plugin 'xuhdev/vim-latex-live-preview'
+
+call vundle#end()
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+
 syntax enable
 filetype plugin indent on
 
