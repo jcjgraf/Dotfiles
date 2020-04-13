@@ -23,6 +23,8 @@ Plugin 'mboughaba/i3config.vim'
 " Latex liveview
 Plugin 'xuhdev/vim-latex-live-preview'
 
+Plugin 'ctrlpvim/ctrlp.vim'
+
 call vundle#end()
 "
 " Brief help
@@ -122,7 +124,7 @@ command! -nargs=* RunSilent
 nmap <Leader>pc :RunSilent pandoc -o /tmp/vim-pandoc-out.pdf %<CR>
 nmap <Leader>pp :RunSilent xdg-open /tmp/vim-pandoc-out.pdf<CR>
 
-"" Remove Trailing Spaces by calling `TimWhitespaces` or using a shortcut
+"" Remove Trailing Spaces by calling `TrimWhitespaces` or using a shortcut
 fun! TrimWhitespace()
     let l:save = winsaveview()
     keeppatterns %s/\s\+$//e
@@ -139,6 +141,3 @@ augroup enableSpell
     autocmd FileType markdown setlocal spell
     autocmd BufRead /tmp/neomutt-* setlocal spell
 augroup END
-" Use vim-DetectSpellLang to detect language
-let g:detectspelllang_langs = {}
-let g:detectspelllang_langs.aspell = [ 'en_GB', 'de_CH' ]
