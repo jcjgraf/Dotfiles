@@ -29,6 +29,9 @@ Plugin 'ctrlpvim/ctrlp.vim'
 " Align text
 Plugin 'godlygeek/tabular'
 
+" File tree
+Plugin 'preservim/nerdtree'
+
 call vundle#end()
 "
 " Brief help
@@ -164,3 +167,30 @@ function! s:align()
     call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
   endif
 endfunction
+
+" Search for selected text, forwards or backwards.
+vnoremap <silent> * :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy/<C-R>=&ic?'\c':'\C'<CR><C-R><C-R>=substitute(
+  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gVzv:call setreg('"', old_reg, old_regtype)<CR>
+vnoremap <silent> # :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy?<C-R>=&ic?'\c':'\C'<CR><C-R><C-R>=substitute(
+  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gVzv:call setreg('"', old_reg, old_regtype)<CR>
+
+"" Nerdtree
+" Open a NerdTree if no file is given as CLI argument
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Toggle nerdtree
+nnoremap <Leader>f :NERDTreeToggle<Enter>
+
+" Close nerdtree after opening a file
+let NERDTreeQuitOnOpen = 1
+
+" Disable help message at top
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
