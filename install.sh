@@ -109,7 +109,7 @@ then
 fi
 
 ### System Configs
-if [[ "$sytem" = true ]]
+if [[ "$system" = true ]]
 then
     linker "$dotfiles/fontconfig" ~/.config/fontconfig
     linker "$dotfiles/mimeapps.list" ~/.config/mimeapps.list
