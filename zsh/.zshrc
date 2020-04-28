@@ -30,10 +30,10 @@ autoload -Uz compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
 
 # Custom Export
 export eth=~/Documents/Studies/Eth/Semester2/
-export pp=$eth/ParalelleProgrammierung/
-export ana=$eth/AnalysisI/
-export aw=$eth/AlgorithmenUndWahrscheinlichkeiten/
-export dd=$eth/DigitalDesignAndComputerArchitectures/
+export pp=${eth}ParalelleProgrammierung/
+export ana=${eth}AnalysisI/
+export aw=${eth}AlgorithmenUndWahrscheinlichkeiten/
+export dd=${eth}DigitalDesignAndComputerArchitectures/
 
 export VISUAL=vim
 export EDITOR=vim
