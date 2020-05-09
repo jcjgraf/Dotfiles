@@ -34,6 +34,7 @@ export pp=${eth}ParalelleProgrammierung/
 export ana=${eth}AnalysisI/
 export aw=${eth}AlgorithmenUndWahrscheinlichkeiten/
 export dd=${eth}DigitalDesignAndComputerArchitectures/
+export gt=${eth}GameTheory/
 
 export VISUAL=vim
 export EDITOR=vim
