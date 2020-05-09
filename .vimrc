@@ -149,6 +149,9 @@ augroup enableSpell
     autocmd BufRead /tmp/neomutt-* setlocal spell
 augroup END
 
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
+
 "" CtrlP Config
 " Search directory will be set to nearest anchestor og .git and cwd
 let g:ctrlp_working_path_mode = 'ra'
