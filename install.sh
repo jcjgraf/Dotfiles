@@ -18,7 +18,7 @@ homeServer=false
 linker() {
     # Symlinks file $1 to destination $2
     ## Caution: destination $2 gets removed!
-
+	echo "Link {$1} to {$2}"
     sudo rm -rf "$2" > /dev/null 2>&1
     ln -sf "$1" "$2"
 }
@@ -29,6 +29,7 @@ dirContentLinker() {
     then
         for file in ${1}*
         do
+    	echo "Link {$file} to {$2}"
             ln -sf "$file" "$2"
         done
     fi
@@ -154,13 +155,12 @@ fi
 ### VIM
 if [[ "$vim" = true ]]
 then
-    mkdir -p ~/.vim/undo/ ~/.vim/backup/ ~/.vim/swap/
-    mkdir -p ~/.vim/autoload
-    linker "$dotfiles/.vimrc" ~/.vimrc
-    curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-    linker "$dotfiles/vim/bundle" ~/.vim/bundle
-    git submodule update --init
-    git submodule foreach git pull origin master
+    #mkdir -p ~/.vim/undo/ ~/.vim/backup/ ~/.vim/swap/
+    mkdir -p ~/.config/nvim/autoload
+    linker "$dotfiles/Vim/init.vim" ~/.config/nvim/init.vim
+    linker "$dotfiles/Vim/General" ~/.config/nvim/General
+    linker "$dotfiles/Vim/PluginConfig" ~/.config/nvim/PluginConfig
+    linker "$dotfiles/Vim/autoload" ~/.config/nvim/autoload
 fi
 
 ### Git
