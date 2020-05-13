@@ -1,4 +1,3 @@
-vim/bundle
-!vim/bundle/Vundle.vim
 *.env
 *.pem
+Vim/autoload/plug.vim
