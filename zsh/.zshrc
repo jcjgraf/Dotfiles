@@ -36,8 +36,8 @@ export aw=${eth}AlgorithmenUndWahrscheinlichkeiten/
 export dd=${eth}DigitalDesignAndComputerArchitectures/
 export gt=${eth}GameTheory/
 
-export VISUAL=vim
-export EDITOR=vim
+export VISUAL=nvim
+export EDITOR=nvim
 
 export TERM=xterm-color
 
