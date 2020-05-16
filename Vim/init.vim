@@ -3,6 +3,7 @@
 source ~/.config/nvim/General/plugins.vim
 source ~/.config/nvim/General/settings.vim
 source ~/.config/nvim/General/mappings.vim
+source ~/.config/nvim/General/status.vim
 
 " Plugins
 source ~/.config/nvim/PluginConfig/ctrlp.vim
