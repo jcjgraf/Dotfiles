@@ -1,4 +1,5 @@
 hi StatusLine ctermbg=15 ctermfg=8
+hi StatusLineNC ctermbg=15 ctermfg=8
 
 hi User1 ctermbg=1 ctermfg=15
 hi User2 ctermbg=2 ctermfg=15
