@@ -4,6 +4,7 @@ source ~/.config/nvim/General/plugins.vim
 source ~/.config/nvim/General/settings.vim
 source ~/.config/nvim/General/mappings.vim
 source ~/.config/nvim/General/style.vim
+source ~/.config/nvim/General/specific.vim
 
 " Plugins
 source ~/.config/nvim/PluginConfig/ctrlp.vim

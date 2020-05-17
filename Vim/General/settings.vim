@@ -27,6 +27,7 @@ set cmdheight=2                             " Always display the cmd
 set updatetime=300                          " Shorter updatetime for shorter delay
 set guicursor=                              " Disable cursor chaning to a pipe in inset
 set scrolloff=3                             " Keep 3 lines below and above the cursor
+set foldmethod=manual                       " Manual fold as default, overwrite for specific types
 
 " Save folds on save and restore automatically when open file
 augroup remember_folds
@@ -35,25 +36,6 @@ augroup remember_folds
   autocmd BufWinEnter * silent! loadview
 augroup END
 
-" Shell foldings
-au FileType sh let g:sh_fold_enabled=5
-au FileType sh let g:is_bash=1
-au FileType sh set foldmethod=syntax
-" Python foldings
-au FileType python set foldmethod=indent
-au FileType yaml set foldmethod=indent
-" Markdown folding
-let g:markdown_folding = 1
-
-
-"" Spell correction
-" Enable for some default programs
-augroup enableSpell
-    autocmd!
-    autocmd FileType gitcommit setlocal spell
-    autocmd FileType markdown setlocal spell
-    autocmd BufRead /tmp/neomutt-* setlocal spell
-augroup END
 
 "" Ignore files for nerdtree and ctrlp
 set wildignore+=*/.git/*,*/node_modules/*,*/__pycache__/,*/env/*,*/.log,*/.aux,*/.cls,*/.aux,*/.bbl,*/.blg,*/.fls,*/.fdb*/,*/.toc,*/.out,*/.glo,*/.log,*/.ist,*/.fdb_latexmk
