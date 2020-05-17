@@ -26,6 +26,7 @@ set shortmess+=c                            " Don't pass messages to |ins-comple
 set cmdheight=2                             " Always display the cmd
 set updatetime=300                          " Shorter updatetime for shorter delay
 set guicursor=                              " Disable cursor chaning to a pipe in inset
+set scrolloff=3                             " Keep 3 lines below and above the cursor
 
 " Save folds on save and restore automatically when open file
 augroup remember_folds

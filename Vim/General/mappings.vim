@@ -30,9 +30,6 @@ nmap <leader>m :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<CR>
 " turn off search highlighting
 nnoremap <leader><space> :nohlsearch<CR>
 
-" open/closes folds
-nnoremap <space> za
-
 " highlight last inserted text
 nnoremap gV `[v`]
 
