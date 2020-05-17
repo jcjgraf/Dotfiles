@@ -10,6 +10,7 @@ hi User6 ctermbg=6 ctermfg=15
 hi User7 ctermbg=7 ctermfg=15
 hi User8 ctermbg=8 ctermfg=4
 
+"" Statusline
 let g:currentMode = {
       \ 'n':	    'Normal',
       \ 'no':	    'Operator Pending',
@@ -39,3 +40,9 @@ set statusline+=%=                                               " Begin rightal
 set statusline+=\ %Y                                             " Type of file in buffer
 set statusline+=\ %(%3l:%-3c%)                                   " Line nr and column nr
 set statusline+=\ %(%3p%%%)\                                     " Percentage in file
+
+"" Floating Windows
+" Normal item
+hi Pmenu ctermbg=8 ctermfg=15
+" Selected item
+hi PmenuSel ctermbg=8 ctermfg=1
