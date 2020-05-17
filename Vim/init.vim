@@ -11,4 +11,5 @@ source ~/.config/nvim/PluginConfig/ctrlp.vim
 source ~/.config/nvim/PluginConfig/tabular.vim
 source ~/.config/nvim/PluginConfig/nerdtree.vim
 source ~/.config/nvim/PluginConfig/colorizer.vim
+source ~/.config/nvim/PluginConfig/coc.vim
 
