@@ -2,3 +2,4 @@ vim/bundle
 !vim/bundle/Vundle.vim
 *.env
 *.pem
+HomeServer/Turn/turnserver.conf
