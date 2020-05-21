@@ -1,5 +1,5 @@
 " Toggle nerdtree
-nnoremap <Leader>f :NERDTreeToggle<Enter>
+nnoremap <Leader>t :NERDTreeToggle<Enter>
 
 " Close nerdtree after opening a file
 let NERDTreeQuitOnOpen = 1
