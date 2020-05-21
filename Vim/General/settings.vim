@@ -30,12 +30,11 @@ set scrolloff=3                             " Keep 3 lines below and above the c
 set foldmethod=manual                       " Manual fold as default, overwrite for specific types
 
 " Save folds on save and restore automatically when open file
-augroup remember_folds
-  autocmd!
-  autocmd BufWinLeave * mkview
-  autocmd BufWinEnter * silent! loadview
-augroup END
-
+"augroup remember_folds
+"  autocmd!
+"  autocmd BufWinLeave * mkview
+"  autocmd BufWinEnter * silent! loadview
+"augroup END
 
 "" Ignore files for nerdtree and ctrlp
 set wildignore+=*/.git/*,*/node_modules/*,*/__pycache__/,*/env/*,*/.log,*/.aux,*/.cls,*/.aux,*/.bbl,*/.blg,*/.fls,*/.fdb*/,*/.toc,*/.out,*/.glo,*/.log,*/.ist,*/.fdb_latexmk

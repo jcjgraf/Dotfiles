@@ -24,14 +24,21 @@ inoremap kj <Esc>
 nmap oo o<Esc>k
 nmap OO O<Esc>j
 
-nmap <leader>t :set expandtab tabstop=4 shiftwidth=4 softtabstop=4<CR>
-nmap <leader>m :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<CR>
+"nmap <leader>t :set expandtab tabstop=4 shiftwidth=4 softtabstop=4<CR>
+"nmap <leader>m :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<CR>
 
 " turn off search highlighting
 nnoremap <leader><space> :nohlsearch<CR>
 
 " highlight last inserted text
 nnoremap gV `[v`]
+
+" Move to errors
+nnoremap <leader>e :lnext<CR>
+nnoremap <leader>E :lprevious<CR>
+
+" Open and close folds
+nnoremap <leader>f zA
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %

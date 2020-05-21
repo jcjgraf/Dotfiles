@@ -1,6 +1,9 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export ZSH=~/.oh-my-zsh
 export DOTFILES=~/Dotfiles
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_DATA_HOME=$HOME/.local/share
 
 # Required that GPG works on SSH
 export GPG_TTY=$(tty)
