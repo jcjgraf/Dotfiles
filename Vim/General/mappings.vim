@@ -14,18 +14,15 @@ cnoremap <C-h> <Left>
 cnoremap <C-j> <Down>
 cnoremap <C-k> <Up>
 cnoremap <C-l> <Right>
-"
+
 " Exit insert mode
 inoremap jj <Esc>
 inoremap jk <Esc>
 inoremap kj <Esc>
-"
+
 " Insert new line without enterint insert
 nmap oo o<Esc>k
 nmap OO O<Esc>j
-
-"nmap <leader>t :set expandtab tabstop=4 shiftwidth=4 softtabstop=4<CR>
-"nmap <leader>m :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<CR>
 
 " turn off search highlighting
 nnoremap <leader><space> :nohlsearch<CR>
@@ -71,4 +68,3 @@ command! -nargs=* RunSilent
       \ | execute ':redraw!'
 nmap <Leader>pc :RunSilent pandoc -o /tmp/vim-pandoc-out.pdf %<CR>
 nmap <Leader>pp :RunSilent xdg-open /tmp/vim-pandoc-out.pdf<CR>
-
