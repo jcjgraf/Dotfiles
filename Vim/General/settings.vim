@@ -28,6 +28,7 @@ set updatetime=300                          " Shorter updatetime for shorter del
 set guicursor=                              " Disable cursor chaning to a pipe in inset
 set scrolloff=3                             " Keep 3 lines below and above the cursor
 set foldmethod=manual                       " Manual fold as default, overwrite for specific types
+set spelllang=en_gb,de_ch                   " Set languageto English and German
 
 " Save folds on save and restore automatically when open file
 "augroup remember_folds

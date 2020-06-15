@@ -21,8 +21,11 @@ Plug 'silverbulletmdc/vim-inkscape-insert'
 " i3 syntax
 Plug 'mboughaba/i3config.vim'
 
-" Latex liveview
-"Plug 'xuhdev/vim-latex-live-preview'
+" Latex Support
+Plug 'lervag/vimtex', {'for': 'tex'}
+
+" Snippets
+Plug 'sirver/ultisnips', {'for': 'tex'}
 
 " Fuzzy File manager
 Plug 'ctrlpvim/ctrlp.vim'

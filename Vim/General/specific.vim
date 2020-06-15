@@ -13,5 +13,6 @@ augroup enableSpell
     autocmd!
     autocmd FileType gitcommit setlocal spell
     autocmd FileType markdown setlocal spell
+    autocmd FileType tex setlocal spell
     autocmd BufRead /tmp/neomutt-* setlocal spell
 augroup END

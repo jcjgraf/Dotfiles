@@ -14,6 +14,7 @@ source ~/.config/nvim/PluginConfig/nerdtree.vim
 source ~/.config/nvim/PluginConfig/colorizer.vim
 source ~/.config/nvim/PluginConfig/vim-jedi.vim
 source ~/.config/nvim/PluginConfig/syntastic.vim
+source ~/.config/nvim/PluginConfig/vimtex.vim
 "source ~/.config/nvim/PluginConfig/coc.vim
 "source ~/.config/nvim/PluginConfig/vim-which-key.vim
 

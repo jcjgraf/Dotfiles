@@ -1,6 +1,7 @@
 "" Leader Shortcuts
 " Change leader to comma
 let mapleader=","
+let maplocalleader=","
 
 " move vertically by visual line
 nnoremap j gj
@@ -68,3 +69,6 @@ command! -nargs=* RunSilent
       \ | execute ':redraw!'
 nmap <Leader>pc :RunSilent pandoc -o /tmp/vim-pandoc-out.pdf %<CR>
 nmap <Leader>pp :RunSilent xdg-open /tmp/vim-pandoc-out.pdf<CR>
+
+" Correctl last spelling
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
