@@ -161,12 +161,14 @@ then
     linker "$dotfiles/Vim/General" ~/.config/nvim/General
     linker "$dotfiles/Vim/PluginConfig" ~/.config/nvim/PluginConfig
     linker "$dotfiles/Vim/autoload" ~/.config/nvim/autoload
+    linker "$dotfiles/Vim/UltiSnips" ~/.config/nvim/UltiSnips
 fi
 
 ### Git
 if [[ "$git" = true ]]
 then
-    linker "$dotfiles/.gitconfig" ~/.gitconfig
+    linker "$dotfiles/Git/.gitconfig" ~/.gitconfig
+    linker "$dotfiles/Git/.gitignore_global" ~/.gitignore_global
 fi
 
 ### Other Applications
@@ -177,6 +179,8 @@ then
     linker "$dotfiles/mpv" ~/.config/mpv
     colorizer "$dotfiles/termite/config.raw" ~/.config/termite/config
     linker "$dotfiles/qutebrowser/config.py" ~/.config/qutebrowser/config.py
+    linker "$dotfiles/Vimiv/vimiv.conf" ~/.config/vimiv/vimiv.conf
+    linker "$dotfiles/Vimiv/keys.conf" ~/.config/vimiv/keys.conf
 fi
 
 ## Mail
