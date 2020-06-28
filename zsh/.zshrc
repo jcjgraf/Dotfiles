@@ -1,4 +1,4 @@
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:/usr/bin/:$PATH
 export ZSH=~/.oh-my-zsh
 export DOTFILES=~/Dotfiles
 export XDG_CONFIG_HOME=$HOME/.config
