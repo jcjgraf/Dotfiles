@@ -37,7 +37,7 @@ set $ws10 "10. "
 
 # window colors
 #                       border      background  text        indicator
-client.focused          $color8     $color8     $color15    $color8
+client.focused          $color8     $color4     $color15    $color8
 client.unfocused        $color8     $color8     $color7     $color8
 client.focused_inactive $color8     $color8     $color7     $color8
 client.urgent           $color1     $color1     $color15    $color8
