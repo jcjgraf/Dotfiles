@@ -1601,7 +1601,14 @@ c.tabs.mousewheel_switching = False
 ## used by prepending the search engine name to the search term, e.g.
 ## `:open google qutebrowser`.
 ## Type: Dict
-# c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
+c.url.searchengines = {'DEFAULT': 'https://searx.jeanclaudegraf.ch/?q={}',
+    'aw': 'https://wiki.archlinux.org/?search={}',
+    'yt': 'https://www.youtube.com/results?search_query={}',
+    'gh': 'https://github.com/search?q={}',
+    'dc': 'https://www.dict.cc/?s={}',
+    'dd': 'https://www.duden.de/suchen/dudenonline/{}',
+    'osm': 'https://www.openstreetmap.org/search?query={}',
+}
 
 ## Page(s) to open at the start.
 ## Type: List of FuzzyUrl, or FuzzyUrl
