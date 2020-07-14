@@ -2,5 +2,5 @@
 *.pem
 Vim/autoload/plug.vim
 HomeServer/Turn/turnserver.conf
-HomeServer/Spreed-Signaling/server.conf
-HomeServer/Spreed-Signaling/.git_orig
+HomeServer/SpreedSignaling/server.conf
+HomeServer/SpreedSignaling/.git_orig
