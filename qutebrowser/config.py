@@ -1608,6 +1608,7 @@ c.url.searchengines = {'DEFAULT': 'https://searx.jeanclaudegraf.ch/?q={}',
     'dc': 'https://www.dict.cc/?s={}',
     'dd': 'https://www.duden.de/suchen/dudenonline/{}',
     'osm': 'https://www.openstreetmap.org/search?query={}',
+    'w': 'https://en.wikipedia.org/wiki/Special:Search?search={}',
 }
 
 ## Page(s) to open at the start.
