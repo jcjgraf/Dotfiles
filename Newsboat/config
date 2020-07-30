@@ -1,0 +1,48 @@
+# General
+auto-reload yes
+datetime-format "%d/%m/%y"
+show-keymap-hint no
+
+# Keybindings
+bind-key j down
+bind-key k up
+
+bind-key g home
+bind-key G end
+bind-key l open
+bind-key h quit
+
+#Header
+feedlist-title-format "%?F?Feeds&Your feeds? (%u unread, %t total)%?F? matching filter `%F'&?%?T? - tag `%T'&?"
+articlelist-title-format "Articles in feed '%T' (%u unread, %t total)%?F? matching filter `%F'&? - %U"
+searchresult-title-format "Search results (%u unread, %t total)%?F? matching filter `%F'&?"
+filebrowser-title-format "%?O?Open File&Save File? - %f"
+dirbrowser-title-format "%?O?Open Directory&Save File? - %f"
+help-title-format "Help"
+selecttag-title-format "Select Tag"
+selectfilter-title-format "Select Filter"
+itemview-title-format "Article '%T' (%u unread, %t total)"
+urlview-title-format "URLs"
+dialogs-title-format "Dialogs"
+
+# Colors
+color listnormal cyan default
+color listnormal_unread green default bold
+color listfocus blue black standout bold
+color listfocus_unread green white standout bold
+color info yellow black bold
+color article white black
+
+# Urls
+browser "qutebrowser --target window %u"
+macro , open-in-browser
+macro v set browser "mpv %u" ; open-in-browser ; set browser "qutebrowser --target window %u"
+
+highlight all "---.*---" yellow
+highlight feedlist ".*(0/0))" black
+#highlight feedlist "<no title>" black
+highlight article "(^Title:.*|^Author:.*)" cyan default bold
+highlight article "(^Feed:.*|^Author:.*)" magenta default bold
+highlight article "(^Date:.*)" blue default
+highlight article "https?://[^ ]+" red default
+highlight article "(^Link:.*)" blue default

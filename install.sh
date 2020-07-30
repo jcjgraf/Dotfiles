@@ -181,6 +181,7 @@ then
     linker "$dotfiles/qutebrowser/config.py" ~/.config/qutebrowser/config.py
     linker "$dotfiles/Vimiv/vimiv.conf" ~/.config/vimiv/vimiv.conf
     linker "$dotfiles/Vimiv/keys.conf" ~/.config/vimiv/keys.conf
+    linker "$dotfiles/Newsboat" ~/.config/newsboat
 fi
 
 ## Mail
