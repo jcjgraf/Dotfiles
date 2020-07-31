@@ -11,6 +11,10 @@ hi User8 ctermbg=8 ctermfg=4
 "" Cursor
 hi CursorLine cterm=NONE ctermbg=8
 
+"" Linenumber
+hi LineNr ctermfg=4
+hi CursorLineNr ctermfg=3
+
 "" Statusline
 let g:currentMode = {
       \ 'n':	    'Normal',

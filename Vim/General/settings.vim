@@ -5,7 +5,7 @@ set softtabstop=4                           " number of spaces in tab when editi
 set expandtab                               " tabs are spaces
 set shiftwidth=4                            " number of spaced per shift
 set smartindent                             " enable smart indentation
-set number                                  " show line numbers
+set number relativenumber                   " show line numbers
 set cursorline                              " Highlight current line
 set wildmenu                                " visual autocomplete for command menu
 set lazyredraw                              " redraw only when we need to.
@@ -39,3 +39,10 @@ set spelllang=en_gb,de_ch                   " Set languageto English and German
 
 "" Ignore files for nerdtree and ctrlp
 set wildignore+=*/.git/*,*/node_modules/*,*/__pycache__/,*/env/*,*/.log,*/.aux,*/.cls,*/.aux,*/.bbl,*/.blg,*/.fls,*/.fdb*/,*/.toc,*/.out,*/.glo,*/.log,*/.ist,*/.fdb_latexmk
+
+" Enable / disable relative linenumbers depending on the mode
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+:augroup END
