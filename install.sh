@@ -192,5 +192,5 @@ then
     linker "$dotfiles/Mail/mutt" ~/.config/mutt
     linker "$dotfiles/Mail/msmtp" ~/.config/msmtp
     linker "$dotfiles/Mail/.mbsyncrc" ~/.mbsyncrc
-    linker "$dotfiles/calcurse" ~/.config/calcurse
+    linker "$dotfiles/Calcurse" ~/.config/calcurse
 fi
