@@ -1,0 +1,43 @@
+[General]
+Binary = calcurse
+Hostname = nc.jeanclaudegraf.ch
+Path = /remote.php/dav/calendars/jeanclaude/personal/
+
+# Type of authentication to use. Must be "basic" or "oauth2"
+#AuthMethod = basic
+
+InsecureSSL = No
+HTTPS = Yes
+
+# This option allows you to filter the types of tasks synced. To this end, the
+# value of this option should be a comma-separated list of item types, where
+# each item type is either "event", "apt", "recur-event", "recur-apt", "todo",
+# "recur" or "cal". Note that the comma-separated list must not contain any
+# spaces. Refer to the documentation of the --filter-type command line argument
+# of calcurse for more details. Set this option to "cal" if the configured
+# CalDAV server doesn't support tasks, such as is the case with Google
+# Calendar.
+SyncFilter = cal,todo
+
+DryRun = No
+Verbose = Yes
+
+[Auth]
+Username = jeanclaude
+
+# Optionally specify additional HTTP headers here.
+#[CustomHeaders]
+#User-Agent = Mac_OS_X/10.9.2 (13C64) CalendarAgent/176
+
+# Use the following to synchronize with an OAuth2-based service
+# such as Google Calendar.
+#[OAuth2]
+#ClientID = your_client_id
+#ClientSecret = your_client_secret
+
+# Scope of access for API calls. Synchronization requires read/write.
+#Scope = https://example.com/resource/scope
+
+# Change the redirect URI if you receive errors, but ensure that it is identical
+# to the redirect URI you specified in the API settings.
+#RedirectURI = http://127.0.0.1

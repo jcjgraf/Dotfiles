@@ -193,4 +193,5 @@ then
     linker "$dotfiles/Mail/msmtp" ~/.config/msmtp
     linker "$dotfiles/Mail/.mbsyncrc" ~/.mbsyncrc
     linker "$dotfiles/Calcurse" ~/.config/calcurse
+    linker "$dotfiles/Scripts/calse" ~/bin/calse
 fi
