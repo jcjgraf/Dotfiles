@@ -144,6 +144,7 @@ then
     sudo bash -c "$(declare -f linker); linker \"$dotfiles/Scripts/backlight.sh\" '/bin/backlight.sh'"
     linker "$dotfiles/Scripts/volume.sh" ~/bin/volume.sh
     sudo bash -c "$(declare -f linker); linker \"$dotfiles/Scripts/volume.sh\" '/bin/volume.sh'"
+    sudo bash -c "$(declare -f linker); linker \"$dotfiles/Scripts/scrotMenu.sh\" '/bin/scrotMenu.sh'"
 fi
 
 ## WM

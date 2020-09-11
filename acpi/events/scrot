@@ -1,0 +1,2 @@
+event=ibm/hotkey LEN0268:00 00000080 00001311
+action=/etc/acpi/handlers/scrot
