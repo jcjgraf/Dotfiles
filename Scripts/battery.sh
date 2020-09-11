@@ -131,31 +131,31 @@ doStatusNotify() {
         then
             if (( $previousPercentage > 75 && $percentage <= 75 ))
             then
-                 ~/bin/notifier -a "batteryChecker" -u low "Battery" "75%"
+                 displayer dunstify -a "batteryChecker" -u low "Battery" "75%"
             elif (( $previousPercentage > 50 && $percentage <= 50 ))
             then
-                 ~/bin/notifier -a "batteryChecker" -u normal "Battery" "50%"
+                 displayer dunstify -a "batteryChecker" -u normal "Battery" "50%"
             elif (( $previousPercentage > 35 && $percentage <= 35 ))
             then
-                 ~/bin/notifier -a "batteryChecker" -u normal "Battery" "35"
+                 displayer dunstify -a "batteryChecker" -u normal "Battery" "35"
             elif (( $previousPercentage > 25 && $percentage <= 25 ))
             then
-                 ~/bin/notifier -a "batteryChecker" -u normal "Low Battery" "25%"
+                 displayer dunstify -a "batteryChecker" -u normal "Low Battery" "25%"
             elif (( $previousPercentage > 20 && $percentage <= 20 ))
             then
-                 ~/bin/notifier -a "batteryChecker" -u normal "Low Battery" "20%"
+                 displayer dunstify -a "batteryChecker" -u normal "Low Battery" "20%"
             elif (( $previousPercentage > 15 && $percentage <= 15 ))
             then
-                 ~/bin/notifier -a "batteryChecker" -u critical "Low Battery" "15%"
+                 displayer dunstify -a "batteryChecker" -u critical "Low Battery" "15%"
             elif (( $previousPercentage > 10 && $percentage <= 10 ))
             then
-                 ~/bin/notifier -a "batteryChecker" -u critical "Critical Battery" "10%"
+                 displayer dunstify -a "batteryChecker" -u critical "Critical Battery" "10%"
             elif (( $previousPercentage > 5 && $percentage <= 5 ))
             then
-                 ~/bin/notifier -a "batteryChecker" -u critical "Critical Battery" "5%"
+                 displayer dunstify -a "batteryChecker" -u critical "Critical Battery" "5%"
             elif (( $previousPercentage > 2 && $percentage <= 2 ))
             then
-                 ~/bin/notifier -a "batteryChecker" -u critical "2%"
+                 displayer dunstify -a "batteryChecker" -u critical "2%"
             fi
         fi
 

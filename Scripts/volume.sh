@@ -37,7 +37,7 @@ sendNotification() {
     fi
     local barRight=$(seq -s "-" 0 $levelDiff | sed 's/[0-9]//g')
 
-    notifier -a "changeVolume" -u low -r "38462528" " ${barLeft}${barRight}"
+    displayer dunstify -a "changeVolume" -u low -r "38462528" " ${barLeft}${barRight}"
 }
 
 usage() {

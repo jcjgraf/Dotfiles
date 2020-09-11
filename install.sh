@@ -131,10 +131,10 @@ then
 fi
 
 ## Scripts
-if [[ "$script" = true ]]
+if [[ "$scripts" = true ]]
 then
-    linker "$dotfiles/Scripts/notifier" ~/bin/notifier
-    sudo bash -c "$(declare -f linker); linker \"$dotfiles/Scripts/notifier\" '/bin/notifier'"
+    linker "$dotfiles/Scripts/displayer" ~/bin/displayer
+    sudo bash -c "$(declare -f linker); linker \"$dotfiles/Scripts/displayer\" '/bin/displayer'"
     linker "$dotfiles/Scripts/lock.sh" ~/bin/lock.sh
     linker "$dotfiles/Scripts/battery.sh" ~/bin/battery.sh
     linker "$dotfiles/Scripts/mailChecker.sh" ~/bin/mailChecker.sh

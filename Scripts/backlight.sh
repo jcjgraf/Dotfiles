@@ -51,7 +51,7 @@ sendNotification() {
     local barLeft=$(seq -s "=" 0 $currentLevel | sed 's/[0-9]//g')
     local barRight=$(seq -s "-" 0 $levelDiff | sed 's/[0-9]//g')
 
-    notifier -a "changeBacklight" -u low -r "1234212" " ${barLeft}${barRight}"
+    displayer dunstify -a "changeBacklight" -u low -r "1234212" " ${barLeft}${barRight}"
 }
 
 usage() {
