@@ -184,6 +184,7 @@ then
     linker "$dotfiles/Vimiv/vimiv.conf" ~/.config/vimiv/vimiv.conf
     linker "$dotfiles/Vimiv/keys.conf" ~/.config/vimiv/keys.conf
     linker "$dotfiles/Newsboat" ~/.config/newsboat
+    linker "$dotfiles/Rofi" ~/.config/rofi
 fi
 
 ## Mail

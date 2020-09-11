@@ -34,7 +34,6 @@ set $ws8 "8"
 set $ws9 "9. "
 set $ws10 "10. "
 
-
 # window colors
 #                       border      background  text        indicator
 client.focused          $color8     $color4     $color15    $color8
@@ -55,12 +54,6 @@ bar {
 		urgent_workspace   $color1      $color1     $color15
     }
 }
-
-
-# Keybindings
-bindsym $mod+Return exec --no-startup-id termite
-bindsym $mod+Shift+q kill
-bindsym $mod+d exec --no-startup-id rofi -show run -hide-scrollbar -fullscreen -lines 3 -font "Hack 45" -padding 800
 
 ## Focus
 bindsym $mod+h focus left
@@ -148,24 +141,19 @@ mode "resize" {
     bindsym $mod+r mode "default"
 }
 
+# Keybindings
+bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
-bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+bindsym $mod+Return exec --no-startup-id termite
+
+bindsym $mod+d exec --no-startup-id rofi -show run
 
 bindsym $mod+shift+x exec --no-startup-id sleep 1 && ~/bin/lock.sh && systemctl suspend
 
-
-# Use pactl to adjust volume in PulseAudio.
-#set $refresh_i3status killall -SIGUSR1 i3status
-#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-#bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 # Autostart
-
-## Wallpaper
 exec_always --no-startup-id feh --bg-scale ~/.config/feh/bg.jpg
-
 exec --no-startup-id nm-applet
 exec --no-startup-id picom -f
 exec --no-startup-id redshift
