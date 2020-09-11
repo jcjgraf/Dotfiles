@@ -121,6 +121,7 @@ if [[ "$systemd" = true ]]
 then
     sudo bash -c "$(declare -f linker); linker \"$dotfiles/acpi\" '/etc/acpi'" # Run as root
     linker "$dotfiles/systemd" ~/.config/systemd
+    linker "$dotfiles/.pam_environment" ~/.config/.pam_environment
 fi
 
 if [[ "$homeServer" = true ]]
