@@ -13,15 +13,15 @@ echo $selection
 
 case $selection in
     $o1)
-        /home/jeanclaude/bin/monitor.sh -s
+        displayer /home/jeanclaude/bin/monitor.sh -s
         ;;
     $o2)
-        /home/jeanclaude/bin/monitor.sh -e
+        displayer /home/jeanclaude/bin/monitor.sh -e
         ;;
     $o3)
-        /home/jeanclaude/bin/monitor.sh -m
+        displayer /home/jeanclaude/bin/monitor.sh -m
         ;;
     $o4)
-        /home/jeanclaude/bin/monitor.sh -m
+        displayer /home/jeanclaude/bin/monitor.sh -m
         ;;
 esac
