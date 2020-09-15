@@ -1,3 +1,0 @@
-#!/bin/bash
-CALCURSE_CALDAV_PASSWORD=$(pass show nc.jeanclaudegraf.ch/jeanclaude) calcurse-caldav
-calcurse

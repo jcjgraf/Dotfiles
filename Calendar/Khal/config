@@ -1,0 +1,38 @@
+[calendars]
+
+[[Personal]]
+path = /home/jeanclaude/.local/share/calendar/personal
+type = calendar
+color = yellow
+
+[[Timetable]]
+path = /home/jeanclaude/.local/share/calendar/timetable
+type = calendar
+color = dark cyan
+
+[[Studies]]
+path = /home/jeanclaude/.local/share/calendar/studies
+type = calendar
+color = dark green
+
+[[Birthdays]]
+path = /home/jeanclaude/.local/share/calendar/contact_birthdays
+type = calendar
+color = dark red
+readonly = true
+
+[locale]
+timeformat = %H:%M
+dateformat = %d/%m/%Y
+longdateformat = %d/%m/%Y
+datetimeformat = %d/%m/%Y %H:%M
+longdatetimeformat = %d/%m/%Y %H:%M
+weeknumbers = left
+
+[default]
+highlight_event_days = true
+
+[view]
+#event_view_always_visible = true
+frame = color
+agenda_event_format = "{calendar-color}{cancelled}{start-time}-{end-time}: {title}{repeat-symbol}{description-separator}{description}{reset}"

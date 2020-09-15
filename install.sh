@@ -4,6 +4,7 @@
 dotfiles=~/Dotfiles
 
 mail=false
+calendar=false
 shell=false
 scripts=false
 wm=false
@@ -62,6 +63,7 @@ do
         p)
             # PC
             mail=true
+            calendar=true
             shell=true
             scripts=true
             wm=true
@@ -196,6 +198,11 @@ then
     linker "$dotfiles/Mail/mutt" ~/.config/mutt
     linker "$dotfiles/Mail/msmtp" ~/.config/msmtp
     linker "$dotfiles/Mail/.mbsyncrc" ~/.mbsyncrc
-    linker "$dotfiles/Calcurse" ~/.config/calcurse
-    linker "$dotfiles/Scripts/calse" ~/bin/calse
+fi
+
+## Calendar
+if [[ "$calendar" = true ]]
+then
+    linker "$dotfiles/Calendar/Khal" ~/.config/khal
+    linker "$dotfiles/Calendar/VdirSyncer" ~/.config/vdirsyncer
 fi

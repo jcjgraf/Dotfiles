@@ -1,3 +1,0 @@
-#!/bin/bash
-echo "Running calcurse-caldav from the post-save hook..."
-CALCURSE_CALDAV_PASSWORD=$(pass show nc.jeanclaudegraf.ch/jeanclaude) calcurse-caldav

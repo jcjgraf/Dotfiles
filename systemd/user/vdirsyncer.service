@@ -1,0 +1,6 @@
+[Unit]
+Description=DAV syncronisation service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/vdirsyncer sync
