@@ -32,12 +32,13 @@ zstyle :compinstall filename '~/.zshrc'
 autoload -Uz compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
 
 # Custom Export
-export eth=~/Documents/Studies/Eth/Semester2/
-export pp=${eth}ParalelleProgrammierung/
-export ana=${eth}AnalysisI/
-export aw=${eth}AlgorithmenUndWahrscheinlichkeiten/
-export dd=${eth}DigitalDesignAndComputerArchitectures/
-export gt=${eth}GameTheory/
+export eth=~/Documents/Studies/Eth/Semester3/
+export ana=${eth}AnalysisII/
+export num=${eth}NumericalMethods/
+export sp=${eth}SystemProgrammingAndComputerArchitectures/
+export ti=${eth}TheoretischeInformatik/
+export cs=${eth}Cybersicherheitspolitik/
+export cd=${eth}CompilerDesign/
 
 export VISUAL=nvim
 export EDITOR=nvim
