@@ -29,16 +29,19 @@ do
             # Single monitor built-in
             xrandr --output eDP-1 --primary --mode 3840x2160 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output DP-2 --off
             penMap
+            ~/.fehbg
             ;;
         e)
             # Single monitor external
             xrandr --output eDP-1 --off  --output DP-1 --off --output HDMI-1 --primary --mode 1920x1080 --scale 2.5x2.5 --rotate normal --output DP-2 --off
             penMap
+            ~/.fehbg
             ;;
         m)
             # Multiple monitor
             xrandr --output eDP-1 --primary --mode 3840x2160 --pos 432x2700 --rotate normal --output DP-1 --off --output HDMI-1 --mode 1920x1080 --scale 2.5x2.5 --pos 0x0 --rotate normal --output DP-2 --off
             penMap
+            ~/.fehbg
             ;;
         h | *)
             usage
