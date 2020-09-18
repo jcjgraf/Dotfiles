@@ -5,6 +5,14 @@
 [core]
 	editor = nvim
 	excludesfile = /home/jeanclaude/.gitignore_global
+[merge]
+    tool = vimdiff
+[mergetool]
+    prompt = true
+    keepBackup = false
+[mergetool "vimdiff"]
+    cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+    #cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [alias]
 
 	# NEW.
