@@ -37,13 +37,13 @@ Plug 'godlygeek/tabular'
 Plug 'preservim/nerdtree'
 
 " Autocomplete and loockup
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Show key combination
 "Plug 'liuchengxu/vim-which-key'
 
 " Python autocompletion
-Plug 'davidhalter/jedi-vim', {'for': 'python'}
+"Plug 'davidhalter/jedi-vim', {'for': 'python'}
 
 " Syntax check
 Plug 'vim-syntastic/syntastic', {'for': 'python'}
