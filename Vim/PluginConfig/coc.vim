@@ -1,6 +1,3 @@
-"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-"
-
 " Change coc settings path
 let g:coc_config_home="$HOME/.config/nvim/PluginConfig"
 
@@ -11,22 +8,15 @@ let g:coc_global_extensions = [
       "\ 'coc-yaml',
       \]
 
-" Trigger completion.
+" Trigger completion
 inoremap <silent><expr> <c-space> coc#refresh()
 
-" Close completion window
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Close window and return
+inoremap <expr><cr> pumvisible() ? "\<c-y>\<cr>" : "\<cr>"
 
 " Cycling completion list
-inoremap <expr> <c-n> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <c-p> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" Reopen completion window of previous word
-inoremap <silent><expr> <c-space> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" :coc#refresh()
-function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+inoremap <expr> <tab> pumvisible() ? "\<C-n>" : "\<tab>"
+inoremap <expr> <s-tab> pumvisible() ? "\<C-p>" : "\<s-tab>"
 
 " For coc-snippets
 imap <silent> <c-u> <plug>(coc-snippets-expand)
