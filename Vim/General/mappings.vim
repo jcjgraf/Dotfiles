@@ -13,9 +13,7 @@ nnoremap j gj
 nnoremap k gk
 
 " Exit insert mode
-inoremap jj <Esc>
 inoremap jk <Esc>
-inoremap kj <Esc>
 
 " Insert new line without enterint insert
 nmap oo o<Esc>k
