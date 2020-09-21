@@ -4,3 +4,6 @@ Vim/autoload/plug.vim
 HomeServer/Turn/turnserver.conf
 HomeServer/SpreedSignaling/server.conf
 HomeServer/SpreedSignaling/.git_orig
+HomeServer/Synapse/telegramRegistration.yaml
+HomeServer/TelegramBridge/config.yaml
+HomeServer/TelegramBridge/registration.yaml
