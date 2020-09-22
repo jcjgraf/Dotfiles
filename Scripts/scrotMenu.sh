@@ -11,12 +11,12 @@ selection="$(echo -e "$options" | displayer rofi -lines 4 -dmenu -p "Scrot" -a 0
 
 case $selection in
     $o1)
-        cd ~/Images/Scrot/ && sleep 0.5 && scrot
+        cd /home/jeanclaude/Images/Scrot/ && sleep 0.5 && displayer scrot
         ;;
     $o2)
-        cd ~/Images/Scrot/ && sleep 0.5 && scrot -s
+        cd /home/jeanclaude/Images/Scrot/ && sleep 0.5 && displayer scrot -s
         ;;
     $o3)
-        cd ~/Images/Scrot/ && sleep 0.5 && scrot -u
+        cd /home/jeanclaude/Images/Scrot/ && sleep 0.5 && displayer scrot -u
         ;;
 esac
