@@ -4,9 +4,9 @@ let mapleader=","
 let maplocalleader=","
 
 " Disable some mappings
-noremap  <f1>   <nop>
-inoremap <f1>   <nop>
-inoremap <esc>  <nop>
+noremap  <f1> <nop>
+inoremap <f1> <nop>
+inoremap <esc> <nop>
 
 " move vertically by visual line
 nnoremap j gj
@@ -16,8 +16,8 @@ nnoremap k gk
 inoremap jk <Esc>
 
 " Insert new line without enterint insert
-nmap oo o<Esc>k
-nmap OO O<Esc>j
+nnoremap oo o<Esc>k
+nnoremap OO O<Esc>j
 
 " turn off search highlighting
 nnoremap <leader><space> :nohlsearch<CR>
