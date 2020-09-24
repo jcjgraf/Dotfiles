@@ -205,4 +205,5 @@ if [[ "$calendar" = true ]]
 then
     linker "$dotfiles/Calendar/Khal" ~/.config/khal
     linker "$dotfiles/Calendar/VdirSyncer" ~/.config/vdirsyncer
+    linker "$dotfiles/Todoman" ~/.config/todoman
 fi
