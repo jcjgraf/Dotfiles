@@ -8,3 +8,6 @@ HomeServer/Synapse/homeserver.yaml
 HomeServer/Synapse/telegramRegistration.yaml
 HomeServer/TelegramBridge/config.yaml
 HomeServer/TelegramBridge/registration.yaml
+HomeServer/Synapse/whatsappRegistration.yaml
+HomeServer/WhatsappBridge/config.yaml
+HomeServer/WhatsappBridge/registration.yaml
