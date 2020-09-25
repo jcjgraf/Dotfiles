@@ -1,18 +1,36 @@
 [general]
 status_path = "~/.local/share/vdirsyncer/status/"
 
-[pair cal]
-a = "cal_nc_local"
-b = "cal_nc_remote"
+[pair calendars]
+a = "calendars_local"
+b = "calendars_nc_remote"
 collections = ["from a", "from b"]
+conflict_resolution = ["command", "vimdiff"]
 
-[storage cal_nc_local]
+[storage calendars_local]
 type = "filesystem"
 path = "~/.local/share/calendar/"
 fileext = ".ics"
 
-[storage cal_nc_remote]
+[storage calendars_nc_remote]
 type = "caldav"
 url = "https://nc.jeanclaudegraf.ch/remote.php/dav/calendars/jeanclaude/"
+username = "jeanclaude"
+password.fetch = ["command", "pass", "nc.jeanclaudegraf.ch/jeanclaude"]
+
+[pair contacts]
+a = "contacts_local"
+b = "contacts_nc_remote"
+collections = ["from a", "from b"]
+conflict_resolution = ["command", "vimdiff"]
+
+[storage contacts_local]
+type = "filesystem"
+path = "~/.local/share/contacts/"
+fileext = ".vcf"
+
+[storage contacts_nc_remote]
+type = "carddav"
+url = "https://nc.jeanclaudegraf.ch/remote.php/dav/addressbooks/users/jeanclaude/"
 username = "jeanclaude"
 password.fetch = ["command", "pass", "nc.jeanclaudegraf.ch/jeanclaude"]

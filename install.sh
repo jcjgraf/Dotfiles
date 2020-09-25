@@ -206,4 +206,5 @@ then
     linker "$dotfiles/Calendar/Khal" ~/.config/khal
     linker "$dotfiles/Calendar/VdirSyncer" ~/.config/vdirsyncer
     linker "$dotfiles/Todoman" ~/.config/todoman
+    linker "$dotfiles/Khard" ~/.config/khard
 fi
