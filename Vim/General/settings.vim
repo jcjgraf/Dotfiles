@@ -4,6 +4,7 @@ set tabstop=4                               " number of visual spaces per TAB
 set softtabstop=4                           " number of spaces in tab when editing
 set expandtab                               " tabs are spaces
 set shiftwidth=4                            " number of spaced per shift
+set linebreak                               " do not wrap in middle of word
 set smartindent                             " enable smart indentation
 set number relativenumber                   " show line numbers
 set cursorline                              " Highlight current line
@@ -15,7 +16,7 @@ set hlsearch                                " highlight matches
 set smartcase                               " search caseinsensitive unless capital entered
 set foldenable                              " enable folding
 set foldlevelstart=20                       " fold everything at start
-set foldmethod=syntax                       " fold based on syntax
+set foldmethod=manual                       " Manual fold as default, overwrite for specific types
 set undodir=~/.local/share/nvim/swap/undo// " Set undo directory
 set undofile                                " Enable write undo file
 set nobackup                                " Do not create backup
@@ -27,7 +28,6 @@ set cmdheight=2                             " Always display the cmd
 set updatetime=300                          " Shorter updatetime for shorter delay
 set guicursor=                              " Disable cursor chaning to a pipe in inset
 set scrolloff=3                             " Keep 3 lines below and above the cursor
-set foldmethod=manual                       " Manual fold as default, overwrite for specific types
 set spelllang=en_gb,de_ch                   " Set languageto English and German
 
 " Save folds on save and restore automatically when open file
