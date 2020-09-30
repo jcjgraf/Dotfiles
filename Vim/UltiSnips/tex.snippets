@@ -87,7 +87,7 @@ snippet xx "cross" i
 endsnippet
 
 context "math()"
-snippet ** "cdot" i
+snippet ** "cdot" iA
 \cdot
 endsnippet
 
@@ -97,17 +97,17 @@ snippet !> "mapsto" i
 endsnippet
 
 context "math()"
-snippet inn "in " i
+snippet inn "in " iA
 \in
 endsnippet
 
 context "math()"
-snippet <= "leq" i
+snippet <= "leq" iA
 \le
 endsnippet
 
 context "math()"
-snippet >= "geq" i
+snippet >= "geq" iA
 \ge
 endsnippet
 
@@ -247,11 +247,13 @@ snippet __ "subscript" i
 _{$1}$0
 endsnippet
 
+priority 200
 context "math()"
 snippet // "Fraction" i
 \\frac{$1}{$2}$0
 endsnippet
 
+priority 100
 snippet / "Fraction" i
 \\frac{${VISUAL}}{$1}$0
 endsnippet
@@ -354,6 +356,11 @@ endsnippet
 
 snippet ** "bold"
 \textbf{$0}
+endsnippet
+
+context "math()"
+snippet fat "bold" i
+\textbf{${VISUAL}}$0
 endsnippet
 
 snippet sum "sum" w
