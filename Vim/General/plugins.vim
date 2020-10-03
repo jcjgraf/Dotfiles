@@ -39,9 +39,6 @@ Plug 'preservim/nerdtree'
 " Autocomplete and loockup
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Show key combination
-"Plug 'liuchengxu/vim-which-key'
-
 " Python autocompletion
 "Plug 'davidhalter/jedi-vim', {'for': 'python'}
 
