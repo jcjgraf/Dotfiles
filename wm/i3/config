@@ -78,7 +78,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 ## View modes
-bindsym $mod+g split h
+bindsym $mod+b split h
 bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 bindsym $mod+s layout stacking
