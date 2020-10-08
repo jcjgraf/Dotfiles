@@ -147,6 +147,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 bindsym $mod+Return exec --no-startup-id termite
+bindsym $mod+Shift+Return exec --no-startup-id termite --directory "`xcwd`"
 
 bindsym $mod+d exec --no-startup-id rofi -show run
 bindsym $mod+Shift+e exec --no-startup-id rofimoji --max-recent=10 --rofi-args="-show run"
