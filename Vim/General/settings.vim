@@ -30,6 +30,8 @@ set guicursor=                              " Disable cursor chaning to a pipe i
 set scrolloff=3                             " Keep 3 lines below and above the cursor
 set spelllang=en_gb,de_ch                   " Set languageto English and German
 
+
+au FileType *  set formatoptions-=r formatoptions-=c formatoptions-=o " Disable auto comments
 " Save folds on save and restore automatically when open file
 "augroup remember_folds
 "  autocmd!
