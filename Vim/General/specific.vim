@@ -16,3 +16,9 @@ augroup enableSpell
     autocmd FileType tex setlocal spell
     autocmd BufRead /tmp/neomutt-* setlocal spell
 augroup END
+
+" Detect .h as C
+augroup project
+    autocmd!
+    autocmd BufRead,BufNewFile *.h,*.c set filetype=c
+augroup END
