@@ -2,11 +2,12 @@
 let g:coc_config_home="$HOME/.config/nvim/PluginConfig"
 
 let g:coc_global_extensions = [
-      \ 'coc-snippets',
-      "\ 'coc-python',
+        \ 'coc-snippets',
+        \ 'coc-python',
+        \ 'coc-clangd',
       "\ 'coc-json',
       "\ 'coc-yaml',
-      \]
+        \]
 
 " Trigger completion
 inoremap <silent><expr> <c-space> coc#refresh()
