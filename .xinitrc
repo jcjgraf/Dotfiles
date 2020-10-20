@@ -36,4 +36,7 @@ xinput --map-to-output 'Wacom Pen and multitouch sensor Finger touch' eDP-1
 xinput --map-to-output 'Wacom Pen and multitouch sensor Pen stylus' eDP-1
 xinput --map-to-output 'Wacom Pen and multitouch sensor Pen eraser' eDP-1
 
+# Disable beep bell
+xset -b
+
 exec i3
