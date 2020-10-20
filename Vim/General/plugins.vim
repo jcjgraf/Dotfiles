@@ -51,6 +51,9 @@ Plug 'tmhedberg/SimpylFold', {'for': 'python'}
 " Git diff in sign column
 Plug 'mhinz/vim-signify'
 
+" Save files wit sudo
+Plug 'github.com/lambdalisue/suda.vim'
+
 call plug#end()
 
 " Automatically install missing plugins on startup

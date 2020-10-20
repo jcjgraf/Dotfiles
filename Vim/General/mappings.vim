@@ -32,9 +32,6 @@ nnoremap <leader>E :lprevious<CR>
 " Open and close folds
 nnoremap <leader>f zA
 
-" Allow saving of files as sudo when I forgot to start vim using sudo.
-cmap w!! w !sudo tee > /dev/null %
-
 " Search for selected text, forwards or backwards.
 vnoremap <silent> * :<C-U>
   \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
