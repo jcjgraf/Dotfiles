@@ -22,12 +22,12 @@ nnoremap OO O<Esc>j
 " turn off search highlighting
 nnoremap <leader><space> :nohlsearch<CR>
 
-" highlight last inserted text
-nnoremap gV `[v`]
-
 " Move to errors
 nnoremap <leader>e :lnext<CR>
 nnoremap <leader>E :lprevious<CR>
+"
+" Correctl last spelling
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 " Open and close folds
 nnoremap <leader>f zA
@@ -37,11 +37,6 @@ vnoremap <silent> * :<C-U>
   \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
   \gvy/<C-R>=&ic?'\c':'\C'<CR><C-R><C-R>=substitute(
   \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
-  \gVzv:call setreg('"', old_reg, old_regtype)<CR>
-vnoremap <silent> # :<C-U>
-  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
-  \gvy?<C-R>=&ic?'\c':'\C'<CR><C-R><C-R>=substitute(
-  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
   \gVzv:call setreg('"', old_reg, old_regtype)<CR>
 
 "" Remove Trailing Spaces by calling `TrimWhitespaces` or using a shortcut
@@ -60,6 +55,3 @@ command! -nargs=* RunSilent
       \ | execute ':redraw!'
 nmap <Leader>pc :RunSilent pandoc -o /tmp/vim-pandoc-out.pdf %<CR>
 nmap <Leader>pp :RunSilent xdg-open /tmp/vim-pandoc-out.pdf<CR>
-
-" Correctl last spelling
-inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
