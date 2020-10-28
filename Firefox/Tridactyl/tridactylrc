@@ -1,0 +1,8 @@
+set searchurls.aw https://wiki.archlinux.org/?search=%s
+set searchurls.gh https://github.com/search?q=%s
+set searchurls.dc https://www.dict.cc/?s=%s
+set searchurls.dd https://www.duden.de/suchen/dudenonline/%s
+set searchurls.osm https://www.openstreetmap.org/search?query=%s
+set searchurls.w https://en.wikipedia.org/wiki/Special:Search?search=%s
+set searchurls.d https://duckduckgo.com/?q=%s
+set.searchurls.s https://searx.jeanclaudegraf.ch/?q=%s
