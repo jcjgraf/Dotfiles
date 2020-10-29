@@ -15,11 +15,17 @@ augroup enableSpell
     autocmd FileType markdown setlocal spell
     autocmd FileType tex setlocal spell
     autocmd FileType c setlocal spell
-    autocmd BufRead /tmp/neomutt-* setlocal spell
 augroup END
 
 " Detect .h as C
 augroup project
     autocmd!
     autocmd BufRead,BufNewFile *.h,*.c set filetype=c
+augroup END
+
+" Mutt
+augroup mutt
+    autocmd!
+    autocmd BufRead /tmp/neomutt-* setlocal spell
+    autocmd BufRead /tmp/neomutt-* setlocal fold+=a  " Auto linebreak
 augroup END
