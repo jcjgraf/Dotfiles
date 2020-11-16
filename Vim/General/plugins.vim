@@ -33,9 +33,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 " Align text
 Plug 'godlygeek/tabular'
 
-" File tree
-Plug 'preservim/nerdtree'
-
 " Autocomplete and loockup
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
