@@ -27,5 +27,5 @@ augroup END
 augroup mutt
     autocmd!
     autocmd BufRead /tmp/neomutt-* setlocal spell
-    autocmd BufRead /tmp/neomutt-* setlocal fold+=a  " Auto linebreak
+    autocmd BufRead /tmp/neomutt-* setlocal fo+=a  " Auto linebreak
 augroup END
