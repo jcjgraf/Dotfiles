@@ -22,6 +22,6 @@ case $selection in
         displayer /home/jeanclaude/bin/monitor.sh -m
         ;;
     $o4)
-        displayer /home/jeanclaude/bin/monitor.sh -m
+        displayer /home/jeanclaude/bin/monitor.sh -c
         ;;
 esac

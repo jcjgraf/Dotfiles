@@ -12,7 +12,8 @@ usage() {
         -h help\n
         -s built-in monitor only\n
         -e external monitor only\n
-        -m multi monitor" 1>&2; exit 1;
+        -m multi monitor\n
+        -c clone monitor" 1>&2; exit 1;
 }
 
 # No flags passed
@@ -22,7 +23,7 @@ then
 fi
 
 # Flags passed
-while getopts 'hsme' flag
+while getopts 'hsmec' flag
 do
     case "${flag}" in
         s)
@@ -40,6 +41,12 @@ do
         m)
             # Multiple monitor
             xrandr --output eDP-1 --primary --mode 3840x2160 --pos 432x2700 --rotate normal --output DP-1 --off --output HDMI-1 --mode 1920x1080 --scale 2.5x2.5 --pos 0x0 --rotate normal --output DP-2 --off
+            penMap
+            ~/.fehbg
+            ;;
+        c)
+            # Multiple monitor clone
+            xrandr --output eDP-1 --primary --mode 3840x2160 --pos 432x2700 --rotate normal --output DP-1 --off --output HDMI-1 --mode 1920x1080 --scale 2x2 --pos 0x0 --rotate normal --same-as eDP-1 --output DP-2 --off
             penMap
             ~/.fehbg
             ;;
