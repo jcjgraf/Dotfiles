@@ -31,6 +31,7 @@ set scrolloff=3                                     " Keep 3 lines below and abo
 set spelllang=en_gb,de_ch                           " Set languageto English and German
 set spellfile+=~/.config/nvim/spell/en.utf-8.add    "Add default spell file
 set spellfile+=ignore.utf-8.add                     "Add ignore file
+set splitbelow splitright                           " Add default split below or right
 
 
 au FileType *  set formatoptions-=r formatoptions-=c formatoptions-=o " Disable auto comments

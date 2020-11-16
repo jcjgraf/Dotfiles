@@ -19,6 +19,18 @@ inoremap jk <Esc>
 nnoremap oo o<Esc>k
 nnoremap OO O<Esc>j
 
+" Window navigation
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+
+" Windows resize
+noremap <silent> <C-Left> :vertical resize +3<CR>
+noremap <silent> <C-Left> :vertical resize -3<CR>
+noremap <silent> <C-Up> :resize +3<CR>
+noremap <silent> <C-Down> :resize -3<CR>
+
 " turn off search highlighting
 nnoremap <leader><space> :nohlsearch<CR>
 
