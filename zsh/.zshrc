@@ -5,10 +5,6 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 
-# Required that GPG works on SSH
-export GPG_TTY=$(tty)
-stty sane
-
 ZSH_THEME=""
 CASE_SENSITIVE="true"
 plugins=(git history-substring-search docker docker-compose)
@@ -19,6 +15,7 @@ source $ZSH/custom/alias.zsh
 source $ZSH/custom/themes/jc.zsh-theme
 
 # History
+HIST_STAMPS="mm/dd/yyyy"  # Timestamp in history
 HISTFILE=~/.histfile
 HISTSIZE=5000
 SAVEHIST=5000
@@ -44,6 +41,10 @@ export VISUAL=nvim
 export EDITOR=nvim
 
 export TERM=xterm-color
+
+# Required that GPG works on SSH
+export GPG_TTY=$(tty)
+stty sane
 
 # NPM
 NPM_PACKAGES=
