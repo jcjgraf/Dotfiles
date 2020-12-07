@@ -6,14 +6,10 @@ let maplocalleader=","
 " Disable some mappings
 noremap  <f1> <nop>
 inoremap <f1> <nop>
-inoremap <esc> <nop>
 
 " move vertically by visual line
 nnoremap j gj
 nnoremap k gk
-
-" Exit insert mode
-inoremap jk <Esc>
 
 " Insert new line without enterint insert
 nnoremap oo o<Esc>k
