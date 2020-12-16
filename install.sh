@@ -143,6 +143,7 @@ then
     linker "$dotfiles/Scripts/monitor.sh" ~/bin/monitor.sh
     linker "$dotfiles/Scripts/screenRotation.sh" ~/bin/screenRotation.sh
     linker "$dotfiles/Scripts/backlight.sh" ~/bin/backlight.sh
+    linker "$dotfiles/Scripts/note" ~/bin/note
     sudo bash -c "$(declare -f linker); linker \"$dotfiles/Scripts/backlight.sh\" '/bin/backlight.sh'"
     linker "$dotfiles/Scripts/volume.sh" ~/bin/volume.sh
     sudo bash -c "$(declare -f linker); linker \"$dotfiles/Scripts/volume.sh\" '/bin/volume.sh'"
