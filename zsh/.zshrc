@@ -68,3 +68,6 @@ export WORKON_HOME="$XDG_DATA_HOME/virtualenvs"
 
 # wget
 export WGETRC="$XDG_CONFIG_HOME/wget/config"
+
+# xorg-xauth
+export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
