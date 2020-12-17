@@ -203,7 +203,8 @@ if [[ "$mail" = true ]]
 then
     linker "$dotfiles/Mail/mutt" ~/.config/mutt
     linker "$dotfiles/Mail/msmtp" ~/.config/msmtp
-    linker "$dotfiles/Mail/.mbsyncrc" ~/.mbsyncrc
+    mkdir -p "$HOME/.config/isync"
+    linker "$dotfiles/Mail/.mbsyncrc" ~/.config/isync/mbsyncrc
 fi
 
 ## Calendar

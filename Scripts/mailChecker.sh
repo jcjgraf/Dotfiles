@@ -36,7 +36,7 @@ checkForNewMails() {
     fi
 
     # Fetch new mails and update cache file
-    mbsync -a
+    mbsync -a -c "/home/jeanclaude/.config/isync/mbsyncrc"
 
     local newMailNumber="$(getNumberOfUnreadMails)"
 
