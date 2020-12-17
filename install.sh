@@ -103,7 +103,7 @@ if [[ "$xWin" = true ]]
 then
     linker "$dotfiles/.xcolors" ~/.xcolors
     linker "$dotfiles/zsh/.zlogin" ~/.zlogin
-    linker "$dotfiles/.xinitrc" ~/.xinitrc
+    linker "$dotfiles/.xinitrc" ~/.config/X11/xinitrc
     linker "$dotfiles/.Xresources" ~/.Xresources
     xrdb ~/.Xresources
 

@@ -71,3 +71,6 @@ export WGETRC="$XDG_CONFIG_HOME/wget/config"
 
 # xorg-xauth
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+
+# xinit
+export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
