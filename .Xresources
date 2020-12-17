@@ -1,7 +1,7 @@
 Xft.dpi: 180
 
 ! Colors
-#include "/home/jeanclaude/.xcolors"
+#include "/home/jeanclaude/.config/X11/xcolors"
 
 *background:            BACKGROUND
 *foreground:            FOREGROUND
