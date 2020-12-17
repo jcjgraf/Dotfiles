@@ -42,6 +42,7 @@ colorizer() {
 
     local dir="$(dirname $2)"
 
+	echo "Color Link {$1} to {$2}"
     sudo rm -rf "$dir" > /dev/null 2>&1
     mkdir -p "$dir"
     sh $dotfiles/colorizer.sh "$1" "$2"
@@ -105,7 +106,6 @@ then
     xrdb ~/.config/X11/Xresources
     linker "$dotfiles/zsh/.zlogin" ~/.zlogin
     linker "$dotfiles/zsh/.zprofile" ~/.zprofile
-    linker "$dotfiles/user-dirs.dirs" ~/.config/user-dirs.dirs
 
     linker "$dotfiles/gtk-3.0" ~/.config/gtk-3.0
     linker "$dotfiles/gtk-2.0" ~/.config/gtk-2.0

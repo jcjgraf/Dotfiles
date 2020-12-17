@@ -1,1 +1,1 @@
-startx "$XDG_CONFIG_HOME/X11/xinitrc"
+startx "$HOME/.config/X11/xinitrc"
