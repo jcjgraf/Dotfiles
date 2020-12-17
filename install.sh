@@ -101,10 +101,8 @@ fi
 ### X
 if [[ "$xWin" = true ]]
 then
-    linker "$dotfiles/.xcolors" ~/.config/X11/xcolors
+    linker "$dotfiles/X11" ~/.config/X11
     linker "$dotfiles/zsh/.zlogin" ~/.zlogin
-    linker "$dotfiles/.xinitrc" ~/.config/X11/xinitrc
-    linker "$dotfiles/.Xresources" ~/.config/X11/Xresources
     xrdb ~/.config/X11/Xresources
 
     linker "$dotfiles/gtk-3.0" ~/.config/gtk-3.0
@@ -193,7 +191,7 @@ then
     linker "$dotfiles/Vimiv/keys.conf" ~/.config/vimiv/keys.conf
     linker "$dotfiles/Newsboat" ~/.config/newsboat
     linker "$dotfiles/Rofi" ~/.config/rofi
-    linker "$dotfiles/Wget/config" ~/.config/wget/config
+    linker "$dotfiles/Wget" ~/.config/wget
 fi
 
 ## Mail
