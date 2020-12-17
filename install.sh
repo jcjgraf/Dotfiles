@@ -104,8 +104,8 @@ then
     linker "$dotfiles/.xcolors" ~/.xcolors
     linker "$dotfiles/zsh/.zlogin" ~/.zlogin
     linker "$dotfiles/.xinitrc" ~/.config/X11/xinitrc
-    linker "$dotfiles/.Xresources" ~/.Xresources
-    xrdb ~/.Xresources
+    linker "$dotfiles/.Xresources" ~/.config/X11/Xresources
+    xrdb ~/.config/X11/Xresources
 
     linker "$dotfiles/gtk-3.0" ~/.config/gtk-3.0
     linker "$dotfiles/.gtkrc-2.0" ~/.gtkrc-2.0
