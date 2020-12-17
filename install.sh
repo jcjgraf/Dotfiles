@@ -102,8 +102,10 @@ fi
 if [[ "$xWin" = true ]]
 then
     linker "$dotfiles/X11" ~/.config/X11
-    linker "$dotfiles/zsh/.zlogin" ~/.zlogin
     xrdb ~/.config/X11/Xresources
+    linker "$dotfiles/zsh/.zlogin" ~/.zlogin
+    linker "$dotfiles/zsh/.zprofile" ~/.zprofile
+    linker "$dotfiles/user-dirs.dirs" ~/.config/user-dirs.dirs
 
     linker "$dotfiles/gtk-3.0" ~/.config/gtk-3.0
     linker "$dotfiles/gtk-2.0" ~/.config/gtk-2.0
