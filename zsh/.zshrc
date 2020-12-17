@@ -13,7 +13,6 @@ source $ZSH/custom/themes/jc.zsh-theme
 
 # History
 HIST_STAMPS="mm/dd/yyyy"  # Timestamp in history
-HISTFILE=~/.histfile
 HISTSIZE=5000
 SAVEHIST=5000
 
@@ -21,9 +20,8 @@ setopt appendhistory autocd extendedglob nomatch notify
 
 bindkey -v
 
-zstyle :compinstall filename '~/.zshrc'
-
-autoload -Uz compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
+#autoload -Uz compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
+compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
 
 # Custom Export
 export eth=~/Documents/Studies/Eth/Semester3/

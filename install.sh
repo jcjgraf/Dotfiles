@@ -94,9 +94,13 @@ done
 ### Shell
 if [[ "$shell" = true ]]
 then
-    linker "$dotfiles/zsh/.zshrc" ~/.zshrc
+    mkdir -p ~/.config/zsh
+    linker "$dotfiles/zsh/.zshrc" ~/.config/zsh/.zshrc
+    linker "$dotfiles/zsh/.zlogin" ~/.config/zsh/.zlogin
+    linker "$dotfiles/zsh/.zprofile" ~/.config/zsh/.zprofile
     linker "$dotfiles/zsh/alias.zsh" ~/.oh-my-zsh/custom/alias.zsh
     linker "$dotfiles/zsh/jc.zsh-theme" ~/.oh-my-zsh/custom/themes/jc.zsh-theme
+    sudo bash -c "$(declare -f linker); linker \"$dotfiles/zsh/zshenv\" '/etc/zsh/zshenv'" # Run as root
 fi
 
 ### X
@@ -104,8 +108,6 @@ if [[ "$xWin" = true ]]
 then
     linker "$dotfiles/X11" ~/.config/X11
     xrdb ~/.config/X11/Xresources
-    linker "$dotfiles/zsh/.zlogin" ~/.zlogin
-    linker "$dotfiles/zsh/.zprofile" ~/.zprofile
 
     linker "$dotfiles/gtk-3.0" ~/.config/gtk-3.0
     linker "$dotfiles/gtk-2.0" ~/.config/gtk-2.0

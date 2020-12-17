@@ -35,3 +35,6 @@ export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 
 # GTK 2
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+
+# ZSH
+export HISTFILE="$XDG_DATA_HOME"/zsh/history
