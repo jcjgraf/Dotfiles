@@ -4,7 +4,7 @@
 	signingKey = 97630B418054C368DFBB3B498A300F57CBB9F63E
 [core]
 	editor = nvim
-	excludesfile = /home/jeanclaude/.gitignore_global
+	excludesfile = /home/jeanclaude/.config/git/gitignore_global
 [merge]
     tool = vimdiff
 [mergetool]

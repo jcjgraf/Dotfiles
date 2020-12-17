@@ -175,8 +175,8 @@ fi
 ### Git
 if [[ "$git" = true ]]
 then
-    linker "$dotfiles/Git/.gitconfig" ~/.gitconfig
-    linker "$dotfiles/Git/.gitignore_global" ~/.gitignore_global
+    linker "$dotfiles/Git/config" ~/.config/git/config
+    linker "$dotfiles/Git/gitignore_global" ~/.config/git/gitignore_global
 fi
 
 ### Other Applications
