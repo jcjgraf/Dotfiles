@@ -193,6 +193,7 @@ then
     linker "$dotfiles/Vimiv/keys.conf" ~/.config/vimiv/keys.conf
     linker "$dotfiles/Newsboat" ~/.config/newsboat
     linker "$dotfiles/Rofi" ~/.config/rofi
+    linker "$dotfiles/Wget/config" ~/.config/wget/config
 fi
 
 ## Mail

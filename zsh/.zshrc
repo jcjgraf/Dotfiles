@@ -65,3 +65,6 @@ export PYLINTHOME="$XDG_CACHE_HOME"/pylint
 
 # Virtualenv
 export WORKON_HOME="$XDG_DATA_HOME/virtualenvs"
+
+# wget
+export WGETRC="$XDG_CONFIG_HOME/wget/config"
