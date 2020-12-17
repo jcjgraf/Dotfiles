@@ -60,7 +60,7 @@ then
     args="${args} --nofork"
 fi
 
-i3lock $args
+gpg-connect-agent reloadagent /bye && i3lock $args
 
 # Undim screen
 
