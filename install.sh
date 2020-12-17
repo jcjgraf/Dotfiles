@@ -108,7 +108,7 @@ then
     xrdb ~/.config/X11/Xresources
 
     linker "$dotfiles/gtk-3.0" ~/.config/gtk-3.0
-    linker "$dotfiles/.gtkrc-2.0" ~/.gtkrc-2.0
+    linker "$dotfiles/gtk-2.0" ~/.config/gtk-2.0
 fi
 
 ### System Configs
