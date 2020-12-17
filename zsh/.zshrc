@@ -7,7 +7,7 @@ export XDG_DATA_HOME=$HOME/.local/share
 
 ZSH_THEME=""
 CASE_SENSITIVE="true"
-plugins=(git history-substring-search docker docker-compose)
+plugins=(git history-substring-search)
 
 # Source oh-my-zsh, alias and custom theme
 source $ZSH/oh-my-zsh.sh
@@ -50,5 +50,9 @@ stty sane
 NPM_PACKAGES=
 export PATH="$PATH:${HOME}/.npm-packages/bin"
 
-#
+# Custom executables
 export PATH="$PATH:${HOME}/.local/bin"
+
+# LESS
+export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
+export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
