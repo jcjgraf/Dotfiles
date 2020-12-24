@@ -1,0 +1,4 @@
+#!/bin/bash
+
+source /home/jeanclaude/.config/zsh/.zprofile
+/home/jeanclaude/bin/mailChecker.sh -c

@@ -3,4 +3,4 @@ Description=DAV syncronisation service
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/vdirsyncer sync
+ExecStart=/home/jeanclaude/.config/systemd/user/vdirsyncer.startup

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+source /home/jeanclaude/.config/zsh/.zprofile
+/usr/bin/vdirsyncer sync

@@ -3,4 +3,4 @@ Description=Mailbox syncronisation service
 
 [Service]
 Type=oneshot
-ExecStart=/home/jeanclaude/bin/mailChecker.sh -c
+ExecStart=/home/jeanclaude/.config/systemd/user/mbsync.startup
