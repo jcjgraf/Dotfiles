@@ -196,7 +196,7 @@ then
     linker "$dotfiles/Newsboat" ~/.config/newsboat
     linker "$dotfiles/Rofi" ~/.config/rofi
     linker "$dotfiles/Wget" ~/.config/wget
-    linker "$dotfiles/Gnupg/gpg-agent.conf" ~/.local/share/gnupg/gpg-agent.conf
+    linker "$dotfiles/Gnupg/gpg-agent.conf" ~/./gnupg/gpg-agent.conf
 fi
 
 ## Mail
