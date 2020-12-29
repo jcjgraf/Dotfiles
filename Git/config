@@ -19,3 +19,5 @@
 	program = gpg2
 [pull]
 	ff = only
+[alias]
+    squashbranch = reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))
