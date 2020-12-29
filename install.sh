@@ -125,7 +125,7 @@ if [[ "$systemd" = true ]]
 then
     sudo bash -c "$(declare -f linker); linker \"$dotfiles/acpi\" '/etc/acpi'" # Run as root
     linker "$dotfiles/systemd" ~/.config/systemd
-    linker "$dotfiles/.pam_environment" ~/.config/.pam_environment
+    linker "$dotfiles/.pam_environment" ~/.pam_environment
 fi
 
 if [[ "$homeServer" = true ]]
@@ -196,7 +196,7 @@ then
     linker "$dotfiles/Newsboat" ~/.config/newsboat
     linker "$dotfiles/Rofi" ~/.config/rofi
     linker "$dotfiles/Wget" ~/.config/wget
-    linker "$dotfiles/Gnupg/gpg-agent.conf" ~/./gnupg/gpg-agent.conf
+    linker "$dotfiles/Gnupg/gpg-agent.conf" ~/.gnupg/gpg-agent.conf
 fi
 
 ## Mail
