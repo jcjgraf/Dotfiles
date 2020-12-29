@@ -15,8 +15,8 @@ set incsearch                                       " search as characters are e
 set hlsearch                                        " highlight matches
 set smartcase                                       " search caseinsensitive unless capital entered
 set foldenable                                      " enable folding
-set foldlevelstart=20                               " fold everything at start
-set foldmethod=syntax                               " Manual fold as default, overwrite for specific types
+set foldlevelstart=20                               " do not fold at start
+set foldmethod=syntax                               " Syntax fold as default, overwrite for specific types
 set undodir=~/.local/share/nvim/swap/undo//         " Set undo directory
 set undofile                                        " Enable write undo file
 set nobackup                                        " Do not create backup
