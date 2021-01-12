@@ -137,7 +137,7 @@ doStatusNotify() {
                  displayer dunstify -a "batteryChecker" -u normal "Battery" "50%"
             elif (( $previousPercentage > 35 && $percentage <= 35 ))
             then
-                 displayer dunstify -a "batteryChecker" -u normal "Battery" "35"
+                 displayer dunstify -a "batteryChecker" -u normal "Battery" "35%"
             elif (( $previousPercentage > 25 && $percentage <= 25 ))
             then
                  displayer dunstify -a "batteryChecker" -u normal "Low Battery" "25%"
