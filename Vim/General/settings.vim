@@ -29,9 +29,10 @@ set updatetime=300                                  " Shorter updatetime for sho
 set guicursor=                                      " Disable cursor chaning to a pipe in inset
 set scrolloff=3                                     " Keep 3 lines below and above the cursor
 set spelllang=en_gb,de_ch                           " Set languageto English and German
-set spellfile+=~/.config/nvim/spell/en.utf-8.add    "Add default spell file
-set spellfile+=ignore.utf-8.add                     "Add ignore file
+set spellfile+=~/.config/nvim/spell/en.utf-8.add    " Add default spell file
+set spellfile+=ignore.utf-8.add                     " Add ignore file
 set splitbelow splitright                           " Add default split below or right
+set colorcolumn=88                                  " Line length ruler
 
 
 au FileType *  set formatoptions-=r formatoptions-=c formatoptions-=o " Disable auto comments
