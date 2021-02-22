@@ -24,13 +24,12 @@ bindkey -v
 compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
 
 # Custom Export
-export eth=~/Documents/Studies/Eth/Semester3/
-export ana=${eth}AnalysisII/
-export num=${eth}NumericalMethods/
-export sp=${eth}SystemProgrammingAndComputerArchitectures/
-export ti=${eth}TheoretischeInformatik/
-export cs=${eth}Cybersicherheitspolitik/
-export cd=${eth}CompilerDesign/
+export eth=~/Documents/Studies/Eth/Semester4/
+export amb=${eth}AutonomousMobileRobots/
+export cn=${eth}ComputerNetworks/
+export dmdb=${eth}DataModellingAndDatabases/
+export fmfp=${eth}FormalMethodsAndFunctionalProgramming/
+export ws=${eth}WahrscheinlichkeitUndStatistik/
 
 export VISUAL=nvim
 export EDITOR=nvim
