@@ -156,5 +156,5 @@ bindsym $mod+shift+x exec --no-startup-id sleep 1 && ~/bin/lock.sh && systemctl 
 
 # Autostart
 exec_always --no-startup-id ~/.fehbg
-exec --no-startup-id redshift
+exec --no-startup-id redshift -c ~/.config/redshift/redshift.conf
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
