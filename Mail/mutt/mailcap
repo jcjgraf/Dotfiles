@@ -3,3 +3,4 @@ application/pdf; zathura %s; copiousoutput;
 application/vnd.openxmlformats-officedocument.wordprocessingml.document; libreoffice %s; copiousoutput;
 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; libreoffice %s; copiousoutput;
 image/png; feh %s; copiousoutput
+image/jpeg; feh %s; copiousoutput
