@@ -40,7 +40,7 @@ do
             ;;
         m)
             # Multiple monitor
-            xrandr --output eDP-1 --primary --mode 3840x2160 --pos 432x2700 --rotate normal --output DP-1 --off --output HDMI-1 --mode 1920x1080 --scale 2.5x2.5 --pos 0x0 --rotate normal --output DP-2 --off
+            xrandr --output eDP-1 --primary --mode 3840x2160 --pos 432x2700 --rotate normal --output DP-1 --off --output HDMI-1 --mode 1920x1080 --scale 2x2 --pos 0x0 --rotate normal --output DP-2 --off
             penMap
             ~/.fehbg
             ;;
