@@ -1,0 +1,11 @@
+[Unit]
+Description=Rsync tmbackup to Homeserver
+
+
+[Timer]
+OnBootSec=900
+OnUnitActiveSec=14400
+Unit=rsync_tmbackup.service
+
+[Install]
+WantedBy=timers.target
