@@ -147,6 +147,12 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 bindsym $mod+Return exec --no-startup-id termite
+
+## Floating Terminal
+for_window [ title="floatingterminal" ] floating enable
+bindsym $mod+Tab exec --no-startup-id termite --title "floatingterminal"
+
+## Open in current directory
 bindsym $mod+Shift+Return exec --no-startup-id termite --directory "`xcwd`"
 
 bindsym $mod+d exec --no-startup-id rofi -show run
