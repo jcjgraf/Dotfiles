@@ -13,6 +13,11 @@
 # Files
 data.location=/home/jeanclaude/.local/share/taskwarrior
 
+# Next
+report.next.columns = id,start.age,depends,priority,project,tags,due.relative,description,urgency
+report.next.labels  =ID, Active,Deps,P,Project,Tag,Due,Description,Urg
+
+
 # Urgency
 urgency.tags.coefficient    = 0
 urgency.project.coefficient = 0
