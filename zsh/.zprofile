@@ -38,3 +38,10 @@ export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 
 # ZSH
 export HISTFILE="$XDG_DATA_HOME"/zsh/history
+
+# Timewarrior
+export TIMEWARRIORDB="$XDG_CONFIG_HOME"/timewarrior
+
+# Taskwarrior
+export TASKRC="$XDG_CONFIG_HOME"/taskwarrior/taskrc
+export TASKDATA="$XDG_DATA_HOME"/taskwarrior

@@ -197,6 +197,9 @@ then
     linker "$dotfiles/Rofi" ~/.config/rofi
     linker "$dotfiles/Wget" ~/.config/wget
     linker "$dotfiles/Gnupg/gpg-agent.conf" ~/.gnupg/gpg-agent.conf
+    linker "$dotfiles/Taskwarrior/taskrc" ~/.config/taskwarrior/taskrc
+    linker "$dotfiles/Taskwarrior/on-modify.timewarrior" ~/.local/share/taskwarrior/hooks/on-modify.timewarrior
+    linker "$dotfiles/Timewarrior/timewarrior.cfg" ~/.config/timewarrior/timewarrior.cfg
 fi
 
 ## Mail
