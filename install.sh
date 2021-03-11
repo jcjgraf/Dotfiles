@@ -198,6 +198,7 @@ then
     linker "$dotfiles/Wget" ~/.config/wget
     linker "$dotfiles/Gnupg/gpg-agent.conf" ~/.gnupg/gpg-agent.conf
     linker "$dotfiles/Taskwarrior/taskrc" ~/.config/taskwarrior/taskrc
+    linker "$dotfiles/Taskwarrior/dark-16.theme" ~/.config/taskwarrior/dark-16.theme
     linker "$dotfiles/Taskwarrior/on-modify.timewarrior" ~/.local/share/taskwarrior/hooks/on-modify.timewarrior
     linker "$dotfiles/Timewarrior/timewarrior.cfg" ~/.config/timewarrior/timewarrior.cfg
 fi
