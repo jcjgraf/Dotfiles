@@ -17,6 +17,12 @@ data.location=/home/jeanclaude/.local/share/taskwarrior
 report.next.columns = id,start.age,depends,priority,project,tags,due.relative,description,urgency
 report.next.labels  =ID, Active,Deps,P,Project,Tag,Due,Description,Urg
 
+# Custom Report Eth
+report.eth.description = 'Next filtering for project ETH'
+report.eth.columns     = id,start.age,depends,priority,project,tags,due.relative,description,urgency
+report.eth.filter      = status:pending limit:page project:Eth
+report.eth.labels      = ID, Active,Deps,P,Project,Tag,Due,Description,Urg
+report.eth.sort        = urgency-
 
 # Urgency
 urgency.tags.coefficient    = 0
