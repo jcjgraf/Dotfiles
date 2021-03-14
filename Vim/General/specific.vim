@@ -29,3 +29,11 @@ augroup mutt
     autocmd BufRead /tmp/neomutt-* setlocal spell
     autocmd BufRead /tmp/neomutt-* setlocal fo+=a  " Auto linebreak
 augroup END
+
+" Haskell
+augroup haskell
+    autocmd!
+    autocmd FileType haskell setlocal tabstop=2
+    autocmd FileType haskell setlocal softtabstop=2
+    autocmd FileType haskell setlocal shiftwidth=2
+augroup END
