@@ -11,6 +11,9 @@ export XDG_MUSIC_DIR="$HOME/Music"
 export XDG_PICTURES_DIR="$HOME/Images"
 export XDG_VIDEOS_DIR="$HOME/"
 
+export DISPLAY=:0.0;
+export GPG_TTY=/dev/pts/2
+
 # LESS
 export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
 export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
