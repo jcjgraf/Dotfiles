@@ -1650,8 +1650,8 @@ c.url.start_pages = ['qute://bookmarks/']
 ## Bindings for normal mode
 config.bind(',p', 'spawn --userscript qute-pass --dmenu-invocation dmenu')
 config.bind(',P', 'spawn --userscript qute-pass --dmenu-invocation dmenu --password-only')
-config.bind('m', 'spawn mpv --ytdl-format="mp4[height<=1080]+bestaudio" {url}')
-config.bind('M', 'hint links spawn mpv --ytdl-format="mp4[height<=1080]+bestaudio" {hint-url}')
+config.bind('m', 'spawn mpv {url}')
+config.bind('M', 'hint links spawn mpv {hint-url}')
 # config.bind("'", 'enter-mode jump_mark')
 # config.bind('+', 'zoom-in')
 # config.bind('-', 'zoom-out')
