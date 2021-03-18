@@ -1,8 +1,0 @@
-user_pref("browser.startup.page", 0);
-
-
-
-user_pref("browser.aboutConfig.showWarning", false); // Disable warning when edit config
-
-user_pref("signon.rememberSignons", false); // Disable passwordmanager
-user_pref("signon.prefillForms", false);  // Do not fill forms

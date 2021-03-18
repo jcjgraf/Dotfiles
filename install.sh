@@ -189,8 +189,6 @@ then
     linker "$dotfiles/mpv" ~/.config/mpv
     colorizer "$dotfiles/termite/config.raw" ~/.config/termite/config
     linker "$dotfiles/qutebrowser/config.py" ~/.config/qutebrowser/config.py
-    linker "$dotfiles/Firefox/Tridactyl" ~/.config/tridactyl
-    linker "$dotfiles/Firefox/user.js" ~/.mozilla/firefox/8bfetgg9.Main/user.js
     linker "$dotfiles/Vimiv/vimiv.conf" ~/.config/vimiv/vimiv.conf
     linker "$dotfiles/Vimiv/keys.conf" ~/.config/vimiv/keys.conf
     linker "$dotfiles/Newsboat" ~/.config/newsboat
