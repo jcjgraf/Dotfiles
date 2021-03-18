@@ -52,7 +52,8 @@ print(json.dumps(new))
 
 def extract_tags_from(json_obj):
     # Extract attributes for use as tags.
-    tags = [json_obj['description']]
+    #tags = [json_obj['description']]
+    tags = []
 
     if 'project' in json_obj:
         tags.append(json_obj['project'])
