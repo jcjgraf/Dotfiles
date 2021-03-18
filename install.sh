@@ -201,6 +201,7 @@ then
     linker "$dotfiles/Taskwarrior/dark-16.theme" ~/.config/taskwarrior/dark-16.theme
     linker "$dotfiles/Taskwarrior/on-modify.timewarrior" ~/.local/share/taskwarrior/hooks/on-modify.timewarrior
     linker "$dotfiles/Timewarrior/timewarrior.cfg" ~/.config/timewarrior/timewarrior.cfg
+    linker "$dotfiles/Timewarrior/dark.theme" ~/.config/timewarrior/dark.theme
 fi
 
 ## Mail

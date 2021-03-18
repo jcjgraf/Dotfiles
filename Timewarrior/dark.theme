@@ -1,0 +1,20 @@
+define theme:
+  description = "dark.theme: My 16-color theme"
+  colors:
+    # General UI color.
+    exclusion = "magenta"
+    today     = "red"
+    holiday   = "green"
+    label     = "white"
+    ids       = "red"
+    debug     = "blue"
+
+  # Rotating Color Palette for tags. The leading zeroes allow the order to be
+  # preserved.
+  palette:
+    color01 = "black on red"
+    color02 = "black on blue"
+    color03 = "black on green"
+    color04 = "black on magenta"
+    color05 = "black on cyan"
+    color06 = "black on yellow"
