@@ -151,6 +151,7 @@ then
     sudo bash -c "$(declare -f linker); linker \"$dotfiles/Scripts/volume.sh\" '/bin/volume.sh'"
     sudo bash -c "$(declare -f linker); linker \"$dotfiles/Scripts/scrotMenu.sh\" '/bin/scrotMenu.sh'"
     sudo bash -c "$(declare -f linker); linker \"$dotfiles/Scripts/monitorMenu.sh\" '/bin/monitorMenu.sh'"
+    linker "$dotfiles/Scripts/wwan.sh" ~/bin/wwan.sh
 fi
 
 ## WM
