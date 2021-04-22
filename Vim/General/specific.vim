@@ -4,6 +4,7 @@
 augroup fold
     au FileType sh set foldmethod=indent
     au FileType python set foldmethod=indent
+    au FileType haskell set foldmethod=indent
     au FileType yaml set foldmethod=indent
     let g:markdown_folding = 1
 augroup END
@@ -14,7 +15,6 @@ augroup enableSpell
     autocmd FileType gitcommit setlocal spell
     autocmd FileType markdown setlocal spell
     autocmd FileType tex setlocal spell
-    autocmd FileType c setlocal spell
 augroup END
 
 " Detect .h as C
