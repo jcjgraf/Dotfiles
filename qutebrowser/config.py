@@ -1611,6 +1611,7 @@ c.url.searchengines = {'DEFAULT': 'https://searx.jeanclaudegraf.ch/?q={}',
     'dd': 'https://www.duden.de/suchen/dudenonline/{}',
     'osm': 'https://www.openstreetmap.org/search?query={}',
     'w': 'https://en.wikipedia.org/wiki/Special:Search?search={}',
+    'd': 'https://duckduckgo.com/?q={}'
 }
 
 ## Page(s) to open at the start.
