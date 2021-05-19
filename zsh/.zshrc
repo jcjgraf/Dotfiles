@@ -13,8 +13,8 @@ source $ZSH/custom/themes/jc.zsh-theme
 
 # History
 HIST_STAMPS="mm/dd/yyyy"  # Timestamp in history
-HISTSIZE=5000
-SAVEHIST=5000
+HISTSIZE=500000
+SAVEHIST=500000
 
 setopt appendhistory autocd extendedglob nomatch notify
 
