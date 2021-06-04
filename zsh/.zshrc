@@ -1,48 +1,58 @@
-export PATH=$HOME/bin:/usr/local/bin:/usr/bin/:$PATH
-export ZSH=~/.oh-my-zsh
-export DOTFILES=~/Dotfiles
-
-ZSH_THEME=""
-CASE_SENSITIVE="true"
-plugins=(git history-substring-search)
-
-# Source oh-my-zsh, alias and custom theme
-source $ZSH/oh-my-zsh.sh
-source $ZSH/custom/alias.zsh
-source $ZSH/custom/themes/jc.zsh-theme
+source $ZDOTDIR/alias.zsh
+source $ZDOTDIR/prompt.zsh
 
 # History
-HIST_STAMPS="mm/dd/yyyy"  # Timestamp in history
+
+setopt EXTENDED_HISTORY        # Record command start time
+setopt INC_APPEND_HISTORY_TIME # Update history after each command instead on shell exit. Also record the duration
+setopt HIST_EXPIRE_DUPS_FIRST  # Expire duplicates first
+setopt HIST_IGNORE_DUPS        # Do not store duplications
+setopt HIST_SAVE_NO_DUPS       # No not store duplicates
+setopt HIST_IGNORE_ALL_DUPS    # Remove older duplicate
+setopt HIST_REDUCE_BLANKS      # Remove space chars
+
+HISTFILE="${XDG_CACHE_HOME}/zsh/history"
 HISTSIZE=500000
 SAVEHIST=500000
 
-setopt appendhistory autocd extendedglob nomatch notify
+# Tab Completion
+# Completions are stored in /usr/share/zsh/functions/Completion/*
 
-bindkey -v
+setopt ALWAYS_TO_END    # When completing, move cursor to end of line
+setopt COMPLETE_IN_WORD # Cursor stays when completing inside word
+setopt HIST_VERIFY      # Show substituted history command instead of running
 
-#autoload -Uz compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
-compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
+autoload -Uz compinit && compinit -d "${XDG_CACHE_HOME}/zsh/zcompdump"
 
-# Custom Export
-export eth=~/Documents/Studies/Eth/Semester4/
-export amb=${eth}AutonomousMobileRobots/
-export cn=${eth}ComputerNetworks/
-export dmdb=${eth}DataModellingAndDatabases/
-export fmfp=${eth}FormalMethodsAndFunctionalProgramming/
-export ws=${eth}WahrscheinlichkeitUndStatistik/
+zmodload zsh/complist # Needed for list-colors completion
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}" # Colored completion
+zstyle ':completion:*' menu select                      # Cycle through completions
 
-export VISUAL=nvim
-export EDITOR=nvim
+zstyle ':completion:*' special-dirs true # Complete speciel dirs like . and ..
 
-export TERM=xterm-color
+# Use chache to speed up completion
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/zcompcache"
 
-# Required that GPG works on SSH
-export GPG_TTY=$(tty)
-stty sane
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*' # Partial matching
 
-# NPM
-NPM_PACKAGES=
-export PATH="$PATH:${HOME}/.npm-packages/bin"
+bindkey -M menuselect '\C-x\i' vi-insert # Switch to interactive insert
 
-# Custom executables
-export PATH="$PATH:${HOME}/.local/bin"
+_comp_options+=(globdots) # Tab complete hidden files
+
+# Bindings
+
+# Make arrow keys search history 
+autoload -U history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^[[A" history-beginning-search-backward-end
+bindkey "^[[B" history-beginning-search-forward-end
+
+bindkey '^?' backward-delete-char # Backward delete using backspace
+bindkey  "^[[3~"  delete-char     # Forward Delete using delete key
+
+# Edit current command in EDITOR
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '\C-e' edit-command-line
