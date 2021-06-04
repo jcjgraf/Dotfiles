@@ -24,3 +24,7 @@
     tree = log --decorate --pretty=oneline --abbrev-commit --graph
 [init]
 	defaultBranch = main
+[color "status"]
+    added = green
+    changed = yellow
+    untracked = red
