@@ -98,8 +98,8 @@ then
     linker "$dotfiles/zsh/.zshrc" ~/.config/zsh/.zshrc
     linker "$dotfiles/zsh/.zlogin" ~/.config/zsh/.zlogin
     linker "$dotfiles/zsh/.zprofile" ~/.config/zsh/.zprofile
-    linker "$dotfiles/zsh/alias.zsh" ~/.oh-my-zsh/custom/alias.zsh
-    linker "$dotfiles/zsh/jc.zsh-theme" ~/.oh-my-zsh/custom/themes/jc.zsh-theme
+    linker "$dotfiles/zsh/alias.zsh" ~/.config/zsh/alias.zsh
+    linker "$dotfiles/zsh/prompt.zsh" ~/.config/zsh/prompt.zsh
     sudo bash -c "$(declare -f linker); linker \"$dotfiles/zsh/zshenv\" '/etc/zsh/zshenv'" # Run as root
 fi
 
