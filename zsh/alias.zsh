@@ -9,10 +9,10 @@ alias diff='diff --color'
 
 # Parent dir naviagation
 alias -g ..='cd ..'
-alias -g ...='../..'
-alias -g ....='../../..'
-alias -g .....='../../../..'
-alias -g ......='../../../../..'
+alias -g ...='cd ../..'
+alias -g ....='cd ../../..'
+alias -g .....='cd ../../../..'
+alias -g ......='cd ../../../../..'
 
 alias md='mkdir -p'
 
