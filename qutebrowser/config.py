@@ -1610,6 +1610,7 @@ c.url.searchengines = {'DEFAULT': 'https://searx.jeanclaudegraf.ch/?q={}',
     'dc': 'https://www.dict.cc/?s={}',
     'dd': 'https://www.duden.de/suchen/dudenonline/{}',
     'osm': 'https://www.openstreetmap.org/search?query={}',
+    'wd': 'https://de.wikipedia.org/wiki/Special:Search?search={}',
     'w': 'https://en.wikipedia.org/wiki/Special:Search?search={}',
     'd': 'https://duckduckgo.com/?q={}'
 }
