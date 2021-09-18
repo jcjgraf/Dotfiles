@@ -22,6 +22,7 @@
 [alias]
     squashbranch = reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))
     tree = log --decorate --pretty=oneline --abbrev-commit --graph
+    csha = rev-parse HEAD
 [init]
 	defaultBranch = main
 [color "status"]
