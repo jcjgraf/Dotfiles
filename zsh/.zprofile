@@ -22,6 +22,9 @@ export READER="zathura"
 # Add ~/bin and ~/.local/bin to path
 export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
 
+# Add cabal path
+export PATH="$PATH:$HOME/.cabal/bin"
+
 # Custom Export
 export DOTFILES=~/Dotfiles
 export eth=~/Documents/Studies/Eth/Semester4/
