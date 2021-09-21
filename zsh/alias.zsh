@@ -8,7 +8,7 @@ alias egrep='egrep --color=auto'
 alias diff='diff --color'
 
 # Parent dir naviagation
-alias -g ..='cd ..'
+alias ..='cd ..'
 alias -g ...='cd ../..'
 alias -g ....='cd ../../..'
 alias -g .....='cd ../../../..'
