@@ -3,4 +3,4 @@ Description=Rsync tmbackup to Homeserver
 
 [Service]
 Type=oneshot
-ExecStart=/home/jeanclaude/bin/rsync_tmbackup.sh /home/jeanclaude jeanclaude@192.168.1.5:~/Backup/Arch
+ExecStart=/home/jeanclaude/bin/rsync_tmbackup.sh /home/jeanclaude jeanclaude@192.168.1.5:~/Backup/Arch ~/.local/share/rsync_tmbackup/exclude_list

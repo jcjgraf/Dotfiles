@@ -125,6 +125,7 @@ if [[ "$systemd" = true ]]
 then
     sudo bash -c "$(declare -f linker); linker \"$dotfiles/acpi\" '/etc/acpi'" # Run as root
     linker "$dotfiles/systemd" ~/.config/systemd
+    linker "$dotfiles/rsync_tmbackup/exclude_list" ~/.local/share/rsync_tmbackup/exclude_list
     linker "$dotfiles/.pam_environment" ~/.pam_environment
 fi
 
