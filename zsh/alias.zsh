@@ -17,6 +17,7 @@ alias -g ......='cd ../../../../..'
 alias md='mkdir -p'
 
 alias l='ls -lah'
+alias tree='tree -a'
 alias c='clear'
 alias o='xdg-open'
 alias g='git'
