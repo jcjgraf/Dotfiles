@@ -17,3 +17,4 @@ source ~/.config/nvim/PluginConfig/vimtex.vim
 source ~/.config/nvim/PluginConfig/coc.vim
 source ~/.config/nvim/PluginConfig/ultisnips.vim
 source ~/.config/nvim/PluginConfig/vim-pandoc.vim
+source ~/.config/nvim/PluginConfig/merlin.vim
