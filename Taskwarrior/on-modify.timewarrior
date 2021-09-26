@@ -84,6 +84,7 @@ elif ('start' not in new or 'end' in new) and 'start' in old:
 
 if start_or_stop:
     tags = extract_tags_from(new)
+    tags = [' '.join(tags)]
 
     subprocess.call(['timew', start_or_stop] + tags + [':yes'])
 
