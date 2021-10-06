@@ -111,3 +111,6 @@ export TASKDATA="$XDG_DATA_HOME"/taskwarrior
 
 # GHC
 export GHCUP_USE_XDG_DIRS=1
+
+# opam configuration
+[[ ! -r /home/jeanclaude/.opam/opam-init/init.zsh ]] || source /home/jeanclaude/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
