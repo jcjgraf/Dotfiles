@@ -4,6 +4,10 @@ set $mod Mod4
 
 font pango: Hack 10
 
+# Remove Title Bar
+default_border pixel 1
+default_floating_border pixel 1
+
 # Colors
 set_from_resource $color0       color0      #000000
 set_from_resource $color8       color8      #000000
