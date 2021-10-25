@@ -1263,6 +1263,7 @@ c.qt.highdpi = True
 ## work with the `:scroll-px` command.
 ## Type: Bool
 # c.scrolling.smooth = False
+c.scrolling.smooth = True
 
 ## When to find text on a page case-insensitively.
 ## Type: IgnoreCase
