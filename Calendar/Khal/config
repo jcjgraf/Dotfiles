@@ -8,7 +8,7 @@ color = yellow
 [[Timetable]]
 path = /home/jeanclaude/.local/share/calendar/timetable
 type = calendar
-color = dark cyan
+color = dark blue
 
 [[Studies]]
 path = /home/jeanclaude/.local/share/calendar/studies
