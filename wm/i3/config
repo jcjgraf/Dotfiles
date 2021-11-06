@@ -28,8 +28,8 @@ set_from_resource $color15      color15     #000000
 
 # Workspace Name
 set $ws1 "1. "
-set $ws2 "2"
-set $ws3 "3"
+set $ws2 "2. "
+set $ws3 "3. "
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
@@ -130,10 +130,10 @@ bindsym $mod+i move workspace to output right
 # Resize
 bindsym $mod+r mode "resize"
 mode "resize" {
-    bindsym h resize shrink width 10 px or 10 ppt
-    bindsym j resize grow height 10 px or 10 ppt
-    bindsym k resize shrink height 10 px or 10 ppt
-    bindsym l resize grow width 10 px or 10 ppt
+    bindsym h resize shrink width 5 px or 5 ppt
+    bindsym j resize grow height 5 px or 5 ppt
+    bindsym k resize shrink height 5 px or 5 ppt
+    bindsym l resize grow width 5 px or 5 ppt
 
     bindsym Left resize shrink width 10 px or 10 ppt
     bindsym Down resize grow height 10 px or 10 ppt
