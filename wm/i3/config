@@ -164,6 +164,8 @@ bindsym $mod+Shift+e exec --no-startup-id rofimoji --max-recent=10 --rofi-args="
 
 bindsym $mod+shift+x exec --no-startup-id sleep 1 && ~/bin/lock.sh && systemctl suspend
 
+bindsym ctrl+space exec dunstctl close
+
 # Autostart
 exec_always --no-startup-id ~/.fehbg
 exec --no-startup-id redshift -c ~/.config/redshift/redshift.conf
