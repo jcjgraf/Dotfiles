@@ -41,7 +41,7 @@ color.completed=
 color.deleted=
 color.active=black on bright green
 color.recurring=
-color.scheduled=white on green
+color.scheduled=on green
 color.until=
 color.blocked=black on white
 color.blocking=black on bright white
@@ -50,14 +50,14 @@ color.blocking=black on bright white
 color.project.none=
 
 # Priority
-color.uda.priority.H=bold white
-color.uda.priority.M=white
+color.uda.priority.H=bold on red
+color.uda.priority.M=on yellow
 color.uda.priority.L=
 
 # Tags
 color.tag.next=bold yellow
-color.tag.none=green
-color.tagged=green
+color.tag.none=
+color.tagged=
 
 # Due
 color.due=blue
