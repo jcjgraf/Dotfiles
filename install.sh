@@ -1,6 +1,11 @@
 #!/bin/bash
 # Symlinkes dotfiles to correct location
 
+if [ $(id -u) = 0 ]
+    then echo "Please do not run this script as root!"
+    exit
+fi
+
 dotfiles=~/Dotfiles
 
 mail=false
