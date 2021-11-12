@@ -29,3 +29,14 @@ augroup mutt
     autocmd BufRead /tmp/neomutt-* setlocal spell
 "    autocmd BufRead /tmp/neomutt-* setlocal fo+=a  " Auto linebreak
 augroup END
+
+" Opam/Merlin
+augroup ocaml
+    autocmd!
+    au FileType ocaml set foldmethod=indent
+    au FileType ocaml set tabstop=2
+    au FileType ocaml set shiftwidth=2
+    au FileType ocaml set softtabstop=2
+augroup END
+let g:opamshare = substitute(system('opam var share'),'\n$','','''')
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
