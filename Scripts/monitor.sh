@@ -1,57 +1,140 @@
 #!/bin/bash
 # Monitor controller
 
-penMap() {
-    xinput --map-to-output 'Wacom Pen and multitouch sensor Finger touch' eDP-1
-    xinput --map-to-output 'Wacom Pen and multitouch sensor Pen stylus' eDP-1
-    xinput --map-to-output 'Wacom Pen and multitouch sensor Pen eraser' eDP-1
+APPNAME=$( basename "$0" | sed "s/\.sh$//" )
+
+intern="eDP-1"
+extern=""
+
+verbose="false"
+
+m_log_debug() {
+    if $verbose
+    then
+        echo "$APPNAME: DEBUG: $1" > /dev/tty
+    fi
 }
 
-usage() {
-    echo "Usage: $0 \n
-        -h help\n
-        -s built-in monitor only\n
-        -e external monitor only\n
-        -m multi monitor\n
-        -c clone monitor" 1>&2; exit 1;
+m_log_info() {
+    echo "$APPNAME: $1" > /dev/tty
 }
 
-# No flags passed
+m_log_error() {
+    echo "$APPNAME: ERROR: $1" > /dev/tty
+}
+
+m_get_connected() {
+    local out=$(xrandr | grep " connected " | awk '{ print$1 }')
+    m_log_debug "Connected: ${out}"
+    echo $out
+}
+
+m_get_disconnected() {
+    local out=$(xrandr | grep " disconnected " | awk '{ print$1 }')
+    echo $out
+}
+
+m_penmap() {
+    m_log_debug "Run m_penmap"
+    xinput --map-to-output 'Wacom Pen and multitouch sensor Finger touch' $intern
+    xinput --map-to-output 'Wacom Pen and multitouch sensor Pen stylus' $intern
+    xinput --map-to-output 'Wacom Pen and multitouch sensor Pen eraser' $intern
+}
+
+m_usage() {
+    local txt=(
+        "Utility $APPNAME for setting monitors."
+        "Usage: $APPNAME [options]"
+        ""
+        "Options:"
+        "  --help, -h      Print help."
+        "  --internal, -i  Internal Monitor Only."
+        "  --external, -E  External Monitor Only."
+        "  --extend, -e    Extend Internal Monitor."
+        "  --clone, -c     Cline Internal Monitor."
+        "  --verbose, -v   Verbose Output."
+    )
+
+    printf "%s\\n" "${txt[@]}"
+}
+
+m_set() {
+
+    connected=$(m_get_connected)
+    extern=${connected/"$intern"/}
+
+    m_log_debug "Called m_set with $1"
+
+    cmd="xrandr"
+
+    # Enable correct monitors
+    case "$1" in
+        internal)
+            m_log_info "Enable internal monitor only"
+            #cmd="${cmd} --output ${intern} --primary --auto --pos 0x0 --rotate normal --output ${extern} --off"
+            cmd="${cmd} --output ${intern} --primary --auto --pos 0x0 --rotate normal"
+            ;;
+        external)
+            m_log_info "Enalbe external monitor only"
+            cmd="${cmd} --output ${intern} --off  --output ${extern} --primary --auto --scale 2.5x2.5 --rotate normal"
+            ;;
+        extend)
+            m_log_info "Extend internal monitor"
+            cmd="${cmd} --output ${intern} --primary --auto --pos 432x2700 --rotate normal --output ${extern} --auto --scale 2x2 --pos 0x0 --rotate normal"
+            ;;
+        clone)
+            m_log_info "Clone internal monitor"
+            cmd="${cmd} --output ${intern} --primary --auto --pos 432x2700 --rotate normal --output "$extern" --auto --scale 2x2 --pos 0x0 --rotate normal --same-as ${intern}"
+            ;;
+    esac
+
+    # Disable unused monitors
+    for d in $(m_get_disconnected)
+    do
+        cmd="${cmd} --output ${d} --off"
+    done
+
+    m_log_debug "Run ${cmd}"
+    eval "$cmd"
+
+    m_penmap
+    ~/.fehbg
+}
+
 if [[ $# -eq 0 ]]
 then
-   usage
+   m_usage
 fi
 
-# Flags passed
-while getopts 'hsmec' flag
+while (( $# ))
 do
-    case "${flag}" in
-        s)
-            # Single monitor built-in
-            xrandr --output eDP-1 --primary --mode 3840x2160 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output DP-2 --off
-            penMap
-            ~/.fehbg
+    m_log_debug "Parse Arg $1"
+    case "$1" in
+        --internal | -i)
+            mode="internal"
+            shift
             ;;
-        e)
-            # Single monitor external
-            xrandr --output eDP-1 --off  --output DP-1 --off --output HDMI-1 --primary --mode 1920x1080 --scale 2.5x2.5 --rotate normal --output DP-2 --off
-            penMap
-            ~/.fehbg
+        --external | -E)
+            mode="external"
+            shift
             ;;
-        m)
-            # Multiple monitor
-            xrandr --output eDP-1 --primary --mode 3840x2160 --pos 432x2700 --rotate normal --output DP-1 --off --output HDMI-1 --mode 1920x1080 --scale 2x2 --pos 0x0 --rotate normal --output DP-2 --off
-            penMap
-            ~/.fehbg
+        --extend | -e)
+            mode="extend"
+            shift
             ;;
-        c)
-            # Multiple monitor clone
-            xrandr --output eDP-1 --primary --mode 3840x2160 --pos 432x2700 --rotate normal --output DP-1 --off --output HDMI-1 --mode 1920x1080 --scale 2x2 --pos 0x0 --rotate normal --same-as eDP-1 --output DP-2 --off
-            penMap
-            ~/.fehbg
+        --clone | -c)
+            mode="clone"
+            shift
             ;;
-        h | *)
-            usage
+        --verbose | -v)
+            verbose="true"
+            shift
+            ;;
+        --help | -h | *)
+            m_usage
+            exit 0
             ;;
     esac
 done
+
+m_set "$mode"

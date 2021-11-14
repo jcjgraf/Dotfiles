@@ -1,10 +1,10 @@
 #!/bin/bash
 
 o0="Cancel"
-o1="Only eDP-1"
-o2="Only HDMI-1"
-o3="Dual Screen eDP-1 -> HDMI-1"
-o4="Clone Screen eDP-1 -> HDMI-1"
+o1="Internal Only"
+o2="External Only"
+o3="Extend Internal"
+o4="Clone Internal"
 
 options="$o0\n$o1\n$o2\n$o3\n$o4"
 
@@ -13,15 +13,15 @@ echo $selection
 
 case $selection in
     $o1)
-        displayer /home/jeanclaude/bin/monitor.sh -s
+        displayer /home/jeanclaude/bin/monitor.sh --internal
         ;;
     $o2)
-        displayer /home/jeanclaude/bin/monitor.sh -e
+        displayer /home/jeanclaude/bin/monitor.sh --external
         ;;
     $o3)
-        displayer /home/jeanclaude/bin/monitor.sh -m
+        displayer /home/jeanclaude/bin/monitor.sh --extend
         ;;
     $o4)
-        displayer /home/jeanclaude/bin/monitor.sh -c
+        displayer /home/jeanclaude/bin/monitor.sh --clone
         ;;
 esac
