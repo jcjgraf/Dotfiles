@@ -40,7 +40,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'davidhalter/jedi-vim', {'for': 'python'}
 
 " Syntax check
-Plug 'vim-syntastic/syntastic', {'for': 'python'}
+Plug 'vim-syntastic/syntastic'
 
 " Python folding
 Plug 'tmhedberg/SimpylFold', {'for': 'python'}

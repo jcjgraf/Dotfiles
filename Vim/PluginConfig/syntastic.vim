@@ -3,3 +3,4 @@ let g:syntastic_auto_loc_list = 0                   " Automtically open/close l-
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_stl_format = "\ e: %e w: %w\ "
+let g:syntastic_ocaml_checkers=['merlin']
