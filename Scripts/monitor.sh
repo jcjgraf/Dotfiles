@@ -71,8 +71,7 @@ m_set() {
     case "$1" in
         internal)
             m_log_info "Enable internal monitor only"
-            #cmd="${cmd} --output ${intern} --primary --auto --pos 0x0 --rotate normal --output ${extern} --off"
-            cmd="${cmd} --output ${intern} --primary --auto --pos 0x0 --rotate normal"
+            cmd="${cmd} --output ${intern} --primary --auto --pos 0x0 --rotate normal --output ${extern} --off"
             ;;
         external)
             m_log_info "Enalbe external monitor only"
