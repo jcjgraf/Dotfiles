@@ -111,7 +111,11 @@ fi
 ### X
 if [[ "$xWin" = true ]]
 then
-    linker "$dotfiles/X11" ~/.config/X11
+    linker "$dotfiles/X11/Xresources" ~/.config/X11/Xresources
+    linker "$dotfiles/X11/xcolors" ~/.config/X11/xcolors
+    linker "$dotfiles/X11/xinitrc" ~/.config/X11/xinitrc
+    sudo bash -c "$(declare -f linker); linker \"$dotfiles/X11/00-keyboard.conf\" /etc/X11/xorg.conf.d/00-keyboard.conf"
+    sudo bash -c "$(declare -f linker); linker \"$dotfiles/X11/40-mouse-sensitivity.conf\" /etc/X11/xorg.conf.d/40-mouse-sensitivity.conf"
     xrdb ~/.config/X11/Xresources
 
     linker "$dotfiles/gtk-3.0" ~/.config/gtk-3.0
