@@ -7,6 +7,7 @@
 .java
 .jupyter
 .local/lib
+.local/share/akonadi
 .local/share/MATLAB
 .local/share/Trash
 .local/share/qutebrowser/webengine
@@ -28,7 +29,7 @@
 .cargo
 .config/coc
 .config/nvim/plugged
-.config/libreoffice/4/cache
+.config/libreoffice
 .config/xournalpp/autosave
 .config/Electron
 .config/Riot
