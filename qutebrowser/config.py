@@ -1613,7 +1613,8 @@ c.url.searchengines = {'DEFAULT': 'https://searx.jeanclaudegraf.ch/?q={}',
     'osm': 'https://www.openstreetmap.org/search?query={}',
     'wd': 'https://de.wikipedia.org/wiki/Special:Search?search={}',
     'w': 'https://en.wikipedia.org/wiki/Special:Search?search={}',
-    'd': 'https://duckduckgo.com/?q={}'
+    'd': 'https://duckduckgo.com/?q={}',
+    'g': 'https://www.google.com/search?q={}'
 }
 
 ## Page(s) to open at the start.
