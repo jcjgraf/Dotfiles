@@ -13,6 +13,7 @@
 .local/share/qutebrowser/webengine
 .local/share/qutebrowser/sessions
 .local/share/TelegramDesktop/
+.local/share/virtualenv/
 .cache/qutebrowser
 .matlab
 .mozilla
