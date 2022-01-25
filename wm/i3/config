@@ -167,6 +167,6 @@ bindsym $mod+shift+x exec --no-startup-id sleep 1 && ~/bin/lock.sh && systemctl 
 bindsym ctrl+space exec dunstctl close
 
 # Autostart
-exec_always --no-startup-id ~/.fehbg
+exec_always --no-startup-id  feh --no-fehbg --bg-fill '/home/jeanclaude/.config/feh/bg.jpg'
 exec --no-startup-id redshift -c ~/.config/redshift/redshift.conf
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
