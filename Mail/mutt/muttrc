@@ -108,5 +108,9 @@ source "~/.config/mutt/accounts/graf.jeanclaude@gmail.com.muttrc"
 source "~/.config/mutt/accounts/jeanggi90@gmail.com.muttrc"
 source "~/.config/mutt/accounts/mail@jeanclaudegraf.ch.muttrc"
 
+## Addresses
+set query_command = "khard email --parsable %s"
+bind editor <Tab> complete-query
+bind editor ^T    complete
 
 # vim: filetype=neomuttrc
