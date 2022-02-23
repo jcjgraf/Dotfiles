@@ -53,3 +53,30 @@ Create Both
 SyncState *
 MaxMessages 0
 ExpireUnread no
+
+## mail@jeanclaudegraf.ch
+IMAPStore mail@jeanclaudegraf.ch-remote
+Host 127.0.0.1
+Port 1143
+User mail@jeanclaudegraf.ch
+PassCmd "pass protonmail/arch/mail"
+SSLType None
+AuthMechs Login
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+UseNamespace yes
+
+MaildirStore mail@jeanclaudegraf.ch-local
+Subfolders Verbatim
+Path ~/.local/share/mail/mail@jeanclaudegraf.ch/
+Inbox ~/.local/share/mail/mail@jeanclaudegraf.ch/INBOX
+Flatten .
+
+Channel mail@jeanclaudegraf.ch
+Expunge Both
+Master :mail@jeanclaudegraf.ch-remote:
+Slave :mail@jeanclaudegraf.ch-local:
+Patterns * !"All Mail"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no

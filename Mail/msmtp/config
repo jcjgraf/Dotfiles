@@ -2,7 +2,7 @@ defaults
 auth on
 tls	on
 tls_trust_file	/etc/ssl/certs/ca-certificates.crt
-logfile	/var/log/msmtp.log
+logfile	/var/log/mail/msmtp.log
 
 # graf.jeanclaude@gmail.com
 account graf.jeanclaude@gmail.com
@@ -19,5 +19,15 @@ port 587
 from jeanggi90@gmail.com
 user jeanggi90@gmail.com
 passwordeval "pass google.com/jeanggi90@gmail.com"
+
+# mail@jeanclaudegraf.ch
+account mail@jeanclaudegraf.ch
+host 127.0.0.1
+port 1025
+from mail@jeanclaudegraf.ch
+user mail@jeanclaudegraf.ch
+passwordeval "pass protonmail/arch/mail"
+auth login
+tls_fingerprint 9E:F9:AE:0D:66:26:60:D5:CE:AC:E8:D8:B2:1A:44:11:21:71:FE:1A:44:C4:9E:12:C0:DF:FA:59:64:70:12:24
 
 # vim: filetype=msmtp

@@ -106,6 +106,7 @@ color body red default "([a-z][a-z0-9+-]*://(((([a-z0-9_.!~*'();:&=+$,-]|%[0-9a-
 ## Source Accounts
 source "~/.config/mutt/accounts/graf.jeanclaude@gmail.com.muttrc"
 source "~/.config/mutt/accounts/jeanggi90@gmail.com.muttrc"
+source "~/.config/mutt/accounts/mail@jeanclaudegraf.ch.muttrc"
 
 
 # vim: filetype=neomuttrc
