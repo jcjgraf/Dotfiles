@@ -27,7 +27,7 @@ export PATH="$PATH:$HOME/.cabal/bin"
 
 # Custom Export
 export DOTFILES=~/Dotfiles
-export eth=~/Documents/Studies/Eth/Semester5
+export eth=~/Documents/Studies/Eth/Semester6
 export cs=${eth}/ComputerSystems
 export es=${eth}/EmbeddedSystems
 export vc=${eth}/VisualComputing
@@ -75,7 +75,7 @@ NPM_PACKAGES=
 export PATH="$PATH:${HOME}/.npm-packages/bin"
 
 # Ledger
-export LEDGER_FILE=~/Documents/Finanzen/Ausgaben/2021.journal
+export LEDGER_FILE=~/Documents/Finanzen/Ausgaben/2022.journal
 
 # LESS
 export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
