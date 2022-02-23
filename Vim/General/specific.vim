@@ -27,7 +27,8 @@ augroup END
 augroup mutt
     autocmd!
     autocmd BufRead /tmp/neomutt-* setlocal spell
-"    autocmd BufRead /tmp/neomutt-* setlocal fo+=a  " Auto linebreak
+    autocmd BufRead /tmp/neomutt-* setlocal fo+=a  " Auto linebreak
+    autocmd BufRead /tmp/neomutt-* setlocal tw=80  " Wrap after 80 chars
 augroup END
 
 " Opam/Merlin
