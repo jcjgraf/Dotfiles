@@ -1,6 +1,6 @@
 # muttrc file for account graf.jeanclaude@gmail.com
 
-## Idenfitication
+## Identification
 set realname = "Jean-Claude Graf"
 set from = "graf.jeanclaude@gmail.com"
 #alias me Jean-Claude Graf <graf.jeanclaude@gmail.com>
@@ -20,16 +20,7 @@ set postponed = "+[Gmail].Drafts"
 set trash = "+[Gmail].Bin"
 mailboxes  "=INBOX" "=[Gmail].Drafts" "=[Gmail].Spam" "=[Gmail].Sent\ Mail" "=[Gmail].Bin"
 
-## Sendmail
-set sendmail = "msmtp -a graf.jeanclaude@gmail.com"
-
-## Binds
-#bind index,pager gg noop
-#bind index,pager g noop
-#bind index,pager M noop
-#bind index,pager C noop
-#bind index gg first-entry
-#macro index o "<shell-escape>mailsync -V graf_jeanclaude-gmail<enter>" "run mbsync to sync graf_jeanclaude-gmail"
-#unmailboxes *
+## Hook Sendmail
+account-hook $folder 'set sendmail = "msmtp -a graf.jeanclaude@gmail.com"'
 
 # vim: filetype=neomuttrc

@@ -19,7 +19,7 @@ set postponed = "+Drafts"
 set trash = "+Trash"
 mailboxes "+INBOX" "+Drafts" "+Sent" "+Trash" "+Junk"
 
-# Sendmail
-set sendmail = "msmtp -a mail@jeanclaudegraf.ch"
+# Hook Sendmail
+account-hook $folder 'set sendmail = "msmtp -a mail@jeanclaudegraf.ch"'
 
 # vim: filetype=neomuttrc
