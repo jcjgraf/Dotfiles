@@ -20,6 +20,7 @@ bind index,pager D purge-message
 bind index,pager u undelete-message
 
 ## Sidebar
+set mail_check_stats  # Check for mails to display stats
 set sidebar_visible = yes
 set sidebar_width = 20
 set sidebar_short_path = yes
