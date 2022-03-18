@@ -17,7 +17,7 @@ set spoolfile = "+INBOX"
 set record = "+Sent"
 set postponed = "+Drafts"
 set trash = "+Trash"
-mailboxes "+INBOX" "+Archive" "+Drafts" "+Sent" "+Trash" "+Spam"
+mailboxes "+INBOX" "+Drafts" "+Sent" "+Trash" "+Junk"
 
 # Sendmail
 set sendmail = "msmtp -a mail@jeanclaudegraf.ch"
