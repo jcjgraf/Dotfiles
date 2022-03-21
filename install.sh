@@ -212,6 +212,7 @@ then
     linker "$dotfiles/Timewarrior/timewarrior.cfg" ~/.config/timewarrior/timewarrior.cfg
     linker "$dotfiles/Timewarrior/dark.theme" ~/.config/timewarrior/dark.theme
     linker "$dotfiles/Cabal/config" ~/.cabal/config
+    linker "$dotfiles/gdb" ~/.config/gdb
 fi
 
 ## Mail
