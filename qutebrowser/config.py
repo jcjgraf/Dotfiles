@@ -1614,7 +1614,9 @@ c.url.searchengines = {'DEFAULT': 'https://searx.jeanclaudegraf.ch/?q={}',
     'wd': 'https://de.wikipedia.org/wiki/Special:Search?search={}',
     'w': 'https://en.wikipedia.org/wiki/Special:Search?search={}',
     'd': 'https://duckduckgo.com/?q={}',
-    'g': 'https://www.google.com/search?q={}'
+    'g': 'https://www.google.com/search?q={}',
+    'so': 'https://stackoverflow.com/search?q={}',
+    'aur': 'https://aur.archlinux.org/packages?O=0&K={}'
 }
 
 ## Page(s) to open at the start.
