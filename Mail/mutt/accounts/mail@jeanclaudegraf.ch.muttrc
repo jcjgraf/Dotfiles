@@ -20,6 +20,6 @@ set trash = "+Trash"
 mailboxes "+INBOX" "+Drafts" "+Sent" "+Trash" "+Junk"
 
 # Hook Sendmail
-account-hook $folder 'set sendmail = "msmtp -a mail@jeanclaudegraf.ch"'
+set sendmail = "msmtp -a mail@jeanclaudegraf.ch"
 
 # vim: filetype=neomuttrc

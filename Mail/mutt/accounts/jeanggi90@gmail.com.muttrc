@@ -21,6 +21,6 @@ set trash = "+[Gmail].Bin"
 mailboxes "=INBOX" "=[Gmail].Drafts" "=[Gmail].Spam" "=[Gmail].Sent\ Mail" "=[Gmail].Bin"
 
 # Sendmail
-account-hook $folder 'set sendmail = "msmtp -a jeanggi90@gmail.com"'
+set sendmail = "msmtp -a jeanggi90@gmail.com"
 
 # vim: filetype=neomuttrc
