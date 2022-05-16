@@ -17,7 +17,12 @@ set spoolfile = "+INBOX"
 set record = "+Sent"
 set postponed = "+Drafts"
 set trash = "+Trash"
-mailboxes "+INBOX" "+Drafts" "+Sent" "+Trash" "+Junk"
+named-mailboxes "--- mail@jeanclaudegraf.ch ---" ="."
+named-mailboxes "Inbox" ="INBOX"
+named-mailboxes "Drafts" ="Drafts"
+named-mailboxes "Sent" ="Sent"
+named-mailboxes "Trash" ="Trash"
+named-mailboxes "Junk" ="Junk"
 
 # Hook Sendmail
 set sendmail = "msmtp -a mail@jeanclaudegraf.ch"

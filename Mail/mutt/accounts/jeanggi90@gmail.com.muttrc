@@ -18,7 +18,13 @@ set spoolfile = "+INBOX"
 set record = "+[Gmail].Sent\ Mail"
 set postponed = "+[Gmail].Drafts"
 set trash = "+[Gmail].Bin"
-mailboxes "=INBOX" "=[Gmail].Drafts" "=[Gmail].Spam" "=[Gmail].Sent\ Mail" "=[Gmail].Bin"
+named-mailboxes "--- jeanggi90@gmail.com ---" ="."
+named-mailboxes "Inbox" ="INBOX"
+named-mailboxes "Drafts" ="[Gmail].Drafts"
+named-mailboxes "Sent" "=[Gmail].Sent\ Mail"
+named-mailboxes "Trash" "=[Gmail].Bin"
+named-mailboxes "Junk" "=[Gmail].Spam"
+
 
 # Sendmail
 set sendmail = "msmtp -a jeanggi90@gmail.com"
