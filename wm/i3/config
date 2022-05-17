@@ -163,6 +163,7 @@ bindsym $mod+d exec --no-startup-id rofi -show run
 bindsym $mod+Shift+e exec --no-startup-id rofimoji --max-recent=10
 
 bindsym $mod+shift+x exec --no-startup-id sleep 1 && ~/bin/lock.sh && systemctl suspend
+bindsym $mod+shift+s exec --no-startup-id sleep 1 && ~/bin/lock.sh
 
 bindsym ctrl+space exec dunstctl close
 
