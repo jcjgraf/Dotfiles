@@ -3,7 +3,7 @@
 # Based on config from https://github.com/LukeSmithxyz/mutt-wizard
 
 ## General
-set sort = 'reverse-date'
+set sort = 'reverse-threads'
 set date_format="%d/%m/%y %H:%M"
 set index_format="%2C %zs %?X?A& ? %D %-15.15F %s (%-4.4c)"
 set markers = no        # Disables the `+` displayed at line wraps
