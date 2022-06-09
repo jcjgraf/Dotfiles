@@ -1,7 +1,7 @@
 #!/bin/bash
 
 mailDir=~/.local/share/mail/
-addresses=("graf.jeanclaude@gmail.com" "jeanggi90@gmail.com")
+addresses=("graf.jeanclaude@gmail.com" "jeanggi90@gmail.com" "mail@jeanclaudegraf.ch" "jegraf@ethz.ch")
 mailboxes=("/INBOX/cur" "/INBOX/new")
 
 lastUnreadMailNumberDir=~/.cache/mailCheck/lastUnreadMailNumber
