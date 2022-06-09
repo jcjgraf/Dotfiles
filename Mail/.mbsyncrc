@@ -7,7 +7,7 @@ IMAPStore graf.jeanclaude@gmail.com-remote
 Host imap.gmail.com
 Port  993
 User graf.jeanclaude@gmail.com
-PassCmd "pass google.com/graf.jeanclaude@gmail.com"
+PassCmd "pass google.com/graf.jeanclaude@gmail.com/app/isync"
 SSLType IMAPS
 AuthMechs PLAIN
 CertificateFile /etc/ssl/certs/ca-certificates.crt
@@ -33,7 +33,7 @@ IMAPStore jeanggi90@gmail.com-remote
 Host imap.gmail.com
 Port  993
 User jeanggi90@gmail.com
-PassCmd "pass google.com/jeanggi90@gmail.com"
+PassCmd "pass google.com/jeanggi90@gmail.com/app/isync"
 SSLType IMAPS
 AuthMechs PLAIN
 CertificateFile /etc/ssl/certs/ca-certificates.crt

@@ -10,7 +10,7 @@ host smtp.gmail.com
 port 587
 from graf.jeanclaude@gmail.com
 user graf.jeanclaude@gmail.com
-passwordeval "pass google.com/graf.jeanclaude@gmail.com"
+passwordeval "pass google.com/graf.jeanclaude@gmail.com/app/isync"
 
 # jeanggi90@gmail.com
 account jeanggi90@gmail.com
@@ -18,7 +18,7 @@ host smtp.gmail.com
 port 587
 from jeanggi90@gmail.com
 user jeanggi90@gmail.com
-passwordeval "pass google.com/jeanggi90@gmail.com"
+passwordeval "pass google.com/jeanggi90@gmail.com/app/isync"
 
 # mail@jeanclaudegraf.ch
 account mail@jeanclaudegraf.ch
