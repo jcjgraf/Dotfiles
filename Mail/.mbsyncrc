@@ -78,3 +78,30 @@ Create Both
 SyncState *
 MaxMessages 0
 ExpireUnread no
+
+## jegraf@ethz.ch
+IMAPStore jegraf@ethz.ch-remote
+Host mail.ethz.ch
+Port 993
+User jegraf@ethz.ch
+PassCmd "pass ethz.ch/jegraf"
+SSLType IMAPS
+AuthMechs PLAIN
+PipelineDepth 1
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore jegraf@ethz.ch-local
+Subfolders Verbatim
+Path ~/.local/share/mail/jegraf@ethz.ch/
+Inbox ~/.local/share/mail/jegraf@ethz.ch/INBOX
+Flatten .
+
+Channel jegraf@ethz.ch
+Expunge Both
+Master :jegraf@ethz.ch-remote:
+Slave :jegraf@ethz.ch-local:
+Patterns * !"Archive"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no

@@ -28,4 +28,12 @@ from mail@jeanclaudegraf.ch
 user mail@jeanclaudegraf.ch
 passwordeval "pass hosting.de/mail@jeanclaudegraf.ch"
 
+# jegraf@ethz.ch
+account jegraf@ethz.ch
+host mail.ethz.ch
+port 587
+from jegraf@ethz.ch
+user jegraf@ethz.ch
+passwordeval "pass ethz.ch/jegraf"
+
 # vim: filetype=msmtp
