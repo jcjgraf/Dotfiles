@@ -85,6 +85,14 @@ packer.startup(function(use)
         end
     }
 
+    -- Requires: `xdotool`
+    use {
+        'lervag/vimtex',
+        config = function ()
+            require('user.plugins.vimtex')
+        end
+    }
+
     use { 'tpope/vim-commentary' }
 
     use {
