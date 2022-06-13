@@ -46,21 +46,18 @@ local function config(_config)
             --buf_keymap(bufnr, 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
             --buf_keymap(bufnr, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>')
             --buf_keymap(bufnr, 'n', '<leader>D', '<cmd>lua vim.diagnostic.setloclist()<CR>')
+
+            -- Set autocommands conditional on server_capabilities
+            if client.resolved_capabilities.document_highlight then
+                vim.cmd [[
+                    augroup lsp_document_highlight
+                        autocmd! * <buffer>
+                        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+                        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+                    augroup END
+                ]]
+            end
         end
---    -- Set autocommands conditional on server_capabilities
-----  if client.resolved_capabilities.document_highlight then
-----    vim.api.nvim_exec(
-----      [[
-----      augroup lsp_document_highlight
-----        autocmd! * <buffer>
-----        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-----        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-----      augroup END
-----    ]],
-----      false
-----    )
-----  end
---end
     }, _config or {})
 end
 

@@ -21,6 +21,7 @@ o.backup = true
 o.backupdir = vim.fn.stdpath 'data' .. '/backup//'
 o.swapfile = true
 o.spell = true
+o.updatetime = 300 -- To make the lsp highlight the word under the cursor faster
 
 o.number = true
 o.relativenumber = true
