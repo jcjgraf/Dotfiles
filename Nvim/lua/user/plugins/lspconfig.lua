@@ -64,17 +64,15 @@ local function config(_config)
     }, _config or {})
 end
 
-
-
 local lspconfig = require('lspconfig')
 
 lspconfig.pyright.setup(config())
 lspconfig.hls.setup(config())
 lspconfig.bashls.setup(config())
-lspconfig.texlab.setup(config())
 lspconfig.yamlls.setup(config())
 lspconfig.ccls.setup(config())
-
+lspconfig.ltex.setup(config())
+lspconfig.texlab.setup(config())
 
 -- TODO figure out why global vim is not found
 --local runtime_path = vim.split(package.path, ';')

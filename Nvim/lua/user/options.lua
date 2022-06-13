@@ -25,6 +25,9 @@ o.spell = true
 o.number = true
 o.relativenumber = true
 
+-- Vim uses magic to figure out if `.tex` file is of type LaTeX. Say it is always LaTex
+vim.g.tex_flavor = 'latex'
+
 
 --set updatetime=300                                  " Shorter updatetime for shorter delay
 
