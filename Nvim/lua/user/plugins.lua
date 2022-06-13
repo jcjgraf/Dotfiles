@@ -23,10 +23,18 @@ packer.startup(function(use)
             'onsails/lspkind-nvim',
             --'onsails/lspkind-nvim',
             --'hrsh7th/cmp-nvim-lsp-signature-help',
-            'f3fora/cmp-spell' -- TODO check if needed
+            'f3fora/cmp-spell',
+            'uga-rosa/cmp-dictionary',
         },
         config = function()
             require('user.plugins.cmp')
+        end
+    }
+
+    use {
+        'uga-rosa/cmp-dictionary',
+        config = function ()
+            require('user.plugins.cmp-dictionary')
         end
     }
 

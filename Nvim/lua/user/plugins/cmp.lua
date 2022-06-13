@@ -25,7 +25,8 @@ cmp.setup({
                 luasnip = '[Snip]',
                 path = '[Path]',
                 buffer = '[Buffer]',
-                spell = '[Dict]',
+                spell = '[Spell]',
+                dictionary = '[Dict]',
             },
         },
     },
@@ -66,6 +67,7 @@ cmp.setup({
         { name = 'luasnip' },
         { name = 'path' },
         { name = 'buffer' },
+        { name = 'dictionary' },
         { name = 'spell' },
     },
     experimental = {
