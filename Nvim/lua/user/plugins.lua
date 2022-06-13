@@ -110,7 +110,17 @@ packer.startup(function(use)
             require('user.plugins.gitsigns')
         end
     }
-    
+
+    use {
+        'ThePrimeagen/harpoon',
+        requires = {
+            { 'nvim-lua/plenary.nvim' },
+        },
+        config = function ()
+            require 'user.plugins.harpoon'
+        end
+    }
+
     use {
         'RRethy/nvim-base16' ,
         config = function ()
