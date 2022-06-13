@@ -2,6 +2,8 @@ local null_ls = require 'null-ls'
 
 local diagnostics = null_ls.builtins.diagnostics
 local formatting = null_ls.builtins.formatting
+local hover = null_ls.builtins.hover
+
 
 local severities = { error = 1, warning = 2, suggestion = 4 }
 
@@ -32,6 +34,8 @@ null_ls.setup {
             return diag
         end,
         }),
+        hover.dictionary.with({ extra_filetypes = { 'tex' } }),
+        diagnostics.proselint.with({ extra_filetypes = { 'txt' } }),
         formatting.black,
         formatting.stylua,
         diagnostics.flake8,
