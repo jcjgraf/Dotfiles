@@ -41,11 +41,11 @@ local function config(_config)
             buf_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>')
             vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 
-            --buf_keymap(bufnr, 'n', '<leader>d','<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
-            buf_keymap(bufnr, 'n', '<leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>')
-            buf_keymap(bufnr, 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
-            buf_keymap(bufnr, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>')
-            buf_keymap(bufnr, 'n', '<leader>D', '<cmd>lua vim.diagnostic.setloclist()<CR>')
+            ----buf_keymap(bufnr, 'n', '<leader>d','<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
+            --buf_keymap(bufnr, 'n', '<leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>')
+            --buf_keymap(bufnr, 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
+            --buf_keymap(bufnr, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>')
+            --buf_keymap(bufnr, 'n', '<leader>D', '<cmd>lua vim.diagnostic.setloclist()<CR>')
         end
 --    -- Set autocommands conditional on server_capabilities
 ----  if client.resolved_capabilities.document_highlight then

@@ -36,6 +36,12 @@ keymap('v', '>', '>gv')
 
 keymap('n', '<leader>c', ':ColorizerToggle<CR>')
 
+--buf_keymap(bufnr, 'n', '<leader>d','<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
+keymap('n', '<leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>')
+keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
+keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>')
+keymap('n', '<leader>D', '<cmd>lua vim.diagnostic.setloclist()<CR>')
+
 --" Open and close folds
 --"nnoremap <leader>f zA
 

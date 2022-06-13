@@ -1,0 +1,21 @@
+[submodule "language/vale/StyleRepos/Microsoft"]
+	path = language/vale/StyleRepos/Microsoft
+	url = https://github.com/errata-ai/Microsoft
+[submodule "language/vale/StyleRepos/Google"]
+	path = language/vale/StyleRepos/Google
+	url = https://github.com/errata-ai/Google
+[submodule "language/vale/StyleRepos/write-good"]
+	path = language/vale/StyleRepos/write-good
+	url = https://github.com/errata-ai/write-good
+[submodule "language/vale/StyleRepos/proselint"]
+	path = language/vale/StyleRepos/proselint
+	url = https://github.com/errata-ai/proselint
+[submodule "language/vale/StyleRepos/readability"]
+	path = language/vale/StyleRepos/readability
+	url = https://github.com/errata-ai/readability
+[submodule "language/vale/StyleRepos/alex"]
+	path = language/vale/StyleRepos/alex
+	url = https://github.com/errata-ai/alex
+[submodule "language/vale/StyleRepos/Joblint"]
+	path = language/vale/StyleRepos/Joblint
+	url = https://github.com/errata-ai/Joblint
