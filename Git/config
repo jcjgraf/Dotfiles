@@ -1,10 +1,10 @@
 [user]
-	name = Jean-Claude Graf
-	email = mail@jeanclaudegraf.ch
-	signingKey = 97630B418054C368DFBB3B498A300F57CBB9F63E
+    name = Jean-Claude Graf
+    email = mail@jeanclaudegraf.ch
+    signingKey = 97630B418054C368DFBB3B498A300F57CBB9F63E
 [core]
-	editor = nvim
-	excludesfile = /home/jeanclaude/.config/git/gitignore_global
+    editor = nvim
+    excludesfile = /home/jeanclaude/.config/git/gitignore_global
 [merge]
     tool = vimdiff
 [mergetool]
@@ -14,23 +14,24 @@
     cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
     #cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [commit]
-	gpgSign = true
+    gpgSign = true
 [gpg]
-	program = gpg2
+    program = gpg2
 [pull]
-	ff = only
+    ff = only
 [alias]
     squashbranch = reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))
     tree = log --decorate --pretty=oneline --abbrev-commit --graph
     csha = rev-parse HEAD
+    add-deleted = !git add $(git ls-files --deleted)
 [init]
-	defaultBranch = main
+    defaultBranch = main
 [color "status"]
     added = green
     changed = yellow
     untracked = red
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
