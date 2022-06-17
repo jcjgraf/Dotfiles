@@ -17,12 +17,14 @@ keymap('n', 'j', 'v:count == 0 ? \'gj\' : \'j\'', { expr = true })
 -- Paste replace visual selection without copying it
 keymap('v', 'p', '"_dP')
 
-
 keymap('n', '<leader>e', ':Lex 30<cr>')
 
 keymap('n', '<leader>k', ':nohlsearch<CR>')
 keymap('n', '<leader>Q', ':bufdo bdelete<CR>')
 
+-- Insert new line without going to insert mode
+keymap('n', 'oo', 'm`o<Esc>``')
+keymap('n', 'OO', 'm`O<Esc>``')
 
 -- Corrects last spelling
 keymap('i', '<C-l>', '<c-g>u<Esc>[s1z=`]a<c-g>u') -- TODO make work in normal mode
