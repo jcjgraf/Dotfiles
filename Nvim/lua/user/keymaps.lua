@@ -13,6 +13,8 @@ keymap('n', 'q:', '<nop>')
 -- Move vertically by visual lines except a count is provided
 keymap('n', 'k', 'v:count == 0 ? \'gk\' : \'k\'', { expr = true })
 keymap('n', 'j', 'v:count == 0 ? \'gj\' : \'j\'', { expr = true })
+keymap('v', 'k', 'v:count == 0 ? \'gk\' : \'k\'', { expr = true })
+keymap('v', 'j', 'v:count == 0 ? \'gj\' : \'j\'', { expr = true })
 
 -- Paste replace visual selection without copying it
 keymap('v', 'p', '"_dP')
