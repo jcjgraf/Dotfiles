@@ -27,12 +27,7 @@ export PATH="$PATH:$HOME/.cabal/bin"
 
 # Custom Export
 export DOTFILES=~/Dotfiles
-export eth=~/Documents/Studies/Eth/Semester6
-export cs=${eth}/ComputerSystems
-export es=${eth}/EmbeddedSystems
-export vc=${eth}/VisualComputing
-export cd=${eth}/CompilerDesign
-export mls=${eth}/MachineLearningSystems
+export eth=~/Documents/Studies/Eth/Semester7
 
 export TERM=xterm-color
 
