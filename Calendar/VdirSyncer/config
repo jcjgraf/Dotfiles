@@ -29,7 +29,7 @@ path = "~/.local/share/calendar_singlefile/%s.ics"
 type = "caldav"
 url = "https://nc.jeanclaudegraf.ch/remote.php/dav/calendars/jeanclaude/"
 username = "jeanclaude"
-password.fetch = ["command", "pass", "nc.jeanclaudegraf.ch/jeanclaude"]
+password.fetch = ["command", "pass", "online/nc.jeanclaudegraf.ch/jeanclaude"]
 
 # Contacts
 [pair contacts]
@@ -47,4 +47,4 @@ fileext = ".vcf"
 type = "carddav"
 url = "https://nc.jeanclaudegraf.ch/remote.php/dav/addressbooks/users/jeanclaude/"
 username = "jeanclaude"
-password.fetch = ["command", "pass", "nc.jeanclaudegraf.ch/jeanclaude"]
+password.fetch = ["command", "pass", "online/nc.jeanclaudegraf.ch/jeanclaude"]
