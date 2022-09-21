@@ -1,5 +1,7 @@
 [calendars]
 
+# Available colors: black, white, brown, yellow, dark gray, dark green, dark blue, light gray, light green, light blue, dark magenta, dark cyan, dark red, light magenta, light cyan, light red
+
 [[Personal]]
 path = /home/jeanclaude/.local/share/calendar/personal
 type = calendar
@@ -13,7 +15,22 @@ color = dark blue
 [[Studies]]
 path = /home/jeanclaude/.local/share/calendar/studies
 type = calendar
-color = dark green
+color = light blue
+
+[[TheAlt]]
+path = /home/jeanclaude/.local/share/calendar/thealt
+type = calendar
+color = light cyan
+
+[[Gwendolin]]
+path = /home/jeanclaude/.local/share/calendar/gwendolin
+type = calendar
+color = light magenta
+
+[[Others]]
+path = /home/jeanclaude/.local/share/calendar/others
+type = calendar
+color = dark magenta
 
 [[Birthdays]]
 path = /home/jeanclaude/.local/share/calendar/contact_birthdays
