@@ -1,0 +1,11 @@
+AddKeysToAgent yes
+
+Host aur.archlinux.org
+    HostName aur.archlinux.org
+    IdentityFile ~/.ssh/aur
+    User aur
+
+Host HS
+  HostName homeserver.local
+  IdentityFile ~/.ssh/id_rsa
+  User jeanclaude

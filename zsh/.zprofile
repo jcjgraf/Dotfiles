@@ -38,6 +38,10 @@ export TERM=xterm-color
 export GPG_TTY=$(tty)
 stty sane
 
+# SSH agent
+unset SSH_AGENT_PID
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
 # Fix for something, but not sure what
 export DISPLAY=:0.0;
 export GPG_TTY=/dev/pts/2

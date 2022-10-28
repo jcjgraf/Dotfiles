@@ -128,6 +128,7 @@ then
     linker "$dotfiles/fontconfig" ~/.config/fontconfig
     linker "$dotfiles/mimeapps.list" ~/.config/mimeapps.list
     linker "$dotfiles/locale.conf" ~/.config/locale.conf
+    linker "$dotfiles/Ssh/config" ~/.ssh/config
 fi
 
 if [[ "$systemd" = true ]]
@@ -135,7 +136,6 @@ then
     sudo bash -c "$(declare -f linker); linker \"$dotfiles/acpi\" '/etc/acpi'" # Run as root
     linker "$dotfiles/systemd" ~/.config/systemd
     linker "$dotfiles/rsync_tmbackup/exclude_list" ~/.local/share/rsync_tmbackup/exclude_list
-    linker "$dotfiles/.pam_environment" ~/.pam_environment
 fi
 
 if [[ "$homeServer" = true ]]
