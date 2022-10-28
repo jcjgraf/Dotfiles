@@ -25,6 +25,9 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
 # Add cabal path
 export PATH="$PATH:$HOME/.cabal/bin"
 
+# Add go path
+export PATH="$PATH:$HOME/go/bin"
+
 # Custom Export
 export DOTFILES=~/Dotfiles
 export eth=~/Documents/Studies/Eth/Semester7
@@ -112,3 +115,9 @@ export VIT_DIR="$XDG_CONFIG_HOME"/vit
 
 # opam configuration
 [[ ! -r /home/jeanclaude/.opam/opam-init/init.zsh ]] || source /home/jeanclaude/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+# JDTLS LSP Server for Java
+export JDTLS_HOME=/usr/share/java/jdtls
+
+# Notmuch
+export NOTMUCH_CONFIG="$XDG_CONFIG_HOME"/notmuch/config
