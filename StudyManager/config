@@ -1,0 +1,11 @@
+CURRENT_COURSE_LINK_DST: $HOME/CurrentCourse
+COURSES_ROOT_DIR: $HOME/Documents/Studies/Eth/Semester7
+
+INFO_FILE: info.yaml
+TIMETABLE_FILE: timetable.yaml
+TODO_FILE: todo.yaml
+
+CALENDAR: Timetable
+SEMESTER: HS22
+SEMESTER_START: 2022-09-19
+SEMESTER_END: 2022-12-23
