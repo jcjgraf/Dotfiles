@@ -6,7 +6,6 @@
 .icons
 .ipython
 .java
-.jupyter
 .local/lib
 .local/share/akonadi
 .local/share/MATLAB
@@ -41,3 +40,4 @@
 Images/Archive
 .opam
 go
+.symfony5
