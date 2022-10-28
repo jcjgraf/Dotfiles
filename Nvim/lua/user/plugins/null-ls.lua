@@ -34,10 +34,14 @@ null_ls.setup {
             return diag
         end,
         }),
-        hover.dictionary.with({ extra_filetypes = { 'tex' } }),
-        diagnostics.proselint.with({ extra_filetypes = { 'txt' } }),
-        formatting.black,
-        formatting.stylua,
-        diagnostics.flake8,
+        hover.dictionary.with({ extra_filetypes = { 'tex' } }), -- Tex
+        diagnostics.proselint.with({ extra_filetypes = { 'txt' } }), -- Tex
+        formatting.prettier, -- Tex
+        formatting.bibclean, -- BibTex
+        formatting.black, -- Python
+        formatting.stylua, -- Lua
+        formatting.astyle.with({ extra_filetypes = { 'java' } }), -- Java (many other possible)
+        diagnostics.flake8, -- Python
+
     },
 }
