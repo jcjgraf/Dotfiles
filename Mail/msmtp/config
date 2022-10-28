@@ -10,7 +10,7 @@ host smtp.gmail.com
 port 587
 from graf.jeanclaude@gmail.com
 user graf.jeanclaude@gmail.com
-passwordeval "pass google.com/graf.jeanclaude@gmail.com/app/isync"
+passwordeval "pass online/google.com/graf.jeanclaude@gmail.com/app/isync"
 
 # jeanggi90@gmail.com
 account jeanggi90@gmail.com
@@ -18,7 +18,7 @@ host smtp.gmail.com
 port 587
 from jeanggi90@gmail.com
 user jeanggi90@gmail.com
-passwordeval "pass google.com/jeanggi90@gmail.com/app/isync"
+passwordeval "pass online/google.com/jeanggi90@gmail.com/app/isync"
 
 # mail@jeanclaudegraf.ch
 account mail@jeanclaudegraf.ch
@@ -26,7 +26,7 @@ host mail.hosting.de
 port 587
 from mail@jeanclaudegraf.ch
 user mail@jeanclaudegraf.ch
-passwordeval "pass hosting.de/mail@jeanclaudegraf.ch"
+passwordeval "pass online/hosting.de/mail@jeanclaudegraf.ch"
 
 # jegraf@ethz.ch
 account jegraf@ethz.ch
@@ -34,6 +34,6 @@ host mail.ethz.ch
 port 587
 from jegraf@ethz.ch
 user jegraf@ethz.ch
-passwordeval "pass ethz.ch/jegraf"
+passwordeval "pass online/ethz.ch/jegraf"
 
 # vim: filetype=msmtp
