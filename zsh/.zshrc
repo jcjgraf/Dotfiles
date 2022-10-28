@@ -56,3 +56,12 @@ bindkey  "^[[3~"  delete-char     # Forward Delete using delete key
 autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '\C-e' edit-command-line
+
+# FZF
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+zle -N fzf-cd-widget
+bindkey -M emacs '^f' fzf-cd-widget
+bindkey -M vicmd '^f' fzf-cd-widget
+bindkey -M viins '^f' fzf-cd-widget
+
