@@ -122,6 +122,13 @@ packer.startup(function(use)
     }
 
     use {
+        'karb94/neoscroll.nvim',
+        config = function()
+            require('user.plugins.neoscroll')
+        end,
+    }
+
+    use {
         'RRethy/nvim-base16' ,
         config = function ()
             require 'user.base16'
