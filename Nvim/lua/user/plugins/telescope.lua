@@ -33,10 +33,7 @@ telescope.setup {
     }
 }
 
-telescope.load_extension 'fzf'
+telescope.load_extension('fzf')
+local builtin = require('telescope.builtin')
 
-
-keymap('n', '<leader>f', [[<cmd>lua require('telescope.builtin').find_files()<CR>]])
-keymap('n', '<leader>F', [[<cmd>lua require('telescope.builtin').find_files({ no_ignore = true, prompt_title = 'All Files' })<CR>]])
-keymap('n', '<leader>r', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]])
-keymap('n', '<leader>b', [[<cmd>lua require('telescope.builtin').buffers()<CR>]])
+vim.keymap.set("n", "<C-f>", builtin.find_files)
