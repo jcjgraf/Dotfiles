@@ -1,7 +1,7 @@
 # General
 auto-reload yes
 datetime-format "%d/%m/%y"
-show-keymap-hint no
+#show-keymap-hint no
 
 # Keybindings
 bind-key j down
@@ -29,7 +29,7 @@ dialogs-title-format "Dialogs"
 color listnormal cyan default
 color listnormal_unread green default bold
 color listfocus blue black standout bold
-color listfocus_unread green white standout bold
+color listfocus_unread green black standout bold
 color info yellow black bold
 color article white black
 
