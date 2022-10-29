@@ -1,103 +1,135 @@
-local buf_keymap = require 'lib.utils'.buf_keymap
+-- local buf_keymap = require 'lib.utils'.buf_keymap
 
-vim.diagnostic.config {
-    virtual_text = false,
-    severity_sort = true,
-    float = {
-        source = true,
-        focusable = false,
-        header = '',
-        prefix = '',
-        format = function(diagnostic)
-            if diagnostic.user_data ~= nil and diagnostic.user_data.lsp.code ~= nil then
-                return string.format('%s: %s', diagnostic.user_data.lsp.code, diagnostic.message)
-            end
-            return diagnostic.message
-        end,
-    }
-}
+-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+vim.keymap.set("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>")
+vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
+vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>")
 
-vim.fn.sign_define('DiagnosticSignError', { text = '', texthl = 'DiagnosticSignError' })
-vim.fn.sign_define('DiagnosticSignWarn', { text = '', texthl = 'DiagnosticSignWarn' })
-vim.fn.sign_define('DiagnosticSignInfo', { text = '', texthl = 'DiagnosticSignInfo' })
-vim.fn.sign_define('DiagnosticSignHint', { text = '', texthl = 'DiagnosticSignHint' })
+vim.diagnostic.config({
+	virtual_text = false,
+	severity_sort = true,
+	float = {
+		source = true,
+		focusable = false,
+		header = "",
+		prefix = "",
+		format = function(diagnostic)
+			if diagnostic.user_data ~= nil and diagnostic.user_data.lsp.code ~= nil then
+				return string.format("%s: %s", diagnostic.user_data.lsp.code, diagnostic.message)
+			end
+			return diagnostic.message
+		end,
+	},
+})
 
-local function config(_config)
-	return vim.tbl_deep_extend("force", {
-        capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-        on_attach = function(client, bufnr)
-            vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+vim.lsp.set_log_level("debug")
 
-            buf_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
-            buf_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
-            -- buf_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
-            buf_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
-            buf_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
-            buf_keymap(bufnr, 'n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
-            buf_keymap(bufnr, 'n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
-            buf_keymap(bufnr, 'n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>')
-            buf_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
+vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError" })
+vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn" })
+vim.fn.sign_define("DiagnosticSignInfo", { text = "", texthl = "DiagnosticSignInfo" })
+vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
 
-            buf_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>')
-            vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnr)
+	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
-            ----buf_keymap(bufnr, 'n', '<leader>d','<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
-            --buf_keymap(bufnr, 'n', '<leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>')
-            --buf_keymap(bufnr, 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
-            --buf_keymap(bufnr, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>')
-            --buf_keymap(bufnr, 'n', '<leader>D', '<cmd>lua vim.diagnostic.setloclist()<CR>')
+	-- See `:help vim.lsp.*` for documentation on any of the below functions
+	local bufopts = { noremap = true, silent = true, buffer = bufnr }
+	-- local bufopts = { buffer=bufnr }
 
-            -- Set autocommands conditional on server_capabilities
-            if client.resolved_capabilities.document_highlight then
-                vim.cmd [[
-                    augroup lsp_document_highlight
-                        autocmd! * <buffer>
-                        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-                        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-                    augroup END
-                ]]
-            end
-        end
-    }, _config or {})
+	-- Goto
+	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
+	vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+	vim.keymap.set("n", "gdd", vim.lsp.buf.type_definition, bufopts)
+	vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
+	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
+
+	-- Show information
+	vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
+	vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
+	vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, bufopts)
+
+	-- Actions
+	vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
+	vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
+	vim.keymap.set("n", "<space>f", function()
+		vim.lsp.buf.format({ async = true })
+	end, bufopts)
+
+	-- Workspace stuff
+	-- vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
+	-- vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+	-- vim.keymap.set('n', '<space>wl', function()
+	-- print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+	-- end, bufopts)
 end
 
-local lspconfig = require('lspconfig')
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-lspconfig.pyright.setup(config())
-lspconfig.hls.setup(config())
-lspconfig.bashls.setup(config())
-lspconfig.yamlls.setup(config())
-lspconfig.ccls.setup(config())
-lspconfig.ltex.setup(config())
-lspconfig.texlab.setup(config())
+local lspconfig = require("lspconfig")
+
+lspconfig.pyright.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+})
+
+lspconfig.jedi_language_server.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
+lspconfig.hls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
+lspconfig.bashls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
+lspconfig.yamlls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
+lspconfig.ccls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
+lspconfig.ltex.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
+lspconfig.texlab.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
 
 -- TODO figure out why global vim is not found
---local runtime_path = vim.split(package.path, ';')
---table.insert(runtime_path, 'lua/?.lua')
---table.insert(runtime_path, 'lua/?/init.lua')
-lspconfig.sumneko_lua.setup(config({
-    --cmd = { '/home/jess/bin/lua-language-server', '-E', '/home/jess/bin/main.lua' },
-    settings = {
-        Lua = {
-            runtime = {
-                version = 'LuaJIT',
-                --path = runtime_path,
-            },
-        },
-        diagnostics = {
-            -- Get the language server to recognize the `vim` global
-            globals = { 'vim' },
-        },
-        workspace = {
-            -- Make the server aware of Neovim runtime files
-            library = vim.api.nvim_get_runtime_file('', true),
---            library = {
---					[vim.fn.expand('$VIMRUNTIME/lua')] = true,
---					[vim.fn.stdpath('config') .. '/lua'] = true,
---				},
-        },
-        telemetry = {
-            enable = false,
-        },
-    },
-}))
+lspconfig.sumneko_lua.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	cmd = { "/usr/bin/lua-language-server" },
+	settings = {
+		Lua = {
+			runtime = {
+				version = "LuaJIT",
+			},
+		},
+		diagnostics = {
+			-- Get the language server to recognize the `vim` global
+			globals = { "vim" },
+		},
+		workspace = {
+			-- Make the server aware of Neovim runtime files
+			library = vim.api.nvim_get_runtime_file("", true),
+		},
+		telemetry = {
+			enable = false,
+		},
+	},
+})
