@@ -10,7 +10,7 @@ o.colorcolumn = '88'
 o.cursorline = true
 o.scrolloff = 3
 o.signcolumn = 'yes'
-o.foldlevelstart = 100
+o.foldenable=false -- Disable folds at startup
 o.list = true
 o.showbreak = '﬌ '
 o.listchars = 'tab:» ,nbsp:·,trail:·'
@@ -19,7 +19,7 @@ o.confirm = true
 o.undofile = true
 o.backup = true
 o.backupdir = vim.fn.stdpath 'data' .. '/backup//'
-o.swapfile = true
+o.swapfile = false
 o.spell = true
 o.updatetime = 300 -- To make the lsp highlight the word under the cursor faster
 
