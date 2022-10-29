@@ -30,6 +30,13 @@ packer.startup(function(use)
         end
     }
 
+    use {
+        'rafamadriz/friendly-snippets',
+        requires = {
+            'hrsh7th/nvim-cmp'
+        },
+    }
+
    -- use {
    --     'uga-rosa/cmp-dictionary',
    --      requires = {
