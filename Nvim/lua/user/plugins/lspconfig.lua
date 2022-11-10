@@ -1,5 +1,3 @@
--- local buf_keymap = require 'lib.utils'.buf_keymap
-
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>")
 vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
@@ -47,8 +45,7 @@ local on_attach = function(client, bufnr)
 
 	-- Show information
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
-	vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
-	vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, bufopts)
+	vim.keymap.set("n", "KK", vim.lsp.buf.signature_help, bufopts)
 
 	-- Actions
 	vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
