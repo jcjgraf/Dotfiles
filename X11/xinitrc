@@ -10,4 +10,7 @@ xinput --map-to-output 'Wacom Pen and multitouch sensor Pen eraser' eDP-1
 # Disable beep bell
 xset -b
 
+# Fix application starting super slow
+dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
+
 exec i3
