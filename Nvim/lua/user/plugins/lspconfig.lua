@@ -106,6 +106,16 @@ lspconfig.texlab.setup({
 	capabilities = capabilities,
 })
 
+lspconfig.gopls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
+lspconfig.rust_analyzer.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
 -- TODO figure out why global vim is not found
 lspconfig.sumneko_lua.setup({
 	on_attach = on_attach,
