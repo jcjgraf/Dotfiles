@@ -5,7 +5,17 @@ Host aur.archlinux.org
     IdentityFile ~/.ssh/aur
     User aur
 
-Host HS
+Host hs
   HostName homeserver.local
   IdentityFile ~/.ssh/id_rsa
   User jeanclaude
+
+Host remarkable
+    Hostname 10.11.99.1
+    User root
+    Port 22
+    IdentityFile ~/.ssh/id_rsa
+    ForwardX11 no
+    ForwardAgent no
+    PubkeyAcceptedKeyTypes +ssh-rsa
+    HostKeyAlgorithms +ssh-rsa
