@@ -30,7 +30,7 @@ export PATH="$PATH:$HOME/go/bin"
 
 # Custom Export
 export DOTFILES=~/Dotfiles
-export eth=~/Documents/Studies/Eth/Semester7
+export eth=~/Documents/Studies/Eth/Semester8
 
 export TERM=xterm-color
 
@@ -77,7 +77,7 @@ NPM_PACKAGES=
 export PATH="$PATH:${HOME}/.npm-packages/bin"
 
 # Ledger
-export LEDGER_FILE=~/Documents/Finanzen/Ausgaben/2022.journal
+export LEDGER_FILE=~/Documents/Finanzen/Ausgaben/2023.journal
 
 # LESS
 export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
