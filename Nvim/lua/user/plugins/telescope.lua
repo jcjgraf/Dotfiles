@@ -1,6 +1,5 @@
 local telescope = require 'telescope'
 local actions = require 'telescope.actions'
-local keymap = require 'lib.utils'.keymap
 
 telescope.setup {
     defaults = {

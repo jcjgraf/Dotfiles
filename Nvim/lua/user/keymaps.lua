@@ -1,65 +1,61 @@
-local keymap = require 'lib/utils'.keymap
-
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Disable help
-keymap('', '<f1>', '<nop>')
-keymap('i', '<f1>', '<nop>')
+vim.keymap.set("", "<f1>", "<nop>")
+vim.keymap.set("i", "<f1>", "<nop>")
 
 -- Disable annoying command line thing
-keymap('n', 'q:', '<nop>')
+vim.keymap.set("n", "q:", "<nop>")
 
 -- Move vertically by visual lines except a count is provided
-keymap('n', 'k', 'v:count == 0 ? \'gk\' : \'k\'', { expr = true })
-keymap('n', 'j', 'v:count == 0 ? \'gj\' : \'j\'', { expr = true })
-keymap('v', 'k', 'v:count == 0 ? \'gk\' : \'k\'', { expr = true })
-keymap('v', 'j', 'v:count == 0 ? \'gj\' : \'j\'', { expr = true })
+vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
+vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
+vim.keymap.set("v", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
+vim.keymap.set("v", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 
 -- Paste replace visual selection without copying it
-keymap('v', 'p', '"_dP')
+vim.keymap.set("v", "p", '"_dP')
 
-keymap('n', '<leader>e', ':Lex 30<cr>')
+vim.keymap.set("n", "<leader>e", ":Lex 30<cr>")
 
-keymap('n', '<leader>k', ':nohlsearch<CR>')
-keymap('n', '<leader>Q', ':bufdo bdelete<CR>')
+vim.keymap.set("n", "<leader>k", ":nohlsearch<CR>")
+vim.keymap.set("n", "<leader>Q", ":bufdo bdelete<CR>")
 
 -- Insert new line without going to insert mode
-keymap('n', 'oo', 'm`o<Esc>``')
-keymap('n', 'OO', 'm`O<Esc>``')
+vim.keymap.set("n", "oo", "m`o<Esc>``")
+vim.keymap.set("n", "OO", "m`O<Esc>``")
 
 -- Corrects last spelling
-keymap('i', '<C-l>', '<c-g>u<Esc>[s1z=`]a<c-g>u') -- TODO make work in normal mode
+vim.keymap.set("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u") -- TODO make work in normal mode
 
 -- Allow gf to open non-existing file
-keymap('', 'gf', ':edit <cfile><CR>')
+vim.keymap.set("", "gf", ":edit <cfile><CR>")
 
 -- Reselect visual selection after indenting
-keymap('v', '<', '<gv')
-keymap('v', '>', '>gv')
+vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", ">", ">gv")
 
-keymap('n', '<leader>c', ':ColorizerToggle<CR>')
+vim.keymap.set("n", "<leader>c", ":ColorizerToggle<CR>")
 
---buf_keymap(bufnr, 'n', '<leader>d','<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
-keymap('n', '<leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>')
-keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
-keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>')
-keymap('n', '<leader>D', '<cmd>lua vim.diagnostic.setloclist()<CR>')
+--buf_vim.keymap.set(bufnr, 'n', '<leader>d','<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
+vim.keymap.set("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>")
+vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
+vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>")
+vim.keymap.set("n", "<leader>D", "<cmd>lua vim.diagnostic.setloclist()<CR>")
 
-keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
-
+vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
 
 --" Open and close folds
 --"nnoremap <leader>f zA
 
 -- Do not move cursor after yank
 -- http://ddrscott.github.io/blog/2016/yank-without-jank/
---keymap("v", "y", '<expr>y "my\"" . v:register . "y`y"'
+--vim.keymap.set("v", "y", '<expr>y "my\"" . v:register . "y`y"'
 
 --" Insert new line without enterint insert
 --nnoremap oo o<Esc>k
 --nnoremap OO O<Esc>j
-
 
 --" Move to errors
 --nnoremap <leader>e :lnext<CR>
