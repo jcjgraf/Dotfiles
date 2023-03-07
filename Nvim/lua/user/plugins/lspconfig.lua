@@ -82,77 +82,97 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local lspconfig = require("lspconfig")
 
+-- FileType: { "python" }
 lspconfig.pyright.setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
+	on_attach = on_attach,
+	capabilities = capabilities,
 })
 
+-- FileType: { "python" }
 lspconfig.jedi_language_server.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
 
+-- FileType: { "haskell", "lhaskell" }
 lspconfig.hls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
 
+-- FileType: { "sh" }
 lspconfig.bashls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
 
+-- FileType: { "yaml", "yaml.docker-compose" }
 lspconfig.yamlls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
 
-lspconfig.ccls.setup({
+-- FileType: { "c", "cpp", "objc", "objcpp" }
+-- local clangd_capabilities = capabilities
+-- clangd_capabilities.offsetEncoding = { "utf-16" }
+
+-- lspconfig.ccls.setup({
+-- 	on_attach = on_attach,
+-- 	capabilities = clangd_capabilities,
+-- })
+
+-- FileType: { "c", "cpp", "objc", "objcpp", "cuda", "proto" }
+lspconfig.clangd.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
 
+-- FileType: { "bib", "gitcommit", "markdown", "org", "plaintex", "rst", "rnoweb", "tex", "pandoc" }
 lspconfig.ltex.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
 
+-- FileType: { "tex", "plaintex", "bib" }
 lspconfig.texlab.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
 
+-- FileType: { "go", "gomod", "gowork", "gotmpl" }
 lspconfig.gopls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
 
+-- FileType: { "rust" }
 lspconfig.rust_analyzer.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
 
--- TODO figure out why global vim is not found
-lspconfig.sumneko_lua.setup({
+-- FileType: { "lua" }
+lspconfig.lua_ls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
-	cmd = { "/usr/bin/lua-language-server" },
 	settings = {
 		Lua = {
 			runtime = {
+				-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
 				version = "LuaJIT",
 			},
-		},
-		diagnostics = {
-			-- Get the language server to recognize the `vim` global
-			globals = { "vim" },
-		},
-		workspace = {
-			-- Make the server aware of Neovim runtime files
-			library = vim.api.nvim_get_runtime_file("", true),
-		},
-		telemetry = {
-			enable = false,
+			diagnostics = {
+				-- Get the language server to recognize the `vim` global
+				globals = { "vim" },
+			},
+			-- workspace = {
+			-- 	-- Make the server aware of Neovim runtime files
+			-- 	library = vim.api.nvim_get_runtime_file("", true),
+			-- },
+			-- Do not send telemetry data containing a randomized but unique identifier
+			telemetry = {
+				enable = false,
+			},
 		},
 	},
 })
