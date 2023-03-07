@@ -132,6 +132,10 @@ lspconfig.yamlls.setup({
 lspconfig.clangd.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
+    cmd = {
+        'clangd',
+        '--header-insertion-decorators=false' -- Prevent indentation (see #999)
+    },
 })
 
 -- FileType: { "bib", "gitcommit", "markdown", "org", "plaintex", "rst", "rnoweb", "tex", "pandoc" }
