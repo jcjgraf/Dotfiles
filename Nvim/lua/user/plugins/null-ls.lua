@@ -8,6 +8,7 @@ local hover = null_ls.builtins.hover
 local severities = { error = 1, warning = 2, suggestion = 4 }
 
 null_ls.setup {
+    -- FileType: { "markdown", "tex", "asciidoc" }
     sources = {
         diagnostics.vale.with({
             extra_filetypes = { 'txt' },
@@ -34,14 +35,22 @@ null_ls.setup {
             return diag
         end,
         }),
-        hover.dictionary.with({ extra_filetypes = { 'tex' } }), -- Tex
-        diagnostics.proselint.with({ extra_filetypes = { 'txt' } }), -- Tex
-        formatting.prettier, -- Tex
-        formatting.bibclean, -- BibTex
-        formatting.black, -- Python
-        formatting.stylua, -- Lua
-        formatting.astyle.with({ extra_filetypes = { 'java' } }), -- Java (many other possible)
-        diagnostics.flake8, -- Python
+        -- FileType: { "org", "text", "markdown" } + { "tex" }
+        hover.dictionary.with({ extra_filetypes = { 'tex' } }),
+        -- FileType: { "markdown", "tex" } + { "tex" }
+        diagnostics.proselint.with({ extra_filetypes = { 'txt' } }),
+        -- FileType: { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "css", "scss", "less", "html", "json", "jsonc", "yaml", "markdown", "markdown.mdx", "graphql", "handlebars" }
+        formatting.prettier,
+        -- FileType: { "bib" }
+        formatting.bibclean,
+        -- FileType: { "python" }
+        formatting.black,
+        -- FileType: { "lua", "luau" }
+        formatting.stylua,
+        -- FileType: { "arduino", "c", "cpp", "cs", "java" }
+        -- formatting.astyle,
+        -- FileType: { "python" }
+        diagnostics.flake8,
 
     },
 }
