@@ -3,10 +3,26 @@ vim.keymap.set("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>")
 vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
 vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>")
 
+-- Enable border for floats
+local _border = "single"
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+	border = _border,
+})
+
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+	border = _border,
+})
+
+require("lspconfig.ui.windows").default_options = {
+	border = _border,
+}
+
 vim.diagnostic.config({
 	virtual_text = false,
 	severity_sort = true,
 	float = {
+		border = _border,
 		source = true,
 		focusable = false,
 		header = "",
