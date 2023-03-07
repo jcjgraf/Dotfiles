@@ -2,6 +2,9 @@ vim.api.nvim_create_user_command("Format", function()
 	vim.lsp.buf.format({ async = true })
 end, {})
 
+vim.keymap.set("n", "<leader>ca", ":CodeActionMenu<CR>")
+vim.keymap.set("v", "<leader>ca", ":CodeActionMenu<CR>")
+
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>")
 vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
