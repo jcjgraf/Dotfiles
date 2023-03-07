@@ -29,6 +29,8 @@ o.relativenumber = true
 -- Vim uses magic to figure out if `.tex` file is of type LaTeX. Say it is always LaTex
 vim.g.tex_flavor = 'latex'
 
+vim.cmd [[au BufEnter * set fo-=c fo-=r fo-=o]] --Sets in essence formatoptions-=cro, which disables continuing of comments after pressing enter
+
 
 --set updatetime=300                                  " Shorter updatetime for shorter delay
 
