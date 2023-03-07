@@ -1,9 +1,9 @@
 local keymap = require 'lib/utils'.keymap
 
-keymap('', ',', '<Nop>')
-vim.g.mapleader = ','
-vim.g.maplocalleader = ','
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
+-- Disable help
 keymap('', '<f1>', '<nop>')
 keymap('i', '<f1>', '<nop>')
 

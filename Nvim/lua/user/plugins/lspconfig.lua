@@ -1,3 +1,7 @@
+vim.api.nvim_create_user_command("Format", function()
+	vim.lsp.buf.format({ async = true })
+end, {})
+
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>")
 vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
@@ -63,10 +67,10 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
 	vim.keymap.set("n", "KK", vim.lsp.buf.signature_help, bufopts)
 
-	-- Actions
-	vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
-	vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
-	vim.keymap.set("n", "<space>f", function()
+	-- Actions ("make")
+	vim.keymap.set("n", "mn", vim.lsp.buf.rename, bufopts)
+	-- vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
+	vim.keymap.set("n", "mf", function()
 		vim.lsp.buf.format({ async = true })
 	end, bufopts)
 
