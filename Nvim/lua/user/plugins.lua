@@ -22,7 +22,6 @@ packer.startup(function(use)
             'hrsh7th/cmp-nvim-lua',
             'onsails/lspkind-nvim',
             --'onsails/lspkind-nvim',
-            --'hrsh7th/cmp-nvim-lsp-signature-help',
             'f3fora/cmp-spell',
         },
         config = function()
@@ -53,6 +52,14 @@ packer.startup(function(use)
             --'b0o/schemastore.nvim',
             --'folke/lsp-colors.nvim',
             --'weilbith/nvim-code-action-menu',
+            -- Better info on signature
+            {
+                "ray-x/lsp_signature.nvim",
+                config = function()
+                    require 'user.plugins.lsp_signature'
+                end
+            }
+
         },
         config = function ()
             require('user.plugins.lspconfig')

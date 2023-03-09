@@ -67,8 +67,8 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
 
 	-- Show information
-	vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
-	vim.keymap.set("n", "KK", vim.lsp.buf.signature_help, bufopts)
+	vim.keymap.set("n", "Kh", vim.lsp.buf.hover, bufopts)
+	-- vim.keymap.set("n", "KK", vim.lsp.buf.signature_help, bufopts) -- Use lsp_signature instead
 
 	-- Actions ("make")
 	vim.keymap.set("n", "mn", vim.lsp.buf.rename, bufopts)
