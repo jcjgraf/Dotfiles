@@ -161,4 +161,9 @@ packer.startup(function(use)
             require 'user.base16'
         end
     }
+
+    -- Detect indentation to use in a certain file heuristically
+    use {
+        'tpope/vim-sleuth',
+    }
 end)
