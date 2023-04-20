@@ -2,38 +2,52 @@
 
 # Available colors: black, white, brown, yellow, dark gray, dark green, dark blue, light gray, light green, light blue, dark magenta, dark cyan, dark red, light magenta, light cyan, light red
 
+# Personal
 [[Personal]]
-path = /home/jeanclaude/.local/share/calendar/personal
+path = /home/jeanclaude/.local/share/calendar/regular/personal_main
 type = calendar
 color = yellow
 
-[[Timetable]]
-path = /home/jeanclaude/.local/share/calendar/timetable
-type = calendar
-color = dark blue
-
-[[Studies]]
-path = /home/jeanclaude/.local/share/calendar/studies
-type = calendar
-color = light blue
-
 [[TheAlt]]
-path = /home/jeanclaude/.local/share/calendar/thealt
+path = /home/jeanclaude/.local/share/calendar/regular/personal_thealt
 type = calendar
 color = light cyan
 
-[[Gwendolin]]
-path = /home/jeanclaude/.local/share/calendar/gwendolin
-type = calendar
-color = light magenta
+# [[PersonalMerged]]
+# path = /home/jeanclaude/.local/share/calendar/merged/personal
+# type = calendar
+# color = dark red
 
+# Studies
+[[Studies]]
+path = /home/jeanclaude/.local/share/calendar/regular/studies_main
+type = calendar
+color = light green
+
+[[Timetable]]
+path = /home/jeanclaude/.local/share/calendar/regular/studies_timetable
+type = calendar
+color = light green
+
+# [[StudiesMerged]]
+# path = /home/jeanclaude/.local/share/calendar/merged/studies
+# type = calendar
+# color = dark red
+
+# Shared
+[[Paaractivities]]
+path = /home/jeanclaude/.local/share/calendar/regular/paar_activities
+type = calendar
+color = yellow
+
+# Others
 [[Others]]
-path = /home/jeanclaude/.local/share/calendar/others
+path = /home/jeanclaude/.local/share/calendar/regular/others
 type = calendar
 color = dark magenta
 
 [[Birthdays]]
-path = /home/jeanclaude/.local/share/calendar/contact_birthdays
+path = /home/jeanclaude/.local/share/calendar/regular/contact_birthdays
 type = calendar
 color = dark red
 readonly = true

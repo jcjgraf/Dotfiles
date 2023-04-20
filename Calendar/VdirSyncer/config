@@ -2,28 +2,53 @@
 status_path = "~/.local/share/vdirsyncer/status/"
 
 # Calendar
-## Normal
-[pair calendars]
+## Normal: Sync general calendars and merged calendars to remote
+[pair calendars_to_remote]
 a = "calendars_local"
 b = "calendars_nc_remote"
-collections = ["from a", "from b"]
-conflict_resolution = ["command", "nvim", "-d"]
+collections = [
+        ["personal_main", "personal_main", "personal"],
+        ["personal_thealt", "personal_thealt", "thealt"],
+        ["paar_activities", "paar_activities", "paaraktivitaeten_shared_by_gwendolin"],
+        ["studies_main", "studies_main", "studies"],
+        ["studies_timetable", "studies_timetable", "timetable"],
+        "others"
+    ]
+conflict_resolution = "a wins"
 
-## Single File
-[pair calendars_singlefile]
-a = "calendars_local_singlefile"
+## Merged to Remote: Merged calendars to remote
+[pair calendars_merged_to_remote]
+a = "calendars_local_merged_ro"
 b = "calendars_nc_remote"
-collections = ["from a", "from b"]
-conflict_resolution = ["command", "nvim", "-d"]
+collections = [
+        ["personal_merged", "personal", "personal_merged"],
+        ["studies_merged", "studies", "studies_merged"]
+    ]
+conflict_resolution = "a wins"
+# Revert, as the only real source is coming from local
+partial_sync = "revert"
+
+## Create Single File: Sync general calendars to single file calendars
+[pair calendars_to_singlefile]
+a = "calendars_local"
+b = "calendars_local_singlefile"
+collections = ["from a"]
+conflict_resolution = "a wins"
 
 [storage calendars_local]
 type = "filesystem"
-path = "~/.local/share/calendar/"
+path = "~/.local/share/calendar/regular/"
 fileext = ".ics"
+
+[storage calendars_local_merged_ro]
+type = "filesystem"
+path = "~/.local/share/calendar/merged/"
+fileext = ".ics"
+read_only = true
 
 [storage calendars_local_singlefile]
 type = "singlefile"
-path = "~/.local/share/calendar_singlefile/%s.ics"
+path = "~/.local/share/calendar/singlefile/%s.ics"
 
 [storage calendars_nc_remote]
 type = "caldav"
@@ -36,7 +61,8 @@ password.fetch = ["command", "pass", "online/nc.jeanclaudegraf.ch/jeanclaude"]
 a = "contacts_local"
 b = "contacts_nc_remote"
 collections = ["from a", "from b"]
-conflict_resolution = ["command", "nvim", "-d"]
+# conflict_resolution = ["command", "nvim", "-d"]
+conflict_resolution = "a wins"
 
 [storage contacts_local]
 type = "filesystem"
