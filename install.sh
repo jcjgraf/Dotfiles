@@ -223,13 +223,14 @@ then
     linker "$dotfiles/Mail/msmtp" ~/.config/msmtp
     mkdir -p "$HOME/.config/isync"
     linker "$dotfiles/Mail/.mbsyncrc" ~/.config/isync/mbsyncrc
+    linker "$dotfiles/Mail/muttprint" ~/.config/muttprint
 fi
 
 ## Calendar
 if [[ "$calendar" = true ]]
 then
-    linker "$dotfiles/Calendar/Khal" ~/.config/khal
-    linker "$dotfiles/Calendar/VdirSyncer" ~/.config/vdirsyncer
+    linker "$dotfiles/CalCard/Khal" ~/.config/khal
+    linker "$dotfiles/CalCard/VdirSyncer" ~/.config/vdirsyncer
     linker "$dotfiles/Todoman" ~/.config/todoman
-    linker "$dotfiles/Khard" ~/.config/khard
+    linker "$dotfiles/CalCard/Khard" ~/.config/khard
 fi

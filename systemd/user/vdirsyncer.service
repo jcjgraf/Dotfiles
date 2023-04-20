@@ -1,6 +1,0 @@
-[Unit]
-Description=DAV syncronisation service
-
-[Service]
-Type=oneshot
-ExecStart=/home/jeanclaude/.config/systemd/user/vdirsyncer.startup

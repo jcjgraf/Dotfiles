@@ -28,4 +28,4 @@ cp "${calendarPath}/regular/studies_"*"/"* "${calendarPath}/merged/studies"
 vdirsyncer sync calendars_merged_to_remote
 
 # Sync Calendar
-vdirsyncer sync calendar
+vdirsyncer sync contacts

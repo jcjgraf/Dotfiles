@@ -1,0 +1,6 @@
+[Unit]
+Description=CalDAV and CardDAV syncer
+
+[Service]
+Type=oneshot
+ExecStart=/home/jeanclaude/Dotfiles/CalCard/sync.sh
