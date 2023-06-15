@@ -12,7 +12,7 @@ o.scrolloff = 3
 o.signcolumn = 'yes'
 o.foldenable=false -- Disable folds at startup
 o.list = true
-o.showbreak = '﬌ '
+o.showbreak = '󱞩 '
 o.listchars = 'tab:» ,nbsp:·,trail:·'
 o.shortmess:append('I')
 o.confirm = true
