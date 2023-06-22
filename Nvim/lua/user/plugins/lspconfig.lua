@@ -132,10 +132,10 @@ lspconfig.yamlls.setup({
 lspconfig.clangd.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
-    cmd = {
-        'clangd',
-        '--header-insertion-decorators=false' -- Prevent indentation (see https://github.com/hrsh7th/nvim-cmp/issues/999)
-    },
+	cmd = {
+		"clangd",
+		"--header-insertion-decorators=false", -- Prevent indentation (see https://github.com/hrsh7th/nvim-cmp/issues/999)
+	},
 })
 
 -- FileType: { "bib", "gitcommit", "markdown", "org", "plaintex", "rst", "rnoweb", "tex", "pandoc" }
