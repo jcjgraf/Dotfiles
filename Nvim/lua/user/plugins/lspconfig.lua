@@ -134,7 +134,7 @@ lspconfig.clangd.setup({
 	capabilities = capabilities,
     cmd = {
         'clangd',
-        '--header-insertion-decorators=false' -- Prevent indentation (see #999)
+        '--header-insertion-decorators=false' -- Prevent indentation (see https://github.com/hrsh7th/nvim-cmp/issues/999)
     },
 })
 
