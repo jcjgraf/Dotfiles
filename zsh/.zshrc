@@ -3,8 +3,9 @@ source $ZDOTDIR/prompt.zsh
 
 # History
 
-setopt EXTENDED_HISTORY        # Record command start time
-setopt INC_APPEND_HISTORY_TIME # Update history after each command instead on shell exit. Also record the duration
+setopt EXTENDED_HISTORY        # Record command start time and duration
+setopt INC_APPEND_HISTORY_TIME # Update history after each command instead on shell exit
+setopt SHARE_HISTORY           # Share history between sessions
 setopt HIST_EXPIRE_DUPS_FIRST  # Expire duplicates first
 setopt HIST_IGNORE_DUPS        # Do not store duplications
 setopt HIST_SAVE_NO_DUPS       # No not store duplicates
@@ -12,8 +13,8 @@ setopt HIST_IGNORE_ALL_DUPS    # Remove older duplicate
 setopt HIST_REDUCE_BLANKS      # Remove space chars
 
 HISTFILE="${XDG_CACHE_HOME}/zsh/history"
-HISTSIZE=500000
-SAVEHIST=500000
+HISTSIZE=500000000
+SAVEHIST=500000000
 
 # Tab Completion
 # Completions are stored in /usr/share/zsh/functions/Completion/*
