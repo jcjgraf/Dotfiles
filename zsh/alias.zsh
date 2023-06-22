@@ -38,3 +38,5 @@ alias homenet='cd ~/Documents/Certificates && sudo openvpn er.ovpn'
 alias nosleep='xset s off && xset -dpms'
 
 alias bing='paplay /usr/share/sounds/freedesktop/stereo/complete.oga'
+
+alias webcam='mpv --demuxer-lavf-format=video4linux2 --demuxer-lavf-o-set=input_format=mjpeg av://v4l2:/dev/video0'
