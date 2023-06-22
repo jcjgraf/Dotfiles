@@ -1,0 +1,2 @@
+map <C-a> feedkeys ":exec okular $FILE<Return>"
+set selection-clipboard clipboard
