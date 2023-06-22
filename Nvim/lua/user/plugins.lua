@@ -36,19 +36,21 @@ packer.startup(function(use)
         },
     }
 
-   -- use {
-   --     'uga-rosa/cmp-dictionary',
-   --      requires = {
-   --          'hrsh7th/nvim-cmp'
-   --      },
-   --     config = function ()
-   --         require('user.plugins.cmp-dictionary')
-   --     end
-   -- }
+    use {
+        'uga-rosa/cmp-dictionary',
+        requires = {
+            'hrsh7th/nvim-cmp'
+        },
+        config = function()
+            require('user.plugins.cmp-dictionary')
+        end
+    }
 
     use {
         'neovim/nvim-lspconfig',
         requires = {
+            'hrsh7th/nvim-cmp',
+            'hrsh7th/cmp-nvim-lsp',
             --'b0o/schemastore.nvim',
             --'folke/lsp-colors.nvim',
             --'weilbith/nvim-code-action-menu',
@@ -83,7 +85,7 @@ packer.startup(function(use)
         'nvim-telescope/telescope.nvim',
         requires = {
             { 'nvim-lua/plenary.nvim' },
-            { 'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' },
+            { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
         },
         config = function ()
             require('user.plugins.telescope')
