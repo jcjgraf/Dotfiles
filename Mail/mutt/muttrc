@@ -118,6 +118,9 @@ folder-hook $folder 'source ~/.config/mutt/accounts/mail@jeanclaudegraf.ch.muttr
 source "~/.config/mutt/accounts/jegraf@ethz.ch.muttrc"
 folder-hook $folder 'source ~/.config/mutt/accounts/jegraf@ethz.ch.muttrc'
 
+source "~/.config/mutt/accounts/jean-claude.graf@epfl.ch.muttrc"
+folder-hook $folder 'source ~/.config/mutt/accounts/jean-claude.graf@epfl.ch.muttrc'
+
 ## Addresses
 set query_command = "khard email --parsable %s"
 bind editor <Tab> complete-query

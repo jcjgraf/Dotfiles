@@ -105,3 +105,30 @@ Create Both
 SyncState *
 MaxMessages 0
 ExpireUnread no
+
+## jean-claude.graf@epfl.ch
+IMAPStore jean-claude.graf@epfl.ch-remote
+Host ewa.epfl.ch
+Port 993
+User jean-claude.graf@epfl.ch
+PassCmd "pass online/epfl.ch/jgraf"
+SSLType IMAPS
+AuthMechs PLAIN
+PipelineDepth 1
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore jean-claude.graf@epfl.ch-local
+Subfolders Verbatim
+Path ~/.local/share/mail/jean-claude.graf@epfl.ch/
+Inbox ~/.local/share/mail/jean-claude.graf@epfl.ch/INBOX
+Flatten .
+
+Channel jean-claude.graf@epfl.ch
+Expunge Both
+Master :jean-claude.graf@epfl.ch-remote:
+Slave :jean-claude.graf@epfl.ch-local:
+Patterns * !"Archive"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no

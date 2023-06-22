@@ -36,4 +36,12 @@ from jegraf@ethz.ch
 user jegraf@ethz.ch
 passwordeval "pass online/ethz.ch/jegraf"
 
+# jean-claude.graf@epfl.ch
+account jean-claude.graf@epfl.ch
+host mail.epfl.ch
+port 587
+from jean-claude.graf@epfl.ch
+user jgraf
+passwordeval "pass online/epfl.ch/jgraf"
+
 # vim: filetype=msmtp
