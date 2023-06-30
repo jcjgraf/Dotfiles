@@ -1,0 +1,30 @@
+# muttrc file for account git@jeanclaudegraf.ch
+
+## Identification
+set realname = "Jean-Claude"
+set from = "git@jeanclaudegraf.ch"
+# set sig_dashes = "no"
+# set signature = "somePath"
+
+## Cache
+set header_cache = "~/.cache/mutt/git@jeanclaudegraf.ch/headers"
+set message_cachedir = "~/.cache/mutt/git@jeanclaudegraf.ch/bodies"
+
+## Maildir
+set mbox_type = Maildir
+set folder = "~/.local/share/mail/git@jeanclaudegraf.ch"
+set spoolfile = "+INBOX"
+set record = "+Sent"
+set postponed = "+Drafts"
+set trash = "+Trash"
+named-mailboxes "--- git@jeanclaudegraf.ch ---" ="."
+named-mailboxes "Inbox" ="INBOX"
+named-mailboxes "Drafts" ="Drafts"
+named-mailboxes "Sent" ="Sent"
+named-mailboxes "Trash" ="Trash"
+named-mailboxes "Junk" ="Junk"
+
+# Hook Sendmail
+set sendmail = "msmtp -a git@jeanclaudegraf.ch"
+
+# vim: filetype=neomuttrc

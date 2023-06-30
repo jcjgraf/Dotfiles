@@ -115,6 +115,15 @@ folder-hook $folder 'source ~/.config/mutt/accounts/jeanggi90@gmail.com.muttrc'
 source "~/.config/mutt/accounts/mail@jeanclaudegraf.ch.muttrc"
 folder-hook $folder 'source ~/.config/mutt/accounts/mail@jeanclaudegraf.ch.muttrc'
 
+source "~/.config/mutt/accounts/git@jeanclaudegraf.ch.muttrc"
+folder-hook $folder 'source ~/.config/mutt/accounts/git@jeanclaudegraf.ch.muttrc'
+
+source "~/.config/mutt/accounts/me@jeanclaudegraf.ch.muttrc"
+folder-hook $folder 'source ~/.config/mutt/accounts/me@jeanclaudegraf.ch.muttrc'
+
+source "~/.config/mutt/accounts/ml@jeanclaudegraf.ch.muttrc"
+folder-hook $folder 'source ~/.config/mutt/accounts/ml@jeanclaudegraf.ch.muttrc'
+
 source "~/.config/mutt/accounts/jegraf@ethz.ch.muttrc"
 folder-hook $folder 'source ~/.config/mutt/accounts/jegraf@ethz.ch.muttrc'
 

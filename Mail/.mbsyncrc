@@ -79,6 +79,81 @@ SyncState *
 MaxMessages 0
 ExpireUnread no
 
+## git@jeanclaudegraf.ch
+IMAPStore git@jeanclaudegraf.ch-remote
+Host mail.hosting.de
+Port 143
+User git@jeanclaudegraf.ch
+PassCmd "pass online/hosting.de/git@jeanclaudegraf.ch"
+SSLType STARTTLS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore git@jeanclaudegraf.ch-local
+Subfolders Verbatim
+Path ~/.local/share/mail/git@jeanclaudegraf.ch/
+Inbox ~/.local/share/mail/git@jeanclaudegraf.ch/INBOX
+Flatten .
+
+Channel git@jeanclaudegraf.ch
+Expunge Both
+Master :git@jeanclaudegraf.ch-remote:
+Slave :git@jeanclaudegraf.ch-local:
+Patterns *
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+
+## ml@jeanclaudegraf.ch
+IMAPStore ml@jeanclaudegraf.ch-remote
+Host mail.hosting.de
+Port 143
+User ml@jeanclaudegraf.ch
+PassCmd "pass online/hosting.de/ml@jeanclaudegraf.ch"
+SSLType STARTTLS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore ml@jeanclaudegraf.ch-local
+Subfolders Verbatim
+Path ~/.local/share/mail/ml@jeanclaudegraf.ch/
+Inbox ~/.local/share/mail/ml@jeanclaudegraf.ch/INBOX
+Flatten .
+
+Channel ml@jeanclaudegraf.ch
+Expunge Both
+Master :ml@jeanclaudegraf.ch-remote:
+Slave :ml@jeanclaudegraf.ch-local:
+Patterns *
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+
+## me@jeanclaudegraf.ch
+IMAPStore me@jeanclaudegraf.ch-remote
+Host mail.hosting.de
+Port 143
+User me@jeanclaudegraf.ch
+PassCmd "pass online/hosting.de/me@jeanclaudegraf.ch"
+SSLType STARTTLS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore me@jeanclaudegraf.ch-local
+Subfolders Verbatim
+Path ~/.local/share/mail/me@jeanclaudegraf.ch/
+Inbox ~/.local/share/mail/me@jeanclaudegraf.ch/INBOX
+Flatten .
+
+Channel me@jeanclaudegraf.ch
+Expunge Both
+Master :me@jeanclaudegraf.ch-remote:
+Slave :me@jeanclaudegraf.ch-local:
+Patterns *
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+
 ## jegraf@ethz.ch
 IMAPStore jegraf@ethz.ch-remote
 Host mail.ethz.ch

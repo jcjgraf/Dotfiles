@@ -28,6 +28,30 @@ from mail@jeanclaudegraf.ch
 user mail@jeanclaudegraf.ch
 passwordeval "pass online/hosting.de/mail@jeanclaudegraf.ch"
 
+# git@jeanclaudegraf.ch
+account git@jeanclaudegraf.ch
+host mail.hosting.de
+port 587
+from git@jeanclaudegraf.ch
+user git@jeanclaudegraf.ch
+passwordeval "pass online/hosting.de/git@jeanclaudegraf.ch"
+
+# me@jeanclaudegraf.ch
+account me@jeanclaudegraf.ch
+host mail.hosting.de
+port 587
+from me@jeanclaudegraf.ch
+user me@jeanclaudegraf.ch
+passwordeval "pass online/hosting.de/me@jeanclaudegraf.ch"
+
+# ml@jeanclaudegraf.ch
+account ml@jeanclaudegraf.ch
+host mail.hosting.de
+port 587
+from ml@jeanclaudegraf.ch
+user ml@jeanclaudegraf.ch
+passwordeval "pass online/hosting.de/ml@jeanclaudegraf.ch"
+
 # jegraf@ethz.ch
 account jegraf@ethz.ch
 host mail.ethz.ch
