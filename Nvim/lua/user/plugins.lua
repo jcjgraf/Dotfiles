@@ -163,4 +163,8 @@ packer.startup(function(use)
 	use({
 		"tpope/vim-sleuth",
 	})
+
+	use({
+		"godlygeek/tabular",
+	})
 end)
