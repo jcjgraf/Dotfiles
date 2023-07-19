@@ -109,7 +109,6 @@ export TIMEWARRIORDB="$XDG_CONFIG_HOME"/timewarrior
 
 # Taskwarrior
 export TASKRC="$XDG_CONFIG_HOME"/taskwarrior/taskrc
-export TASKDATA="$XDG_DATA_HOME"/taskwarrior
 
 # GHC
 export GHCUP_USE_XDG_DIRS=1
