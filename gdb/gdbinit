@@ -1,3 +1,4 @@
+source /usr/share/gef/gef.py
 set auto-load safe-path /home/jeanclaude
 set history save on
 set debuginfod enabled on
