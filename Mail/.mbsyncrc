@@ -104,25 +104,25 @@ SyncState *
 MaxMessages 0
 ExpireUnread no
 
-## ml@jeanclaudegraf.ch
-IMAPStore ml@jeanclaudegraf.ch-remote
+## bienen@jeanclaudegraf.ch
+IMAPStore bienen@jeanclaudegraf.ch-remote
 Host mail.hosting.de
 Port 143
-User ml@jeanclaudegraf.ch
-PassCmd "pass online/hosting.de/ml@jeanclaudegraf.ch"
+User bienen@jeanclaudegraf.ch
+PassCmd "pass online/hosting.de/bienen@jeanclaudegraf.ch"
 SSLType STARTTLS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
-MaildirStore ml@jeanclaudegraf.ch-local
+MaildirStore bienen@jeanclaudegraf.ch-local
 Subfolders Verbatim
-Path ~/.local/share/mail/ml@jeanclaudegraf.ch/
-Inbox ~/.local/share/mail/ml@jeanclaudegraf.ch/INBOX
+Path ~/.local/share/mail/bienen@jeanclaudegraf.ch/
+Inbox ~/.local/share/mail/bienen@jeanclaudegraf.ch/INBOX
 Flatten .
 
-Channel ml@jeanclaudegraf.ch
+Channel bienen@jeanclaudegraf.ch
 Expunge Both
-Master :ml@jeanclaudegraf.ch-remote:
-Slave :ml@jeanclaudegraf.ch-local:
+Master :bienen@jeanclaudegraf.ch-remote:
+Slave :bienen@jeanclaudegraf.ch-local:
 Patterns *
 Create Both
 SyncState *
@@ -175,6 +175,32 @@ Channel jegraf@ethz.ch
 Expunge Both
 Master :jegraf@ethz.ch-remote:
 Slave :jegraf@ethz.ch-local:
+Patterns * !"Archive"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+
+## jeanclaude.graf@thealternative.ch
+IMAPStore jeanclaude.graf@thealternative.ch-remote
+Host imap.mail.hostpoint.ch
+Port 143
+User jeanclaude.graf@thealternative.ch
+PassCmd "pass online/hostpoint.ch/jeanclaude.graf@thealternative.ch"
+SSLType STARTTLS
+AuthMechs PLAIN
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore jeanclaude.graf@thealternative.ch-local
+Subfolders Verbatim
+Path ~/.local/share/mail/jeanclaude.graf@thealternative.ch/
+Inbox ~/.local/share/mail/jeanclaude.graf@thealternative.ch/INBOX
+Flatten .
+
+Channel jeanclaude.graf@thealternative.ch
+Expunge Both
+Master :jeanclaude.graf@thealternative.ch-remote:
+Slave :jeanclaude.graf@thealternative.ch-local:
 Patterns * !"Archive"
 Create Both
 SyncState *

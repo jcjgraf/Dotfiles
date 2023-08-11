@@ -44,13 +44,13 @@ from me@jeanclaudegraf.ch
 user me@jeanclaudegraf.ch
 passwordeval "pass online/hosting.de/me@jeanclaudegraf.ch"
 
-# ml@jeanclaudegraf.ch
-account ml@jeanclaudegraf.ch
+# bienen@jeanclaudegraf.ch
+account bienen@jeanclaudegraf.ch
 host mail.hosting.de
 port 587
-from ml@jeanclaudegraf.ch
-user ml@jeanclaudegraf.ch
-passwordeval "pass online/hosting.de/ml@jeanclaudegraf.ch"
+from bienen@jeanclaudegraf.ch
+user bienen@jeanclaudegraf.ch
+passwordeval "pass online/hosting.de/bienen@jeanclaudegraf.ch"
 
 # jegraf@ethz.ch
 account jegraf@ethz.ch
@@ -59,6 +59,14 @@ port 587
 from jegraf@ethz.ch
 user jegraf@ethz.ch
 passwordeval "pass online/ethz.ch/jegraf"
+
+# jeanclaude.graf@thealternative.ch
+account jeanclaude.graf@thealternative.ch
+host asmtp.mail.hostpoint.ch
+port 587
+from jeanclaude.graf@thealternative.ch
+user jeanclaude.graf@thealternative.ch
+passwordeval "pass online/hostpoint.ch/jeanclaude.graf@thealternative.ch"
 
 # jean-claude.graf@epfl.ch
 account jean-claude.graf@epfl.ch
