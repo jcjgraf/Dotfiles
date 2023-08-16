@@ -28,6 +28,9 @@ export PATH="$PATH:$HOME/.cabal/bin"
 # Add go path
 export PATH="$PATH:$HOME/go/bin"
 
+# QT6
+export QT_SELECT="6"
+
 # Custom Export
 export DOTFILES=~/Dotfiles
 export eth=~/Documents/Studies/Eth/Semester8
