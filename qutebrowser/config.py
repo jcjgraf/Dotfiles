@@ -715,6 +715,7 @@ c.content.autoplay = False
 ## Allow locally loaded documents to access remote URLs.
 ## Type: Bool
 # c.content.local_content_can_access_remote_urls = False
+c.content.local_content_can_access_remote_urls = True
 
 ## Enable support for HTML 5 local storage and Web SQL.
 ## Type: Bool
