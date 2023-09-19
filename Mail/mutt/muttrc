@@ -19,9 +19,11 @@ bind index l display-message
 bind pager,attach h exit
 bind pager j next-line
 bind pager k previous-line
-bind index,pager d delete-message
-bind index,pager D purge-message
+bind index,pager d delete-message  # Move messag to trashbin
+bind index,pager D purge-message  # Permamentely delete message
 bind index,pager u undelete-message
+macro index,pager A ":set confirmappend=no delete=yes\n<tag-prefix><save-message>=Archive\n<sync-mailbox>\n:set confirmappend=yes delete=ask-yes\n" "Archive tagged messages, or current one if none is tagged"
+#macro index,pager A ":set confirmappend=no delete=yes\n<tag-thread><tag-prefix><save-message>=Archive\n<sync-mailbox>\n:set confirmappend=no delete=yes\n" "Archive thread"
 
 ## Sidebar
 set mail_check_stats  # Check for mails to display stats
