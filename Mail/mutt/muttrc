@@ -30,7 +30,7 @@ bind index,pager D purge-message  # Permamentely delete message
 bind index,pager u undelete-message
 macro index,pager A \
     ":set confirmappend=no delete=yes\n<tag-prefix><save-message>=Archive\n<sync-mailbox>\n:set confirmappend=yes delete=ask-yes\n" \
-    "Archive tagged messages, or current one if none is tagged"
+    "archive tagged messages, or current one if none is tagged"
 #macro index,pager A ":set confirmappend=no delete=yes\n<tag-thread><tag-prefix><save-message>=Archive\n<sync-mailbox>\n:set confirmappend=no delete=yes\n" "Archive thread"
 
 ## Sidebar
@@ -151,5 +151,10 @@ folder-hook $folder 'source ~/.config/mutt/accounts/jean-claude.graf@epfl.ch.mut
 set query_command = "khard email --parsable %s"
 bind editor <Tab> complete-query
 bind editor ^T    complete
+
+### Add address to khard contacts
+macro index,pager k \
+  "<pipe-message>khard add-email<return>" \
+  "add the sender email address to khard"
 
 # vim: filetype=neomuttrc
