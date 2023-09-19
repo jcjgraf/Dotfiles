@@ -3,7 +3,13 @@
 # Based on config from https://github.com/LukeSmithxyz/mutt-wizard
 
 ## General
-set sort = 'reverse-threads'
+
+### Sorting
+# When $use_threads is "threads" or "reverse", $sort controls the sorting between threads, and $sort_aux controls the sorting within a thread.
+set use_threads = 'reverse'
+set sort = 'last-date-received'  # last sorts by last descendant instead of the first (root)
+set sort_aux = 'date-received'
+
 set date_format="%d/%m/%y %H:%M"
 set index_format="%2C %zs %?X?A& ? %D %-15.15F %s (%-4.4c)"
 set markers = no        # Disables the `+` displayed at line wraps
@@ -22,7 +28,9 @@ bind pager k previous-line
 bind index,pager d delete-message  # Move messag to trashbin
 bind index,pager D purge-message  # Permamentely delete message
 bind index,pager u undelete-message
-macro index,pager A ":set confirmappend=no delete=yes\n<tag-prefix><save-message>=Archive\n<sync-mailbox>\n:set confirmappend=yes delete=ask-yes\n" "Archive tagged messages, or current one if none is tagged"
+macro index,pager A \
+    ":set confirmappend=no delete=yes\n<tag-prefix><save-message>=Archive\n<sync-mailbox>\n:set confirmappend=yes delete=ask-yes\n" \
+    "Archive tagged messages, or current one if none is tagged"
 #macro index,pager A ":set confirmappend=no delete=yes\n<tag-thread><tag-prefix><save-message>=Archive\n<sync-mailbox>\n:set confirmappend=no delete=yes\n" "Archive thread"
 
 ## Sidebar
