@@ -20,8 +20,8 @@ Flatten .
 
 Channel graf.jeanclaude@gmail.com
 Expunge Both
-Master :graf.jeanclaude@gmail.com-remote:
-Slave :graf.jeanclaude@gmail.com-local:
+Far :graf.jeanclaude@gmail.com-remote:
+Near :graf.jeanclaude@gmail.com-local:
 Patterns * !"[Gmail]/All Mail"
 Create Both
 SyncState *
@@ -46,8 +46,8 @@ Flatten .
 
 Channel jeanggi90@gmail.com
 Expunge Both
-Master :jeanggi90@gmail.com-remote:
-Slave :jeanggi90@gmail.com-local:
+Far :jeanggi90@gmail.com-remote:
+Near :jeanggi90@gmail.com-local:
 Patterns * !"[Gmail]/All Mail"
 Create Both
 SyncState *
@@ -71,8 +71,8 @@ Flatten .
 
 Channel mail@jeanclaudegraf.ch
 Expunge Both
-Master :mail@jeanclaudegraf.ch-remote:
-Slave :mail@jeanclaudegraf.ch-local:
+Far :mail@jeanclaudegraf.ch-remote:
+Near :mail@jeanclaudegraf.ch-local:
 Patterns *
 Create Both
 SyncState *
@@ -96,8 +96,8 @@ Flatten .
 
 Channel git@jeanclaudegraf.ch
 Expunge Both
-Master :git@jeanclaudegraf.ch-remote:
-Slave :git@jeanclaudegraf.ch-local:
+Far :git@jeanclaudegraf.ch-remote:
+Near :git@jeanclaudegraf.ch-local:
 Patterns *
 Create Both
 SyncState *
@@ -121,8 +121,8 @@ Flatten .
 
 Channel bienen@jeanclaudegraf.ch
 Expunge Both
-Master :bienen@jeanclaudegraf.ch-remote:
-Slave :bienen@jeanclaudegraf.ch-local:
+Far :bienen@jeanclaudegraf.ch-remote:
+Near :bienen@jeanclaudegraf.ch-local:
 Patterns *
 Create Both
 SyncState *
@@ -146,8 +146,8 @@ Flatten .
 
 Channel me@jeanclaudegraf.ch
 Expunge Both
-Master :me@jeanclaudegraf.ch-remote:
-Slave :me@jeanclaudegraf.ch-local:
+Far :me@jeanclaudegraf.ch-remote:
+Near :me@jeanclaudegraf.ch-local:
 Patterns *
 Create Both
 SyncState *
@@ -173,8 +173,8 @@ Flatten .
 
 Channel jegraf@ethz.ch
 Expunge Both
-Master :jegraf@ethz.ch-remote:
-Slave :jegraf@ethz.ch-local:
+Far :jegraf@ethz.ch-remote:
+Near :jegraf@ethz.ch-local:
 Patterns * !"Archive"
 Create Both
 SyncState *
@@ -199,8 +199,8 @@ Flatten .
 
 Channel jeanclaude.graf@thealternative.ch
 Expunge Both
-Master :jeanclaude.graf@thealternative.ch-remote:
-Slave :jeanclaude.graf@thealternative.ch-local:
+Far :jeanclaude.graf@thealternative.ch-remote:
+Near :jeanclaude.graf@thealternative.ch-local:
 Patterns * !"Archive"
 Create Both
 SyncState *
@@ -226,8 +226,8 @@ Flatten .
 
 Channel jean-claude.graf@epfl.ch
 Expunge Both
-Master :jean-claude.graf@epfl.ch-remote:
-Slave :jean-claude.graf@epfl.ch-local:
+Far :jean-claude.graf@epfl.ch-remote:
+Near :jean-claude.graf@epfl.ch-local:
 Patterns * !"Archive"
 Create Both
 SyncState *
