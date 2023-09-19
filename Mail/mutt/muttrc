@@ -10,6 +10,10 @@ set markers = no        # Disables the `+` displayed at line wraps
 set mailcap_path 	= ~/.config/mutt/mailcap
 set print_command="/usr/bin/muttprint -r ~/.config/muttprint/muttprintrc"
 
+### Enable abort on missing attachment feature
+set abort_noattach = yes
+set abort_noattach_regex = "\\<(attach(|ed|ments?)|anhängen|angehängt|anhang|anhänge|hängt an)\\>"
+
 ## Bindings
 bind index l display-message
 bind pager,attach h exit
