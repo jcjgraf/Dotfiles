@@ -1,0 +1,5 @@
+#!/bin/bash
+
+source /home/jeanclaude/.config/zsh/.zprofile
+export GPG_TTY=$(tty)
+/home/jeanclaude/Dotfiles/CalCard/sync.sh

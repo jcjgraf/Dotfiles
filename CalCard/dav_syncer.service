@@ -3,4 +3,4 @@ Description=CalDAV and CardDAV syncer
 
 [Service]
 Type=oneshot
-ExecStart=/home/jeanclaude/Dotfiles/CalCard/sync.sh
+ExecStart=/home/jeanclaude/.config/systemd/user/dav_syncer.startup
