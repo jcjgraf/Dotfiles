@@ -19,3 +19,27 @@ Host remarkable
     ForwardAgent no
     PubkeyAcceptedKeyTypes +ssh-rsa
     HostKeyAlgorithms +ssh-rsa
+
+Host cs_head
+    Hostname comsec-edu.ethz.ch
+    IdentityFile ~/.ssh/id_rsa
+    User jegraf
+    RequestTTY yes  # Mirrors -t, for colored output
+
+Host cs_jump
+    Hostname comsec-jumphost.ethz.ch
+    IdentityFile ~/.ssh/id_rsa
+    User jegraf
+    RequestTTY yes  # Mirrors -t, for colored output
+
+Host cs_cn122
+    Hostname ee-tik-cn122
+    User jegraf
+    RequestTTY yes  # Mirrors -t, for colored output
+    ProxyJump cs_jump
+
+Host cs_cn109
+    Hostname ee-tik-cn109
+    User jegraf
+    RequestTTY yes  # Mirrors -t, for colored output
+    ProxyJump cs_jump
