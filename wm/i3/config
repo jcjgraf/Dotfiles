@@ -171,5 +171,4 @@ bindsym ctrl+space exec dunstctl close
 exec_always --no-startup-id  feh --no-fehbg --bg-fill '/home/jeanclaude/.config/feh/bg.jpg'
 #exec --no-startup-id redshift -c ~/.config/redshift/redshift.conf
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
-exec --no-startup-id dispwin -d1 /usr/share/color/icc/Internal.icc
-exec --no-startup-id dispwin -d2 /usr/share/color/icc/Samsung27.icc
+exec --no-startup-id xiccd
