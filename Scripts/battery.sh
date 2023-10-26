@@ -12,9 +12,9 @@ statusCache=~/.cache/battery/lastStatus
 
 # Fetch data
 ## Status: Charging, Full, Discharging
-status="$( acpi | grep -oP 'Battery 0:.*?\K\w+' )"
-percentage="$( acpi | grep -oP '[0-9]+(?=%)' )"
-time="$( acpi | grep -oP 'Battery 0:.*?\K\d\d:\d\d+' )"
+status="$( acpi | head -n 1 | grep -oP 'Battery 0:.*?\K\w+' )"
+percentage="$( acpi | head -n 1 | grep -oP '[0-9]+(?=%)' )"
+time="$( acpi | head -n 1 | grep -oP 'Battery 0:.*?\K\d\d:\d\d+' )"
 
 #doFixData() {
 #    # If time is not defined
