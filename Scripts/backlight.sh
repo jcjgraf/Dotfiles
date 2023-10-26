@@ -5,10 +5,11 @@ APPNAME=$( basename "$0" | sed "s/\.sh$//" )
 
 notification="false"
 
-currentLevelCache=$XDG_CACHE_HOME/backlight/level
+currentLevelCache=/tmp/backlight/level
 backlightDev=/sys/class/backlight/intel_backlight
 
-declare -a levels=(0 1 6 12 25 50 100 200 350 512)
+declare -a levels=(0 1 2 5 10 20 35 50 75 100 150 200 250 300 350 400)
+
 defaultValue=2
 
 verbose="false"
@@ -34,7 +35,7 @@ b_get_current_level() {
 }
 
 b_change_level() {
-    # Change the brightness level according the the provided $1. + for increase, - for decrease
+    # Change the brightness level according to the provided $1. + for increase, - for decrease
 
     local currentLevel=$(b_get_current_level)
 
