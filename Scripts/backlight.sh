@@ -11,6 +11,7 @@ backlightDev=/sys/class/backlight/intel_backlight
 declare -a levels=(0 1 2 3 5 10 15 20 25 50 75 100 125 150 175 200 225 250 300 325 350 375 400)
 
 defaultValue=2
+calibrateLevel=100
 
 verbose="false"
 
@@ -64,12 +65,16 @@ b_send_notification() {
 
     b_log_debug "Current Level $level"
 
+    local message=""
+
+    if [ "${levels[$level]}" -eq "$calibrateLevel" ]; then
+        local message=""
+    fi
+
     local level=$(( level * 100 ))
     local level=$(( level / maxLevel ))
 
     b_log_debug "Normalized Level $level"
-
-    local message=""
 
     displayer dunstify -a "changeBacklight" -u low -r "1234212" -h int:value:$level $message
 }
