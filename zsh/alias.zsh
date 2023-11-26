@@ -33,7 +33,7 @@ alias -g vi='nvim'
 alias -g vimiv='~/Documents/Programming/vimiv-qt/.venv/bin/vimiv'
 alias _='sudo'
 
-alias ethnet='pass online/ethz.ch/radius/jegraf | sudo openconnect --user jegraf@student-net.ethz.ch --passwd-on-stdin sslvpn.ethz.ch/student-net'
+alias ethnet='pass online/ethz.ch/radius/jegraf | sudo openconnect --user jegraf@student-net.ethz.ch --passwd-on-stdin --useragent "AnyConnect" sslvpn.ethz.ch/student-net'
 alias homenet='cd ~/Documents/Certificates && sudo openvpn er.ovpn'
 alias nosleep='xset s off && xset -dpms'
 
