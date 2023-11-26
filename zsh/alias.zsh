@@ -43,3 +43,4 @@ alias webcam='mpv --demuxer-lavf-format=video4linux2 --demuxer-lavf-o-set=input_
 
 alias clang_f='clang-format --style="{BasedOnStyle: LLVM, IndentWidth: 4, ColumnLimit: 90}" -i **/*.c **/*.h'
 alias clang_f_dump='clang-format --dump-config --style="{BasedOnStyle: LLVM, IndentWidth: 4}" > .clang-format'
+alias raw2jpg='exiftool -b -jpgfromraw -w %d%f_%ue.jpg -execute -tagsfromfile @ -srcfile %d%f_%ue.jpg -overwrite_original -common_args'
