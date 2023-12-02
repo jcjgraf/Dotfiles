@@ -33,7 +33,7 @@ export QT_SELECT="6"
 
 # Custom Export
 export DOTFILES=~/Dotfiles
-export eth=~/Documents/Studies/Eth/Semester8
+export eth=~/Documents/Studies/Eth/Semester9
 
 export TERM=xterm-color
 
