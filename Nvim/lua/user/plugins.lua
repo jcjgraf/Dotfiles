@@ -93,7 +93,6 @@ packer.startup(function(use)
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 		requires = {
-			"JoosepAlviste/nvim-ts-context-commentstring",
 			"p00f/nvim-ts-rainbow",
 		},
 		config = function()
@@ -101,13 +100,11 @@ packer.startup(function(use)
 		end,
 	})
 
+	-- Comments
 	use({
-		"jose-elias-alvarez/null-ls.nvim",
-		requires = {
-			{ "nvim-lua/plenary.nvim" },
-		},
+		"numToStr/Comment.nvim",
 		config = function()
-			require("user.plugins.null-ls")
+			require("Comment").setup()
 		end,
 	})
 

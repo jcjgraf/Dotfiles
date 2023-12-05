@@ -13,9 +13,6 @@ treesitter_conf.setup({
 		enable = false,
 		disable = {},
 	},
-	context_commentstring = {
-		enable = true,
-	},
 	rainbow = {
 		enable = true,
 		-- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
