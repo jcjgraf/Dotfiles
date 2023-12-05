@@ -145,10 +145,11 @@ packer.startup(function(use)
 		end,
 	})
 
+	-- Smooth Scroll
 	use({
 		"karb94/neoscroll.nvim",
 		config = function()
-			require("user.plugins.neoscroll")
+			require("neoscroll").setup()
 		end,
 	})
 
