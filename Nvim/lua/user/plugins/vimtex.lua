@@ -3,6 +3,8 @@ vim.cmd([[let g:vimtex_compiler_progname = 'nvr']])
 vim.cmd([[let g:vimtex_view_method='zathura']])
 vim.cmd([[let g:vimtex_compiler_latexmk = {
         \ 'build_dir' : 'build',
+        \ 'aux_dir' : 'build',
+        \ 'out_dir' : 'build',
         \}
 ]])
 vim.cmd([[let g:vimtex_mappings_enabled=0]])
