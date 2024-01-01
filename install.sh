@@ -198,6 +198,7 @@ then
     linker "$dotfiles/redshift" ~/.config/redshift
     colorizer "$dotfiles/dunst/dunstrc.raw" ~/.config/dunst/dunstrc
     linker "$dotfiles/mpv" ~/.config/mpv
+    linker "$dotfiles/yt-dlp" ~/.config/yt-dlp
     colorizer "$dotfiles/termite/config.raw" ~/.config/termite/config
     linker "$dotfiles/qutebrowser/config.py" ~/.config/qutebrowser/config.py
     linker "$dotfiles/Vimiv/vimiv.conf" ~/.config/vimiv/vimiv.conf
