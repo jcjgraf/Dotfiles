@@ -11,7 +11,7 @@ set sort = 'last-date-received'  # last sorts by last descendant instead of the 
 set sort_aux = 'date-received'
 
 set date_format="%d/%m/%y %H:%M"
-set index_format="%2C %zs %?X?A& ? %D %-15.15F %s (%-4.4c)"
+set index_format="%2C %zs %?X?A& ? %D %-15.15L %s (%-4.4c)"
 set markers = no        # Disables the `+` displayed at line wraps
 set mailcap_path 	= ~/.config/mutt/mailcap
 set print_command="/usr/bin/muttprint -r ~/.config/muttprint/muttprintrc"
@@ -204,5 +204,7 @@ set query_command = "khard email --parsable %s"
 bind editor <Tab> complete-query
 bind editor ^T    complete
 
+## Mailing Lists
+subscribe @lists.archlinux.org
 
 # vim: filetype=neomuttrc
