@@ -44,6 +44,14 @@ from me@jeanclaudegraf.ch
 user me@jeanclaudegraf.ch
 passwordeval "pass online/hosting.de/me@jeanclaudegraf.ch"
 
+# ml@jeanclaudegraf.ch
+account ml@jeanclaudegraf.ch
+host mail.hosting.de
+port 587
+from ml@jeanclaudegraf.ch
+user ml@jeanclaudegraf.ch
+passwordeval "pass online/hosting.de/ml@jeanclaudegraf.ch"
+
 # bienen@jeanclaudegraf.ch
 account bienen@jeanclaudegraf.ch
 host mail.hosting.de

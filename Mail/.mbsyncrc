@@ -154,6 +154,31 @@ SyncState *
 MaxMessages 0
 ExpireUnread no
 
+## ml@jeanclaudegraf.ch
+IMAPStore ml@jeanclaudegraf.ch-remote
+Host mail.hosting.de
+Port 143
+User ml@jeanclaudegraf.ch
+PassCmd "pass online/hosting.de/ml@jeanclaudegraf.ch"
+SSLType STARTTLS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore ml@jeanclaudegraf.ch-local
+Subfolders Verbatim
+Path ~/.local/share/mail/ml@jeanclaudegraf.ch/
+Inbox ~/.local/share/mail/ml@jeanclaudegraf.ch/INBOX
+Flatten .
+
+Channel ml@jeanclaudegraf.ch
+Expunge Both
+Far :ml@jeanclaudegraf.ch-remote:
+Near :ml@jeanclaudegraf.ch-local:
+Patterns *
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+
 ## jegraf@ethz.ch
 IMAPStore jegraf@ethz.ch-remote
 Host mail.ethz.ch
