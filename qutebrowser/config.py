@@ -1605,7 +1605,7 @@ c.tabs.mousewheel_switching = False
 ## used by prepending the search engine name to the search term, e.g.
 ## `:open google qutebrowser`.
 ## Type: Dict
-c.url.searchengines = {'DEFAULT': 'https://searx.jeanclaudegraf.ch/?q={}',
+c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
     'aw': 'https://wiki.archlinux.org/?search={}',
     'yt': 'https://www.youtube.com/results?search_query={}',
     'gh': 'https://github.com/search?q={}',
@@ -1617,9 +1617,14 @@ c.url.searchengines = {'DEFAULT': 'https://searx.jeanclaudegraf.ch/?q={}',
     'wd': 'https://de.wikipedia.org/wiki/Special:Search?search={}',
     'w': 'https://en.wikipedia.org/wiki/Special:Search?search={}',
     'd': 'https://duckduckgo.com/?q={}',
-    'g': 'https://www.google.com/search?q={}',
+    'google': 'https://www.google.com/search?q={}',
     'so': 'https://stackoverflow.com/search?q={}',
-    'aur': 'https://aur.archlinux.org/packages?O=0&K={}'
+    'aur': 'https://aur.archlinux.org/packages?O=0&K={}',
+    'rs_std': 'https://doc.rust-lang.org/std/index.html?search={}',
+    'rs': 'https://docs.rs/releases/search?query={}+',
+    'rs_c': 'https://crates.io/search?q={}',
+    'pyqt': 'https://doc.qt.io/qtforpython-6/search.html?q={}',
+    'x86': 'https://www.felixcloutier.com/x86/{}',
 }
 
 ## Page(s) to open at the start.
