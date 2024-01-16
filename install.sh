@@ -162,6 +162,7 @@ then
     sudo bash -c "$(declare -f linker); linker \"$dotfiles/Scripts/scrotMenu.sh\" '/bin/scrotMenu.sh'"
     sudo bash -c "$(declare -f linker); linker \"$dotfiles/Scripts/monitorMenu.sh\" '/bin/monitorMenu.sh'"
     linker "$dotfiles/Scripts/wwan.sh" ~/bin/wwan.sh
+    linker "$dotfiles/Scripts/o" ~/bin/o
 fi
 
 ## WM

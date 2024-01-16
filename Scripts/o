@@ -1,0 +1,18 @@
+#!/bin/bash
+
+show_help() {
+    echo "Usage: $0 [OPTION] [FILE]..."
+    echo "Open the provided FILEs using xdg-open."
+    echo
+    echo "Options:"
+    echo "  -h, --help       Display this help menu."
+    exit 0
+}
+
+if [ "$1" == "--help" ] || [ "$1" == "-h" ] || [ "$#" -eq 0 ]; then
+    show_help
+fi
+
+for var in "$@"; do
+  xdg-open "$var" &
+done
