@@ -104,7 +104,7 @@ packer.startup(function(use)
 	use({
 		"numToStr/Comment.nvim",
 		config = function()
-			require("Comment").setup()
+			require("user.plugins.comment")
 		end,
 	})
 
