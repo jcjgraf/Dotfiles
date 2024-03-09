@@ -18,3 +18,11 @@ base16.setup({
     base0E = '#cc99cc', -- Keywords, Storage, Selector, Markup Italic, Diff Changed
     base0F = '#a06949', -- Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?>
 })
+
+local color = base16.colors
+
+local set_Search = string.format([[
+	hi Search guibg=%s guifg=%s
+]], color.base09, color.base00)
+
+vim.cmd(set_Search)
