@@ -62,20 +62,68 @@ local on_attach = function(client, bufnr)
 	-- Goto
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
-	vim.keymap.set("n", "gdd", vim.lsp.buf.type_definition, bufopts)
+	vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, bufopts)
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
 	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
+	vim.keymap.set("n", "gs", vim.lsp.buf.document_symbol, bufopts)
+	vim.keymap.set("n", "gS", vim.lsp.buf.workspace_symbol, bufopts)
+
+	vim.keymap.set("n", "gci", vim.lsp.buf.incoming_calls, bufopts)
+	vim.keymap.set("n", "gco", vim.lsp.buf.outgoing_calls, bufopts)
 
 	-- Show information
 	vim.keymap.set("n", "Kh", vim.lsp.buf.hover, bufopts)
-	-- vim.keymap.set("n", "KK", vim.lsp.buf.signature_help, bufopts) -- Use lsp_signature instead
+	vim.keymap.set("n", "KK", vim.lsp.buf.signature_help, bufopts) -- Use lsp_signature instead
 
 	-- Actions ("make")
 	vim.keymap.set("n", "mn", vim.lsp.buf.rename, bufopts)
-	-- vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
+	-- vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)  -- Use nvim-code-action-menu instead
 	vim.keymap.set("n", "mf", function()
 		vim.lsp.buf.format({ async = true })
 	end, bufopts)
+
+	-- From https://smarttech101.com/nvim-lsp-configure-language-servers-shortcuts-highlights/#highlight_symbol_under_the_cursor_using_nvim_lsp
+	if client.server_capabilities.documentHighlightProvider then
+		local color = require("base16-colorscheme").colors
+		local c = color.base02
+
+		-- TODO: Somehow guibg works but ctermbg not
+		local set_LspReferenceRead = string.format(
+			[[
+			hi! LspReferenceRead gui=none guibg=%s
+			]],
+			c
+		)
+
+		local set_LspReferenceWrite = string.format(
+			[[
+			hi! LspReferenceWrite gui=none guibg=%s
+			]],
+			c
+		)
+		local set_LspReferenceText = string.format(
+			[[
+			hi! LspReferenceText gui=none guibg=%s
+			]],
+			c
+		)
+
+		vim.cmd(set_LspReferenceRead)
+		vim.cmd(set_LspReferenceText)
+		vim.cmd(set_LspReferenceWrite)
+
+		vim.api.nvim_create_augroup("lsp_document_highlight", {})
+		vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+			group = "lsp_document_highlight",
+			buffer = 0,
+			callback = vim.lsp.buf.document_highlight,
+		})
+		vim.api.nvim_create_autocmd("CursorMoved", {
+			group = "lsp_document_highlight",
+			buffer = 0,
+			callback = vim.lsp.buf.clear_references,
+		})
+	end
 
 	-- Workspace stuff
 	-- vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
