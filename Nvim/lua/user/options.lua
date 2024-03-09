@@ -40,6 +40,8 @@ vim.cmd [[au BufEnter * set fo-=c fo-=r fo-=o]] --Sets in essence formatoptions-
 --set spellfile+=~/.config/nvim/spell/en.utf-9.add    " Add default spell file
 --set spellfile+=ignore.utf-8.add                     " Add ignore file
 
+-- vim.filetype.add({extension = {'S' = 'asm'}})
+vim.cmd([[autocmd BufNewFile,BufRead *.S setfiletype asm]])
 
 --au FileType *  set formatoptions-=r formatoptions-=c formatoptions-=o " Disable auto comments
 

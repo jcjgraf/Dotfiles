@@ -235,3 +235,6 @@ lspconfig.lua_ls.setup({
 		},
 	},
 })
+
+-- FileType: { "asm", "vmasm" }
+lspconfig.asm_lsp.setup({})
