@@ -112,17 +112,17 @@ local on_attach = function(client, bufnr)
 		vim.cmd(set_LspReferenceText)
 		vim.cmd(set_LspReferenceWrite)
 
-		vim.api.nvim_create_augroup("lsp_document_highlight", {})
-		vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-			group = "lsp_document_highlight",
-			buffer = 0,
-			callback = vim.lsp.buf.document_highlight,
-		})
-		vim.api.nvim_create_autocmd("CursorMoved", {
-			group = "lsp_document_highlight",
-			buffer = 0,
-			callback = vim.lsp.buf.clear_references,
-		})
+		-- vim.api.nvim_create_augroup("lsp_document_highlight", {})
+		-- vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+		-- 	group = "lsp_document_highlight",
+		-- 	buffer = 0,
+		-- 	callback = vim.lsp.buf.document_highlight,
+		-- })
+		-- vim.api.nvim_create_autocmd("CursorMoved", {
+		-- 	group = "lsp_document_highlight",
+		-- 	buffer = 0,
+		-- 	callback = vim.lsp.buf.clear_references,
+		-- })
 	end
 
 	-- Workspace stuff
