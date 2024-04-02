@@ -36,7 +36,9 @@ telescope.load_extension("fzf")
 local builtin = require("telescope.builtin")
 
 -- vim.keymap.set("n", "<C-f>", builtin.find_files)
-vim.keymap.set("n", "<leader>f", builtin.find_files)
+vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set("n", "<leader>fF", function() builtin.find_files({ no_ignore = true }) end, {})
 
 -- Files opened via find_files cannot be folded (https://github.com/nvim-telescope/telescope.nvim/issues/699). Workaround...
 vim.api.nvim_create_autocmd({ "BufEnter" }, {
