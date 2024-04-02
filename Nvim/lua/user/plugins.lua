@@ -3,6 +3,34 @@ local packer = require("lib.packer-init")
 packer.startup(function(use)
 	use({ "wbthomason/packer.nvim" })
 
+	-- Completion
+	use({
+		"hrsh7th/nvim-cmp",
+		requires = {
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-cmdline",
+			-- 		-- "uga-rosa/cmp-dictionary",
+			"L3MON4D3/LuaSnip",
+			"saadparwaiz1/cmp_luasnip",
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-nvim-lua",
+			"onsails/lspkind-nvim",
+			-- 		"f3fora/cmp-spell",
+		},
+		config = function()
+			require("user.plugins.cmp")
+		end,
+	})
+
+	-- use({
+	-- 	"uga-rosa/cmp-dictionary",
+	-- 	config = function()
+	-- 		require("user.plugins.cmp-dictionary")
+	-- 	end,
+	-- })
+
+	-- Snippets
 	use({
 		"L3MON4D3/LuaSnip",
 		config = function()
@@ -11,40 +39,10 @@ packer.startup(function(use)
 	})
 
 	use({
-		"hrsh7th/nvim-cmp",
-		requires = {
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-cmdline",
-			"L3MON4D3/LuaSnip",
-			"saadparwaiz1/cmp_luasnip",
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-nvim-lua",
-			"onsails/lspkind-nvim",
-			"f3fora/cmp-spell",
-		},
-		config = function()
-			require("user.plugins.cmp")
-		end,
-	})
-
-	use({
 		"rafamadriz/friendly-snippets",
-		requires = {
-			"hrsh7th/nvim-cmp",
-		},
 	})
 
-	use({
-		"uga-rosa/cmp-dictionary",
-		requires = {
-			"hrsh7th/nvim-cmp",
-		},
-		config = function()
-			require("user.plugins.cmp-dictionary")
-		end,
-	})
-
+	-- LSP
 	use({
 		"neovim/nvim-lspconfig",
 		requires = {
@@ -53,18 +51,30 @@ packer.startup(function(use)
 			--'b0o/schemastore.nvim',
 			--'folke/lsp-colors.nvim',
 			--'weilbith/nvim-code-action-menu',
-			{
-				"ray-x/lsp_signature.nvim",
-				config = function()
-					require("user.plugins.lsp_signature")
-				end,
-			},
 		},
 		config = function()
 			require("user.plugins.lspconfig")
 		end,
 	})
 
+	use({
+		"ray-x/lsp_signature.nvim",
+		config = function()
+			require("user.plugins.lsp_signature")
+		end,
+	})
+
+	-- TODO: Null-ls is archived
+	use({
+		"jose-elias-alvarez/null-ls.nvim",
+		requires = {
+			{ "nvim-lua/plenary.nvim" },
+		},
+		config = function()
+			require("user.plugins.null-ls")
+		end,
+	})
+	-- TODO: deprecated
 	use({
 		"weilbith/nvim-code-action-menu",
 		cmd = "CodeActionMenu",
@@ -108,6 +118,7 @@ packer.startup(function(use)
 		end,
 	})
 
+	-- LaTeX
 	-- Requires: `xdotool`
 	use({
 		"lervag/vimtex",
@@ -116,8 +127,7 @@ packer.startup(function(use)
 		end,
 	})
 
-	use({ "tpope/vim-commentary" })
-
+	-- Display colors
 	use({
 		"norcalli/nvim-colorizer.lua",
 		config = function()
@@ -125,6 +135,7 @@ packer.startup(function(use)
 		end,
 	})
 
+	-- Git
 	use({
 		"lewis6991/gitsigns.nvim",
 		config = function()
@@ -150,6 +161,7 @@ packer.startup(function(use)
 		end,
 	})
 
+	-- Color Schema
 	use({
 		"RRethy/nvim-base16",
 		config = function()
@@ -158,11 +170,8 @@ packer.startup(function(use)
 	})
 
 	-- Detect indentation to use in a certain file heuristically
-	use({
-		"tpope/vim-sleuth",
-	})
+	use({ "tpope/vim-sleuth" })
 
-	use({
-		"godlygeek/tabular",
-	})
+	-- Align Chars
+	use({ "godlygeek/tabular" })
 end)
