@@ -1625,7 +1625,7 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
     'rs': 'https://docs.rs/releases/search?query={}+',
     'rs_c': 'https://crates.io/search?q={}',
     'pyqt': 'https://doc.qt.io/qtforpython-6/search.html?q={}',
-    'x86': 'https://www.felixcloutier.com/x86/{}',
+    'x86_ins': 'https://www.felixcloutier.com/x86/{}',
 }
 
 ## Page(s) to open at the start.
@@ -1665,8 +1665,11 @@ c.url.start_pages = ['qute://bookmarks/']
 ## Bindings for normal mode
 config.bind(',p', 'spawn --userscript qute-pass --dmenu-invocation dmenu')
 config.bind(',P', 'spawn --userscript qute-pass --dmenu-invocation dmenu --password-only')
-config.bind(',v', 'spawn mpv --ytdl-format="mp4[height<=1080]+bestaudio" --force-window=immediate {url}')  # --force-window=makes window to appear immediately
-config.bind(',V', 'hint links spawn mpv --ytdl-format="mp4[height<=1080]+bestaudio" --force-window=immediate {hint-url}')
+config.bind(',O', 'spawn --userscript qute-pass --dmenu-invocation dmenu --otp-only')
+# config.bind(',v', 'spawn mpv --ytdl-format="mp4[height<=1080]+bestaudio" --force-window=immediate {url}')  # --force-window=makes window to appear immediately
+config.bind(',v', 'spawn mpv --force-window=immediate {url}')  # --force-window=makes window to appear immediately
+# config.bind(',V', 'hint links spawn mpv --ytdl-format="mp4[height<=1080]+bestaudio" --force-window=immediate {hint-url}')
+config.bind(',V', 'hint links spawn mpv --force-window=immediate {hint-url}')
 config.bind(',m', 'spawn mpv --no-video --force-window=immediate {url}')
 config.bind(',M', 'hint links spawn mpv --no-video --force-window=immediate {hint-url}')
 # config.bind("'", 'enter-mode jump_mark')
