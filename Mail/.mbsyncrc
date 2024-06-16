@@ -206,6 +206,33 @@ SyncState *
 MaxMessages 0
 ExpireUnread no
 
+## jegraf@fotokommission.ch
+IMAPStore jegraf@fotokommission.ch-remote
+Host mail.ethz.ch
+Port 993
+User vseth-jegraf@ethz.ch
+PassCmd "pass online/ethz.ch/vseth/vseth-jegraf"
+SSLType IMAPS
+AuthMechs PLAIN
+PipelineDepth 1
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore jegraf@fotokommission.ch-local
+Subfolders Verbatim
+Path ~/.local/share/mail/jegraf@fotokommission.ch/
+Inbox ~/.local/share/mail/jegraf@fotokommission.ch/INBOX
+Flatten .
+
+Channel jegraf@fotokommission.ch
+Expunge Both
+Far :jegraf@fotokommission.ch-remote:
+Near :jegraf@fotokommission.ch-local:
+Patterns * !"Archive"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+
 ## jeanclaude.graf@thealternative.ch
 IMAPStore jeanclaude.graf@thealternative.ch-remote
 Host imap.mail.hostpoint.ch

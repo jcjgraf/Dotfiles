@@ -193,6 +193,9 @@ folder-hook $folder 'source ~/.config/mutt/accounts/bienen@jeanclaudegraf.ch.mut
 source "~/.config/mutt/accounts/jegraf@ethz.ch.muttrc"
 folder-hook $folder 'source ~/.config/mutt/accounts/jegraf@ethz.ch.muttrc'
 
+source "~/.config/mutt/accounts/jegraf@fotokommission.ch.muttrc"
+folder-hook $folder 'source ~/.config/mutt/accounts/jegraf@fotokommission.ch.muttrc'
+
 source "~/.config/mutt/accounts/jeanclaude.graf@thealternative.ch.muttrc"
 folder-hook $folder 'source ~/.config/mutt/accounts/jeanclaude.graf@thealternative.ch.muttrc'
 

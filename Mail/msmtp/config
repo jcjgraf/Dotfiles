@@ -68,6 +68,14 @@ from jegraf@ethz.ch
 user jegraf@ethz.ch
 passwordeval "pass online/ethz.ch/jegraf"
 
+# jegraf@ethz.ch
+account jegraf@fotokommission.ch
+host mail.ethz.ch
+port 587
+from jegraf@fotokommission.ch
+user vseth-jegraf@ethz.ch
+passwordeval "pass online/ethz.ch/vseth/vseth-jegraf"
+
 # jeanclaude.graf@thealternative.ch
 account jeanclaude.graf@thealternative.ch
 host asmtp.mail.hostpoint.ch
