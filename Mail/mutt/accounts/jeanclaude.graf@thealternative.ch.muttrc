@@ -3,8 +3,8 @@
 ## Identification
 set realname = "Jean-Claude"
 set from = "jeanclaude.graf@thealternative.ch"
-# set sig_dashes = "no"
-# set signature = "somePath"
+set sig_dashes = "no"
+set signature = "~/.config/mutt/accounts/jeanclaude.graf@thealternative.ch.sig"
 
 ## Cache
 set header_cache = "~/.cache/mutt/jeanclaude.graf@thealternative.ch/headers"

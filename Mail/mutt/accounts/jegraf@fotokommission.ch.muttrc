@@ -3,8 +3,8 @@
 ## Identification
 set realname = "Jean-Claude"
 set from = "jegraf@fotokommission.ch"
-# set sig_dashes = "no"
-# set signature = "somePath"
+set sig_dashes = "no"
+set signature = "~/.config/mutt/accounts/jegraf@fotokommission.ch.sig"
 
 ## Cache
 set header_cache = "~/.cache/mutt/jegraf@fotokommission.ch/headers"
