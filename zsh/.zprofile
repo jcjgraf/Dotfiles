@@ -15,8 +15,9 @@ export XDG_VIDEOS_DIR="$HOME/"
 # Default Applications
 export VISUAL="nvim"
 export EDITOR="nvim"
-export TERMINAL="termite"
+export TERMINAL="alacritty"
 export BROWSER="qutebrowser"
+# export BROWSER="org.qutebrowser.qutebrowser.desktop"
 export READER="zathura"
 
 # Add ~/bin and ~/.local/bin to path
@@ -24,6 +25,9 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
 
 # Add cabal path
 export PATH="$PATH:$HOME/.cabal/bin"
+
+# Add cargo path
+export PATH="$PATH:$HOME/.cargo/bin"
 
 # Add go path
 export PATH="$PATH:$HOME/go/bin"
@@ -33,7 +37,7 @@ export QT_SELECT="6"
 
 # Custom Export
 export DOTFILES=~/Dotfiles
-export eth=~/Documents/Studies/Eth/Semester9
+export eth=~/Documents/Studies/Eth/Semester10
 
 export TERM=xterm-color
 
@@ -80,7 +84,7 @@ NPM_PACKAGES=
 export PATH="$PATH:${HOME}/.npm-packages/bin"
 
 # Ledger
-export LEDGER_FILE=~/Documents/Finanzen/Ausgaben/2023.journal
+export LEDGER_FILE=~/Documents/Finanzen/Ausgaben/2024.journal
 
 # LESS
 export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
