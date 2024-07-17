@@ -2,6 +2,7 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
 
 export XDG_DESKTOP_DIR="$HOME/"
 export XDG_DOWNLOAD_DIR="$HOME/Downloads"
@@ -131,3 +132,25 @@ export JDTLS_HOME=/usr/share/java/jdtls
 
 # Notmuch
 export NOTMUCH_CONFIG="$XDG_CONFIG_HOME"/notmuch/config
+
+# Docker
+export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
+
+# libdvdcss
+export DVDCSS_CACHE="$XDG_DATA_HOME"/dvdcss
+
+# gdb
+export GDBHISTFILE="$XDG_DATA_HOME"/gdb/history
+
+# Go
+export GOPATH="$XDG_DATA_HOME"/go
+export GOMODCACHE="$XDG_CACHE_HOME"/go/mod
+
+# Python
+export PYTHON_HISTORY="$XDG_STATE_HOME"/python/history
+
+# Rust
+export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+
+# LeX Live
+export TEXMFVAR="$XDG_CACHE_HOME"/texlive/texmf-var
