@@ -2,7 +2,7 @@
 
 ## This is here so configs done via the GUI are still loaded.
 ## Remove it to not load settings done via the GUI.
-#config.load_autoconfig()
+# config.load_autoconfig()
 config.load_autoconfig(False)
 
 ## Aliases for commands. The keys of the given dictionary are the
@@ -1375,7 +1375,7 @@ c.tabs.background = True
 ##   - right: Close tabs on right-click.
 ##   - middle: Close tabs on middle-click.
 ##   - none: Don't close tabs using the mouse.
-c.tabs.close_mouse_button = 'none'
+c.tabs.close_mouse_button = "none"
 
 ## How to behave when the close mouse button is pressed on the tab bar.
 ## Type: String
@@ -1419,7 +1419,7 @@ c.tabs.close_mouse_button = 'none'
 ##   - startpage: Load the start page.
 ##   - default-page: Load the default page.
 ##   - close: Close the window.
-c.tabs.last_close = 'startpage'
+c.tabs.last_close = "startpage"
 
 ## Maximum width (in pixels) of tabs (-1 for no maximum). This setting
 ## only applies when tabs are horizontal. This setting does not apply to
@@ -1605,32 +1605,33 @@ c.tabs.mousewheel_switching = False
 ## used by prepending the search engine name to the search term, e.g.
 ## `:open google qutebrowser`.
 ## Type: Dict
-c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
-    'aw': 'https://wiki.archlinux.org/?search={}',
-    'yt': 'https://www.youtube.com/results?search_query={}',
-    'gh': 'https://github.com/search?q={}',
-    'dc': 'https://www.dict.cc/?s={}',
-    'sy': 'https://synonyms.woxikon.com/en/{}',
-    'syd': 'https://synonyms.woxikon.com/de/{}',
-    'dd': 'https://www.duden.de/suchen/dudenonline/{}',
-    'osm': 'https://www.openstreetmap.org/search?query={}',
-    'wd': 'https://de.wikipedia.org/wiki/Special:Search?search={}',
-    'w': 'https://en.wikipedia.org/wiki/Special:Search?search={}',
-    'd': 'https://duckduckgo.com/?q={}',
-    'g': 'https://www.google.com/search?q={}',
-    'gs': 'https://scholar.google.com/scholar?hl=en&q={}',
-    'so': 'https://stackoverflow.com/search?q={}',
-    'aur': 'https://aur.archlinux.org/packages?O=0&K={}',
-    'rs_std': 'https://doc.rust-lang.org/std/index.html?search={}',
-    'rs': 'https://docs.rs/releases/search?query={}+',
-    'rs_c': 'https://crates.io/search?q={}',
-    'pyqt': 'https://doc.qt.io/qtforpython-6/search.html?q={}',
-    'x86_ins': 'https://www.felixcloutier.com/x86/{}',
+c.url.searchengines = {
+    "DEFAULT": "https://duckduckgo.com/?q={}",
+    "aw": "https://wiki.archlinux.org/?search={}",
+    "yt": "https://www.youtube.com/results?search_query={}",
+    "gh": "https://github.com/search?q={}",
+    "dc": "https://www.dict.cc/?s={}",
+    "sy": "https://synonyms.woxikon.com/en/{}",
+    "syd": "https://synonyms.woxikon.com/de/{}",
+    "dd": "https://www.duden.de/suchen/dudenonline/{}",
+    "osm": "https://www.openstreetmap.org/search?query={}",
+    "wd": "https://de.wikipedia.org/wiki/Special:Search?search={}",
+    "w": "https://en.wikipedia.org/wiki/Special:Search?search={}",
+    "d": "https://duckduckgo.com/?q={}",
+    "g": "https://www.google.com/search?q={}",
+    "gs": "https://scholar.google.com/scholar?hl=en&q={}",
+    "so": "https://stackoverflow.com/search?q={}",
+    "aur": "https://aur.archlinux.org/packages?O=0&K={}",
+    "rs_std": "https://doc.rust-lang.org/std/index.html?search={}",
+    "rs": "https://docs.rs/releases/search?query={}+",
+    "rs_c": "https://crates.io/search?q={}",
+    "pyqt": "https://doc.qt.io/qtforpython-6/search.html?q={}",
+    "x86_ins": "https://www.felixcloutier.com/x86/{}",
 }
 
 ## Page(s) to open at the start.
 ## Type: List of FuzzyUrl, or FuzzyUrl
-c.url.start_pages = ['qute://bookmarks/']
+c.url.start_pages = ["qute://bookmarks/"]
 
 ## URL parameters to strip with `:yank url`.
 ## Type: List of String
@@ -1663,15 +1664,19 @@ c.url.start_pages = ['qute://bookmarks/']
 # c.zoom.text_only = False
 
 ## Bindings for normal mode
-config.bind(',p', 'spawn --userscript qute-pass --dmenu-invocation dmenu')
-config.bind(',P', 'spawn --userscript qute-pass --dmenu-invocation dmenu --password-only')
-config.bind(',O', 'spawn --userscript qute-pass --dmenu-invocation dmenu --otp-only')
+config.bind(",p", "spawn --userscript qute-pass --dmenu-invocation dmenu")
+config.bind(
+    ",P", "spawn --userscript qute-pass --dmenu-invocation dmenu --password-only"
+)
+config.bind(",O", "spawn --userscript qute-pass --dmenu-invocation dmenu --otp-only")
 # config.bind(',v', 'spawn mpv --ytdl-format="mp4[height<=1080]+bestaudio" --force-window=immediate {url}')  # --force-window=makes window to appear immediately
-config.bind(',v', 'spawn mpv --force-window=immediate {url}')  # --force-window=makes window to appear immediately
+config.bind(
+    ",v", "spawn mpv --force-window=immediate {url}"
+)  # --force-window=makes window to appear immediately
 # config.bind(',V', 'hint links spawn mpv --ytdl-format="mp4[height<=1080]+bestaudio" --force-window=immediate {hint-url}')
-config.bind(',V', 'hint links spawn mpv --force-window=immediate {hint-url}')
-config.bind(',m', 'spawn mpv --no-video --force-window=immediate {url}')
-config.bind(',M', 'hint links spawn mpv --no-video --force-window=immediate {hint-url}')
+config.bind(",V", "hint links spawn mpv --force-window=immediate {hint-url}")
+config.bind(",m", "spawn mpv --no-video --force-window=immediate {url}")
+config.bind(",M", "hint links spawn mpv --no-video --force-window=immediate {hint-url}")
 # config.bind("'", 'enter-mode jump_mark')
 # config.bind('+', 'zoom-in')
 # config.bind('-', 'zoom-out')
@@ -1788,9 +1793,9 @@ config.bind(',M', 'hint links spawn mpv --no-video --force-window=immediate {hin
 # config.bind('h', 'scroll left')
 # config.bind('i', 'enter-mode insert')
 # config.bind('j', 'scroll down')
-config.bind('j', 'scroll-px 0 100')
+config.bind("j", "scroll-px 0 100")
 # config.bind('k', 'scroll up')
-config.bind('k', 'scroll-px 0 -100')
+config.bind("k", "scroll-px 0 -100")
 # config.bind('l', 'scroll right')
 # config.bind('m', 'quickmark-save')
 # config.bind('n', 'search-next')
