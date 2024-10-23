@@ -9,7 +9,12 @@ config.load_autoconfig(False)
 ## aliases, while the values are the commands they map to.
 ## Type: Dict
 # c.aliases = {'w': 'session-save', 'q': 'close', 'qa': 'quit', 'wq': 'quit --save', 'wqa': 'quit --save'}
-c.aliases = {'sess-save': 'session-save -o', 'sess-load': 'session-load'}
+c.aliases = {
+    "sess-save": "session-save -o",
+    "sess-load": "session-load",
+    "zotero": "spawn --userscript zotero",
+    "Zotero": "hint links userscript zotero",
+}
 
 ## Time interval (in milliseconds) between auto-saves of
 ## config/cookies/etc.
