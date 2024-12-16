@@ -56,14 +56,14 @@ v_send_notification() {
     level=$(( level / $maxVolumeLevel ))
 
     v_log_debug "Normalized Level: $level"
-    
+
     local levelDiff=$((20 - level))
 
     if [[ $mute == no ]]
     then
         local message="  Unmute"
     else
-        local message=" Mute"
+        local message=" Mute"
     fi
 
     displayer dunstify -a "changeVolume" -u low -r "38462528" -h int:value:$level $message
