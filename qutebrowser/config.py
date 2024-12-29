@@ -1625,6 +1625,7 @@ c.url.searchengines = {
     "d": "https://duckduckgo.com/?q={}",
     "g": "https://www.google.com/search?q={}",
     "gs": "https://scholar.google.com/scholar?hl=en&q={}",
+    "gp": "https://patents.google.com/?q={}'",
     "so": "https://stackoverflow.com/search?q={}",
     "aur": "https://aur.archlinux.org/packages?O=0&K={}",
     "rs_std": "https://doc.rust-lang.org/std/index.html?search={}",
