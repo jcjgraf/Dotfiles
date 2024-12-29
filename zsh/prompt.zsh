@@ -25,6 +25,6 @@ PROMPT='
 %B%F{yellow}%~%f\
  ${vcs_info_msg_0_}\
 %(?..%F{red} > %?)%f
-%B%F{red} %f%b'
+%B%F{red} 󰛒 %f%b'
 
 RPROMPT="%F{green}%*%f"
