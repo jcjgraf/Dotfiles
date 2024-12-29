@@ -35,6 +35,8 @@
 .config/Electron
 .config/Riot
 .config/threema-web/
+.config/Slack
+.config/Signal
 */__pycache__
 */.venv
 Images/Archive
@@ -42,3 +44,6 @@ Images/Archive
 go
 .symfony5
 .ZAP
+.rustup
+*/build
+*/builddir
