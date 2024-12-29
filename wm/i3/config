@@ -159,7 +159,7 @@ bindsym $mod+Tab exec --no-startup-id alacritty --title "floatingterminal"
 bindsym $mod+Shift+Return exec --no-startup-id alacritty --working-directory "`xcwd`"
 
 bindsym $mod+d exec --no-startup-id rofi -show run
-bindsym $mod+Shift+e exec --no-startup-id rofimoji --max-recent=10
+bindsym $mod+Shift+e exec --no-startup-id rofimoji --max-recent=10 --no-frecency --skin-tone neutral --typer xdotool --action clipboard
 
 bindsym $mod+shift+x exec --no-startup-id sleep 1 && ~/bin/lock.sh && systemctl suspend
 bindsym $mod+shift+s exec --no-startup-id sleep 1 && ~/bin/lock.sh
