@@ -79,11 +79,11 @@ m_set() {
             ;;
         extend)
             m_log_info "Extend internal monitor"
-            cmd="${cmd} --output ${intern} --primary --auto --pos 432x2700 --rotate normal --output ${extern} --auto --scale 2x2 --pos 0x0 --rotate normal"
+            cmd="${cmd} --output ${intern} --primary --auto --pos 256x2560 --rotate normal --output ${extern} --auto --scale 2x2 --pos 0x0 --rotate normal"
             ;;
         clone)
             m_log_info "Clone internal monitor"
-            cmd="${cmd} --output ${intern} --primary --auto --pos 432x2700 --rotate normal --output "$extern" --auto --scale 2x2 --pos 0x0 --rotate normal --same-as ${intern}"
+            cmd="${cmd} --output ${intern} --primary --auto --pos 256x2560 --rotate normal --output "$extern" --auto --scale 2x2 --pos 0x0 --rotate normal --same-as ${intern}"
             ;;
     esac
 
