@@ -88,14 +88,25 @@ packer.startup(function(use)
 		end,
 	})
 
+	-- use({
+	-- 	"nvim-telescope/telescope.nvim",
+	-- 	requires = {
+	-- 		{ "nvim-lua/plenary.nvim" },
+	-- 		{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+	-- 	},
+	-- 	config = function()
+	-- 		require("user.plugins.telescope")
+	-- 	end,
+	-- })
+
 	use({
-		"nvim-telescope/telescope.nvim",
-		requires = {
-			{ "nvim-lua/plenary.nvim" },
-			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
-		},
+		"ibhagwan/fzf-lua",
+		-- optional for icon support
+		-- requires = { "nvim-tree/nvim-web-devicons" },
+		-- or if using mini.icons/mini.nvim
+		-- requires = { "echasnovski/mini.icons" }
 		config = function()
-			require("user.plugins.telescope")
+			require("user.plugins.fzf-lua")
 		end,
 	})
 
@@ -144,10 +155,16 @@ packer.startup(function(use)
 	})
 
 	use({
+		"christoomey/vim-tmux-navigator",
+		config = function()
+			require("user.plugins.vim-tmux-navigator")
+		end,
+	})
+
+	use({
 		"ThePrimeagen/harpoon",
-		requires = {
-			{ "nvim-lua/plenary.nvim" },
-		},
+		branch = "harpoon2",
+		requires = { { "nvim-lua/plenary.nvim" } },
 		config = function()
 			require("user.plugins.harpoon")
 		end,

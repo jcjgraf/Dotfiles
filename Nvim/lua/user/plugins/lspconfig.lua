@@ -30,10 +30,10 @@ vim.diagnostic.config({
 	severity_sort = true,
 	float = {
 		border = _border,
-		source = true,
+		-- source = true,
 		focusable = false,
 		header = "",
-		prefix = "",
+-- 		prefix = "",
 		format = function(diagnostic)
 			if diagnostic.user_data ~= nil and diagnostic.user_data.lsp.code ~= nil then
 				return string.format("%s: %s", diagnostic.user_data.lsp.code, diagnostic.message)
@@ -144,10 +144,10 @@ lspconfig.pyright.setup({
 })
 
 -- FileType: { "python" }
-lspconfig.jedi_language_server.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
+-- lspconfig.jedi_language_server.setup({
+-- 	on_attach = on_attach,
+-- 	capabilities = capabilities,
+-- })
 
 -- FileType: { "haskell", "lhaskell" }
 lspconfig.hls.setup({
@@ -197,6 +197,8 @@ lspconfig.texlab.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
+
+-- lspconfig.marksman.setup({})
 
 -- FileType: { "go", "gomod", "gowork", "gotmpl" }
 lspconfig.gopls.setup({

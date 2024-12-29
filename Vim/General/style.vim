@@ -54,6 +54,5 @@ set statusline+=\ %(%3p%%%)\                                     " Percentage in
 hi Pmenu ctermbg=8 ctermfg=15
 " Selected item
 hi PmenuSel ctermbg=8 ctermfg=1
-
 " Ruler
 highlight ColorColumn ctermbg=8

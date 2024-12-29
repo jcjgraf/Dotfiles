@@ -178,12 +178,18 @@ fi
 if [[ "$vim" = true ]]
 then
     #mkdir -p ~/.vim/undo/ ~/.vim/backup/ ~/.vim/swap/
-    mkdir -p ~/.config/nvim/autoload
-    linker "$dotfiles/Vim/init.vim" ~/.config/nvim/init.vim
-    linker "$dotfiles/Vim/General" ~/.config/nvim/General
-    linker "$dotfiles/Vim/PluginConfig" ~/.config/nvim/PluginConfig
-    linker "$dotfiles/Vim/autoload" ~/.config/nvim/autoload
-    linker "$dotfiles/Vim/UltiSnips" ~/.config/nvim/UltiSnips
+    mkdir -p ~/.config/nvim/
+    linker "$dotfiles/Nvim/init.lua" ~/.config/nvim/init.lua
+    linker "$dotfiles/Nvim/lua/user" ~/.config/nvim/lua/user
+    linker "$dotfiles/Nvim/lua/lib" ~/.config/nvim/lua/lib
+    linker "$dotfiles/Nvim/ftplugin" ~/.config/nvim/ftplugin
+    linker "$dotfiles/flake8" ~/.config/flake8
+#    linker "$dotfiles/Vim/init.vim" ~/.config/nvim/init.vim
+#    linker "$dotfiles/Vim/General" ~/.config/nvim/General
+#    linker "$dotfiles/Vim/PluginConfig" ~/.config/nvim/PluginConfig
+#    linker "$dotfiles/Vim/autoload" ~/.config/nvim/autoload
+#    linker "$dotfiles/Vim/UltiSnips" ~/.config/nvim/UltiSnips
+#    linker "$dotfiles/Vim/lua" ~/.config/nvim/lua
 fi
 
 ### Git

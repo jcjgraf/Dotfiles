@@ -35,7 +35,7 @@ null_ls.setup({
 			end,
 		}),
 		-- FileType: { "org", "text", "markdown" } + { "tex" }
-		hover.dictionary.with({ extra_filetypes = { "tex" } }),
+		-- hover.dictionary.with({ extra_filetypes = { "tex" } }),
 		-- FileType: { "markdown", "tex" } + { "tex" }
 		diagnostics.proselint.with({ extra_filetypes = { "txt" } }),
 		-- FileType: { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "css", "scss", "less", "html", "json", "jsonc", "yaml", "markdown", "markdown.mdx", "graphql", "handlebars" }
