@@ -5,6 +5,7 @@
 [core]
     editor = nvim
     excludesfile = /home/jeanclaude/.config/git/gitignore_global
+    pager = delta
 [merge]
     tool = vimdiff
 [mergetool]
@@ -27,12 +28,19 @@
     add-deleted = !git add $(git ls-files --deleted)
 [init]
     defaultBranch = main
+[diff]
+    colormoved = default
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    # Enable features
+    # - navigate: Jump to next/previous file with n/N
+    feature = navigate
+    navigate = true  # use n and N to move between diff sections
+    dark = true      # or light = true, or omit for auto-detection
+    # To diaplay colormoved
+    map-styles = bold purple => syntax magenta, bold cyan => syntax blue
 [color "status"]
     added = green
     changed = yellow
     untracked = red
-[filter "lfs"]
-    clean = git-lfs clean -- %f
-    smudge = git-lfs smudge -- %f
-    process = git-lfs filter-process
-    required = true
