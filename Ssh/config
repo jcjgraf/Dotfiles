@@ -5,8 +5,14 @@ Host aur.archlinux.org
     IdentityFile ~/.ssh/aur
     User aur
 
-Host hs
+Host hs_local
   HostName homeserver.local
+  IdentityFile ~/.ssh/id_rsa
+  User jeanclaude
+
+Host hs_remote
+  HostName jeanclaudegraf.ch
+  Port 5022
   IdentityFile ~/.ssh/id_rsa
   User jeanclaude
 
@@ -20,26 +26,20 @@ Host remarkable
     PubkeyAcceptedKeyTypes +ssh-rsa
     HostKeyAlgorithms +ssh-rsa
 
-Host cs_head
-    Hostname comsec-edu.ethz.ch
-    IdentityFile ~/.ssh/id_rsa
-    User jegraf
-    RequestTTY yes  # Mirrors -t, for colored output
-
 Host cs_jump
     Hostname comsec-jumphost.ethz.ch
     IdentityFile ~/.ssh/id_rsa
     User jegraf
     RequestTTY yes  # Mirrors -t, for colored output
 
-Host cs_cn122
-    Hostname ee-tik-cn122
+Host cn128
+    Hostname ee-tik-cn128
     User jegraf
     RequestTTY yes  # Mirrors -t, for colored output
     ProxyJump cs_jump
 
-Host cs_cn109
-    Hostname ee-tik-cn109
+Host cn140
+    Hostname ee-tik-cn140
     User jegraf
     RequestTTY yes  # Mirrors -t, for colored output
     ProxyJump cs_jump
