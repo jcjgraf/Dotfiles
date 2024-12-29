@@ -5,3 +5,4 @@ image/gif=feh.desktop
 image/jpeg=feh.desktop
 image/png=feh.desktop
 text/html=org.qutebrowser.qutebrowser.desktop
+inode/directory=thunar.desktop
