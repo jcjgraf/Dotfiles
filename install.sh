@@ -120,6 +120,7 @@ then
 
     linker "$dotfiles/gtk-3.0" ~/.config/gtk-3.0
     linker "$dotfiles/gtk-2.0" ~/.config/gtk-2.0
+    linker "$dotfiles/Tmux/tmux.conf" ~/.config/tmux/tmux.conf
 fi
 
 ### System Configs
