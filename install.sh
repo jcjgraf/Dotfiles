@@ -200,7 +200,7 @@ then
     colorizer "$dotfiles/dunst/dunstrc.raw" ~/.config/dunst/dunstrc
     linker "$dotfiles/mpv" ~/.config/mpv
     linker "$dotfiles/yt-dlp" ~/.config/yt-dlp
-    colorizer "$dotfiles/termite/config.raw" ~/.config/termite/config
+    linker "$dotfiles/alacritty/alacritty.toml" ~/.config/alacritty/alacritty.toml
     linker "$dotfiles/qutebrowser/config.py" ~/.config/qutebrowser/config.py
     linker "$dotfiles/Vimiv/vimiv.conf" ~/.config/vimiv/vimiv.conf
     linker "$dotfiles/Vimiv/keys.conf" ~/.config/vimiv/keys.conf
