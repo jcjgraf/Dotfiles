@@ -7,16 +7,16 @@ packer.startup(function(use)
 	use({
 		"hrsh7th/nvim-cmp",
 		requires = {
-			"hrsh7th/cmp-buffer",
+		-- 	"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-cmdline",
-			-- 		-- "uga-rosa/cmp-dictionary",
-			"L3MON4D3/LuaSnip",
-			"saadparwaiz1/cmp_luasnip",
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-nvim-lua",
+		-- 	"hrsh7th/cmp-cmdline",
+		-- 	-- 		-- "uga-rosa/cmp-dictionary",
+		-- 	"L3MON4D3/LuaSnip",
+		-- 	"saadparwaiz1/cmp_luasnip",
+		-- 	"hrsh7th/cmp-nvim-lsp",
+		-- 	"hrsh7th/cmp-nvim-lua",
 			"onsails/lspkind-nvim",
-			-- 		"f3fora/cmp-spell",
+		-- 	-- 		"f3fora/cmp-spell",
 		},
 		config = function()
 			require("user.plugins.cmp")
@@ -48,6 +48,7 @@ packer.startup(function(use)
 		requires = {
 			"hrsh7th/nvim-cmp",
 			"hrsh7th/cmp-nvim-lsp",
+			-- "ibhagwan/fzf-lua",
 			--'b0o/schemastore.nvim',
 			--'folke/lsp-colors.nvim',
 			--'weilbith/nvim-code-action-menu',
@@ -64,9 +65,8 @@ packer.startup(function(use)
 		end,
 	})
 
-	-- TODO: Null-ls is archived
 	use({
-		"jose-elias-alvarez/null-ls.nvim",
+		"nvimtools/none-ls.nvim",
 		requires = {
 			{ "nvim-lua/plenary.nvim" },
 		},
@@ -114,7 +114,7 @@ packer.startup(function(use)
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 		requires = {
-			"p00f/nvim-ts-rainbow",
+			-- "p00f/nvim-ts-rainbow",
 		},
 		config = function()
 			require("user.plugins.treesitter")
@@ -139,11 +139,16 @@ packer.startup(function(use)
 	})
 
 	-- Display colors
+	-- use({
+	-- 	"norcalli/nvim-colorizer.lua",
+	-- 	config = function()
+	-- 		require("colorizer").setup()
+	-- 	end,
+	-- })
+
+	-- Since norcalli's colorizer does not support ANSI colors
 	use({
-		"norcalli/nvim-colorizer.lua",
-		config = function()
-			require("colorizer").setup()
-		end,
+		"chrisbra/Colorizer",
 	})
 
 	-- Git

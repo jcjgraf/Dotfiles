@@ -46,6 +46,10 @@ vim.keymap.set("n", "<leader>D", "<cmd>lua vim.diagnostic.setloclist()<CR>")
 
 vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
 
+
+
+
+
 --" Open and close folds
 --"nnoremap <leader>f zA
 

@@ -1,9 +1,9 @@
 local treesitter_conf = require("nvim-treesitter.configs")
 
 treesitter_conf.setup({
-	ensure_installed = "all",
-	auto_install = true,
-	ignore_install = {},
+	ensure_installed = "all", -- { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" }, -- First 7 parser must always be installed
+	auto_install = false, -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+	ignore_install = { "hoon" }, -- Caused some trouble at some point in time
 	highlight = {
 		enable = true,
 		disable = {}, -- name of parser and not filetypes

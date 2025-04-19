@@ -33,7 +33,7 @@ vim.diagnostic.config({
 		-- source = true,
 		focusable = false,
 		header = "",
--- 		prefix = "",
+		-- 		prefix = "",
 		format = function(diagnostic)
 			if diagnostic.user_data ~= nil and diagnostic.user_data.lsp.code ~= nil then
 				return string.format("%s: %s", diagnostic.user_data.lsp.code, diagnostic.message)
@@ -56,20 +56,23 @@ local on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
+	--      • {opts}  Optional parameters map: Accepts all |:map-arguments| as keys
+	--               except <buffer>, values are booleans (default false). Also:
+
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	-- local bufopts = { buffer=bufnr }
 
 	-- Goto
-	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
-	vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
-	vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, bufopts)
-	vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
-	vim.keymap.set("n", "gs", vim.lsp.buf.document_symbol, bufopts)
-	vim.keymap.set("n", "gS", vim.lsp.buf.workspace_symbol, bufopts)
+	-- vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
+	-- vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+	-- vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, bufopts)
+	-- vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
+	-- vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
+	-- vim.keymap.set("n", "gs", vim.lsp.buf.document_symbol, bufopts)
+	-- vim.keymap.set("n", "gS", vim.lsp.buf.workspace_symbol, bufopts)
 
-	vim.keymap.set("n", "gci", vim.lsp.buf.incoming_calls, bufopts)
-	vim.keymap.set("n", "gco", vim.lsp.buf.outgoing_calls, bufopts)
+	-- vim.keymap.set("n", "gci", vim.lsp.buf.incoming_calls, bufopts)
+	-- vim.keymap.set("n", "gco", vim.lsp.buf.outgoing_calls, bufopts)
 
 	-- Show information
 	vim.keymap.set("n", "Kh", vim.lsp.buf.hover, bufopts)
@@ -187,7 +190,7 @@ lspconfig.clangd.setup({
 })
 
 -- FileType: { "bib", "gitcommit", "markdown", "org", "plaintex", "rst", "rnoweb", "tex", "pandoc" }
-lspconfig.ltex.setup({
+lspconfig.ltex_plus.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
@@ -198,7 +201,7 @@ lspconfig.texlab.setup({
 	capabilities = capabilities,
 })
 
--- lspconfig.marksman.setup({})
+lspconfig.marksman.setup({})
 
 -- FileType: { "go", "gomod", "gowork", "gotmpl" }
 lspconfig.gopls.setup({
