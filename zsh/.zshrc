@@ -1,6 +1,9 @@
 source $ZDOTDIR/alias.zsh
 source $ZDOTDIR/prompt.zsh
 
+# Do not quit zsh by pressing CTRL+D
+setopt ignore_eof
+
 # History
 
 setopt EXTENDED_HISTORY        # Record command start time and duration
