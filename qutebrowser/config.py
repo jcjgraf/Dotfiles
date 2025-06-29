@@ -975,18 +975,22 @@ c.content.mute = True
 ## Font family for fixed fonts.
 ## Type: FontFamily
 # c.fonts.web.family.fixed = ''
+# c.fonts.web.family.fixed = 'DejaVuSansM Nerd'
 
 ## Font family for sans-serif fonts.
 ## Type: FontFamily
 # c.fonts.web.family.sans_serif = ''
+# c.fonts.web.family.sans_serif = 'DejaVuSansM Nerd'
 
 ## Font family for serif fonts.
 ## Type: FontFamily
 # c.fonts.web.family.serif = ''
+# c.fonts.web.family.serif = 'DejaVuSansM Nerd'
 
 ## Font family for standard fonts.
 ## Type: FontFamily
 # c.fonts.web.family.standard = ''
+# c.fonts.web.family.standard = 'DejaVuSansM Nerd'
 
 ## Default font size (in pixels) for regular text.
 ## Type: Int
