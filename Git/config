@@ -26,6 +26,7 @@
     tree = log --oneline --graph --decorate --all
     csha = rev-parse HEAD
     add-deleted = !git add $(git ls-files --deleted)
+    unstage = restore --staged
 [init]
     defaultBranch = main
 [diff]
@@ -44,3 +45,9 @@
     added = green
     changed = yellow
     untracked = red
+[safe]
+	directory = /mnt/thumbdrive/Archive
+	directory = /mnt/images/Archive
+	directory = /mnt/images/Archive/.git
+[credential]
+	helper = store
