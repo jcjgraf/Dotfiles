@@ -27,4 +27,5 @@ PROMPT='
 %(?..%F{red} > %?)%f
 %B%F{red} 󰛒 %f%b'
 
-RPROMPT="%F{green}%*%f"
+#RPROMPT="%F{green}%*%f"
+#RPROMPT="%F{green}%10{%*}%f"

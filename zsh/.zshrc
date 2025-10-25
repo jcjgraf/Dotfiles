@@ -69,3 +69,5 @@ bindkey -M emacs '^f' fzf-cd-widget
 bindkey -M vicmd '^f' fzf-cd-widget
 bindkey -M viins '^f' fzf-cd-widget
 
+
+eval "$(zoxide init zsh)"

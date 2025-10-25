@@ -48,3 +48,5 @@ alias cdf='cd $(find . -type d -print | fzf)'
 alias objdump="objdump --disassembler-color=on --visualize-jumps=color"
 
 alias git-diff="git diff --no-index --word-diff=color --word-diff-regex=."
+
+alias mia_watch="tail --pid=`pgrep mia` -f /dev/null && bing"

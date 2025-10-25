@@ -33,6 +33,12 @@ export PATH="$PATH:$HOME/.cargo/bin"
 # Add go path
 export PATH="$PATH:$HOME/go/bin"
 
+# Add to library path
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib"
+
+# To get rid of ESC to abort in neomutt
+export ESCDELAY=0
+
 # QT6
 export QT_SELECT="6"
 
@@ -41,6 +47,7 @@ export DOTFILES=~/Dotfiles
 export eth=~/Documents/Studies/Eth/Semester11
 export ma=~/Documents/Studies/Eth/Semester11/MasterThesis
 export sp=~/Documents/Studies/Eth/Semester9/SemesterProject
+export phd=~/Documents/Studies/Eth/PhD
 
 export TERM=xterm-color
 
