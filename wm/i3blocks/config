@@ -6,13 +6,17 @@ command=~/.config/i3scripts/$BLOCK_NAME
 markup=pango
 
 # Bar
-[unreadMails]
-command=printf "" && ~/bin/mailChecker.sh -s
-label= 
+# [unreadMails]
+# command=printf "" && ~/bin/mailChecker.sh -s
+# label= 
+# interval=10
+
+[bluetoothStatus]
+command=printf "" && ~/Dotfiles/Scripts/bluetooth.sh
 interval=10
 
 [loadAverage]
-label= 
+label=󰓅 
 interval=10
 
 [temperature]
@@ -32,5 +36,3 @@ interval=60
 label= 
 command=printf "" && date '+%k:%M:%S' | xargs
 interval=1
-
-
