@@ -71,3 +71,5 @@ bindkey -M viins '^f' fzf-cd-widget
 
 
 eval "$(zoxide init zsh)"
+
+exec fish
