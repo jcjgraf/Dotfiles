@@ -2,3 +2,7 @@ set auto-load safe-path /home/jeanclaude
 set history save on
 set debuginfod enabled on
 set disassemble-next-line on
+#
+# # When debugging rust
+set print demangle on
+set print asm-demangle on
