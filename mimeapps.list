@@ -1,8 +1,10 @@
 [Default Applications]
-application/pdf=org.pwmt.zathura.desktop
 application/gzip=com.github.xournalpp.xournalpp.desktop;
+application/pdf=org.pwmt.zathura.desktop
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice.desktop;
 image/gif=feh.desktop
 image/jpeg=feh.desktop
 image/png=feh.desktop
-text/html=org.qutebrowser.qutebrowser.desktop
 inode/directory=thunar.desktop
+text/html=org.qutebrowser.qutebrowser.desktop
+text/plain=vim.desktop
