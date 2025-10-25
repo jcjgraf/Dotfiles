@@ -1,0 +1,8 @@
+-- Always switch CWD to root of project
+
+return {
+	"wsdjeg/rooter.nvim",
+	opts = {
+		root_pattern = { ".git/" },
+	},
+}

@@ -1,3 +1,3 @@
-require 'user.options'
-require 'user.keymaps'
-require 'user.plugins'
+require("config.options")
+require("config.keymaps")
+require("config.lazy")

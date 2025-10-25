@@ -31,6 +31,18 @@ vim.g.tex_flavor = 'latex'
 
 vim.cmd [[au BufEnter * set fo-=c fo-=r fo-=o]] --Sets in essence formatoptions-=cro, which disables continuing of comments after pressing enter
 
+-- Highlight non-ascii characters
+vim.cmd([[
+  augroup HighlightNonASCII
+    autocmd!
+    autocmd BufReadPost,BufNewFile * syntax match NonASCII "[^\x00-\x7F]" containedin=ALL
+    highlight NonASCII guibg=Red ctermbg=1 term=standout
+  augroup END
+]])
+
+-- vim.cmd([[highlight nonascii guibg=Red ctermbg=1 term=standout]])
+-- vim.cmd([[au BufReadPost * syntax match nonascii "[^\u0000-\u007F]"]])
+
 
 --set updatetime=300                                  " Shorter updatetime for shorter delay
 
