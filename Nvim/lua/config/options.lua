@@ -22,6 +22,10 @@ o.backupdir = vim.fn.stdpath 'data' .. '/backup//'
 o.swapfile = false
 o.spell = true
 o.updatetime = 300 -- To make the lsp highlight the word under the cursor faster
+-- Case insensitive search if all lower-case, else sensitive
+o.ignorecase = true
+o.smartcase = true
+
 
 o.number = true
 o.relativenumber = true
