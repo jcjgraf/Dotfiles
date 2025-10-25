@@ -1,20 +1,15 @@
 AddKeysToAgent yes
 
 Host aur.archlinux.org
-    HostName aur.archlinux.org
+    Hostname aur.archlinux.org
     IdentityFile ~/.ssh/aur
     User aur
 
-Host hs_local
-  HostName homeserver.local
-  IdentityFile ~/.ssh/id_rsa
-  User jeanclaude
-
-Host hs_remote
-  HostName jeanclaudegraf.ch
-  Port 5022
-  IdentityFile ~/.ssh/id_rsa
-  User jeanclaude
+Host hs
+    Hostname jeanclaudegraf.ch
+    Port 5022
+    IdentityFile ~/.ssh/id_rsa
+    User jeanclaude
 
 Host remarkable
     Hostname 10.11.99.1
@@ -27,19 +22,20 @@ Host remarkable
     HostKeyAlgorithms +ssh-rsa
 
 Host cs_jump
-    Hostname comsec-jumphost.ethz.ch
+    # Hostname comsec-jumphost.ethz.ch
+    Hostname comsec-research.ethz.ch
     IdentityFile ~/.ssh/id_rsa
     User jegraf
     RequestTTY yes  # Mirrors -t, for colored output
 
-Host cn128
-    Hostname ee-tik-cn128
+Host cs_jump_edu
+    Hostname comsec-edu.ethz.ch
+    IdentityFile ~/.ssh/id_rsa
     User jegraf
     RequestTTY yes  # Mirrors -t, for colored output
-    ProxyJump cs_jump
 
-Host cn140
-    Hostname ee-tik-cn140
+Host cn*
+    Hostname ee-tik-%h
     User jegraf
     RequestTTY yes  # Mirrors -t, for colored output
     ProxyJump cs_jump
