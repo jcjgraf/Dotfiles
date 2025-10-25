@@ -12,6 +12,7 @@ return {
 		{ "<leader>G", "<cmd>FzfLua live_grep --glob<cr>", desc = "FZF Grep" },
 		-- { "<leader>G", "<cmd>FzfLua lgrep_curbuf<cr>", desc = "FZF Grep Current Buffer" },
 		{ "<leader>b", "<cmd>FzfLua buffers<cr>", desc = "FZF Buffers" },
+		{ "<leader>m", "<cmd>FzfLua marks<cr>", desc = "FZF Marks" },
 		{ "<leader>j", "<cmd>FzfLua jumps<cr>", desc = "FZF Jump History" },
 		{ "<leader>r", "<cmd>FzfLua resume<cr>", desc = "FZF Resume" },
 
