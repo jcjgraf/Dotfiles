@@ -1,3 +1,9 @@
 [font]
     normal = { family = "monospace", style = "Regular" }
     size = 12
+
+[keyboard]
+bindings = [
+  { key = "Equals", mods = "Control", action = "IncreaseFontSize" },
+  { key = "Minus", mods = "Control", action = "DecreaseFontSize" },
+]
