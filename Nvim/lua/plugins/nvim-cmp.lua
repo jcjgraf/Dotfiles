@@ -14,7 +14,7 @@ return {
 		"onsails/lspkind.nvim",
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
-        "hrsh7th/cmp-cmdline",
+		"hrsh7th/cmp-cmdline",
 	},
 	event = "InsertEnter",
 	opts = function()
@@ -75,7 +75,14 @@ return {
 				end, { "i", "s" }),
 			}),
 			sources = {
-				{ name = "nvim_lsp" },
+				{
+					name = "nvim_lsp",
+					option = {
+						markdown_oxide = {
+							keyword_pattern = [[\(\k\| \|\/\|#\)\+]],
+						},
+					},
+				},
 				{ name = "luasnip" },
 				-- { name = "nvim_lua" },
 				{ name = "path" },
@@ -99,5 +106,3 @@ return {
 -- 		{ name = "cmdline" },
 -- 	}),
 -- })
-
-
