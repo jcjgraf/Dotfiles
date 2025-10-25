@@ -1,0 +1,4 @@
+color = 'always'
+default_due = 0
+path = '~/.local/share/calendar/regular/**/'
+default_list = 'personal'
