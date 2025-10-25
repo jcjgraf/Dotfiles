@@ -73,6 +73,20 @@ return {
 			capabilities = capabilities,
 		})
 
+		-- Markdown
+		lspconfig.markdown_oxide.setup({
+			-- Ensure that dynamicRegistration is enabled! This allows the LS to take into account actions like the
+			-- Create Unresolved File code action, resolving completions for unindexed code blocks, ...
+			capabilities = vim.tbl_deep_extend("force", capabilities, {
+				workspace = {
+					didChangeWatchedFiles = {
+						dynamicRegistration = true,
+					},
+				},
+			}),
+			on_attach = on_attach, -- configure your on attach config
+		})
+
 		-- Bash
 		-- FileType: { "bash", "sh" }
 		lspconfig.bashls.setup({
@@ -80,33 +94,35 @@ return {
 		})
 
 		-- Python
+		--- Fork of pyright
 		lspconfig.basedpyright.setup({
 			capabilities = capabilities,
 		})
 
-		lspconfig.jedi_language_server.setup({
-			capabilities = capabilities,
-		})
+		-- lspconfig.pyright.setup({
+		-- 	capabilities = capabilities,
+		-- })
 
-		lspconfig.pylsp.setup({
-			capabilities = capabilities,
-		})
+		-- lspconfig.jedi_language_server.setup({
+		-- 	capabilities = capabilities,
+		-- })
 
+		-- lspconfig.pylsp.setup({
+		-- 	capabilities = capabilities,
+		-- })
+
+		-- Flags a shit ton of irrelevant stuff
 		-- lspconfig.pylyzer.setup({
 		-- 	capabilities = capabilities,
 		-- })
 
-		lspconfig.pyre.setup({
-			capabilities = capabilities,
-		})
+		-- lspconfig.pyre.setup({
+		-- 	capabilities = capabilities,
+		-- })
 
-		lspconfig.pyright.setup({
-			capabilities = capabilities,
-		})
-
-		lspconfig.ruff.setup({
-			capabilities = capabilities,
-		})
+		-- lspconfig.ruff.setup({
+		-- 	capabilities = capabilities,
+		-- })
 
 		-- Rust
 		lspconfig.rust_analyzer.setup({
@@ -114,9 +130,9 @@ return {
 		})
 
 		-- General Text
-		lspconfig.harper.setup({
-			capabilities = capabilities,
-		})
+		-- lspconfig.harper.setup({
+		-- 	capabilities = capabilities,
+		-- })
 
 		-- Keymaps
 		-- TODO: attack keymaps to on_attack
