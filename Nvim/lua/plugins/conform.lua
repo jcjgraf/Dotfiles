@@ -13,7 +13,7 @@ return {
 					timeout_ms = 3000,
 				})
 			end,
-			mode={ "n", "v" },
+			mode = { "n", "v" },
 			desc = "Format file or range (in visual mode)",
 		},
 	},
@@ -26,10 +26,20 @@ return {
 			rust = { "rustfmt", lsp_format = "fallback" },
 			-- Conform will run the first available formatter
 			javascript = { "prettierd", "prettier", stop_after_first = true },
-            sh = { "beautysh" },
-            bib = { "bibtex-tidy" },
-            c = { "clang-format" },
-            gitcommit = { "commitmsgfmt" },
+			sh = { "beautysh" },
+			bib = { "bibtex-tidy" },
+			c = { "clang-format" },
+			gitcommit = { "commitmsgfmt" },
+			yaml = { "yamlfmt" },
+			markdown = { "markdownlint" },
+		},
+		formatters = {
+			["clang-format"] = {
+				prepend_args = {
+					"--style",
+					"{ BasedOnStyle: LLVM, IndentWidth: 4 }",
+				},
+			},
 		},
 	},
 }
