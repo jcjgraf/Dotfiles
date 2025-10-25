@@ -1,19 +1,14 @@
-## msmtp config file
-#
-# Based on config from https://github.com/LukeSmithxyz/mutt-wizard
-
 ## graf.jeanclaude@gmail.com
 IMAPStore graf.jeanclaude@gmail.com-remote
 Host imap.gmail.com
 Port  993
 User graf.jeanclaude@gmail.com
 PassCmd "pass online/google.com/graf.jeanclaude@gmail.com/app/isync"
-SSLType IMAPS
+TLSType IMAPS
 AuthMechs PLAIN
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 MaildirStore graf.jeanclaude@gmail.com-local
-Subfolders Verbatim
 Path ~/.local/share/mail/graf.jeanclaude@gmail.com/
 Inbox ~/.local/share/mail/graf.jeanclaude@gmail.com/INBOX
 Flatten .
@@ -22,11 +17,12 @@ Channel graf.jeanclaude@gmail.com
 Expunge Both
 Far :graf.jeanclaude@gmail.com-remote:
 Near :graf.jeanclaude@gmail.com-local:
-Patterns * !"[Gmail]/All Mail"
+Patterns * !"Drafts" !"Junk" !"Sent" !"Trash"
 Create Both
+Remove None
+CopyArrivalDate yes
 SyncState *
 MaxMessages 0
-ExpireUnread no
 
 ## jeanggi90@gmail.com
 IMAPStore jeanggi90@gmail.com-remote
@@ -34,12 +30,11 @@ Host imap.gmail.com
 Port  993
 User jeanggi90@gmail.com
 PassCmd "pass online/google.com/jeanggi90@gmail.com/app/isync"
-SSLType IMAPS
+TLSType IMAPS
 AuthMechs PLAIN
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 MaildirStore jeanggi90@gmail.com-local
-Subfolders Verbatim
 Path ~/.local/share/mail/jeanggi90@gmail.com/
 Inbox ~/.local/share/mail/jeanggi90@gmail.com/INBOX
 Flatten .
@@ -48,11 +43,12 @@ Channel jeanggi90@gmail.com
 Expunge Both
 Far :jeanggi90@gmail.com-remote:
 Near :jeanggi90@gmail.com-local:
-Patterns * !"[Gmail]/All Mail"
+Patterns * !"[Gmail]/All Mail" !"Drafts" !"Junk" !"Sent" !"Trash"
 Create Both
+Remove None
+CopyArrivalDate yes
 SyncState *
 MaxMessages 0
-ExpireUnread no
 
 ## mail@jeanclaudegraf.ch
 IMAPStore mail@jeanclaudegraf.ch-remote
@@ -60,11 +56,10 @@ Host mail.hosting.de
 Port 143
 User mail@jeanclaudegraf.ch
 PassCmd "pass online/hosting.de/mail@jeanclaudegraf.ch"
-SSLType STARTTLS
+TLSType STARTTLS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 MaildirStore mail@jeanclaudegraf.ch-local
-Subfolders Verbatim
 Path ~/.local/share/mail/mail@jeanclaudegraf.ch/
 Inbox ~/.local/share/mail/mail@jeanclaudegraf.ch/INBOX
 Flatten .
@@ -75,34 +70,10 @@ Far :mail@jeanclaudegraf.ch-remote:
 Near :mail@jeanclaudegraf.ch-local:
 Patterns *
 Create Both
+Remove None
+CopyArrivalDate yes
 SyncState *
 MaxMessages 0
-ExpireUnread no
-
-## git@jeanclaudegraf.ch
-IMAPStore git@jeanclaudegraf.ch-remote
-Host mail.hosting.de
-Port 143
-User git@jeanclaudegraf.ch
-PassCmd "pass online/hosting.de/git@jeanclaudegraf.ch"
-SSLType STARTTLS
-CertificateFile /etc/ssl/certs/ca-certificates.crt
-
-MaildirStore git@jeanclaudegraf.ch-local
-Subfolders Verbatim
-Path ~/.local/share/mail/git@jeanclaudegraf.ch/
-Inbox ~/.local/share/mail/git@jeanclaudegraf.ch/INBOX
-Flatten .
-
-Channel git@jeanclaudegraf.ch
-Expunge Both
-Far :git@jeanclaudegraf.ch-remote:
-Near :git@jeanclaudegraf.ch-local:
-Patterns *
-Create Both
-SyncState *
-MaxMessages 0
-ExpireUnread no
 
 ## bienen@jeanclaudegraf.ch
 IMAPStore bienen@jeanclaudegraf.ch-remote
@@ -110,11 +81,10 @@ Host mail.hosting.de
 Port 143
 User bienen@jeanclaudegraf.ch
 PassCmd "pass online/hosting.de/bienen@jeanclaudegraf.ch"
-SSLType STARTTLS
+TLSType STARTTLS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 MaildirStore bienen@jeanclaudegraf.ch-local
-Subfolders Verbatim
 Path ~/.local/share/mail/bienen@jeanclaudegraf.ch/
 Inbox ~/.local/share/mail/bienen@jeanclaudegraf.ch/INBOX
 Flatten .
@@ -125,34 +95,10 @@ Far :bienen@jeanclaudegraf.ch-remote:
 Near :bienen@jeanclaudegraf.ch-local:
 Patterns *
 Create Both
+Remove None
+CopyArrivalDate yes
 SyncState *
 MaxMessages 0
-ExpireUnread no
-
-## me@jeanclaudegraf.ch
-IMAPStore me@jeanclaudegraf.ch-remote
-Host mail.hosting.de
-Port 143
-User me@jeanclaudegraf.ch
-PassCmd "pass online/hosting.de/me@jeanclaudegraf.ch"
-SSLType STARTTLS
-CertificateFile /etc/ssl/certs/ca-certificates.crt
-
-MaildirStore me@jeanclaudegraf.ch-local
-Subfolders Verbatim
-Path ~/.local/share/mail/me@jeanclaudegraf.ch/
-Inbox ~/.local/share/mail/me@jeanclaudegraf.ch/INBOX
-Flatten .
-
-Channel me@jeanclaudegraf.ch
-Expunge Both
-Far :me@jeanclaudegraf.ch-remote:
-Near :me@jeanclaudegraf.ch-local:
-Patterns *
-Create Both
-SyncState *
-MaxMessages 0
-ExpireUnread no
 
 ## ml@jeanclaudegraf.ch
 IMAPStore ml@jeanclaudegraf.ch-remote
@@ -160,11 +106,10 @@ Host mail.hosting.de
 Port 143
 User ml@jeanclaudegraf.ch
 PassCmd "pass online/hosting.de/ml@jeanclaudegraf.ch"
-SSLType STARTTLS
+TLSType STARTTLS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 MaildirStore ml@jeanclaudegraf.ch-local
-Subfolders Verbatim
 Path ~/.local/share/mail/ml@jeanclaudegraf.ch/
 Inbox ~/.local/share/mail/ml@jeanclaudegraf.ch/INBOX
 Flatten .
@@ -175,23 +120,22 @@ Far :ml@jeanclaudegraf.ch-remote:
 Near :ml@jeanclaudegraf.ch-local:
 Patterns *
 Create Both
+Remove None
+CopyArrivalDate yes
 SyncState *
 MaxMessages 0
-ExpireUnread no
 
 ## jegraf@ethz.ch
 IMAPStore jegraf@ethz.ch-remote
-Host mail.ethz.ch
+Host outlook.office365.com
 Port 993
 User jegraf@ethz.ch
-PassCmd "pass online/ethz.ch/jegraf"
-SSLType IMAPS
-AuthMechs PLAIN
-PipelineDepth 1
-CertificateFile /etc/ssl/certs/ca-certificates.crt
+PassCmd "mutt_oauth2.py ~/.local/share/pass/online/ethz.ch/jegraf_OAuth_Token.gpg"
+TLSType IMAPS
+AuthMechs XOAUTH2
+#CertificateFile /etc/SSL/certs/ca-certificates.CRT
 
 MaildirStore jegraf@ethz.ch-local
-Subfolders Verbatim
 Path ~/.local/share/mail/jegraf@ethz.ch/
 Inbox ~/.local/share/mail/jegraf@ethz.ch/INBOX
 Flatten .
@@ -200,25 +144,24 @@ Channel jegraf@ethz.ch
 Expunge Both
 Far :jegraf@ethz.ch-remote:
 Near :jegraf@ethz.ch-local:
-Patterns * !"Archive"
+Patterns * !"Tasks" !"Calendar*" !"Contacts" !"Conversation History" !"Deleted Items/*" !"Notes" !"Journal" !"Outbox" !"Archive" !"Trash" !"Junk" !"Sent"
 Create Both
+Remove None
+CopyArrivalDate yes
 SyncState *
 MaxMessages 0
-ExpireUnread no
 
 ## jegraf@fotokommission.ch
 IMAPStore jegraf@fotokommission.ch-remote
-Host mail.ethz.ch
+Host outlook.office365.com
 Port 993
 User vseth-jegraf@ethz.ch
-PassCmd "pass online/ethz.ch/vseth/vseth-jegraf"
-SSLType IMAPS
-AuthMechs PLAIN
-PipelineDepth 1
-CertificateFile /etc/ssl/certs/ca-certificates.crt
+PassCmd "mutt_oauth2.py ~/.local/share/pass/online/ethz.ch/vseth-jegraf_OAuth_Token.gpg"
+TLSType IMAPS
+AuthMechs XOAUTH2
+# CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 MaildirStore jegraf@fotokommission.ch-local
-Subfolders Verbatim
 Path ~/.local/share/mail/jegraf@fotokommission.ch/
 Inbox ~/.local/share/mail/jegraf@fotokommission.ch/INBOX
 Flatten .
@@ -227,11 +170,12 @@ Channel jegraf@fotokommission.ch
 Expunge Both
 Far :jegraf@fotokommission.ch-remote:
 Near :jegraf@fotokommission.ch-local:
-Patterns * !"Archive"
+Patterns * !"Tasks" !"Calendar*" !"Contacts" !"Conversation History" !"Deleted Items/*" !"Notes" !"Journal" !"Outbox" !"Trash" !"Junk" !"Sent"
 Create Both
+Remove None
+CopyArrivalDate yes
 SyncState *
 MaxMessages 0
-ExpireUnread no
 
 ## jeanclaude.graf@thealternative.ch
 IMAPStore jeanclaude.graf@thealternative.ch-remote
@@ -239,12 +183,11 @@ Host imap.mail.hostpoint.ch
 Port 143
 User jeanclaude.graf@thealternative.ch
 PassCmd "pass online/hostpoint.ch/jeanclaude.graf@thealternative.ch"
-SSLType STARTTLS
+TLSType STARTTLS
 AuthMechs PLAIN
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 MaildirStore jeanclaude.graf@thealternative.ch-local
-Subfolders Verbatim
 Path ~/.local/share/mail/jeanclaude.graf@thealternative.ch/
 Inbox ~/.local/share/mail/jeanclaude.graf@thealternative.ch/INBOX
 Flatten .
@@ -253,35 +196,9 @@ Channel jeanclaude.graf@thealternative.ch
 Expunge Both
 Far :jeanclaude.graf@thealternative.ch-remote:
 Near :jeanclaude.graf@thealternative.ch-local:
-Patterns * !"Archive"
+Patterns * !"Archive" !"Junk"
 Create Both
+Remove None
+CopyArrivalDate yes
 SyncState *
 MaxMessages 0
-ExpireUnread no
-
-## jean-claude.graf@epfl.ch
-IMAPStore jean-claude.graf@epfl.ch-remote
-Host ewa.epfl.ch
-Port 993
-User jean-claude.graf@epfl.ch
-PassCmd "pass online/epfl.ch/jgraf"
-SSLType IMAPS
-AuthMechs PLAIN
-PipelineDepth 1
-CertificateFile /etc/ssl/certs/ca-certificates.crt
-
-MaildirStore jean-claude.graf@epfl.ch-local
-Subfolders Verbatim
-Path ~/.local/share/mail/jean-claude.graf@epfl.ch/
-Inbox ~/.local/share/mail/jean-claude.graf@epfl.ch/INBOX
-Flatten .
-
-Channel jean-claude.graf@epfl.ch
-Expunge Both
-Far :jean-claude.graf@epfl.ch-remote:
-Near :jean-claude.graf@epfl.ch-local:
-Patterns * !"Archive"
-Create Both
-SyncState *
-MaxMessages 0
-ExpireUnread no

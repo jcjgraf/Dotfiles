@@ -28,22 +28,6 @@ from mail@jeanclaudegraf.ch
 user mail@jeanclaudegraf.ch
 passwordeval "pass online/hosting.de/mail@jeanclaudegraf.ch"
 
-# git@jeanclaudegraf.ch
-account git@jeanclaudegraf.ch
-host mail.hosting.de
-port 587
-from git@jeanclaudegraf.ch
-user git@jeanclaudegraf.ch
-passwordeval "pass online/hosting.de/git@jeanclaudegraf.ch"
-
-# me@jeanclaudegraf.ch
-account me@jeanclaudegraf.ch
-host mail.hosting.de
-port 587
-from me@jeanclaudegraf.ch
-user me@jeanclaudegraf.ch
-passwordeval "pass online/hosting.de/me@jeanclaudegraf.ch"
-
 # ml@jeanclaudegraf.ch
 account ml@jeanclaudegraf.ch
 host mail.hosting.de
@@ -62,19 +46,21 @@ passwordeval "pass online/hosting.de/bienen@jeanclaudegraf.ch"
 
 # jegraf@ethz.ch
 account jegraf@ethz.ch
-host mail.ethz.ch
+host smtp.office365.com
 port 587
 from jegraf@ethz.ch
 user jegraf@ethz.ch
-passwordeval "pass online/ethz.ch/jegraf"
+auth xoauth2
+passwordeval "mutt_oauth2.py ~/.local/share/pass/online/ethz.ch/jegraf_OAuth_Token.gpg"
 
 # jegraf@ethz.ch
 account jegraf@fotokommission.ch
-host mail.ethz.ch
+host smtp.office365.com
 port 587
 from jegraf@fotokommission.ch
 user vseth-jegraf@ethz.ch
-passwordeval "pass online/ethz.ch/vseth/vseth-jegraf"
+auth xoauth2
+passwordeval "mutt_oauth2.py ~/.local/share/pass/online/ethz.ch/vseth-jegraf_OAuth_Token.gpg"
 
 # jeanclaude.graf@thealternative.ch
 account jeanclaude.graf@thealternative.ch
@@ -83,13 +69,5 @@ port 587
 from jeanclaude.graf@thealternative.ch
 user jeanclaude.graf@thealternative.ch
 passwordeval "pass online/hostpoint.ch/jeanclaude.graf@thealternative.ch"
-
-# jean-claude.graf@epfl.ch
-account jean-claude.graf@epfl.ch
-host mail.epfl.ch
-port 587
-from jean-claude.graf@epfl.ch
-user jgraf
-passwordeval "pass online/epfl.ch/jgraf"
 
 # vim: filetype=msmtp
