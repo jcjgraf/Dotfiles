@@ -1,2 +1,4 @@
-map <C-a> feedkeys ":exec okular $FILE<Return>"
+map <C-z> feedkeys ":exec zathura --page=$PAGE $FILE<Return>"
+map <C-k> feedkeys ":exec okular --page=$PAGE $FILE<Return>"
 set selection-clipboard clipboard
+# set filemonitor noop

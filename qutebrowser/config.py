@@ -1637,6 +1637,7 @@ c.url.searchengines = {
     "rs_c": "https://crates.io/search?q={}",
     "pyqt": "https://doc.qt.io/qtforpython-6/search.html?q={}",
     "x86_ins": "https://www.felixcloutier.com/x86/{}",
+    "cve": "https://www.cve.org/CVERecord?id={}",
 }
 
 ## Page(s) to open at the start.
