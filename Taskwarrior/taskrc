@@ -28,5 +28,8 @@ report.eth.sort        = urgency-
 urgency.tags.coefficient    = 0
 urgency.project.coefficient = 0
 
+# Make Low priority less than no priority
+uda.priority.values=H,M,,L
+
 # Theme
 include /home/jeanclaude/.config/taskwarrior/dark-16.theme
