@@ -1,0 +1,12 @@
+# vim: filetype=neomuttrc
+# Sort using threads
+
+# When $use_threads is "threads" or "reverse", $sort controls the sorting between threads, and $sort_aux controls the sorting within a thread.
+# set use_threads = 'reverse'
+# set sort = 'last-date-received'  # last sorts by last descendant instead of the first (root)
+# set sort_aux = 'date-received'
+set use_threads = 'yes'
+set sort = 'reverse-last-date-received'  # last sorts by last descendant instead of the first (root)
+set sort_aux = 'date-received'
+
+macro index \Cw "<enter-command>source ~/.config/mutt/nothreads.muttrc<enter>"

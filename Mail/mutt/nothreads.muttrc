@@ -1,0 +1,8 @@
+# vim: filetype=neomuttrc
+# Sort using flaw view
+
+set use_threads = 'no'
+set sort = 'reverse-last-date-received'  # last sorts by last descendant instead of the first (root)
+set sort_aux = 'date-received'
+
+macro index \Cw "<enter-command>source ~/.config/mutt/threads.muttrc<enter>"

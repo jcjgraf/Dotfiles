@@ -1,174 +1,62 @@
-## muttrc config file
-#
-# Based on config from https://github.com/LukeSmithxyz/mutt-wizard
+# vim: filetype=neomuttrc
 
-# General
+### General Key Bindings
+# Unbind everything, which adds some default fallback bindings
+unbind *
+unbind * <Enter>
+unbind * <Return>
+unbind * <F1>
+unbind * <F2>
 
-## Sorting
-# When $use_threads is "threads" or "reverse", $sort controls the sorting between threads, and $sort_aux controls the sorting within a thread.
-set use_threads = 'reverse'
-set sort = 'last-date-received'  # last sorts by last descendant instead of the first (root)
-set sort_aux = 'date-received'
+source './bind.muttrc'
 
-set date_format="%d/%m/%y %H:%M"
-set index_format="%2C %zs %?X?A& ? %D %-15.15L %s (%-4.4c)"
+### General Settings
+set abort_backspace = false # Do not abort empty prompt on backspace
+set abort_key = "<Esc>"
+set fast_reply = yes
 set markers = no        # Disables the `+` displayed at line wraps
 set mailcap_path 	= ~/.config/mutt/mailcap
 set print_command="/usr/bin/muttprint -r ~/.config/muttprint/muttprintrc"
+unset quit # Disable quitting
 
-## "Abort on missing attachment"
+## Sorting
+# Have two config files, one for threaded, one for flat view and load desired one via macro
+# source ~/.config/mutt/nothreads.muttrc
+source ~/.config/mutt/threads.muttrc
+
+### Abort on missing attachment
 set abort_noattach = yes
 set abort_noattach_regex = "\\<(attach(|ed|ments?)|anhängen|angehängt|anhang|anhänge|hängt an)\\>"
 
-## Sidebar
+### Sidebar
 set mail_check_stats  # Check for mails to display stats
 set sidebar_visible = yes
 set sidebar_width = 35
 set sidebar_short_path = yes
-set sidebar_format = "%D%?F? [%F]?%* %?N?%N/?%?S?%S?"
 
-# Bindings
-# Attach
-# Browser
-# Generic: everything except pager, editor
-# Index
-# Pager
-# Help
-# Compose
+### Notmuch
+set nm_default_url = "notmuch:///home/jeanclaude/.local/share/mail"
+# set nm_query_type = "threads"  # Return threads rather than messages
+# bind index,pager \Cf noop
+# bind index,pager / noop
+# macro index / "<vfolder-from-query>" "show only messages matching a notmuch pattern"
 
+### Style
+source './style.muttrc'
 
-## Moving around
-bind attach,browser,index	  g	noop
-bind attach,browser,index	  gg	first-entry
-bind attach,browser,index	  G	last-entry
-bind pager			  g	noop
-bind pager			  gg	top
-bind pager			  G	bottom
-bind pager			  k	previous-line
-bind pager			  j	next-line
-bind index			  l	display-message
+## Addresses
+set query_command = "~/Dotfiles/Mail/address_query.sh %s"
 
-## Scrolling
-bind attach,browser,pager,index	  \CF	next-page
-bind attach,browser,pager,index   \CB	previous-page
-bind attach,browser,pager,index   \Cu	half-up
-bind attach,browser,pager,index   \Cd	half-down
-bind browser,pager		  \Ce	next-line
-bind browser,pager		  \Cy	previous-line
-bind index			  \Ce	next-line
-bind index			  \Cy	previous-line
+## GPG Stuff
+set crypt_auto_sign = yes
+# set crypt_opportunistic_encrypt = yes
+set pgp_default_key  = 'mail@jeanclaudegraf.ch'
+set crypt_chars = "SEsK" # Status keys to show
 
-## Deleting
-bind pager,index		  d	noop
-bind pager,index		  dd	delete-message # Move to trashbin
-bind pager,index		  dD	purge-message  # Permamentely delete message
-bind pager,index		  du	undelete-message
-bind pager,index		  dT	delete-thread
-bind pager,index		  dt	delete-subthread
+## Mailing Lists
+# subscribe @lists.archlinux.org
 
-## Sidebar
-bind index,pager		  B	sidebar-toggle-visible
-bind index,pager		  \Ck	sidebar-prev
-bind index,pager		  \Cj	sidebar-next
-bind index,pager		  \Co	sidebar-open
-
-## Threads
-bind pager,index		  gt	next-thread
-bind pager,index		  gT	previous-thread
-bind index			  za	collapse-thread
-bind index			  zA	collapse-all # Missing :folddisable/foldenable
-
-## Move message
-bind pager,index		  s	noop
-bind pager,index		  ss	save-message
-macro pager,index		  sa \
-    ":set confirmappend=no delete=yes\n<tag-prefix><save-message>=Archive\n<sync-mailbox>\n:set confirmappend=yes delete=ask-yes\n" \
-    "archive tagged messages, or current one if none is tagged"
-#macro index,pager A ":set confirmappend=no delete=yes\n<tag-thread><tag-prefix><save-message>=Archive\n<sync-mailbox>\n:set confirmappend=no delete=yes\n" "Archive thread"
-
-## Other
-bind browser,pager,index	  N	search-opposite
-### Add address to khard contacts
-macro pager,index		  K \
-    "<pipe-message>khard add-email<return>" \
-    "add the sender email address to khard"
-
-## Color
-color index yellow default '.*'
-color index_author red default '.*'
-color index_number blue default
-color index_subject cyan default '.*'
-
-# New mail is boldened:
-color index brightyellow black "~N"
-color index_author brightred black "~N"
-color index_subject brightcyan black "~N"
-
-# Tagged mail is highlighted:
-color index brightyellow blue "~T"
-color index_author brightred blue "~T"
-color index_subject brightcyan blue "~T"
-
-# Sidebar
-color sidebar_divider brightblack black
-color sidebar_flagged blue default
-color sidebar_indicator red default     # Currently open
-color sidebar_new green black
-#color sidebar_ordinary magenta default
-#color sidebar_spoolfile alertred default
-#color sidebar_unread green default
-color sidebar_highlight red default     # Currently selected
-
-# Other colors and aesthetic settings:
-mono bold bold
-mono underline underline
-mono indicator reverse
-mono error bold
-color normal default default
-color indicator brightblack white
-color sidebar_highlight red default
-color sidebar_divider brightblack black
-color sidebar_flagged red black
-color sidebar_new green black
-color normal brightyellow default
-color error red default
-color tilde black default
-color message cyan default
-color markers red white
-color attachment white default
-color search brightmagenta default
-color status brightyellow black
-color hdrdefault brightgreen default
-color quoted green default      # Original text in reply
-color quoted1 blue default
-color quoted2 cyan default
-color quoted3 yellow default
-color quoted4 red default
-color quoted5 brightred default
-color signature brightgreen default
-color bold black default
-color underline black default
-color normal default default
-
-# Regex highlighting:
-color header blue default ".*"
-color header brightmagenta default "^(From)"
-color header brightcyan default "^(Subject)"
-color header brightwhite default "^(CC|BCC)"
-color body brightred default "[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+" # Email addresses
-color body brightblue default "(https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+" # URL
-color body green default "\`[^\`]*\`" # Green text between ` and `
-color body brightblue default "^# \.*" # Headings as bold blue
-color body brightcyan default "^## \.*" # Subheadings as bold cyan
-color body brightgreen default "^### \.*" # Subsubheadings as bold green
-color body yellow default "^(\t| )*(-|\\*) \.*" # List items as yellow
-color body brightcyan default "[;:][-o][)/(|]" # emoticons
-color body brightcyan default "[;:][)(|]" # emoticons
-color body brightcyan default "[ ][*][^*]*[*][ ]?" # more emoticon?
-color body brightcyan default "[ ]?[*][^*]*[*][ ]" # more emoticon?
-color body red default "([a-z][a-z0-9+-]*://(((([a-z0-9_.!~*'();:&=+$,-]|%[0-9a-f][0-9a-f])*@)?((([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?|[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+)(:[0-9]+)?)|([a-z0-9_.!~*'()$,;:@&=+-]|%[0-9a-f][0-9a-f])+)(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?(#([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?|(www|ftp)\\.(([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?(:[0-9]+)?(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?(#([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?)[^].,:;!)? \t\r\n<>\"]"
-
-## Source Accounts
+### Accounts
 source "~/.config/mutt/accounts/graf.jeanclaude@gmail.com.muttrc"
 folder-hook $folder 'source ~/.config/mutt/accounts/graf.jeanclaude@gmail.com.muttrc'
 
@@ -192,13 +80,3 @@ folder-hook $folder 'source ~/.config/mutt/accounts/jegraf@fotokommission.ch.mut
 
 source "~/.config/mutt/accounts/jeanclaude.graf@thealternative.ch.muttrc"
 folder-hook $folder 'source ~/.config/mutt/accounts/jeanclaude.graf@thealternative.ch.muttrc'
-
-## Addresses
-set query_command = "khard email --parsable %s"
-bind editor <Tab> complete-query
-bind editor ^T    complete
-
-## Mailing Lists
-subscribe @lists.archlinux.org
-
-# vim: filetype=neomuttrc
