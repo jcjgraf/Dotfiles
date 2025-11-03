@@ -225,7 +225,8 @@ if [ "$i3" = true ]; then
 fi
 
 if [ "$sway" = true ]; then
-    linker "$DOTFILES/sway/config" "$XDG_CONFIG_HOME/sway/config"
+    linker "$DOTFILES/sway" "$XDG_CONFIG_HOME/sway"
+    linker "$DOTFILES/waybar/config.jsonc" "$XDG_CONFIG_HOME/waybar/config.jsonc"
 fi
 
 # Various System Configurations
