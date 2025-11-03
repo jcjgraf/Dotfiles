@@ -2,6 +2,10 @@
 
 set $mod Mod4
 
+input * {
+    xkb_layout ch
+}
+
 font pango: Hack 10
 
 # Remove Title Bar
