@@ -1,0 +1,3 @@
+function ethnet --wraps='echo `pass show online/ethz.ch/radius/jegraf`"\\n"`pass otp show online/ethz.ch/jegraf_MFE` | sudo openconnect --user jegraf@student-net.ethz.ch --passwd-on-stdin --useragent "AnyConnect" sslvpn.ethz.ch/student-net' --description 'alias ethnet=echo `pass show online/ethz.ch/radius/jegraf`"\\n"`pass otp show online/ethz.ch/jegraf_MFE` | sudo openconnect --user jegraf@student-net.ethz.ch --passwd-on-stdin --useragent "AnyConnect" sslvpn.ethz.ch/student-net'
+    echo `pass show online/ethz.ch/radius/jegraf`"\n"`pass otp show online/ethz.ch/jegraf_MFE` | sudo openconnect --user jegraf@student-net.ethz.ch --passwd-on-stdin --useragent "AnyConnect" sslvpn.ethz.ch/student-net $argv
+end

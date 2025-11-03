@@ -1,5 +1,6 @@
 if status is-interactive
-    # Commands to run in interactive sessions can go here
+    # Start Vim mode
+    fish_vi_key_bindings
 
     # From https://superuser.com/a/944589/673743
     function bind_bang
@@ -25,4 +26,6 @@ if status is-interactive
         bind ! bind_bang
         bind '$' bind_dollar
     end
+
+    zoxide init fish | source
 end
