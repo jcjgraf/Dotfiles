@@ -1,0 +1,24 @@
+# i3 config file (v4)
+
+input "type:keyboard" {
+    xkb_layout ch
+}
+
+include "./color_dark.conf"
+include "./style.conf"
+include "./keymaps.conf"
+include "./autostart.conf"
+
+# # Bar
+# bar {
+#     status_command i3blocks
+# 	tray_output none
+#
+# 	colors {
+# 		background $color8
+# 		#                  border       background  text
+# 		focused_workspace  $color8      $color8     $color15
+# 		inactive_workspace $color8      $color8     $color7
+# 		urgent_workspace   $color1      $color1     $color15
+#     }
+# }

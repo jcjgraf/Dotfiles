@@ -225,7 +225,7 @@ if [ "$i3" = true ]; then
 fi
 
 if [ "$sway" = true ]; then
-    linker "$DOTFILES/wm/i3" "$XDG_CONFIG_HOME/sway"
+    linker "$DOTFILES/sway/config" "$XDG_CONFIG_HOME/sway/config"
 fi
 
 # Various System Configurations
