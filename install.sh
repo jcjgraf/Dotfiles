@@ -106,6 +106,7 @@ then
     linker "$dotfiles/zsh/alias.zsh" ~/.config/zsh/alias.zsh
     linker "$dotfiles/zsh/prompt.zsh" ~/.config/zsh/prompt.zsh
     sudo bash -c "$(declare -f linker); linker \"$dotfiles/zsh/zshenv\" '/etc/zsh/zshenv'" # Run as root
+    linker "$dotfiles/fish" ~/.config/fish
 fi
 
 ### X
@@ -116,10 +117,13 @@ then
     linker "$dotfiles/X11/xinitrc" ~/.config/X11/xinitrc
     sudo bash -c "$(declare -f linker); linker \"$dotfiles/X11/00-keyboard.conf\" /etc/X11/xorg.conf.d/00-keyboard.conf"
     sudo bash -c "$(declare -f linker); linker \"$dotfiles/X11/40-mouse-sensitivity.conf\" /etc/X11/xorg.conf.d/40-mouse-sensitivity.conf"
+    sudo bash -c "$(declare -f linker); linker \"$dotfiles/X11/20-intel.conf\" /etc/X11/xorg.conf.d/20-intel.conf"
     xrdb ~/.config/X11/Xresources
 
     linker "$dotfiles/gtk-3.0" ~/.config/gtk-3.0
     linker "$dotfiles/gtk-2.0" ~/.config/gtk-2.0
+
+    linker "$dotfiles/icc/Displaycal/DisplayCAL.ini" ~/.config/DisplayCAL/DisplayCAL.ini
     linker "$dotfiles/Tmux/tmux.conf" ~/.config/tmux/tmux.conf
 fi
 
@@ -152,17 +156,22 @@ then
     sudo bash -c "$(declare -f linker); linker \"$dotfiles/Scripts/displayer\" '/bin/displayer'"
     linker "$dotfiles/Scripts/lock.sh" ~/bin/lock.sh
     linker "$dotfiles/Scripts/battery.sh" ~/bin/battery.sh
+    linker "$dotfiles/Scripts/bluetooth.sh" ~/bin/bluetooth.sh
     linker "$dotfiles/Scripts/mailChecker.sh" ~/bin/mailChecker.sh
     linker "$dotfiles/Scripts/monitor.sh" ~/bin/monitor.sh
     linker "$dotfiles/Scripts/screenRotation.sh" ~/bin/screenRotation.sh
     linker "$dotfiles/Scripts/backlight.sh" ~/bin/backlight.sh
     linker "$dotfiles/Scripts/note" ~/bin/note
+    linker "$dotfiles/Scripts/mail" ~/bin/mail
     sudo bash -c "$(declare -f linker); linker \"$dotfiles/Scripts/backlight.sh\" '/bin/backlight.sh'"
     linker "$dotfiles/Scripts/volume.sh" ~/bin/volume.sh
     sudo bash -c "$(declare -f linker); linker \"$dotfiles/Scripts/volume.sh\" '/bin/volume.sh'"
     sudo bash -c "$(declare -f linker); linker \"$dotfiles/Scripts/scrotMenu.sh\" '/bin/scrotMenu.sh'"
     sudo bash -c "$(declare -f linker); linker \"$dotfiles/Scripts/monitorMenu.sh\" '/bin/monitorMenu.sh'"
     linker "$dotfiles/Scripts/wwan.sh" ~/bin/wwan.sh
+    linker "$dotfiles/Scripts/cryptMount.sh" ~/bin/cryptMount
+    linker "$dotfiles/Scripts/cryptUmount.sh" ~/bin/cryptUmount
+    linker "$dotfiles/Scripts/sourcevenv" ~/bin/sourcevenv
     linker "$dotfiles/Scripts/o" ~/bin/o
 fi
 
@@ -215,6 +224,7 @@ then
     linker "$dotfiles/Rofi" ~/.config/rofi
     linker "$dotfiles/Wget" ~/.config/wget
     linker "$dotfiles/Gnupg/gpg-agent.conf" ~/.gnupg/gpg-agent.conf
+    linker "$dotfiles/Gnupg/gpg.conf" ~/.gnupg/gpg.conf
     linker "$dotfiles/Taskwarrior/taskrc" ~/.config/taskwarrior/taskrc
     linker "$dotfiles/Taskwarrior/dark-16.theme" ~/.config/taskwarrior/dark-16.theme
     linker "$dotfiles/Taskwarrior/on-modify.timewarrior" ~/.local/share/taskwarrior/hooks/on-modify.timewarrior
@@ -223,6 +233,10 @@ then
     linker "$dotfiles/Cabal/config" ~/.cabal/config
     linker "$dotfiles/StudyManager" ~/.config/studyManager
     linker "$dotfiles/gdb" ~/.config/gdb
+    linker "$dotfiles/language/vale" ~/.config/vale
+    linker "$dotfiles/language/dict" ~/.local/share/dict
+    linker "$dotfiles/Zathura/zathurarc" ~/.config/zathura/zathurarc
+    linker "$dotfiles/Poetry/config.toml" ~/.config/pypoetry/config.toml
 fi
 
 ## Mail
@@ -233,6 +247,7 @@ then
     mkdir -p "$HOME/.config/isync"
     linker "$dotfiles/Mail/.mbsyncrc" ~/.config/isync/mbsyncrc
     linker "$dotfiles/Mail/muttprint" ~/.config/muttprint
+    linker "$dotfiles/Mail/notmuch" ~/.config/notmuch/config
 fi
 
 ## Calendar
