@@ -1,12 +1,96 @@
-#!/bin/bash
-# Symlinkes dotfiles to correct location
+#!/usr/bin/env bash
 
-if [ $(id -u) = 0 ]
-    then echo "Please do not run this script as root!"
+# Install the dotfiles on a node.
+
+set -u
+set -e
+set -o pipefail
+
+exec 3>&1
+
+LONGOPTS="verbose,help"
+OPTIONS=vh
+
+function usage() {
+    echo "Usage: $0 [OPTION]..."
+    echo ""
+    echo "Options:"
+    echo "  --verbose, -v  Verbose logging."
+    echo "  --help, -h     Show this help message"
+    echo ""
+}
+
+XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config/}"
+
+RED="\033[0;31m"
+GREEN="\033[0;32m"
+YELLOW="\033[1;33m"
+BLUE="\033[0;34m"
+RESET="\033[0m"
+
+function log_debug() {
+    if [ "$verbose" = true ]; then
+        printf "${BLUE}[DEBUG]${RESET} %s\n" "$*" 1>&3
+    fi
+}
+
+function log_info() {
+    printf "${GREEN}[INFO]${RESET} %b\n" "$*" 1>&3
+}
+
+function log_err() {
+    printf "${RED}[ERROR]${RESET} %s\n" "$*" >&2
+}
+
+function log_err_msg() {
+    log_err $@
+    notify-send -u critical "APP ERROR" "$*\n"
+}
+
+function do_confirm() {
+    read -p "Continue? [y/N] " -r
+    [[ $REPLY =~ ^[Yy]$ ]]
+}
+
+if [ $(id -u) = 0 ]; then
+    log_err "Please do not run this script as root."
     exit
 fi
 
-dotfiles=~/Dotfiles
+PARSED=$(getopt --options=$OPTIONS --longoptions=$LONGOPTS --name "$0" -- "$@") || exit 2
+eval set -- "$PARSED"
+
+verbose=false
+
+while true; do
+    case "$1" in
+        -v|--verbose)
+            verbose=true
+            shift
+            ;;
+        -h|--help)
+            usage
+            exit 1
+            ;;
+        --)
+            shift
+            break;
+            ;;
+        *)
+            echo "Invalid option \"$1\""
+            usage
+            exit 2
+            ;;
+    esac
+done
+
+DOTFILES="$HOME/Dotfiles"
+
+alacritty=false
+fish=false
+i3=false
+shell=false
+system=false
 
 mail=false
 calendar=false
@@ -21,166 +105,207 @@ git=false
 app=false
 homeServer=false
 
-linker() {
-    # Symlinks file $1 to destination $2
-    ## Caution: destination $2 gets removed!
-	echo "Link {$1} to {$2}"
-    sudo rm -rf "$2" > /dev/null 2>&1
-    ln -sf "$1" "$2"
-}
+# Symlinks file $1 to destination $2
+#
+# Destination $2 gets deleted in this process.
+function linker() {
+    local source=$(realpath -s "$1")
+    local destination=$(realpath -s "$2")
 
-dirContentLinker() {
-    # Symlinks files in $1 to destination $2
-    if [[ -d $1 ]]
-    then
-        for file in ${1}*
-        do
-    	echo "Link {$file} to {$2}"
-            ln -sf "$file" "$2"
-        done
+    log_info "Link '$source' to '$destination'"
+    if [[ -f "$destination" && ! -L "$destination" ]]; then
+        log_info "Destination '$destination' needs to be replaced by symlink. Deleting it?"
+        if ! do_confirm; then
+            log_err "Failed to install '$source' to '$destination'"
+            return 2
+        fi
     fi
+    rm -rf "$destination" >/dev/null 2>&1
+    if [ -f "$destination" ]; then
+        log_err "Failed to delete destination. Try with sudo?"
+        if ! do_confirm; then
+            log_err "Failed to install '$source' to '$destination'"
+            return 2
+        fi
+        sudo rm -rf "$destination" >/dev/null 2>&1
+        if [ -f "$destination" ]; then
+            log_err "Unable to delete file. Exit"
+            exit 2
+        fi
+    fi
+
+    parentdir="$(dirname "$destination")"
+    mkdir -p "$parentdir"
+    ln -sf "$source" "$destination"
 }
 
-colorizer() {
-    # Replaces color placeholders in $1 and copies it to $2
-    ## Caution: desitnation $2 gets removed!
+# Symlinks all files in $1 to destination folder $2
+function dir_content_linker() {
+    local source_dir="$1"
+    local destination_dir="$2"
+
+    if [[ ! -d "$source_dir" || ! -d "$destination_dir" ]]; then
+        log_err "Both source and destination are supposed to be a directory. Exit."
+        exit 2
+    fi
+
+    for file in "$source_dir/*"; do
+        linker "$file" "$destination_dir"
+    done
+}
+
+# TODO: Port coloniser
+# Replaces color placeholders in $1 and copies it to $2
+## Caution: destination $2 gets removed!
+function colorizer() {
 
     local dir="$(dirname $2)"
 
-	echo "Color Link {$1} to {$2}"
+    echo "Color Link {$1} to {$2}"
     sudo rm -rf "$dir" > /dev/null 2>&1
     mkdir -p "$dir"
-    sh $dotfiles/colorizer.sh "$1" "$2"
+    sh $DOTFILES/colorizer.sh "$1" "$2"
 }
 
-usage() {
-    printf "Usage : $0\n-p PC mode\n-s Server mode\n-h Help"
-}
+case "$(cat /etc/hostname)" in
+    jcarch)
+        log_info "Private system detected"
+        fish=true
+        alacritty=true
+        i3=true
+        system=true
 
-if [[ $# -eq 0 ]]
-then
-    usage
-    exit 1
+        mail=true
+        calendar=true
+        shell=true
+        scripts=true
+        wm=true
+        xWin=true
+        vim=true
+        system=true
+        systemd=true
+        git=true
+        app=true
+        ;;
+    jceth)
+        log_info "Work system detected"
+        fish=true
+        alacritty=true
+        sway=true
+        system=true
+        ;;
+    hs)
+        log_info "Server system detected"
+        shell=true
+        vim=true
+        git=true
+        homeServer=true
+        ;;
+    cn*)
+        log_info "Node system detected"
+        ;;
+    *)
+        log_err "Unknown system detected. Exit."
+        exit 2
+        ;;
+esac
+
+if [ "$fish" = true ]; then
+    linker "$DOTFILES/fish" "$XDG_CONFIG_HOME/fish"
 fi
 
-while getopts 'hsp' flag
-do
-    case "${flag}" in
-        p)
-            # PC
-            mail=true
-            calendar=true
-            shell=true
-            scripts=true
-            wm=true
-            xWin=true
-            vim=true
-            system=true
-            systemd=true
-            git=true
-            app=true
-            ;;
-        s)
-            # Server
-            shell=true
-            vim=true
-            git=true
-            homeServer=true
-            ;;
-        h | *)
-            usage
-            exit 1
-            ;;
-    esac
-done
+if [ "$alacritty" = true ]; then
+    linker "$DOTFILES/alacritty/alacritty.toml" "$XDG_CONFIG_HOME/alacritty/alacritty.toml"
+fi
 
-# Process Files
-## System
-### Shell
-if [[ "$shell" = true ]]
+if [ "$i3" = true ]; then
+    linker "$DOTFILES/wm/i3" "$XDG_CONFIG_HOME/i3"
+    linker "$DOTFILES/wm/i3blocks" "$XDG_CONFIG_HOME/i3blocks"
+    linker "$DOTFILES/wm/i3scripts" "$XDG_CONFIG_HOME/i3scripts"
+fi
+
+if [ "$sway" = true ]; then
+    linker "$DOTFILES/wm/i3" "$XDG_CONFIG_HOME/sway"
+fi
+
+# Various System Configurations
+if [[ "$system" = true ]]
 then
+    linker "$DOTFILES/fontconfig" ~/.config/fontconfig
+    linker "$DOTFILES/mimeapps.list" ~/.config/mimeapps.list
+    linker "$DOTFILES/locale.conf" ~/.config/locale.conf
+    linker "$DOTFILES/Ssh/config" ~/.ssh/config
+fi
+
+
+exit 1
+
+if [ "$zsh" = true ]; then
     mkdir -p ~/.config/zsh
-    linker "$dotfiles/zsh/.zshrc" ~/.config/zsh/.zshrc
-    linker "$dotfiles/zsh/.zlogin" ~/.config/zsh/.zlogin
-    linker "$dotfiles/zsh/.zprofile" ~/.config/zsh/.zprofile
-    linker "$dotfiles/zsh/alias.zsh" ~/.config/zsh/alias.zsh
-    linker "$dotfiles/zsh/prompt.zsh" ~/.config/zsh/prompt.zsh
-    sudo bash -c "$(declare -f linker); linker \"$dotfiles/zsh/zshenv\" '/etc/zsh/zshenv'" # Run as root
-    linker "$dotfiles/fish" ~/.config/fish
+    linker "$DOTFILES/zsh/.zshrc" ~/.config/zsh/.zshrc
+    linker "$DOTFILES/zsh/.zlogin" ~/.config/zsh/.zlogin
+    linker "$DOTFILES/zsh/.zprofile" ~/.config/zsh/.zprofile
+    linker "$DOTFILES/zsh/alias.zsh" ~/.config/zsh/alias.zsh
+    linker "$DOTFILES/zsh/prompt.zsh" ~/.config/zsh/prompt.zsh
+    sudo bash -c "$(declare -f linker); linker \"$DOTFILES/zsh/zshenv\" '/etc/zsh/zshenv'" # Run as root
 fi
 
 ### X
 if [[ "$xWin" = true ]]
 then
-    linker "$dotfiles/X11/Xresources" ~/.config/X11/Xresources
-    linker "$dotfiles/X11/xcolors" ~/.config/X11/xcolors
-    linker "$dotfiles/X11/xinitrc" ~/.config/X11/xinitrc
-    sudo bash -c "$(declare -f linker); linker \"$dotfiles/X11/00-keyboard.conf\" /etc/X11/xorg.conf.d/00-keyboard.conf"
-    sudo bash -c "$(declare -f linker); linker \"$dotfiles/X11/40-mouse-sensitivity.conf\" /etc/X11/xorg.conf.d/40-mouse-sensitivity.conf"
-    sudo bash -c "$(declare -f linker); linker \"$dotfiles/X11/20-intel.conf\" /etc/X11/xorg.conf.d/20-intel.conf"
+    linker "$DOTFILES/X11/Xresources" ~/.config/X11/Xresources
+    linker "$DOTFILES/X11/xcolors" ~/.config/X11/xcolors
+    linker "$DOTFILES/X11/xinitrc" ~/.config/X11/xinitrc
+    sudo bash -c "$(declare -f linker); linker \"$DOTFILES/X11/00-keyboard.conf\" /etc/X11/xorg.conf.d/00-keyboard.conf"
+    sudo bash -c "$(declare -f linker); linker \"$DOTFILES/X11/40-mouse-sensitivity.conf\" /etc/X11/xorg.conf.d/40-mouse-sensitivity.conf"
+    sudo bash -c "$(declare -f linker); linker \"$DOTFILES/X11/20-intel.conf\" /etc/X11/xorg.conf.d/20-intel.conf"
     xrdb ~/.config/X11/Xresources
 
-    linker "$dotfiles/gtk-3.0" ~/.config/gtk-3.0
-    linker "$dotfiles/gtk-2.0" ~/.config/gtk-2.0
+    linker "$DOTFILES/gtk-3.0" ~/.config/gtk-3.0
+    linker "$DOTFILES/gtk-2.0" ~/.config/gtk-2.0
 
-    linker "$dotfiles/icc/Displaycal/DisplayCAL.ini" ~/.config/DisplayCAL/DisplayCAL.ini
-    linker "$dotfiles/Tmux/tmux.conf" ~/.config/tmux/tmux.conf
+    linker "$DOTFILES/icc/Displaycal/DisplayCAL.ini" ~/.config/DisplayCAL/DisplayCAL.ini
+    linker "$DOTFILES/Tmux/tmux.conf" ~/.config/tmux/tmux.conf
 fi
 
-### System Configs
-if [[ "$system" = true ]]
-then
-    linker "$dotfiles/fontconfig" ~/.config/fontconfig
-    linker "$dotfiles/mimeapps.list" ~/.config/mimeapps.list
-    linker "$dotfiles/locale.conf" ~/.config/locale.conf
-    linker "$dotfiles/Ssh/config" ~/.ssh/config
-fi
 
 if [[ "$systemd" = true ]]
 then
-    sudo bash -c "$(declare -f linker); linker \"$dotfiles/acpi\" '/etc/acpi'" # Run as root
-    linker "$dotfiles/systemd" ~/.config/systemd
-    linker "$dotfiles/rsync_tmbackup/exclude_list" ~/.local/share/rsync_tmbackup/exclude_list
+    sudo bash -c "$(declare -f linker); linker \"$DOTFILES/acpi\" '/etc/acpi'" # Run as root
+    linker "$DOTFILES/systemd" ~/.config/systemd
+    linker "$DOTFILES/rsync_tmbackup/exclude_list" ~/.local/share/rsync_tmbackup/exclude_list
 fi
 
 if [[ "$homeServer" = true ]]
 then
     mkdir -p ~/HomeServer
-    dirContentLinker "$dotfiles/HomeServer/" ~/HomeServer
+    dir_content_linker "$DOTFILES/HomeServer/" ~/HomeServer
 fi
 
 ## Scripts
 if [[ "$scripts" = true ]]
 then
-    linker "$dotfiles/Scripts/displayer" ~/bin/displayer
-    sudo bash -c "$(declare -f linker); linker \"$dotfiles/Scripts/displayer\" '/bin/displayer'"
-    linker "$dotfiles/Scripts/lock.sh" ~/bin/lock.sh
-    linker "$dotfiles/Scripts/battery.sh" ~/bin/battery.sh
-    linker "$dotfiles/Scripts/bluetooth.sh" ~/bin/bluetooth.sh
-    linker "$dotfiles/Scripts/mailChecker.sh" ~/bin/mailChecker.sh
-    linker "$dotfiles/Scripts/monitor.sh" ~/bin/monitor.sh
-    linker "$dotfiles/Scripts/screenRotation.sh" ~/bin/screenRotation.sh
-    linker "$dotfiles/Scripts/backlight.sh" ~/bin/backlight.sh
-    linker "$dotfiles/Scripts/note" ~/bin/note
-    linker "$dotfiles/Scripts/mail" ~/bin/mail
-    sudo bash -c "$(declare -f linker); linker \"$dotfiles/Scripts/backlight.sh\" '/bin/backlight.sh'"
-    linker "$dotfiles/Scripts/volume.sh" ~/bin/volume.sh
-    sudo bash -c "$(declare -f linker); linker \"$dotfiles/Scripts/volume.sh\" '/bin/volume.sh'"
-    sudo bash -c "$(declare -f linker); linker \"$dotfiles/Scripts/scrotMenu.sh\" '/bin/scrotMenu.sh'"
-    sudo bash -c "$(declare -f linker); linker \"$dotfiles/Scripts/monitorMenu.sh\" '/bin/monitorMenu.sh'"
-    linker "$dotfiles/Scripts/wwan.sh" ~/bin/wwan.sh
-    linker "$dotfiles/Scripts/cryptMount.sh" ~/bin/cryptMount
-    linker "$dotfiles/Scripts/cryptUmount.sh" ~/bin/cryptUmount
-    linker "$dotfiles/Scripts/sourcevenv" ~/bin/sourcevenv
-    linker "$dotfiles/Scripts/o" ~/bin/o
-fi
-
-## WM
-if [[ "$wm" = true ]]
-then
-    linker "$dotfiles/wm/i3" ~/.config/i3
-    linker "$dotfiles/wm/i3blocks" ~/.config/i3blocks
-    linker "$dotfiles/wm/i3scripts" ~/.config/i3scripts
+    linker "$DOTFILES/Scripts/displayer" ~/bin/displayer
+    sudo bash -c "$(declare -f linker); linker \"$DOTFILES/Scripts/displayer\" '/bin/displayer'"
+    linker "$DOTFILES/Scripts/lock.sh" ~/bin/lock.sh
+    linker "$DOTFILES/Scripts/battery.sh" ~/bin/battery.sh
+    linker "$DOTFILES/Scripts/bluetooth.sh" ~/bin/bluetooth.sh
+    linker "$DOTFILES/Scripts/mailChecker.sh" ~/bin/mailChecker.sh
+    linker "$DOTFILES/Scripts/monitor.sh" ~/bin/monitor.sh
+    linker "$DOTFILES/Scripts/screenRotation.sh" ~/bin/screenRotation.sh
+    linker "$DOTFILES/Scripts/backlight.sh" ~/bin/backlight.sh
+    linker "$DOTFILES/Scripts/note" ~/bin/note
+    linker "$DOTFILES/Scripts/mail" ~/bin/mail
+    sudo bash -c "$(declare -f linker); linker \"$DOTFILES/Scripts/backlight.sh\" '/bin/backlight.sh'"
+    linker "$DOTFILES/Scripts/volume.sh" ~/bin/volume.sh
+    sudo bash -c "$(declare -f linker); linker \"$DOTFILES/Scripts/volume.sh\" '/bin/volume.sh'"
+    sudo bash -c "$(declare -f linker); linker \"$DOTFILES/Scripts/scrotMenu.sh\" '/bin/scrotMenu.sh'"
+    sudo bash -c "$(declare -f linker); linker \"$DOTFILES/Scripts/monitorMenu.sh\" '/bin/monitorMenu.sh'"
+    linker "$DOTFILES/Scripts/wwan.sh" ~/bin/wwan.sh
+    linker "$DOTFILES/Scripts/cryptMount.sh" ~/bin/cryptMount
+    linker "$DOTFILES/Scripts/cryptUmount.sh" ~/bin/cryptUmount
+    linker "$DOTFILES/Scripts/sourcevenv" ~/bin/sourcevenv
+    linker "$DOTFILES/Scripts/o" ~/bin/o
 fi
 
 ## Applications
@@ -189,72 +314,72 @@ if [[ "$vim" = true ]]
 then
     #mkdir -p ~/.vim/undo/ ~/.vim/backup/ ~/.vim/swap/
     mkdir -p ~/.config/nvim/
-    linker "$dotfiles/Nvim/init.lua" ~/.config/nvim/init.lua
-    linker "$dotfiles/Nvim/lua/user" ~/.config/nvim/lua/user
-    linker "$dotfiles/Nvim/lua/lib" ~/.config/nvim/lua/lib
-    linker "$dotfiles/Nvim/ftplugin" ~/.config/nvim/ftplugin
-    linker "$dotfiles/flake8" ~/.config/flake8
-#    linker "$dotfiles/Vim/init.vim" ~/.config/nvim/init.vim
-#    linker "$dotfiles/Vim/General" ~/.config/nvim/General
-#    linker "$dotfiles/Vim/PluginConfig" ~/.config/nvim/PluginConfig
-#    linker "$dotfiles/Vim/autoload" ~/.config/nvim/autoload
-#    linker "$dotfiles/Vim/UltiSnips" ~/.config/nvim/UltiSnips
-#    linker "$dotfiles/Vim/lua" ~/.config/nvim/lua
+    linker "$DOTFILES/Nvim/init.lua" ~/.config/nvim/init.lua
+    linker "$DOTFILES/Nvim/lua/user" ~/.config/nvim/lua/user
+    linker "$DOTFILES/Nvim/lua/lib" ~/.config/nvim/lua/lib
+    linker "$DOTFILES/Nvim/ftplugin" ~/.config/nvim/ftplugin
+    linker "$DOTFILES/flake8" ~/.config/flake8
+    #    linker "$dotfiles/Vim/init.vim" ~/.config/nvim/init.vim
+    #    linker "$dotfiles/Vim/General" ~/.config/nvim/General
+    #    linker "$dotfiles/Vim/PluginConfig" ~/.config/nvim/PluginConfig
+    #    linker "$dotfiles/Vim/autoload" ~/.config/nvim/autoload
+    #    linker "$dotfiles/Vim/UltiSnips" ~/.config/nvim/UltiSnips
+    #    linker "$dotfiles/Vim/lua" ~/.config/nvim/lua
 fi
 
 ### Git
 if [[ "$git" = true ]]
 then
-    linker "$dotfiles/Git/config" ~/.config/git/config
-    linker "$dotfiles/Git/gitignore_global" ~/.config/git/gitignore_global
+    linker "$DOTFILES/Git/config" ~/.config/git/config
+    linker "$DOTFILES/Git/gitignore_global" ~/.config/git/gitignore_global
 fi
 
 ### Other Applications
 if [[ "$app" = true ]]
 then
-    linker "$dotfiles/redshift" ~/.config/redshift
-    colorizer "$dotfiles/dunst/dunstrc.raw" ~/.config/dunst/dunstrc
-    linker "$dotfiles/mpv" ~/.config/mpv
-    linker "$dotfiles/yt-dlp" ~/.config/yt-dlp
-    linker "$dotfiles/alacritty/alacritty.toml" ~/.config/alacritty/alacritty.toml
-    linker "$dotfiles/qutebrowser/config.py" ~/.config/qutebrowser/config.py
-    linker "$dotfiles/Vimiv/vimiv.conf" ~/.config/vimiv/vimiv.conf
-    linker "$dotfiles/Vimiv/keys.conf" ~/.config/vimiv/keys.conf
-    linker "$dotfiles/Newsboat" ~/.config/newsboat
-    linker "$dotfiles/Rofi" ~/.config/rofi
-    linker "$dotfiles/Wget" ~/.config/wget
-    linker "$dotfiles/Gnupg/gpg-agent.conf" ~/.gnupg/gpg-agent.conf
-    linker "$dotfiles/Gnupg/gpg.conf" ~/.gnupg/gpg.conf
-    linker "$dotfiles/Taskwarrior/taskrc" ~/.config/taskwarrior/taskrc
-    linker "$dotfiles/Taskwarrior/dark-16.theme" ~/.config/taskwarrior/dark-16.theme
-    linker "$dotfiles/Taskwarrior/on-modify.timewarrior" ~/.local/share/taskwarrior/hooks/on-modify.timewarrior
-    linker "$dotfiles/Timewarrior/timewarrior.cfg" ~/.config/timewarrior/timewarrior.cfg
-    linker "$dotfiles/Timewarrior/dark.theme" ~/.config/timewarrior/dark.theme
-    linker "$dotfiles/Cabal/config" ~/.cabal/config
-    linker "$dotfiles/StudyManager" ~/.config/studyManager
-    linker "$dotfiles/gdb" ~/.config/gdb
-    linker "$dotfiles/language/vale" ~/.config/vale
-    linker "$dotfiles/language/dict" ~/.local/share/dict
-    linker "$dotfiles/Zathura/zathurarc" ~/.config/zathura/zathurarc
-    linker "$dotfiles/Poetry/config.toml" ~/.config/pypoetry/config.toml
+    linker "$DOTFILES/redshift" ~/.config/redshift
+    colorizer "$DOTFILES/dunst/dunstrc.raw" ~/.config/dunst/dunstrc
+    linker "$DOTFILES/mpv" ~/.config/mpv
+    linker "$DOTFILES/yt-dlp" ~/.config/yt-dlp
+    linker "$DOTFILES/alacritty/alacritty.toml" ~/.config/alacritty/alacritty.toml
+    linker "$DOTFILES/qutebrowser/config.py" ~/.config/qutebrowser/config.py
+    linker "$DOTFILES/Vimiv/vimiv.conf" ~/.config/vimiv/vimiv.conf
+    linker "$DOTFILES/Vimiv/keys.conf" ~/.config/vimiv/keys.conf
+    linker "$DOTFILES/Newsboat" ~/.config/newsboat
+    linker "$DOTFILES/Rofi" ~/.config/rofi
+    linker "$DOTFILES/Wget" ~/.config/wget
+    linker "$DOTFILES/Gnupg/gpg-agent.conf" ~/.gnupg/gpg-agent.conf
+    linker "$DOTFILES/Gnupg/gpg.conf" ~/.gnupg/gpg.conf
+    linker "$DOTFILES/Taskwarrior/taskrc" ~/.config/taskwarrior/taskrc
+    linker "$DOTFILES/Taskwarrior/dark-16.theme" ~/.config/taskwarrior/dark-16.theme
+    linker "$DOTFILES/Taskwarrior/on-modify.timewarrior" ~/.local/share/taskwarrior/hooks/on-modify.timewarrior
+    linker "$DOTFILES/Timewarrior/timewarrior.cfg" ~/.config/timewarrior/timewarrior.cfg
+    linker "$DOTFILES/Timewarrior/dark.theme" ~/.config/timewarrior/dark.theme
+    linker "$DOTFILES/Cabal/config" ~/.cabal/config
+    linker "$DOTFILES/StudyManager" ~/.config/studyManager
+    linker "$DOTFILES/gdb" ~/.config/gdb
+    linker "$DOTFILES/language/vale" ~/.config/vale
+    linker "$DOTFILES/language/dict" ~/.local/share/dict
+    linker "$DOTFILES/Zathura/zathurarc" ~/.config/zathura/zathurarc
+    linker "$DOTFILES/Poetry/config.toml" ~/.config/pypoetry/config.toml
 fi
 
 ## Mail
 if [[ "$mail" = true ]]
 then
-    linker "$dotfiles/Mail/mutt" ~/.config/mutt
-    linker "$dotfiles/Mail/msmtp" ~/.config/msmtp
+    linker "$DOTFILES/Mail/mutt" ~/.config/mutt
+    linker "$DOTFILES/Mail/msmtp" ~/.config/msmtp
     mkdir -p "$HOME/.config/isync"
-    linker "$dotfiles/Mail/.mbsyncrc" ~/.config/isync/mbsyncrc
-    linker "$dotfiles/Mail/muttprint" ~/.config/muttprint
-    linker "$dotfiles/Mail/notmuch" ~/.config/notmuch/config
+    linker "$DOTFILES/Mail/.mbsyncrc" ~/.config/isync/mbsyncrc
+    linker "$DOTFILES/Mail/muttprint" ~/.config/muttprint
+    linker "$DOTFILES/Mail/notmuch" ~/.config/notmuch/config
 fi
 
 ## Calendar
 if [[ "$calendar" = true ]]
 then
-    linker "$dotfiles/CalCard/Khal" ~/.config/khal
-    linker "$dotfiles/CalCard/VdirSyncer" ~/.config/vdirsyncer
-    linker "$dotfiles/Todoman" ~/.config/todoman
-    linker "$dotfiles/CalCard/Khard" ~/.config/khard
+    linker "$DOTFILES/CalCard/Khal" ~/.config/khal
+    linker "$DOTFILES/CalCard/VdirSyncer" ~/.config/vdirsyncer
+    linker "$DOTFILES/Todoman" ~/.config/todoman
+    linker "$DOTFILES/CalCard/Khard" ~/.config/khard
 fi
