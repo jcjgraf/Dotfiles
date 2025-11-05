@@ -88,21 +88,21 @@ return {
 			}),
 			on_attach = on_attach, -- configure your on attach config
 		})
-        vim.lsp.enable("markdown_oxide")
+		vim.lsp.enable("markdown_oxide")
 
 		-- Bash
 		-- FileType: { "bash", "sh" }
 		vim.lsp.config("bashls", {
 			capabilities = capabilities,
 		})
-        vim.lsp.enable("bashls")
+		vim.lsp.enable("bashls")
 
 		-- Python
 		--- Fork of pyright
 		vim.lsp.config("basedpyright", {
 			capabilities = capabilities,
 		})
-        vim.lsp.enable("basedpyright")
+		vim.lsp.enable("basedpyright")
 
 		-- lspconfig.pyright.setup({
 		-- 	capabilities = capabilities,
@@ -133,7 +133,7 @@ return {
 		vim.lsp.config("rust_analyzer", {
 			capabilities = capabilities,
 		})
-        vim.lsp.enable("rust_analyzer")
+		vim.lsp.enable("rust_analyzer")
 
 		-- General Text
 		-- lspconfig.harper.setup({
@@ -160,12 +160,21 @@ return {
 
 		-- Diagnostics
 		-- TODO: Move diagnostics to own file
-		vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError" })
-		vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn" })
-		vim.fn.sign_define("DiagnosticSignInfo", { text = "", texthl = "DiagnosticSignInfo" })
-		vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
-
 		vim.diagnostic.config({
+			signs = {
+				text = {
+					[vim.diagnostic.severity.ERROR] = "",
+					[vim.diagnostic.severity.WARN] = "",
+					[vim.diagnostic.severity.INFO] = "",
+					[vim.diagnostic.severity.HINT] = "",
+				},
+				numhl = {
+					[vim.diagnostic.severity.ERROR] = "ErrorMsg",
+					-- [vim.diagnostic.severity.WARN] = '',
+					-- [vim.diagnostic.severity.INFO] = '',
+					-- [vim.diagnostic.severity.HINT] = '',
+				},
+			},
 			virtual_text = false,
 			severity_sort = true,
 			float = {
