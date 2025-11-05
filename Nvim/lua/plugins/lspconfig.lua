@@ -27,10 +27,8 @@ return {
 
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-		local lspconfig = require("lspconfig")
-
 		-- Lua
-		lspconfig.lua_ls.setup({
+		vim.lsp.config("lua_ls", {
 			capabilities = capabilities,
 			settings = {
 				Lua = {
@@ -45,6 +43,7 @@ return {
 				},
 			},
 		})
+		vim.lsp.enable("lua_ls")
 
 		local on_attach = function(client, bufnr)
 			if client.server_capabilities.documentSymbolProvider then
@@ -54,27 +53,30 @@ return {
 		end
 
 		-- Clangd C
-		lspconfig.clangd.setup({
+		vim.lsp.config("clangd", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			-- on_attach = function(client, bufnr)
 			-- 	navic.attach(client, bufnr)
 			-- end,
 		})
+		vim.lsp.enable("clangd")
 
 		-- Latex
 		-- FileType: { "bib", "gitcommit", "markdown", "org", "plaintex", "rst", "rnoweb", "tex", "pandoc" }
-		lspconfig.ltex_plus.setup({
+		vim.lsp.config("ltex_plus", {
 			capabilities = capabilities,
 		})
+		vim.lsp.enable("ltex_plus")
 
 		-- FileType: { "tex", "plaintex", "bib" }
-		lspconfig.texlab.setup({
+		vim.lsp.config("texlab", {
 			capabilities = capabilities,
 		})
+		vim.lsp.enable("texlab")
 
 		-- Markdown
-		lspconfig.markdown_oxide.setup({
+		vim.lsp.config("markdown_oxide", {
 			-- Ensure that dynamicRegistration is enabled! This allows the LS to take into account actions like the
 			-- Create Unresolved File code action, resolving completions for unindexed code blocks, ...
 			capabilities = vim.tbl_deep_extend("force", capabilities, {
@@ -86,18 +88,21 @@ return {
 			}),
 			on_attach = on_attach, -- configure your on attach config
 		})
+        vim.lsp.enable("markdown_oxide")
 
 		-- Bash
 		-- FileType: { "bash", "sh" }
-		lspconfig.bashls.setup({
+		vim.lsp.config("bashls", {
 			capabilities = capabilities,
 		})
+        vim.lsp.enable("bashls")
 
 		-- Python
 		--- Fork of pyright
-		lspconfig.basedpyright.setup({
+		vim.lsp.config("basedpyright", {
 			capabilities = capabilities,
 		})
+        vim.lsp.enable("basedpyright")
 
 		-- lspconfig.pyright.setup({
 		-- 	capabilities = capabilities,
@@ -125,9 +130,10 @@ return {
 		-- })
 
 		-- Rust
-		lspconfig.rust_analyzer.setup({
+		vim.lsp.config("rust_analyzer", {
 			capabilities = capabilities,
 		})
+        vim.lsp.enable("rust_analyzer")
 
 		-- General Text
 		-- lspconfig.harper.setup({
