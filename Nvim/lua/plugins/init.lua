@@ -1,13 +1,18 @@
 return {
 	{
-		"timantipov/md-table-tidy.nvim",
-		opts = {
-			padding = 1, -- number of spaces for cell padding
-			key = "<leader>tt", -- key for command :TableTidy<CR>
-		},
-	},
-	{
-		"godlygeek/tabular",
+		"zhisme/copy_with_context.nvim",
+		config = function()
+			require("copy_with_context").setup({
+				-- Customize mappings
+				mappings = {
+					relative = "<leader>cy",
+					absolute = "<leader>cY",
+				},
+				-- whether to trim lines or not
+				trim_lines = false,
+				context_format = "%s:%s", -- Default format for context: "# Source file: filepath:line"
+			})
+		end,
 	},
 	{
 		"SmiteshP/nvim-navic",
@@ -61,6 +66,13 @@ return {
 			vim.keymap.set("n", "<leader>9", function()
 				harpoon:list():select(9)
 			end, { desc = "Harpoon 9" })
+			-- Toggle previous & next buffers stored within Harpoon list
+			vim.keymap.set("n", "<C-S-P>", function()
+				harpoon:list():prev()
+			end)
+			vim.keymap.set("n", "<C-S-N>", function()
+				harpoon:list():next()
+			end)
 		end,
 	},
 }
