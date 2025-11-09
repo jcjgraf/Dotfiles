@@ -90,6 +90,7 @@ alacritty=false
 fish=false
 i3=false
 sway=false
+tmux=false
 shell=false
 system=false
 vim=false
@@ -174,6 +175,7 @@ case "$(cat /etc/hostname)" in
         fish=true
         alacritty=true
         i3=true
+        tmux=true
         system=true
         vim=true
 
@@ -193,6 +195,7 @@ case "$(cat /etc/hostname)" in
         fish=true
         alacritty=true
         sway=true
+        tmux=true
         system=true
         vim=true
         ;;
@@ -244,6 +247,10 @@ if [ "$vim" = true ]; then
     linker "$DOTFILES/Nvim/lua" "$XDG_CONFIG_HOME/nvim/lua"
 fi
 
+if [ "$tmux" = true ]; then
+    linker "$DOTFILES/Tmux/tmux.conf" "$XDG_CONFIG_HOME/tmux/tmux.conf"
+fi
+
 
 exit 1
 
@@ -272,7 +279,6 @@ then
     linker "$DOTFILES/gtk-2.0" ~/.config/gtk-2.0
 
     linker "$DOTFILES/icc/Displaycal/DisplayCAL.ini" ~/.config/DisplayCAL/DisplayCAL.ini
-    linker "$DOTFILES/Tmux/tmux.conf" ~/.config/tmux/tmux.conf
 fi
 
 
