@@ -89,8 +89,10 @@ DOTFILES="$HOME/Dotfiles"
 alacritty=false
 fish=false
 i3=false
+sway=false
 shell=false
 system=false
+vim=false
 
 mail=false
 calendar=false
@@ -98,7 +100,6 @@ shell=false
 scripts=false
 wm=false
 xWin=false
-vim=false
 system=false
 systemd=false
 git=false
@@ -174,6 +175,7 @@ case "$(cat /etc/hostname)" in
         alacritty=true
         i3=true
         system=true
+        vim=true
 
         mail=true
         calendar=true
@@ -181,7 +183,6 @@ case "$(cat /etc/hostname)" in
         scripts=true
         wm=true
         xWin=true
-        vim=true
         system=true
         systemd=true
         git=true
@@ -193,6 +194,7 @@ case "$(cat /etc/hostname)" in
         alacritty=true
         sway=true
         system=true
+        vim=true
         ;;
     hs)
         log_info "Server system detected"
@@ -229,13 +231,17 @@ if [ "$sway" = true ]; then
     linker "$DOTFILES/waybar/config.jsonc" "$XDG_CONFIG_HOME/waybar/config.jsonc"
 fi
 
-# Various System Configurations
-if [[ "$system" = true ]]
-then
-    linker "$DOTFILES/fontconfig" ~/.config/fontconfig
-    linker "$DOTFILES/mimeapps.list" ~/.config/mimeapps.list
-    linker "$DOTFILES/locale.conf" ~/.config/locale.conf
-    linker "$DOTFILES/Ssh/config" ~/.ssh/config
+if [ "$system" = true ]; then
+    # Various System Configurations
+    linker "$DOTFILES/fontconfig" "$XDG_CONFIG_HOME/fontconfig"
+    linker "$DOTFILES/mimeapps.list" "$XDG_CONFIG_HOME/mimeapps.list"
+    linker "$DOTFILES/locale.conf" "$XDG_CONFIG_HOME/locale.conf"
+    linker "$DOTFILES/Ssh/config" "$HOME/.ssh/config"
+fi
+
+if [ "$vim" = true ]; then
+    linker "$DOTFILES/Nvim/init.lua" "$XDG_CONFIG_HOME/nvim/init.lua"
+    linker "$DOTFILES/Nvim/lua" "$XDG_CONFIG_HOME/nvim/lua"
 fi
 
 
@@ -310,23 +316,6 @@ then
 fi
 
 ## Applications
-### VIM
-if [[ "$vim" = true ]]
-then
-    #mkdir -p ~/.vim/undo/ ~/.vim/backup/ ~/.vim/swap/
-    mkdir -p ~/.config/nvim/
-    linker "$DOTFILES/Nvim/init.lua" ~/.config/nvim/init.lua
-    linker "$DOTFILES/Nvim/lua/user" ~/.config/nvim/lua/user
-    linker "$DOTFILES/Nvim/lua/lib" ~/.config/nvim/lua/lib
-    linker "$DOTFILES/Nvim/ftplugin" ~/.config/nvim/ftplugin
-    linker "$DOTFILES/flake8" ~/.config/flake8
-    #    linker "$dotfiles/Vim/init.vim" ~/.config/nvim/init.vim
-    #    linker "$dotfiles/Vim/General" ~/.config/nvim/General
-    #    linker "$dotfiles/Vim/PluginConfig" ~/.config/nvim/PluginConfig
-    #    linker "$dotfiles/Vim/autoload" ~/.config/nvim/autoload
-    #    linker "$dotfiles/Vim/UltiSnips" ~/.config/nvim/UltiSnips
-    #    linker "$dotfiles/Vim/lua" ~/.config/nvim/lua
-fi
 
 ### Git
 if [[ "$git" = true ]]
