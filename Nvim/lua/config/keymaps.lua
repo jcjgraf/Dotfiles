@@ -17,8 +17,6 @@ vim.keymap.set("v", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 -- Paste replace visual selection without copying it
 vim.keymap.set("v", "p", '"_dP')
 
-vim.keymap.set("n", "<leader>e", ":Lex 30<cr>")
-
 vim.keymap.set("n", "<leader>k", ":nohlsearch<CR>")
 vim.keymap.set("n", "<leader>Q", ":bufdo bdelete<CR>")
 
@@ -35,8 +33,6 @@ vim.keymap.set("", "gf", ":edit <cfile><CR>")
 -- Reselect visual selection after indenting
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
-
-vim.keymap.set("n", "<leader>c", ":ColorizerToggle<CR>")
 
 --buf_vim.keymap.set(bufnr, 'n', '<leader>d','<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
 -- vim.keymap.set("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>")
