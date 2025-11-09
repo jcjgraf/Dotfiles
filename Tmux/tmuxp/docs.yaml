@@ -1,0 +1,11 @@
+session_name: docs
+windows:
+  - window_name: Wiki
+    start_directory: /home/jeanclaude/Documents/Linux/Wiki
+    panes:
+      - shell_command:
+          - cmd: nvim
+  - window_name: Literature
+    start_directory: /home/jeanclaude/Documents/Literatur
+  - window_name: KB
+    start_directory: /home/jeanclaude/Documents/KnowledgeBase

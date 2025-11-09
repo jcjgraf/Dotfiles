@@ -1,0 +1,15 @@
+session_name: smmspec
+start_directory: ~/Documents/Studies/Eth/PhD/Projects/SMMSpectre/code
+windows:
+  - window_name: Sync
+  - window_name: uARF
+    start_directory: ~/Documents/Programming/uARF
+  - window_name: SmmSpec
+  - window_name: Coreboot
+    start_directory: ./coreboot_Dasharo
+  - window_name: Data
+    start_directory: ./data
+  - window_name: cn115
+    panes:
+      - shell_command:
+        - cmd: ssh cn115

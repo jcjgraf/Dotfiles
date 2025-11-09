@@ -249,6 +249,7 @@ fi
 
 if [ "$tmux" = true ]; then
     linker "$DOTFILES/Tmux/tmux.conf" "$XDG_CONFIG_HOME/tmux/tmux.conf"
+    linker "$DOTFILES/Tmux/tmuxp" "$XDG_CONFIG_HOME/tmuxp"
 fi
 
 
