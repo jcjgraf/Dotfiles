@@ -1638,6 +1638,7 @@ c.url.searchengines = {
     "pyqt": "https://doc.qt.io/qtforpython-6/search.html?q={}",
     "x86_ins": "https://www.felixcloutier.com/x86/{}",
     "cve": "https://www.cve.org/CVERecord?id={}",
+    "rpw": "https://www.removepaywall.com/search?url={}",
 }
 
 ## Page(s) to open at the start.
