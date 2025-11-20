@@ -86,27 +86,6 @@ done
 
 DOTFILES="$HOME/Dotfiles"
 
-alacritty=false
-fish=false
-i3=false
-sway=false
-tmux=false
-shell=false
-system=false
-vim=false
-
-mail=false
-calendar=false
-shell=false
-scripts=false
-wm=false
-xWin=false
-system=false
-systemd=false
-git=false
-app=false
-homeServer=false
-
 # Symlinks file $1 to destination $2
 #
 # Destination $2 gets deleted in this process.
@@ -169,89 +148,77 @@ function colorizer() {
     sh $DOTFILES/colorizer.sh "$1" "$2"
 }
 
-case "$(cat /etc/hostname)" in
-    jcarch)
-        log_info "Private system detected"
-        fish=true
-        alacritty=true
-        i3=true
-        tmux=true
-        system=true
-        vim=true
-
-        mail=true
-        calendar=true
-        shell=true
-        scripts=true
-        wm=true
-        xWin=true
-        system=true
-        systemd=true
-        git=true
-        app=true
-        ;;
-    jceth)
-        log_info "Work system detected"
-        fish=true
-        alacritty=true
-        sway=true
-        tmux=true
-        system=true
-        vim=true
-        ;;
-    hs)
-        log_info "Server system detected"
-        shell=true
-        vim=true
-        git=true
-        homeServer=true
-        ;;
-    cn*)
-        log_info "Node system detected"
-        ;;
-    *)
-        log_err "Unknown system detected. Exit."
-        exit 2
-        ;;
-esac
-
-if [ "$fish" = true ]; then
+function install_fish() {
     linker "$DOTFILES/fish" "$XDG_CONFIG_HOME/fish"
-fi
+}
 
-if [ "$alacritty" = true ]; then
+function install_alacritty() {
     linker "$DOTFILES/alacritty/alacritty.toml" "$XDG_CONFIG_HOME/alacritty/alacritty.toml"
-fi
+}
 
-if [ "$i3" = true ]; then
+function install_i3() {
     linker "$DOTFILES/wm/i3" "$XDG_CONFIG_HOME/i3"
     linker "$DOTFILES/wm/i3blocks" "$XDG_CONFIG_HOME/i3blocks"
     linker "$DOTFILES/wm/i3scripts" "$XDG_CONFIG_HOME/i3scripts"
-fi
+}
 
-if [ "$sway" = true ]; then
+function install_sway() {
     linker "$DOTFILES/sway" "$XDG_CONFIG_HOME/sway"
     linker "$DOTFILES/waybar/config.jsonc" "$XDG_CONFIG_HOME/waybar/config.jsonc"
-fi
+}
 
-if [ "$system" = true ]; then
-    # Various System Configurations
+# Various System Configurations
+function install_system() {
     linker "$DOTFILES/fontconfig" "$XDG_CONFIG_HOME/fontconfig"
     linker "$DOTFILES/mimeapps.list" "$XDG_CONFIG_HOME/mimeapps.list"
     linker "$DOTFILES/locale.conf" "$XDG_CONFIG_HOME/locale.conf"
     linker "$DOTFILES/Ssh/config" "$HOME/.ssh/config"
-fi
+}
 
-if [ "$vim" = true ]; then
+function install_vim() {
     linker "$DOTFILES/Nvim/init.lua" "$XDG_CONFIG_HOME/nvim/init.lua"
     linker "$DOTFILES/Nvim/lua" "$XDG_CONFIG_HOME/nvim/lua"
-fi
+}
 
-if [ "$tmux" = true ]; then
+function install_tmux() {
     linker "$DOTFILES/Tmux/tmux.conf" "$XDG_CONFIG_HOME/tmux/tmux.conf"
     linker "$DOTFILES/Tmux/tmuxp" "$XDG_CONFIG_HOME/tmuxp"
-fi
+}
 
+modules=()
+
+hostname=$(cat /etc/hostname)
+case "$hostname" in
+    jcarch)
+        log_info "Private system detected"
+        modules=(fish alacritty i3 tmux system vim mail calendar shell scripts wm xWin system systemd git app)
+        ;;
+    jceth)
+        log_info "Work system detected"
+        modules=(fish alacritty sway tmux system vim)
+        ;;
+    hs)
+        log_info "Server system detected"
+        modules=(shell vim git homeServer)
+        ;;
+    ee-tik-cn*)
+        log_info "Node system detected"
+        ;;
+    *)
+        log_err "Unknown system detected '$hostname'. Exit."
+        exit 2
+        ;;
+esac
+
+for module in "${modules[@]}"; do
+    func="install_$module"
+    if declare -f "$func" > /dev/null; then
+        $func
+    else
+        log_err "Invalid module '$module'"
+        exit 1
+    fi
+done
 
 exit 1
 
