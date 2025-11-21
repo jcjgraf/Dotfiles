@@ -182,6 +182,9 @@ function install_vim() {
 
 function install_tmux() {
     linker "$DOTFILES/Tmux/tmux.conf" "$XDG_CONFIG_HOME/tmux/tmux.conf"
+}
+
+function install_tmuxp() {
     linker "$DOTFILES/Tmux/tmuxp" "$XDG_CONFIG_HOME/tmuxp"
 }
 
@@ -191,11 +194,11 @@ hostname=$(cat /etc/hostname)
 case "$hostname" in
     jcarch)
         log_info "Private system detected"
-        modules=(fish alacritty i3 tmux system vim mail calendar shell scripts wm xWin system systemd git app)
+        modules=(fish alacritty i3 tmux tmuxp system vim mail calendar shell scripts wm xWin system systemd git app)
         ;;
     jceth)
         log_info "Work system detected"
-        modules=(fish alacritty sway tmux system vim)
+        modules=(fish alacritty sway tmux tmuxp system vim)
         ;;
     hs)
         log_info "Server system detected"
@@ -203,6 +206,7 @@ case "$hostname" in
         ;;
     ee-tik-cn*)
         log_info "Node system detected"
+        modules=(fish tmux)
         ;;
     *)
         log_err "Unknown system detected '$hostname'. Exit."
