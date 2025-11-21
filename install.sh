@@ -8,6 +8,8 @@ set -o pipefail
 
 exec 3>&1
 
+SCRIPT_DIR="$(realpath "$(dirname "$0")")"
+
 LONGOPTS="verbose,help"
 OPTIONS=vh
 
@@ -21,6 +23,7 @@ function usage() {
 }
 
 XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config/}"
+DOTFILES=$SCRIPT_DIR
 
 RED="\033[0;31m"
 GREEN="\033[0;32m"
@@ -83,8 +86,6 @@ while true; do
             ;;
     esac
 done
-
-DOTFILES="$HOME/Dotfiles"
 
 # Symlinks file $1 to destination $2
 #
