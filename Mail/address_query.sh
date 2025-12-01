@@ -4,7 +4,14 @@
 set -e
 set -u
 
-function query_notmuch() {
+function query_notmuch_to() {
+    out=$(notmuch address to:"*$1*")
+    out=$(echo "$out" | sed -E 's/^(.*) <([^>]+)>/\1\t"\2"\t/')
+    out=$(echo "$out" | sed -E 's/^([^\t]*)\t([^\t]*)\t(.*)$/\1\t\2\t\3 notmuch/')
+    echo "$out"
+}
+
+function query_notmuch_from() {
     out=$(notmuch address from:"*$1*")
     out=$(echo "$out" | sed -E 's/^(.*) <([^>]+)>/\1\t"\2"\t/')
     out=$(echo "$out" | sed -E 's/^([^\t]*)\t([^\t]*)\t(.*)$/\1\t\2\t\3 notmuch/')
@@ -17,10 +24,12 @@ function query_khard() {
     echo "$out"
 }
 
-out+=$(query_notmuch "$@")
-if [[ -n $out ]]; then
-    out+=$'\n'
-fi
+out+=$(query_notmuch_to "$@")
+[[ -n $out ]] && out+=$'\n'
+
+out+=$(query_notmuch_from "$@")
+[[ -n $out ]] && out+=$'\n'
+
 out+=$(query_khard "$@")
 
 echo "$out"
