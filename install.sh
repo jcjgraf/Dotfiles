@@ -189,6 +189,11 @@ function install_tmuxp() {
     linker "$DOTFILES/Tmux/tmuxp" "$XDG_CONFIG_HOME/tmuxp"
 }
 
+function install_git() {
+    linker "$DOTFILES/Git/config" "$XDG_CONFIG_HOME/git/config"
+    linker "$DOTFILES/Git/gitignore_global" "$XDG_CONFIG_HOME/git/gitignore_global"
+}
+
 modules=()
 
 hostname=$(cat /etc/hostname)
@@ -207,7 +212,7 @@ case "$hostname" in
         ;;
     ee-tik-cn*)
         log_info "Node system detected"
-        modules=(fish tmux)
+        modules=(fish tmux git)
         ;;
     *)
         log_err "Unknown system detected '$hostname'. Exit."
@@ -295,13 +300,6 @@ then
 fi
 
 ## Applications
-
-### Git
-if [[ "$git" = true ]]
-then
-    linker "$DOTFILES/Git/config" ~/.config/git/config
-    linker "$DOTFILES/Git/gitignore_global" ~/.config/git/gitignore_global
-fi
 
 ### Other Applications
 if [[ "$app" = true ]]
