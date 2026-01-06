@@ -101,6 +101,7 @@ bind editor <Up> history-up
 bind editor <Down> history-down
 bind browser,postpone,query,pgp <Return> select-entry
 bind browser h goto-parent
+bind browser l descend-directory
 
 bind index za collapse-thread
 bind index zA collapse-all
