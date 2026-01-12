@@ -94,7 +94,7 @@ function linker() {
     local source=$(realpath -s "$1")
     local destination=$(realpath -s "$2")
 
-    log_info "Link '$source' to '$destination'"
+    log_debug "Link '$source' to '$destination'"
     if [[ -f "$destination" && ! -L "$destination" ]]; then
         log_info "Destination '$destination' needs to be replaced by symlink. Deleting it?"
         if ! do_confirm; then
@@ -150,48 +150,65 @@ function colorizer() {
 }
 
 function install_fish() {
+    log_info "Install fish"
     linker "$DOTFILES/fish" "$XDG_CONFIG_HOME/fish"
 }
 
 function install_alacritty() {
+    log_info "Install alacritty"
     linker "$DOTFILES/alacritty/alacritty.toml" "$XDG_CONFIG_HOME/alacritty/alacritty.toml"
 }
 
 function install_i3() {
+    log_info "Install i3"
     linker "$DOTFILES/wm/i3" "$XDG_CONFIG_HOME/i3"
     linker "$DOTFILES/wm/i3blocks" "$XDG_CONFIG_HOME/i3blocks"
     linker "$DOTFILES/wm/i3scripts" "$XDG_CONFIG_HOME/i3scripts"
 }
 
 function install_sway() {
+    log_info "Install sway"
     linker "$DOTFILES/sway" "$XDG_CONFIG_HOME/sway"
     linker "$DOTFILES/waybar/config.jsonc" "$XDG_CONFIG_HOME/waybar/config.jsonc"
 }
 
 # Various System Configurations
 function install_system() {
+    log_info "Install system configurations"
     linker "$DOTFILES/fontconfig" "$XDG_CONFIG_HOME/fontconfig"
     linker "$DOTFILES/mimeapps.list" "$XDG_CONFIG_HOME/mimeapps.list"
     linker "$DOTFILES/locale.conf" "$XDG_CONFIG_HOME/locale.conf"
     linker "$DOTFILES/Ssh/config" "$HOME/.ssh/config"
+    linker "$DOTFILES/gtk-4.0" ~/.config/gtk-4.0
+    linker "$DOTFILES/gtk-3.0" ~/.config/gtk-3.0
+    linker "$DOTFILES/gtk-2.0" ~/.config/gtk-2.0
 }
 
 function install_vim() {
+    log_info "Install vim"
     linker "$DOTFILES/Nvim/init.lua" "$XDG_CONFIG_HOME/nvim/init.lua"
     linker "$DOTFILES/Nvim/lua" "$XDG_CONFIG_HOME/nvim/lua"
 }
 
 function install_tmux() {
+    log_info "Install tmux"
     linker "$DOTFILES/Tmux/tmux.conf" "$XDG_CONFIG_HOME/tmux/tmux.conf"
 }
 
 function install_tmuxp() {
+    log_info "Install tmuxp"
     linker "$DOTFILES/Tmux/tmuxp" "$XDG_CONFIG_HOME/tmuxp"
 }
 
 function install_git() {
+    log_info "Install git"
     linker "$DOTFILES/Git/config" "$XDG_CONFIG_HOME/git/config"
     linker "$DOTFILES/Git/gitignore_global" "$XDG_CONFIG_HOME/git/gitignore_global"
+}
+
+function install_gdb() {
+    log_info "Install gdb"
+    linker "$DOTFILES/gdb" "$XDG_CONFIG_HOME/gdb"
 }
 
 modules=()
@@ -200,7 +217,8 @@ hostname=$(cat /etc/hostname)
 case "$hostname" in
     jcarch)
         log_info "Private system detected"
-        modules=(fish alacritty i3 tmux tmuxp system vim mail calendar shell scripts wm xWin system systemd git app)
+        modules=(fish alacritty i3 system vim tmux tmuxp git gdb)
+        # modules=(fish alacritty i3 tmux tmuxp system vim git gdb mail calendar shell scripts wm xWin system systemd)
         ;;
     jceth)
         log_info "Work system detected"
@@ -212,7 +230,7 @@ case "$hostname" in
         ;;
     ee-tik-cn*)
         log_info "Node system detected"
-        modules=(fish tmux git)
+        modules=(fish tmux git gdb)
         ;;
     *)
         log_err "Unknown system detected '$hostname'. Exit."
