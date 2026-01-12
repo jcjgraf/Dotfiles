@@ -91,8 +91,18 @@ done
 #
 # Destination $2 gets deleted in this process.
 function linker() {
-    local source=$(realpath -s "$1")
-    local destination=$(realpath -s "$2")
+    local source=$1
+    local destination=$2
+
+    local destination_parent="$(dirname "$destination")"
+
+    if [[ ! -d "$destination_parent" ]]; then
+        log_info "Folder '$destination_parent' does not exist. Creating it"
+        mkdir -p "$destination_parent"
+    fi
+
+    local source=$(realpath -s "$source")
+    local destination=$(realpath -s "$destination")
 
     if [[ -z "$source" || -z "$destination" ]]; then
         log_err "Invalid source '$source' or destination '$destination'"
