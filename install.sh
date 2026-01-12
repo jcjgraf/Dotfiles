@@ -94,6 +94,11 @@ function linker() {
     local source=$(realpath -s "$1")
     local destination=$(realpath -s "$2")
 
+    if [[ -z "$source" || -z "$destination" ]]; then
+        log_err "Invalid source '$source' or destination '$destination'"
+        exit 1
+    fi
+
     log_debug "Link '$source' to '$destination'"
     if [[ -f "$destination" && ! -L "$destination" ]]; then
         log_info "Destination '$destination' needs to be replaced by symlink. Deleting it?"
