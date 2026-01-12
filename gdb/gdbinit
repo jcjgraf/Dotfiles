@@ -1,4 +1,7 @@
+set auto-load local-gdbinit on
 set auto-load safe-path /home/jeanclaude
+set auto-load safe-path /local/home/jegraf
+
 set history save on
 set debuginfod enabled on
 set disassemble-next-line on
