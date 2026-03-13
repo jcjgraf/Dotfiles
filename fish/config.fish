@@ -25,6 +25,8 @@ if status is-interactive
     function fish_user_key_bindings
         bind ! bind_bang
         bind '$' bind_dollar
+        # CTRL+C does not clear command line, but cancels input and goes to a new line
+        bind -M insert \cc 'echo; commandline | cat; commandline ""; commandline -f repaint'
     end
 
     zoxide init fish | source
