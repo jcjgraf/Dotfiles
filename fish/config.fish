@@ -1,6 +1,7 @@
 if status is-interactive
     # Start Vim mode
     fish_vi_key_bindings
+    fish_add_path $HOME/bin
 
     # From https://superuser.com/a/944589/673743
     function bind_bang
