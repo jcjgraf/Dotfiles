@@ -225,7 +225,12 @@ function install_gdb() {
 
 modules=()
 
-hostname=$(cat /etc/hostname)
+hostname=$(hostname)
+
+if [ -z "$hostname" ]; then
+    log_err "Failed to get hostname using 'hostname' command"
+fi
+
 case "$hostname" in
     jcarch)
         log_info "Private system detected"
