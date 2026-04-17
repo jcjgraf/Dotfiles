@@ -98,9 +98,6 @@ function linker() {
         mkdir -p "$destination_parent"
     fi
 
-    local source=$(realpath -s "$source")
-    local destination=$(realpath -s "$destination")
-
     if [[ -z "$source" || -z "$destination" ]]; then
         log_err "Invalid source '$source' or destination '$destination'"
         exit 1
