@@ -239,6 +239,10 @@ case "$hostname" in
         log_info "Work system detected"
         modules=(fish alacritty sway tmux tmuxp system vim)
         ;;
+    Appelino)
+        log_info "Appelino Mac detected"
+        modules=(fish alacritty vim tmux tmuxp git)
+        ;;
     hs)
         log_info "Server system detected"
         modules=(shell vim git homeServer)
@@ -286,6 +290,7 @@ then
     sudo bash -c "$(declare -f linker); linker \"$DOTFILES/X11/20-intel.conf\" /etc/X11/xorg.conf.d/20-intel.conf"
     xrdb ~/.config/X11/Xresources
 
+    linker "$DOTFILES/gtk-4.0" ~/.config/gtk-4.0
     linker "$DOTFILES/gtk-3.0" ~/.config/gtk-3.0
     linker "$DOTFILES/gtk-2.0" ~/.config/gtk-2.0
 
@@ -330,6 +335,8 @@ then
     linker "$DOTFILES/Scripts/cryptUmount.sh" ~/bin/cryptUmount
     linker "$DOTFILES/Scripts/sourcevenv" ~/bin/sourcevenv
     linker "$DOTFILES/Scripts/o" ~/bin/o
+    linker "$DOTFILES/Scripts/rofibox.sh" ~/bin/rofibox.sh
+    linker "$DOTFILES/Scripts/ssh-pass-helper.sh" ~/bin/ssh-pass-helper.sh
 fi
 
 ## Applications
