@@ -10,9 +10,6 @@ exec 3>&1
 
 SCRIPT_DIR="$(realpath "$(dirname "$0")")"
 
-LONGOPTS="verbose,help"
-OPTIONS=vh
-
 function usage() {
     echo "Usage: $0 [OPTION]..."
     echo ""
@@ -60,12 +57,9 @@ if [ $(id -u) = 0 ]; then
     exit
 fi
 
-PARSED=$(getopt --options=$OPTIONS --longoptions=$LONGOPTS --name "$0" -- "$@") || exit 2
-eval set -- "$PARSED"
-
 verbose=false
 
-while true; do
+while [[ $# -gt 0 ]]; do
     case "$1" in
         -v|--verbose)
             verbose=true
@@ -77,12 +71,15 @@ while true; do
             ;;
         --)
             shift
-            break;
+            break
             ;;
-        *)
+        -*)
             echo "Invalid option \"$1\""
             usage
             exit 2
+            ;;
+        *)
+            break
             ;;
     esac
 done
