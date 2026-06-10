@@ -1,0 +1,16 @@
+FROM node:20-slim
+
+RUN apt-get update && apt-get install -y \
+    git \
+    ripgrep \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN npm install -g @anthropic-ai/claude-code
+
+# Remap the node user's home to /home/app so os.homedir() matches our mount point.
+# Node.js reads home from /etc/passwd, not the HOME env var, and the base image's
+# "node" user (UID 1000) has home /home/node by default.
+RUN usermod -d /home/app -m node && chown node:node /home/app
+
+ENTRYPOINT ["claude", "--dangerously-skip-permissions"]

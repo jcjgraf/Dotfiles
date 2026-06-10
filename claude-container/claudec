@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+BUILD_DIR="$HOME/Dotfiles/claude-container"
+CLAUDE_DIR="$HOME/.claude"
+CLAUDE_FILE="$HOME/.claude.json"
+
+if [[ $# -gt 0 && "${1:-}" != "update" ]]; then
+    echo "Usage: claudec [update]" >&2
+    exit 1
+fi
+
+if [[ "${1:-}" == "update" ]]; then
+    podman build -t localhost/claude-code "$BUILD_DIR"
+    exit 0
+fi
+
+if ! podman image exists localhost/claude-code; then
+    podman build -t localhost/claude-code "$BUILD_DIR"
+fi
+
+[[ -d "$CLAUDE_DIR" ]] || { echo "Error: $CLAUDE_DIR does not exist" >&2; exit 1; }
+[[ -f "$CLAUDE_FILE" ]] || { echo "Error: $CLAUDE_FILE does not exist or is not a file" >&2; exit 1; }
+
+args=(
+    run --rm -it
+    # Map the host user's UID/GID into the container so bind-mounted files have correct ownership
+    --userns=keep-id
+    --user "$(id -u):$(id -g)"
+    # os.homedir() in Node reads /etc/passwd, not $HOME; this aligns both to /home/app
+    -e HOME=/home/app
+    # Mount at the same path so Claude's project-keyed state (memory, history) matches outside the container
+    -v "$PWD:$PWD"
+    -w "$PWD"
+    # Use local auth, setting and memory
+    -v "$CLAUDE_DIR:/home/app/.claude"
+    -v "$CLAUDE_FILE:/home/app/.claude.json"
+    localhost/claude-code
+)
+exec podman "${args[@]}"
