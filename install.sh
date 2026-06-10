@@ -197,6 +197,7 @@ function install_vim() {
     log_info "Install vim"
     linker "$DOTFILES/Nvim/init.lua" "$XDG_CONFIG_HOME/nvim/init.lua"
     linker "$DOTFILES/Nvim/lua" "$XDG_CONFIG_HOME/nvim/lua"
+    linker "$DOTFILES/Nvim/spell" "$XDG_CONFIG_HOME/nvim/spell"
 }
 
 function install_tmux() {

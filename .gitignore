@@ -12,3 +12,4 @@ HomeServer/Synapse/whatsappRegistration.yaml
 HomeServer/WhatsappBridge/config.yaml
 HomeServer/WhatsappBridge/registration.yaml
 HomeServer/Gitea/app.ini
+*.spl
