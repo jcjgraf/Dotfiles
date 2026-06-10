@@ -17,70 +17,44 @@ vim.keymap.set("v", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 -- Paste replace visual selection without copying it
 vim.keymap.set("v", "p", '"_dP')
 
-vim.keymap.set("n", "<leader>k", ":nohlsearch<CR>")
-vim.keymap.set("n", "<leader>Q", ":bufdo bdelete<CR>")
+vim.keymap.set("n", "<leader>k", "<cmd>nohlsearch<cr>", { desc = "Clear search highlight" })
+vim.keymap.set("n", "<leader>Q", "<cmd>bufdo bdelete<cr>", { desc = "Close all buffers" })
 
 -- Insert new line without going to insert mode
-vim.keymap.set("n", "oo", "m`o<Esc>``")
-vim.keymap.set("n", "OO", "m`O<Esc>``")
+vim.keymap.set("n", "oo", "m`o<Esc>``", { desc = "Insert line below without entering insert mode" })
+vim.keymap.set("n", "OO", "m`O<Esc>``", { desc = "Insert line above without entering insert mode" })
 
--- Corrects last spelling
-vim.keymap.set("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u") -- TODO make work in normal mode
+-- Fix last spelling mistake and return to cursor position
+local function fix_last_spelling()
+	vim.cmd("normal! [s")
+	local bad = vim.fn.spellbadword()
+	if bad[1] == "" then return end
+	local suggestions = vim.fn.spellsuggest(bad[1], 1)
+	if #suggestions == 0 then return end
+	local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+	vim.api.nvim_buf_set_text(0, row - 1, col, row - 1, col + #bad[1], { suggestions[1] })
+end
 
--- Allow gf to open non-existing file
-vim.keymap.set("", "gf", ":edit <cfile><CR>")
+vim.keymap.set("n", "<C-s>", function()
+	local pos = vim.api.nvim_win_get_cursor(0)
+	fix_last_spelling()
+	vim.api.nvim_win_set_cursor(0, pos)
+end, { desc = "Fix last spelling mistake" })
+
+vim.keymap.set("i", "<C-s>", function()
+	local pos = vim.api.nvim_win_get_cursor(0)
+	vim.cmd("stopinsert")
+	fix_last_spelling()
+	vim.api.nvim_win_set_cursor(0, pos)
+	vim.cmd("startinsert")
+end, { desc = "Fix last spelling mistake" })
 
 -- Reselect visual selection after indenting
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
---buf_vim.keymap.set(bufnr, 'n', '<leader>d','<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
--- vim.keymap.set("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>")
--- vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
--- vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>")
--- vim.keymap.set("n", "<leader>D", "<cmd>lua vim.diagnostic.setloclist()<CR>")
-
-
-
-
---" Open and close folds
---"nnoremap <leader>f zA
-
--- Do not move cursor after yank
--- http://ddrscott.github.io/blog/2016/yank-without-jank/
---vim.keymap.set("v", "y", '<expr>y "my\"" . v:register . "y`y"'
-
---" Insert new line without enterint insert
---nnoremap oo o<Esc>k
---nnoremap OO O<Esc>j
-
---" Move to errors
---nnoremap <leader>e :lnext<CR>
---nnoremap <leader>E :lprevious<CR>
-
---" Search for selected text, forwards or backwards.
---vnoremap <silent> * :<C-U>
---  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
---  \gvy/<C-R>=&ic?'\c':'\C'<CR><C-R><C-R>=substitute(
---  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
---  \gVzv:call setreg('"', old_reg, old_regtype)<CR>
-
---"" Remove Trailing Spaces by calling `TrimWhitespaces` or using a shortcut
---fun! TrimWhitespace()
---    let l:save = winsaveview()
---    keeppatterns %s/\s\+$//e
---    call winrestview(l:save)
---endfun
---command! TrimWhitespace call TrimWhitespace()
---:noremap <Leader>w :call TrimWhitespace()<CR>
-
---"" Show buffers and allow easy selection
---nnoremap <Leader>b :ls<Cr>:b<Space>
-
---"" Markdown
---" pandoc , markdown
---command! -nargs=* RunSilent
---      \ | execute ':silent !'.'<args>'
---      \ | execute ':redraw!'
---nmap <Leader>pc :RunSilent pandoc -o /tmp/vim-pandoc-out.pdf %<CR>
---nmap <Leader>pp :RunSilent xdg-open /tmp/vim-pandoc-out.pdf<CR>
+-- LSP
+vim.keymap.set("n", "Kh", function() vim.lsp.buf.hover({ border = "rounded" }) end, { desc = "Hover" })
+vim.keymap.set("n", "KK", function() vim.lsp.buf.signature_help({ border = "rounded" }) end, { desc = "Signature help" })
+vim.keymap.set("n", "mn", vim.lsp.buf.rename, { desc = "Rename symbol" })
+vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Open diagnostic float" })

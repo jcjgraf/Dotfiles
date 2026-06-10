@@ -33,5 +33,3 @@ require("lazy").setup({
 		notify = false,
 	},
 })
-
--- LazyFile is shortcut for { "BufReadPost", "BufWritePost", "BufNewFile" }

@@ -16,25 +16,23 @@ return {
 		{ "<leader>j", "<cmd>FzfLua jumps<cr>", desc = "FZF Jump History" },
 		{ "<leader>r", "<cmd>FzfLua resume<cr>", desc = "FZF Resume" },
 
-		{ "<leader>ca", "<cmd>FzfLua lsp_code_actions<cr>", "n", desc = "" },
+		{ "<leader>ca", "<cmd>FzfLua lsp_code_actions<cr>", mode = "n", desc = "Code Actions" },
 
-		{ "gD", "<cmd>FzfLua lsp_declarations<cr>", "n", desc = "Go Declaration" },
-		{ "gd", "<cmd>FzfLua lsp_definitions<cr>", "n", desc = "Go Definition" },
-		{ "gt", "<cmd>FzfLua lsp_typedefs<cr>", "n", desc = "Go Type Definition" },
-		{ "gr", "<cmd>FzfLua lsp_references<cr>", "n", desc = "References" },
-		{ "gi", "<cmd>FzfLua lsp_implementations<cr>", "n", desc = "Implementations" },
-		{ "gs", "<cmd>FzfLua lsp_document_symbols<cr>", "n", desc = "Document Symbols" },
-		{ "gS", "<cmd>FzfLua lsp_workspace_symbols<cr>", "n", desc = "Workspace Symbols" },
+		{ "gD", "<cmd>FzfLua lsp_declarations<cr>", mode = "n", desc = "Go Declaration" },
+		{ "gd", "<cmd>FzfLua lsp_definitions<cr>", mode = "n", desc = "Go Definition" },
+		{ "gt", "<cmd>FzfLua lsp_typedefs<cr>", mode = "n", desc = "Go Type Definition" },
+		{ "gr", "<cmd>FzfLua lsp_references<cr>", mode = "n", desc = "References" },
+		{ "gi", "<cmd>FzfLua lsp_implementations<cr>", mode = "n", desc = "Implementations" },
+		{ "gs", "<cmd>FzfLua lsp_document_symbols<cr>", mode = "n", desc = "Document Symbols" },
+		{ "gS", "<cmd>FzfLua lsp_workspace_symbols<cr>", mode = "n", desc = "Workspace Symbols" },
 
-		{ "gci", "<cmd>FzfLua lsp_incoming_calls<cr>", "n", desc = "Go Incoming calls" },
-		{ "gco", "<cmd>FzfLua lsp_outgoing_calls<cr>", "n", desc = "Go Outgoing calls" },
+		{ "gci", "<cmd>FzfLua lsp_incoming_calls<cr>", mode = "n", desc = "Incoming calls" },
+		{ "gco", "<cmd>FzfLua lsp_outgoing_calls<cr>", mode = "n", desc = "Outgoing calls" },
 
-		{ "gf", "<cmd>FzfLua lsp_finder<cr>", "n", desc = "Lsp Finder" },
+		{ "gf", "<cmd>FzfLua lsp_finder<cr>", mode = "n", desc = "LSP Finder" },
 
-		{ "gj", "<cmd>FzfLua jumps<cr>", "n", desc = "Jumps List" },
-
-		{ "Kd", "<cmd>FzfLua diagnostics_document<cr>", "n", desc = "Diagnose Document" },
-		{ "KD", "<cmd>FzfLua diagnostics_workspace<cr>", "n", desc = "Diagnose Workspace" },
+		{ "Kd", "<cmd>FzfLua diagnostics_document<cr>", mode = "n", desc = "Diagnose Document" },
+		{ "KD", "<cmd>FzfLua diagnostics_workspace<cr>", mode = "n", desc = "Diagnose Workspace" },
 	},
 	opts = {
 		winopts = { fullscreen = true },

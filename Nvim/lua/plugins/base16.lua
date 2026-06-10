@@ -25,6 +25,9 @@ return {
 		})
 		-- Change search hit color
 		local color = base16.colors
-		vim.cmd(string.format("hi Search guibg=%s guifg=%s", color.base09, color.base00))
+		vim.api.nvim_set_hl(0, "Search", { bg = color.base09, fg = color.base00 })
+		-- Cursor char's colors are switched
+		vim.api.nvim_set_hl(0, "CurSearch", { bg = color.base08, fg = color.base0A })
+		vim.api.nvim_set_hl(0, "NonASCII", { bg = color.base08, fg = color.base00 })
 	end,
 }
