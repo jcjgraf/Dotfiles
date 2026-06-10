@@ -23,20 +23,8 @@ return {
 			base0E = "#cc99cc", -- Keywords, Storage, Selector, Markup Italic, Diff Changed
 			base0F = "#a06949", -- Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?>
 		})
-	end,
-	init = function()
-		local base16 = require("base16-colorscheme")
+		-- Change search hit color
 		local color = base16.colors
-
-		-- Change color of search
-		local set_Search = string.format(
-			[[
-            hi Search guibg=%s guifg=%s
-        ]],
-			color.base09,
-			color.base00
-		)
-
-		vim.cmd(set_Search)
+		vim.cmd(string.format("hi Search guibg=%s guifg=%s", color.base09, color.base00))
 	end,
 }
