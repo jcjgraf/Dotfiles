@@ -150,8 +150,8 @@ return {
 			vim.lsp.buf.hover({ border = "rounded" })
 		end, { desc = "Hover" })
 		vim.keymap.set("n", "KK", function()
-			vim.lsp.buf.signature_help({ border = "rounded" }, { desc = "Signature" })
-		end)
+			vim.lsp.buf.signature_help({ border = "rounded" })
+		end, { desc = "Signature" })
 
 		-- Actions ("make")
 		vim.keymap.set("n", "mn", vim.lsp.buf.rename)
