@@ -5,9 +5,7 @@ return {
 	event = "VeryLazy",
 	build = ":TSUpdate",
 	config = function()
-		local configs = require("nvim-treesitter.configs")
-
-		configs.setup({
+		require("nvim-treesitter").setup({
 			ensure_installed = {
 				"asm",
 				"bash",
@@ -48,16 +46,10 @@ return {
 			},
 			sync_install = false,
 			auto_install = true,
-			-- Module Hightlight
-			highlight = {
-				enable = true,
-				additional_vim_regex_highlighting = true, -- 'true' may slowdown nvim
-			},
-			-- Module Indent
+			highlight = { enable = true },
 			indent = { enable = true },
 		})
-		-- Module Folding
-		-- TODO: Set properly
+
 		vim.wo.foldmethod = "expr"
 		vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 	end,
