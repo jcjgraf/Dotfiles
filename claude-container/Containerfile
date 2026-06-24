@@ -24,9 +24,12 @@ RUN apt-get update && apt-get install -y \
 
 RUN npm install -g @anthropic-ai/claude-code
 
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
 # Remap the node user's home to /home/app so os.homedir() matches our mount point.
 # Node.js reads home from /etc/passwd, not the HOME env var, and the base image's
 # "node" user (UID 1000) has home /home/node by default.
 RUN usermod -d /home/app -m node && chown node:node /home/app
 
-ENTRYPOINT ["claude", "--dangerously-skip-permissions"]
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
