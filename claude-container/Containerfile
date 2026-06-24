@@ -4,6 +4,22 @@ RUN apt-get update && apt-get install -y \
     git \
     ripgrep \
     curl \
+    ca-certificates \
+    build-essential \
+    make \
+    gcc \
+    g++ \
+    bash \
+    python3 \
+    python3-pip \
+    python3-venv \
+    less \
+    vim \
+    nano \
+    jq \
+    unzip \
+    procps \
+    openssh-client \
     && rm -rf /var/lib/apt/lists/*
 
 RUN npm install -g @anthropic-ai/claude-code
