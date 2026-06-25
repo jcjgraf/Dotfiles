@@ -1,0 +1,85 @@
+#!/usr/bin/env bash
+
+# Probe a node over SSH (non-interactive) to check reachability.
+# Like ping: repeats until interrupted, or a fixed count with -c.
+
+set -u
+
+usage() {
+    cat >&2 <<EOF
+Usage: ${0##*/} [-c COUNT] [-i INTERVAL] [-t TIMEOUT] HOST [ssh args...]
+
+  -c COUNT     stop after COUNT probes (default: run until interrupted)
+  -i INTERVAL  seconds to wait between probes (default: 1)
+  -t TIMEOUT   ssh connect timeout in seconds (default: \$SSH_CONNECT_TIMEOUT or 5)
+
+Any extra args after HOST are passed straight through to ssh
+(e.g. -p 2222, user@host).
+EOF
+    exit 2
+}
+
+count=0
+interval=1
+timeout=${SSH_CONNECT_TIMEOUT:-5}
+
+while getopts ":c:i:t:h" opt; do
+    case "$opt" in
+        c) count=$OPTARG ;;
+        i) interval=$OPTARG ;;
+        t) timeout=$OPTARG ;;
+        h) usage ;;
+        *) usage ;;
+    esac
+done
+shift $((OPTIND - 1))
+
+[ $# -ge 1 ] || usage
+host=$1
+shift
+
+ssh_probe() {
+    ssh \
+        -o BatchMode=yes \
+        -o ConnectTimeout="$timeout" \
+        -o StrictHostKeyChecking=accept-new \
+        "$@" \
+        "$host" \
+        true 2>/dev/null
+}
+
+up=0
+down=0
+sent=0
+
+# Final summary on exit (Ctrl-C included).
+summary() {
+    echo
+    echo "--- $host ssh-ping statistics ---"
+    echo "$sent probes, $up up, $down down"
+}
+trap 'summary; exit 0' INT TERM
+
+while true; do
+    start=$(date +%s.%N)
+    if ssh_probe "$@"; then
+        end=$(date +%s.%N)
+        rtt=$(awk "BEGIN { printf \"%.0f\", ($end - $start) * 1000 }")
+        printf '\033[32m✓\033[0m %s up   seq=%d time=%sms\n' "$host" "$sent" "$rtt"
+        up=$((up + 1))
+    else
+        rc=$?
+        printf '\033[31m✗\033[0m %s down seq=%d (ssh exit %d)\n' "$host" "$sent" "$rc"
+        down=$((down + 1))
+    fi
+    sent=$((sent + 1))
+
+    if [ "$count" -gt 0 ] && [ "$sent" -ge "$count" ]; then
+        break
+    fi
+    sleep "$interval"
+done
+
+summary
+# Exit non-zero if nothing ever came up.
+[ "$up" -gt 0 ]
