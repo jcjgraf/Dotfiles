@@ -38,6 +38,16 @@ fi
 [[ -d "$CLAUDE_DIR" ]] || { echo "Error: $CLAUDE_DIR does not exist" >&2; exit 1; }
 [[ -f "$CLAUDE_FILE" ]] || { echo "Error: $CLAUDE_FILE does not exist or is not a file" >&2; exit 1; }
 
+# Bridge "Claude is done" notifications out of the container. The Stop hook in
+# ~/.claude/settings.json writes a byte to this FIFO when Claude finishes an
+# answer; the background reader (below) runs `notify-send` on the host for each
+# one. The pipe and reader are torn down when this session ends.
+NOTIFY_DIR="$(mktemp -d "${TMPDIR:-/tmp}/claudec-notify.XXXXXX")"
+NOTIFY_FIFO="$NOTIFY_DIR/fifo"
+NOTIFY_PID=""
+mkfifo "$NOTIFY_FIFO"
+trap 'kill "$NOTIFY_PID" 2>/dev/null; rm -rf "$NOTIFY_DIR"' EXIT
+
 # Workspace differs by mode: `chat` is conversation-only (optionally a per-topic
 # dir for persisted memory), otherwise mount $PWD at the same path so Claude's
 # project-keyed state (memory, history) matches outside the container.
@@ -47,12 +57,22 @@ if [[ "${1:-}" == "chat" ]]; then
         CHAT_DIR="$HOME/.local/share/claude-chats/$topic"
         mkdir -p "$CHAT_DIR"
         workspace_args=(-v "$CHAT_DIR:$CHAT_DIR" -w "$CHAT_DIR")
+        NOTIFY_LABEL="chat: $topic"
     else
         workspace_args=(-w /home/app)
+        NOTIFY_LABEL="chat"
     fi
 else
     workspace_args=(-v "$PWD:$PWD" -w "$PWD")
+    NOTIFY_LABEL="$(basename "$PWD")"
 fi
+
+# Reader for the notification bridge (see FIFO setup above). Started here so the
+# popup can name the session it came from.
+( while read -r _ <"$NOTIFY_FIFO"; do
+    notify-send "Claude Code · $NOTIFY_LABEL" "Claude is done" >/dev/null 2>&1
+done ) &
+NOTIFY_PID=$!
 
 args=(
     run --rm -it
@@ -63,9 +83,12 @@ args=(
     -e HOME=/home/app
     "${workspace_args[@]}"
     "${extra_mounts[@]}"
+    # Notification bridge: the Stop hook writes to /run/claude-notify/fifo inside
+    -v "$NOTIFY_DIR:/run/claude-notify"
     # Use local auth, settings and memory
     -v "$CLAUDE_DIR:/home/app/.claude"
     -v "$CLAUDE_FILE:/home/app/.claude.json"
     localhost/claude-code
 )
-exec podman "${args[@]}"
+# Not `exec`: we stay alive so the EXIT trap tears down the notify bridge.
+podman "${args[@]}"
